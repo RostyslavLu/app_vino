@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('cellars', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->description('description', 100);
-            $table->integer('users_id');
+            $table->string('description', 100);
+            $table->bigInteger('users_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('cellars', function (Blueprint $table) {

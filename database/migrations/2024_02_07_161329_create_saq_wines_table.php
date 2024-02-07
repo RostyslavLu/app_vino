@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('grape_varieties', 100)->nullable();
             $table->string('degree_alcohol', 50)->nullable();
             $table->string('sugar_content', 50)->nullable();
-            $table->integer('types_id');
+            $table->bigInteger('types_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('saq_wines', function (Blueprint $table) {

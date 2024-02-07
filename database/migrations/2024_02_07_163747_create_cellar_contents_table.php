@@ -17,11 +17,11 @@ return new class extends Migration
             $table->date('purchase_date');
             $table->date('revoke_date')->nullable();
             $table->year('vintage')->nullable();
-            $table->varchar('notes', 100)->nullable();
-            $table->integer('cellars_id');
-            $table->integer('saq_wines_id')->nullable();
-            $table->integer('personal_wines_id')->nullable();
-            $table->integer('wine_sources_id');
+            $table->string('notes', 100)->nullable();
+            $table->bigInteger('cellars_id')->unsigned()->nullable();
+            $table->bigInteger('saq_wines_id')->unsigned()->nullable();
+            $table->bigInteger('personal_wines_id')->unsigned()->nullable();
+            $table->bigInteger('wine_sources_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('cellar_contents', function (Blueprint $table) {
