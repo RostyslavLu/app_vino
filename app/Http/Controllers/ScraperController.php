@@ -33,8 +33,6 @@ class ScraperController extends Controller
                 $pagesNumber = ceil($pages / 24);
             });
 
-            echo ' --- Scraping ' . $pagesNumber . ' pages of ' . $wine . ' wine.<br>';
-
             // scrap la page de la SAQ pour obtenir les codes SAQ
             for ($i = 1; $i <= $pagesNumber; $i++) {
 
