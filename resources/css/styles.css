@@ -16,6 +16,27 @@
     font-size: 0.875rem;
 }
 
+.text-input {
+    margin-top: 0.25rem; 
+    display: block; 
+    width: 100%; 
+}
+
+.inputlabel {
+    margin-top: 4rem;
+}
+
+.checkbox {
+    display: block;
+    margin-top: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
 
 /* InputLabel.vue */
 .input-label{
@@ -23,14 +44,18 @@
     font-weight: 500;
     font-size: 0.875rem;
     color: white;
+
 }
 
 /* TextInput.vue */
+
 .input {
     border-color: white;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
     border-radius: 0.375rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    width: 80%;
+    margin: auto;
 }
 
 .logo-image {

@@ -9,40 +9,42 @@
 
         <form @submit.prevent="submit" class="form-class">
             <div>
-                <InputLabel for="courriel" value="Courriel" />
+                <InputLabel for="email"/>
 
                 <TextInput
-                    id="courriel"
-                    type="courriel"
-                    class="mt-1 block w-full"
+                    id="email"
+                    type="email"
+                    class="text-input"
                     v-model="form.courriel"
                     required
                     autofocus
                     autocomplete="username"
+                    placeholder="nom d'utilisateur"
                 />
 
                 <InputError class="mt-2" :message="form.errors.courriel" />
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Mot de passe" />
+            <div class="inputlabel">
+                <InputLabel for="password"/>
 
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="text-input"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
+                    placeholder="mot de passe"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
+            <div class="checkbox">
+                <label class="checkbox-label">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="text-white">Remember me</span>
+                    <span class="text-white">Sauvegarder ma session</span>
                 </label>
             </div>
 
