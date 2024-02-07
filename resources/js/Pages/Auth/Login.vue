@@ -15,14 +15,14 @@
                     id="email"
                     type="email"
                     class="text-input"
-                    v-model="form.courriel"
+                    v-model="form.email"
                     required
                     autofocus
                     autocomplete="username"
                     placeholder="nom d'utilisateur"
                 />
 
-                <InputError class="mt-2" :message="form.errors.courriel" />
+                <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="inputlabel">
@@ -44,23 +44,36 @@
             <div class="checkbox">
                 <label class="checkbox-label">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="text-white">Sauvegarder ma session</span>
+                    <span class="text-white">Sauvegarder ma connexion</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="inputlabel">
+                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Connexion
+                </PrimaryButton>
+            </div>
+
+            <!-- <div class="flex items-center justify-end mt-4"> -->
+            <div class="div-link">
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="my-link-class"
+                    class="link"
                 >
                     Mot de passe oublié?
                 </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Se connecter 
-                </PrimaryButton>
             </div>
+
+
+            <div class="div-link">  
+                <Link
+                    :href="route('register')"
+                    class="link-register"
+                    >
+                    Creer un compte
+                </Link>
+            </div>  
         </form>
     </GuestLayout>
 </template>
@@ -85,7 +98,7 @@ defineProps({
 });
 
 const form = useForm({
-    courriel: '',
+    email: '',
     password: '',
     remember: false,
 });

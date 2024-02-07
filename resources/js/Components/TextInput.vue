@@ -1,3 +1,11 @@
+<template>
+    <input
+        class="input"
+        v-model="model"
+        ref="input"
+    />
+</template>
+
 <script setup>
 import { onMounted, ref } from 'vue';
 
@@ -17,10 +25,3 @@ onMounted(() => {
 defineExpose({ focus: () => input.value.focus() });
 </script>
 
-<template>
-    <input
-        class="input"
-        v-model="model"
-        ref="input"
-    />
-</template>
