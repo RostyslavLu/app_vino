@@ -1,3 +1,11 @@
+<template>
+    <div v-show="message">
+        <p class="input-error">
+            {{ message }}
+        </p>
+    </div>
+</template>
+
 <script setup>
 defineProps({
     message: {
@@ -6,10 +14,8 @@ defineProps({
 });
 </script>
 
-<template>
-    <div v-show="message">
-        <p class="text-sm text-red-600">
-            {{ message }}
-        </p>
-    </div>
-</template>
+<style scoped>
+
+@import '@/../css/styles.css';   
+
+</style>
