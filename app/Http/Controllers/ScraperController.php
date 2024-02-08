@@ -144,6 +144,7 @@ class ScraperController extends Controller
                         $products[] = $product;
                         $reportElement = 'Scraped ' . $title;
                         $report[] = $reportElement;
+
                     }
                 }
                 // enregistre les informations dans la base de données
@@ -170,8 +171,8 @@ class ScraperController extends Controller
                 }
             }
         }
+        $countEl= count($report);
         // retourne les informations (pour le test seulement)
-        $countDB = count(Saq_wine::all());
-        return 'Scraped ' . $countDB . ' products in the database.';
+        return 'Scraped ' . $countEl . ' wines';
     }
 }
