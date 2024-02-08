@@ -24,10 +24,9 @@
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
-
+            <!-- <span v-if="form.errors.password" class="error-icon">X</span> -->
             <div class="inputlabel">
                 <InputLabel for="password"/>
-
                 <TextInput
                     id="password"
                     type="password"
@@ -37,8 +36,11 @@
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />
+         
 
-                <InputError class="mt-2" :message="form.errors.password" />
+              
+                <InputError :message="form.errors.password"  />
+                <!-- <span class="error-icon">X</span> -->
             </div>
 
             <div class="checkbox">

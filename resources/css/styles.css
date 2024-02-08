@@ -33,7 +33,7 @@
 }   
 
 .form-class {
-    margin-top: 150px;   
+    margin-top: 75px;   
 
 }
 
@@ -127,3 +127,19 @@
     background-color: rgb(238, 238, 195);
 }
 
+
+/*  */
+/* InputError.vue */
+
+.input-error {
+    display: block;
+    font-size: 0.875rem;
+    color: #e5a53e;
+    margin-top: 0.25rem;    
+}
+
+.error-icon{
+    color: #e5a53e;
+    font-size: 20px;
+   
+}
