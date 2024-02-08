@@ -36,11 +36,8 @@
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />
-         
-
-              
+                       
                 <InputError :message="form.errors.password"  />
-                <!-- <span class="error-icon">X</span> -->
             </div>
 
             <div class="checkbox">
@@ -56,10 +53,8 @@
                 </PrimaryButton>
             </div>
 
-            <!-- <div class="flex items-center justify-end mt-4"> -->
             <div class="div-link">
                 <Link
-                    v-if="canResetPassword"
                     :href="route('password.request')"
                     class="link"
                 >
