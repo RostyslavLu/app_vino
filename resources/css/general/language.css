@@ -55,10 +55,11 @@
 	/*========================= */
 	/* = FONT-FAMILY */
 	/*========================= */
-		--font-block: 'BLOKK';
-		--font-base: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-		--font-alt: 'Chalkboard', 'Chalkboard SE', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-		--font-accent: sans-serif;
+
+		--font-accent-: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+        --font-base: 'Hind Madurai', sans-serif;
+		--font-alt: 'Lora', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
 
 	/*========================= */
 	/* = FONT-SIZE */
