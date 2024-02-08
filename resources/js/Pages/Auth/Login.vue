@@ -68,6 +68,7 @@
                     :href="route('register')"
                     class="link-register"
                     >
+                    <p class="test-class">meow</p>
                     Creer un compte
                 </Link>
             </div>  
