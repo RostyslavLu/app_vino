@@ -1,0 +1,4 @@
+/* Stylistics import */
+/* ----------------- */
+@import "general/language.css"; /* les variables. Example: couleurs, espacements, etc */
+@import "general/base.css"; /* des règles de base */
