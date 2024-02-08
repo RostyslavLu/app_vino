@@ -2,29 +2,21 @@
 	/*============================ */
 	/* = COLORS */
 	/*============================ */
-		--primary: rgb(126,126,126);
-		--secondary: rgb(184,184,184);
-		--tertiary: rgba(106,106,106,.11);
-		--darking:  #EAEEF2;
-		--darkering: #C7D0D5;
-		--lighting: rgba(255,255,255,.9);
-		--accent: #4f97fb;
+		--primary: #151534;
+		--secondary: #F7F9EF;
+		--tertiary: #FED709;
 
-		--precision: #bd7800;
-		--removed: var(--darkering);
-		--issue: #ff2565;
-		--opportunity: #039A4F;
+		--accent-light: #E3DECB;
+        --accent-medium: #E8A73F;
+        --accent-dark: #723134;
 
-		--complementary: #ff2a34;
-
-		--precissue: #E14A38;
-		--precitunity: #719225;
-		--issutunity: #8E4B26;
+		--error: var(--accent-medium);
 
 		--highlight: rgba(245,255,100,.4);
 
-		--special: black;
-		--veil: black;
+        --wine-white: #E7DBA0;
+        --wine-red: #92171C;
+        --wine-rose: #E7BBA7;
 
 	/*============================ */
 	/* = SPACING */
