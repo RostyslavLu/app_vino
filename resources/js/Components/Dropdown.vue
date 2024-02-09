@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-
+/* il y a variables ici qui rassemblent des groupes de classes,  qui sont affichées de façon dynamique. Ce sont des classes tailwind. Je les gardes seulement pour qu'on ait une example de comment c'est fait*/
 const props = defineProps({
     align: {
         type: String,
@@ -45,30 +45,30 @@ const open = ref(false);
 </script>
 
 <template>
-    <div class="relative">
+    <div class="">
         <div @click="open = !open">
             <slot name="trigger" />
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false"></div>
+        <div v-show="open" class="" @click="open = false"></div>
 
         <Transition
-            enter-active-class="transition ease-out duration-200"
-            enter-from-class="opacity-0 scale-95"
-            enter-to-class="opacity-100 scale-100"
-            leave-active-class="transition ease-in duration-75"
-            leave-from-class="opacity-100 scale-100"
-            leave-to-class="opacity-0 scale-95"
+            enter-active-class=""
+            enter-from-class=""
+            enter-to-class=""
+            leave-active-class=""
+            leave-from-class=""
+            leave-to-class=""
         >
             <div
                 v-show="open"
-                class="absolute z-50 mt-2 rounded-md shadow-lg"
+                class=""
                 :class="[widthClass, alignmentClasses]"
                 style="display: none"
                 @click="open = false"
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
+                <div class="" :class="contentClasses">
                     <slot name="content" />
                 </div>
             </div>
