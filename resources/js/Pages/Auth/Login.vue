@@ -1,4 +1,3 @@
-
 <template>
     <GuestLayout class="body-login">
         <Head title="Log in" />
