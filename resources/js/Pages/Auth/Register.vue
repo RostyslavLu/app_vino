@@ -17,7 +17,7 @@
                     placeholder="nom"
                 />
 
-                <InputError :message="form.errors.name" />
+                <InputError class="" :message="form.errors.name" />
             </div>
 
             <div class="inputlabel">
@@ -33,7 +33,7 @@
                     placeholder="courriel"
                 />
 
-                <InputError class="mt-2" :message="form.errors.email" />
+                <InputError class="" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
@@ -81,11 +81,11 @@
                     placeholder="mot de passe"
                 />
 
-                <InputError class="mt-2" :message="form.errors.password" />
+                <InputError class="" :message="form.errors.password" />
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password_confirmation"/>
+            <div class="">
+                <InputLabel for="password_confirmation" value="Confirm Password" />
 
                 <TextInput
                     id="password_confirmation"
@@ -97,7 +97,7 @@
                     placeholder="confirmer le mot de passe"
                 />
 
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
+                <InputError class="" :message="form.errors.password_confirmation" />
             </div>
                 <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Sauvegarder

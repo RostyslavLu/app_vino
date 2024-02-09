@@ -21,7 +21,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Confirm Password" />
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="">
             This is a secure area of the application. Please confirm your password before continuing.
         </div>
 
@@ -31,17 +31,18 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class=""
                     v-model="form.password"
                     required
                     autocomplete="current-password"
                     autofocus
                 />
-                <InputError class="mt-2" :message="form.errors.password" />
+                <InputError class="" :message="form.errors.password" />
             </div>
+            <!-- commentaire: J'ai enlevé une classe tailwind, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
-            <div class="flex justify-end mt-4">
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <div class="">
+                <PrimaryButton class="" :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
                     Confirm
                 </PrimaryButton>
             </div>
