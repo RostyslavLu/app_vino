@@ -43,7 +43,7 @@
                     id="cellier"
                     type="text"
                     class="textreg-input"
-                    v-model="form.password"
+                    v-model="form.cellier"
                     required
                     autocomplete="nom du cellier"
                     placeholder="nom du cellier"
@@ -68,7 +68,7 @@
                 <InputError class="mt-2" :message="form.errors.description" />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <InputLabel for="password"/>
 
                 <TextInput
