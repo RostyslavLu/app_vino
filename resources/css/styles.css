@@ -164,7 +164,6 @@
     margin-left: 35px;
 }
 
-
 /* Register.vue */
 
 
@@ -199,10 +198,12 @@
 }
 
 /* ApplicationLogoReg.vue */
+/* mm chose que login a effacer */
 
 .logoreg-image {
-    width: 4rem; 
-    height: 4rem; 
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
     fill: currentColor; 
     color: #6B7280;
 }
