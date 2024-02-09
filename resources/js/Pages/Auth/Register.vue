@@ -142,8 +142,6 @@ const submit = () => {
 };
 </script>
 
-<style scoped>
-@import '@/../css/styles.css';
-</style>
+
 
 

@@ -24,10 +24,3 @@ onMounted(() => {
 
 defineExpose({ focus: () => input.value.focus() });
 </script>
-
-<style scoped>
-
-@import '@/../css/styles.css';
-
-</style>
-

@@ -22,6 +22,3 @@ import ApplicationLogoReg from '@/Components/ApplicationLogoReg.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 
-<style scoped>
-@import '@/../css/styles.css';
-</style>

@@ -6,8 +6,3 @@
     </button>
 </template>
 
-<style scoped>
-
-@import '@/../css/styles.css';
-
-</style>
