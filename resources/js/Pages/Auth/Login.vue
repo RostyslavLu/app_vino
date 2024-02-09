@@ -3,7 +3,7 @@
     <GuestLayout class="body-login">
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" >
             {{ status }}
         </div>
 
@@ -22,9 +22,8 @@
                     placeholder="nom d'utilisateur"
                 />
 
-                <InputError class="mt-2" :message="form.errors.email" />
+                <InputError :message="form.errors.email" />
             </div>
-            <!-- <span v-if="form.errors.password" class="error-icon">X</span> -->
             <div class="inputlabel">
                 <InputLabel for="password"/>
                 <TextInput

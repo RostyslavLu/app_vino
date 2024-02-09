@@ -1,14 +1,136 @@
+<template>
+    <GuestRegisterLayout class="body-register">
+        <Head title="Register" />
+
+        <form @submit.prevent="submit" class="formreg-class">
+            <div>
+                <InputLabel for="name"/>
+
+                <TextInput
+                    id="name"
+                    type="text"
+                    class="textreg-input"
+                    v-model="form.name"
+                    required
+                    autofocus
+                    autocomplete="name"
+                    placeholder="nom"
+                />
+
+                <InputError :message="form.errors.name" />
+            </div>
+
+            <div class="inputlabel">
+                <InputLabel for="email"/>
+
+                <TextInput
+                    id="email"
+                    type="email"
+                    class="textreg-input"
+                    v-model="form.email"
+                    required
+                    autocomplete="username"
+                    placeholder="courriel"
+                />
+
+                <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="cellier" />
+
+                <TextInput
+                    id="cellier"
+                    type="text"
+                    class="textreg-input"
+                    v-model="form.password"
+                    required
+                    autocomplete="nom du cellier"
+                    placeholder="nom du cellier"
+                />
+
+                <InputError class="mt-2" :message="form.errors.cellier" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="description" />
+
+                <Textarea
+                    id="description"
+                    type="text"
+                    class="textreg-input"
+                    v-model="form.description"
+                    required
+                    autocomplete="description"
+                    placeholder="description du cellier"
+                ></textarea>
+
+                <InputError class="mt-2" :message="form.errors.description" />
+            </div>
+
+            <div>
+                <InputLabel for="password"/>
+
+                <TextInput
+                    id="password"
+                    type="password"
+                    class="textreg-input"
+                    v-model="form.password"
+                    required
+                    autocomplete="new-password"
+                    placeholder="mot de passe"
+                />
+
+                <InputError class="mt-2" :message="form.errors.password" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="password_confirmation"/>
+
+                <TextInput
+                    id="password_confirmation"
+                    type="password"
+                    class="textreg-input"
+                    v-model="form.password_confirmation"
+                    required
+                    autocomplete="new-password"
+                    placeholder="confirmer le mot de passe"
+                />
+
+                <InputError class="mt-2" :message="form.errors.password_confirmation" />
+            </div>
+
+            <!-- <div class="flex items-center justify-end mt-4">
+                <Link
+                    :href="route('login')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Already registered?
+                </Link> -->
+
+                <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Sauvegarder
+                </PrimaryRegisterButton>
+            <!-- </div> -->
+        </form>
+    </GuestRegisterLayout>
+</template>
+
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import GuestRegisterLayout from '@/Layouts/GuestRegisterLayout.vue';
+// import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
+import Textarea from '@/Components/Textarea.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
     name: '',
     email: '',
+    cellier: '',
+    description: '',
     password: '',
     password_confirmation: '',
 });
@@ -20,84 +142,8 @@ const submit = () => {
 };
 </script>
 
-<template>
-    <GuestLayout>
-        <Head title="Register" />
+<style scoped>
+@import '@/../css/styles.css';
+</style>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
-                <TextInput
-                    id="password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password_confirmation"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
-</template>
