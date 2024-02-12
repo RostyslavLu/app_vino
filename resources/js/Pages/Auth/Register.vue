@@ -20,8 +20,8 @@
                 <InputError class="" :message="form.errors.name" />
             </div>
 
-            <div class="inputlabel">
-                <InputLabel for="email"/>
+            <div class="">
+                <InputLabel for="email" />
 
                 <TextInput
                     id="email"
@@ -36,7 +36,7 @@
                 <InputError class="" :message="form.errors.email" />
             </div>
 
-            <div class="mt-4">
+            <div class="">
                 <InputLabel for="cellier" />
 
                 <TextInput
@@ -49,10 +49,10 @@
                     placeholder="nom du cellier"
                 />
 
-                <InputError class="mt-2" :message="form.errors.cellier" />
+                <InputError class="" :message="form.errors.cellier" />
             </div>
 
-            <div class="mt-4">
+            <div class="">
                 <InputLabel for="description" />
 
                 <Textarea
@@ -65,10 +65,10 @@
                     placeholder="description du cellier"
                 ></textarea>
 
-                <InputError class="mt-2" :message="form.errors.description" />
+                <InputError class="" :message="form.errors.description" />
             </div>
 
-            <div class="mt-4">
+            <div class="">
                 <InputLabel for="password"/>
 
                 <TextInput
@@ -85,7 +85,7 @@
             </div>
 
             <div class="">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel for="password_confirmation"/>
 
                 <TextInput
                     id="password_confirmation"
@@ -108,7 +108,6 @@
 
 <script setup>
 import GuestRegisterLayout from '@/Layouts/GuestRegisterLayout.vue';
-// import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
