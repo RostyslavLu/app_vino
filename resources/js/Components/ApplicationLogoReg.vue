@@ -1,9 +1,9 @@
 <template>
-    <img :src="logo" alt="logo vino" class="logo-image">
+    <img :src="logo" alt="logo vino" class="logoreg-image">
 </template>
 x
 <script>
-import logo from '@/../images/vinologoblanc.png';
+import logo from '@/../images/vinologo.png';
 
 
 export default {

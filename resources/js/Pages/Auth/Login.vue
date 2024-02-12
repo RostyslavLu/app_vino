@@ -1,4 +1,3 @@
-
 <template>
     <GuestLayout class="body-login">
         <Head title="Log in" />
@@ -24,7 +23,6 @@
 
                 <InputError class="" :message="form.errors.email" />
             </div>
-            <!-- <span v-if="form.errors.password" class="error-icon">X</span> -->
             <div class="inputlabel">
                 <InputLabel for="password"/>
                 <TextInput
@@ -108,9 +106,3 @@ const submit = () => {
     });
 };
 </script>
-
-<style scoped>
-
-@import '@/../css/styles.css';
-
-</style>
