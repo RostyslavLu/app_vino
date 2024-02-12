@@ -1,21 +1,17 @@
 <template>
-    <div class="div-guest">
-        <div>
+    <article class="auth-container">
+        <header class="flex-column">
             <Link href="/">
                 <ApplicationLogo class="logo white" />
-   
             </Link>
-    
-        </div>
-        <h1 class="title">
-            vino
-        </h1>
+            <h1>vino</h1>
+        </header>   
             
-        <div
+        <section
         >
             <slot /> 
-        </div>
-    </div>
+        </section>
+    </article>
 </template>
 
 <script setup>

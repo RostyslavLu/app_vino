@@ -2,39 +2,21 @@
 
 /* GuestLayout.vue */
 
-.application-logo {
-    width: 4rem; 
-    height: 4rem; 
-    object-fit: contain;
-    fill: currentColor; 
-}
 
-.div-guest {
-    min-height: 98vh; 
+.auth-container {
+    min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    justify-content: center; 
     align-items: center; 
-    padding-bottom: 1rem;
+    color: var(--secondary);
+    justify-content: space-evenly;
 }
-
-.name {
-    font-size: 2rem; 
-    font-weight: 600; 
-    color: #eef0f4;
-}
-
 
 
 /* Login.vue */
 .body-login {
     background-color: rgba(45, 45, 45, 1);
 }   
-
-.form-class {
-    margin-top: 85px;   
-}
-
 
 .div-link {
     display: flex;

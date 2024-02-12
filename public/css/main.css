@@ -3,10 +3,15 @@
 @import "general/language.css"; /* les variables. Example: couleurs, espacements, etc */
 @import "general/base.css"; /* des règles de base */
 @import "general/rhythm.css"; /* des règles de base pour gerer le rhythm */
+@import "general/typography.css"; /* des règles de base pour la typographie */
 @import "pages/login.css"; /* des règles spécifiques à une page */
 @import "pages/register.css"; /* des règles spécifiques à une page */
 
 
 /* ------Composantes ----------- */
 @import "composantes/logo.css";
+
+
+/* ------Atomes ----------- */
+@import "atomes/utility.css";
 

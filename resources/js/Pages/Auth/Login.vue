@@ -1,6 +1,6 @@
 <template>
     <GuestLayout class="body-login">
-        <Head title="Log in" />
+        <Head title="Login" />
 
         <div v-if="status" class="">
             {{ status }}
@@ -15,7 +15,6 @@
                     type="email"
                     class="text-input"
                     v-model="form.email"
-                    required
                     autofocus
                     autocomplete="username"
                     placeholder="nom d'utilisateur"
@@ -30,7 +29,6 @@
                     type="password"
                     class="text-input"
                     v-model="form.password"
-                    required
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />

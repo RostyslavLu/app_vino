@@ -6,7 +6,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.1;
-	font-family: 'Montserrat', sans-serif;
+	font-family: var(--font-accent);
 }
 
 h1{
@@ -19,7 +19,6 @@ h2{
 
 h3{
 	font-size: var(--font-current);
-	line-height: 1.7;
 }
 
 h4{
