@@ -1,5 +1,5 @@
 <template>
-    <article class="auth-container">
+    <main class="auth-container">
         <header class="flex-column">
             <Link href="/">
                 <ApplicationLogo class="logo white" />
@@ -11,7 +11,7 @@
         >
             <slot /> 
         </section>
-    </article>
+    </main>
 </template>
 
 <script setup>

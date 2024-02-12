@@ -6,14 +6,13 @@
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit" class="form-class">
+        <form @submit.prevent="submit" class="">
             <div>
                 <InputLabel for="email"/>
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="text-input"
                     v-model="form.email"
                     autofocus
                     autocomplete="username"
