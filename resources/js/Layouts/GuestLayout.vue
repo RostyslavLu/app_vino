@@ -2,13 +2,13 @@
     <div class="div-guest">
         <div>
             <Link href="/">
-                <ApplicationLogo class="application-logo" />
+                <ApplicationLogo class="logo" />
    
             </Link>
     
         </div>
         <div class="name">
-            VINO
+            vino
        </div>
         <div
         >

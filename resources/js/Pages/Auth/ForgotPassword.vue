@@ -26,8 +26,8 @@ const submit = () => {
         <Head title="Forgot Password" />
 
         <div class="">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-            link that will allow you to choose a new one.
+            Mot de passe oublié? Pas de problème. Dites-nous simplement votre adresse e-mail 
+            et nous vous enverrons un lien de réinitialisation de mot de passe qui vous permettra d'en choisir un nouveau.
         </div>
 
         <div v-if="status" class="">
@@ -51,7 +51,11 @@ const submit = () => {
                 <InputError class="" :message="form.errors.email" />
             </div>
             
-            <!-- commentaire: J'ai enlevé une classe tailwind, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
+            <!-- commentaire: J'ai enlevé une classe tailwind, 
+                et ajouté une classe imaginaire, 
+                qu'on peut remplacer si on utilise ce formulaire. 
+                ce code évalue si form.processing est vrai, 
+                et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
             <div class="">
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">

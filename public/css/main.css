@@ -4,3 +4,7 @@
 @import "general/base.css"; /* des règles de base */
 @import "pages/login.css"; /* des règles spécifiques à une page */
 @import "pages/register.css"; /* des règles spécifiques à une page */
+
+
+/* ------Composantes ----------- */
+@import "composantes/logo.css"; 

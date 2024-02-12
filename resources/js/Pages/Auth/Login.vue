@@ -45,7 +45,10 @@
                     <!--text-white, c'est nous ou c'est tailwind?-->
                 </label>
             </div>
-            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
+            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
+                et ajouté une classe imaginaire, qu'on peut remplacer si on utilise 
+                ce formulaire. ce code évalue si form.processing est vrai, 
+                et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
             <div class="inputlabel">
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
