@@ -1,11 +1,12 @@
 .textinput {
-    font-size: 1rem;
-    line-height: 2rem;
-    color: rgb(14, 13, 13);
-    background-color: white;
+    font-size: var(--font-current);
+    line-height: var(--line-height-normal);
+    color: var(--primary);
+    background-color: var(--secondary);
     width: 100%;
     margin: auto;
     padding-left: 10px;
+    font-family: var(--font-base);
 }
 
 .textinput::placeholder {
