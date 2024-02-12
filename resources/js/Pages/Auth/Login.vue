@@ -3,7 +3,7 @@
     <GuestLayout class="body-login">
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="">
             {{ status }}
         </div>
 
@@ -22,7 +22,7 @@
                     placeholder="nom d'utilisateur"
                 />
 
-                <InputError class="mt-2" :message="form.errors.email" />
+                <InputError class="" :message="form.errors.email" />
             </div>
             <!-- <span v-if="form.errors.password" class="error-icon">X</span> -->
             <div class="inputlabel">
@@ -44,11 +44,13 @@
                 <label class="checkbox-label">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="text-white">Sauvegarder ma connexion</span>
+                    <!--text-white, c'est nous ou c'est tailwind?-->
                 </label>
             </div>
+            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
             <div class="inputlabel">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
                     Connexion
                 </PrimaryButton>
             </div>
