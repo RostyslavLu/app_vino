@@ -2,14 +2,15 @@
     <div class="div-guest">
         <div>
             <Link href="/">
-                <ApplicationLogo class="logo" />
+                <ApplicationLogo class="logo white" />
    
             </Link>
     
         </div>
-        <div class="name">
+        <h1 class="title">
             vino
-       </div>
+        </h1>
+            
         <div
         >
             <slot /> 
