@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Saq_wine;
 use Goutte\Client;
+use Illuminate\Support\Facades\Redirect;
 
 class ScraperController extends Controller
 {
@@ -173,6 +174,6 @@ class ScraperController extends Controller
         }
         $countEl= count($report);
         // retourne les informations (pour le test seulement)
-        return 'Scraped ' . $countEl . ' wines';
+        return Redirect::route('scraper.index')->with('report', $report)->with('countEl', $countEl);
     }
 }
