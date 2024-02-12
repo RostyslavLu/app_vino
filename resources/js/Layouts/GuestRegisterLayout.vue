@@ -1,14 +1,14 @@
 <template>
-    <div class="div-guest">
-        <div>
+    <div class="div-guest-register">
+        <div class="logo-container">
             <Link href="/">
-                <ApplicationLogo class="application-logo" />
+                <ApplicationLogoReg/>
    
             </Link>
     
         </div>
-        <div class="name">
-            VINO
+        <div class="namereg">
+            enregistrement
        </div>
         <div
         >
@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogoReg from '@/Components/ApplicationLogoReg.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
+

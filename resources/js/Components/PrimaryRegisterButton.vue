@@ -1,8 +1,7 @@
 <template>
     <button
-        class="input-label2"
+        class="input-labelreg"
     >
         <slot />
     </button>
 </template>
-
