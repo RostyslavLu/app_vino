@@ -24,7 +24,7 @@ main {
 .user-cellars > select {
     background-color: #F7F9EF;
 }
-/* cellier contenu */
+/* contenu de cellier  */
 .cellar-content {
     display: grid;
     gap: 1rem;
@@ -33,10 +33,11 @@ main {
     grid-template-columns: auto;
     min-height: 150px;
     padding: 1rem 0;
-    display: flex;
-    flex-direction: row;
+    border-block-end: solid;
+    writing-mode: horizontal-tb;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     gap: 1rem;
-    border: 1px solid #000;
 }
 /* carte vine dans le cellier */
 .wine-image {
@@ -45,7 +46,7 @@ main {
     flex-grow: 2;
 }
 .wine-image > img {
-    max-height: 150px;
+    max-height: 250px;
 }
 .wine-info {
     display: block;
@@ -53,6 +54,7 @@ main {
 }
 .wine-quantity {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
@@ -60,4 +62,16 @@ main {
 .wine-quantity > div{
     padding: 1rem;
     font-size: 36px;
+}
+.wine-image {
+    position: relative;
+}
+
+.wine-type {
+  position: absolute;
+  left: 0px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
 }

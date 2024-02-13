@@ -6,57 +6,71 @@
             </option>
         </select>
     </div>
-    <div v-if="userCellarContent" class="user-cellars">
+    <div>
+        <search-input v-model="search" @input="searchWine" />
+    </div>
+    <div v-if="userCellarContent" >
         <ul class="cellar-content">
             <li v-for="content in userCellarContent" :key="content.id">
-                <picture class="wine-image">
+                <picture class="wine-image" >
                     <source :srcset="content.url_image" type="image/webp" />
                     <img :src="content.url_image" alt="content.name" />
+                    <div class="wine-type" :style="{backgroundColor: getBackgroundColor(content.type)}"></div>
                 </picture>
                 <article class="wine-info">
-                    <h2>{{ content.wine_name }}</h2>
-                    <p>{{ content.type }}</p>
+                    <p>{{ content.wine_name }}</p>
                     <p>{{ content.country }}</p>
                 </article>
-                <article class="wine-quantity"><div>{{ content.quantity }}</div></article>
+                <article class="wine-quantity">
+                    <span>&#8593;</span>
+                    <div>{{ content.quantity }}</div>
+                    <span>&#8595;</span>
+                </article>
             </li>
         </ul>
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import axios from 'axios';
+import SearchInput from './SearchInput.vue';
 
-export default {
-    data() {
-        return {
-            userCellars: [],
-            userCellarContent: [],
-        };
-    },
-    created() {
-        this.fetchUserCellars();
-    },
-    methods: {
-        fetchUserCellars() {
-            axios.get(route('cellars.userCellars'))
-                .then(response => {
-                    this.userCellars = response.data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        },
-        fetchUserCellarContent(event) {
+const userCellars = ref([]);
+const userCellarContent = ref([]);
+const search = ref('');
 
-            axios.get(route('cellars.userCellarContent', event.target.value))
-                .then(response => {
-                    this.userCellarContent = response.data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        },
-    },
+const fetchUserCellars = async () => {
+    const response = await axios.get(route('cellars.userCellars'));
+    userCellars.value = response.data;
 };
+
+const fetchUserCellarContent = async (event) => {
+    const response = await axios.get(route('cellars.userCellarContent', event.target.value));
+    userCellarContent.value = response.data;
+};
+
+const getBackgroundColor = (wineColor) => {
+    switch (wineColor) {
+        case 'rouge':
+            return '#ff0000';
+        case 'blanc':
+            return '#ffffff';
+        case 'rosé':
+            return '#ff69b4';
+        default:
+            return 'transparent';
+    }
+};
+
+const searchWine = async () => {
+    if (search.value === '') {
+        userCellarContent.value = [];
+        return;
+    }
+    const response = await axios.get(route('cellars.searchWineInUserCellars', search.value));
+    userCellarContent.value = response.data;
+};
+
+fetchUserCellars();
 </script>
