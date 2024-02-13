@@ -24,13 +24,11 @@ const form = useForm({
 
 <template>
     <section>
-        <header>
-            <h2 class="">Profile Information</h2>
-
+<!--         <header>
             <p class="">
                 Update your account's profile information and email address.
             </p>
-        </header>
+        </header> -->
 
         <form @submit.prevent="form.patch(route('profile.update'))" class="">
             <div>

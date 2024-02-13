@@ -1,21 +1,19 @@
 <template>
     <GuestLayout class="body-login">
-        <Head title="Log in" />
+        <Head title="Login" />
 
         <div v-if="status" class="">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit" class="form-class">
+        <form @submit.prevent="submit" class="">
             <div>
                 <InputLabel for="email"/>
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="text-input"
                     v-model="form.email"
-                    required
                     autofocus
                     autocomplete="username"
                     placeholder="nom d'utilisateur"
@@ -30,7 +28,6 @@
                     type="password"
                     class="text-input"
                     v-model="form.password"
-                    required
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />
@@ -45,7 +42,10 @@
                     <!--text-white, c'est nous ou c'est tailwind?-->
                 </label>
             </div>
-            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
+            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
+                et ajouté une classe imaginaire, qu'on peut remplacer si on utilise 
+                ce formulaire. ce code évalue si form.processing est vrai, 
+                et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
             <div class="inputlabel">
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
