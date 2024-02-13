@@ -1,0 +1,8 @@
+.logo {
+    width: var(--logo);
+    height: var(--logo);
+}
+
+.white {
+    fill: var(--secondary);
+}

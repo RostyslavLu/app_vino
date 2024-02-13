@@ -2,39 +2,21 @@
 
 /* GuestLayout.vue */
 
-.application-logo {
-    width: 4rem; 
-    height: 4rem; 
-    object-fit: contain;
-    fill: currentColor; 
-}
 
-.div-guest {
-    min-height: 98vh; 
+.auth-container {
+    min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    justify-content: center; 
     align-items: center; 
-    padding-bottom: 1rem;
+    color: var(--secondary);
+    justify-content: space-evenly;
 }
-
-.name {
-    font-size: 2rem; 
-    font-weight: 600; 
-    color: #eef0f4;
-}
-
 
 
 /* Login.vue */
 .body-login {
-    background-color: rgba(45, 45, 45, 1);
+    background-color: var(--primary);
 }   
-
-.form-class {
-    margin-top: 85px;   
-}
-
 
 .div-link {
     display: flex;
@@ -60,19 +42,6 @@
     font-size: 0.875rem;
 }
 
-.text-input {
-    font-size: 1rem;
-    line-height: 2rem;
-    color: rgb(14, 13, 13);
-    background-color: white;
-    width: 100%;
-    margin: auto;
-    padding-left: 10px;
-}
-
-.text-input::placeholder {
-    padding-left: 3px; 
-}
 
 .inputlabel {
     margin-top: 2rem;
