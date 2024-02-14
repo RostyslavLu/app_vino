@@ -10,5 +10,12 @@ le git quand il ne contient pas de dossiers... de ce que j'ai compris
  .flex-column {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

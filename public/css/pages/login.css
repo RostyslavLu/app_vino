@@ -2,7 +2,6 @@
 
 /* GuestLayout.vue */
 
-
 .auth-container {
     min-height: 100vh; 
     display: flex; 
@@ -12,81 +11,77 @@
     justify-content: space-evenly;
 }
 
-
 /* Login.vue */
 .body-login {
     background-color: var(--primary);
 }   
 
-.div-link {
+/* .div-link {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-}
+} */
 
-.link-register {
-    margin-left: 1rem; /* ms-4 */
+/* .link-register {
+    margin-left: 1rem;
     color: #f9f8f6;
     text-decoration: none;
-}
+} */
 
-.link {
+/* .link {
     color: rgb(250, 247, 247);
     text-decoration: none;
 }
 
 
-.text-white {
+/* .text-white {
     color: white;
     margin-left: 0.5rem;
     font-size: 0.875rem;
-}
+} */
 
 
-.inputlabel {
+/* .inputlabel {
     margin-top: 2rem;
-}
+} */
 
-.checkbox {
+/* .checkbox {
     display: block;
     margin-top: 2rem;
-    margin-right: 60px; /* Réduisez la marge gauche ou mettez-la à 0 */
+    margin-right: 60px; 
     text-align: left; 
 
-}
+} */
 
-.checkbox-label {
+/* .checkbox-label {
     display: flex;
     align-items: center;
     justify-content: center;
 
-}
+} */
 
 /* InputLabel.vue */
-.input-label{
+/* .input-label{
     display: block;
     font-weight: 500;
     font-size: 0.875rem;
     color: white;
-}
+} */
 
 /* TextInput.vue */
 
-.input {
+/* .input {
     border-color: white;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     width: 100%;
     margin: auto;
-}
+} */
 
-.logo-image {
-    margin-top:20px;
-}
 
 /* PrimaryButton.vue */
 
-.input-label2{
+/* .input-label2{
     display: block;
     font-size: 1rem;
     line-height: 2rem;
@@ -96,13 +91,13 @@
     color: rgb(14, 13, 13);
     background-color: rgb(238, 238, 195);
 
-}
+} */
 
 
 /*  */
 /* InputError.vue */
 
-.input-error {
+/* .input-error {
     display: block;
     font-size: 0.875rem;
     color: #e5a53e;
@@ -113,4 +108,4 @@
     color: #e5a53e;
     font-size: 20px;
    
-}
+} */
