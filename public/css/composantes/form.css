@@ -1,4 +1,4 @@
-.textinput {
+.text-input {
     font-size: var(--font-current);
     line-height: var(--line-height-normal);
     color: var(--primary);
@@ -9,6 +9,6 @@
     font-family: var(--font-base);
 }
 
-.textinput::placeholder {
+.text-input::placeholder {
     padding-left: 3px; 
 }
