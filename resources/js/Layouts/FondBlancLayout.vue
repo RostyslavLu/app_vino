@@ -4,7 +4,7 @@
         <!-- le logo -->
         <div class="logo-container">
             <Link href="/">
-                <ApplicationLogoReg/>
+                <ApplicationLogo/>
             </Link>
         </div>
 
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import ApplicationLogoReg from '@/Components/ApplicationLogoReg.vue';
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 

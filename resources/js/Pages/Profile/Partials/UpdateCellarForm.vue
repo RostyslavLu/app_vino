@@ -21,7 +21,7 @@ const form = useForm({
             </h2>
         </header>
 
-        <form @submit.prevent="form.patch(route('cellar.update'))" class="">
+        <form @submit.prevent="form.patch(route('cellars.update', cellar.id))" class="">
             <div>
                 <InputLabel for="name" value="Name" />
 
@@ -30,7 +30,6 @@ const form = useForm({
                     type="text"
                     class=""
                     v-model="form.name"
-                    required
                     autofocus
                     autocomplete="name"
                 />
@@ -46,7 +45,6 @@ const form = useForm({
                     type="text"
                     class=""
                     v-model="form.description"
-                    required
                     autocomplete="description"
                 />
                 <!-- must figure out the errors... and the autocomplete -->
