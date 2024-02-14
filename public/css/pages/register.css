@@ -14,5 +14,5 @@
 .register-page-title {
     font-size: var(--font-tallest);
     color: var(--primary);
-    margin-bottom: var(--spacing-thin);
+    margin-bottom: var(--spacing-thinnest);
 }

@@ -10,7 +10,6 @@
                     id="name"
                     type="text"
                     v-model="form.name"
-                    required
                     autofocus
                     autocomplete="name"
                     placeholder="nom"
@@ -26,7 +25,6 @@
                     id="email"
                     type="email"
                     v-model="form.email"
-                    required
                     autocomplete="username"
                     placeholder="courriel"
                 />
@@ -41,7 +39,6 @@
                     id="cellier"
                     type="text"
                     v-model="form.cellier"
-                    required
                     autocomplete="nom du cellier"
                     placeholder="nom du cellier"
                 />
@@ -52,14 +49,13 @@
             <div class="">
                 <InputLabel for="description" />
 
-                <Textarea
+                <TextInput
                     id="description"
                     type="text"
                     v-model="form.description"
-                    required
                     autocomplete="description"
                     placeholder="description du cellier"
-                ></textarea>
+                />
 
                 <InputError class="" :message="form.errors.description" />
             </div>
@@ -71,7 +67,6 @@
                     id="password"
                     type="password"
                     v-model="form.password"
-                    required
                     autocomplete="new-password"
                     placeholder="mot de passe"
                 />
@@ -86,7 +81,6 @@
                     id="password_confirmation"
                     type="password"
                     v-model="form.password_confirmation"
-                    required
                     autocomplete="new-password"
                     placeholder="confirmer le mot de passe"
                 />
