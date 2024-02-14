@@ -7,15 +7,17 @@
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
-
         "@vitejs/plugin-vue": "^5.0.0",
         "@vue/server-renderer": "^3.4.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.31",
-
         "vite": "^5.0.0",
-        "vue": "^3.4.0"
+        "vue": "^3.4.19"
+    },
+    "dependencies": {
+        "feather-icons": "^4.29.1",
+        "vue-feather": "^2.0.0"
     }
 }

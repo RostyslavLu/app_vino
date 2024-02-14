@@ -5,9 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Cellars;
 
 class CellarsController extends Controller
 {
+
+     /**
+    * Mise à jour des informations du cellier de l'utilisateur.
+    */
+    public function update(Request $request, Cellars $cellar)
+    {
+        //la validation des champs
+        $request->validate([
+            'name' => 'max:50',
+            'description' => 'max:100',
+        ]);
+
+        //la mise à jour
+        $cellar->update([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        //le retour vers la page précédente
+        return Redirect::back();
+    }
+
+
     /**
      * fonction qui retourne les celliers de l'utilisateur
      */

@@ -40,7 +40,7 @@ const closeModal = () => {
 <template>
     <section class="">
         <header>
-            <h2 class="">Delete Account</h2>
+            <h2 class="namereg">supprimer</h2>
 
             <p class="">
                 Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting

@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //un cellier appartient à un utilisateur
+    public function cellars()
+    {
+        return $this->hasMany(Cellars::class);
+    }
 }

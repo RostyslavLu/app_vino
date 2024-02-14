@@ -24,11 +24,12 @@ const form = useForm({
 
 <template>
     <section>
-<!--         <header>
-            <p class="">
+        <header>
+<!--        <p class="">
                 Update your account's profile information and email address.
-            </p>
-        </header> -->
+            </p> -->
+            <vue-feather type="feather"></vue-feather>
+        </header>
 
         <form @submit.prevent="form.patch(route('profile.update'))" class="">
             <div>

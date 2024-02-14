@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('description', 100);
-            $table->bigInteger('users_id')->unsigned()->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->timestamps();
         });
         Schema::table('cellars', function (Blueprint $table) {
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
