@@ -40,7 +40,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email"/>
-
+                <InputError class="" :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -50,9 +50,9 @@ const submit = () => {
                     placeholder="nom d'utilisateur"
                 />
 
-                <InputError class="" :message="form.errors.email" />
             </div>
-            <div class="">
+            <div>
+                <InputError :message="form.errors.password"  />
                 <InputLabel for="password"/>
                 <TextInput
                     id="password"
@@ -61,14 +61,12 @@ const submit = () => {
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />
-                       
-                <InputError :message="form.errors.password"  />
             </div>
 
-            <div class="">
-                <label class="checkbox-label">
+            <div>
+                <label class="flex-row">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="text-white">Sauvegarder ma connexion</span>
+                    <p class="text-white">Sauvegarder ma connexion</p>
                     <!--text-white, c'est nous ou c'est tailwind?-->
                 </label>
             </div>
