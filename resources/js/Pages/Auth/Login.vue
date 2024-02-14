@@ -40,7 +40,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email"/>
-
+                <InputError class="" :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -50,9 +50,9 @@ const submit = () => {
                     placeholder="nom d'utilisateur"
                 />
 
-                <InputError class="" :message="form.errors.email" />
             </div>
-            <div class="">
+            <div>
+                <InputError :message="form.errors.password"  />
                 <InputLabel for="password"/>
                 <TextInput
                     id="password"
@@ -61,15 +61,12 @@ const submit = () => {
                     autocomplete="current-password"
                     placeholder="mot de passe"
                 />
-                       
-                <InputError :message="form.errors.password"  />
             </div>
 
-            <div class="">
-                <label class="checkbox-label">
+            <div>
+                <label class="flex-row">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="text-white">Sauvegarder ma connexion</span>
-                    <!--text-white, c'est nous ou c'est tailwind?-->
+                    <p class="text-accent">Sauvegarder ma connexion</p>
                 </label>
             </div>
             <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
@@ -77,13 +74,13 @@ const submit = () => {
                 ce formulaire. ce code évalue si form.processing est vrai, 
                 et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
-            <div class="inputlabel">
+            <div>
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
                     Connexion
                 </PrimaryButton>
             </div>
 
-            <div class="div-link">
+            <div class="">
                 <Link
                     :href="route('password.request')"
                     class="link"
