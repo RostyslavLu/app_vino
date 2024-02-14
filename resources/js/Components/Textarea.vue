@@ -1,11 +1,3 @@
-<template>
-    <textarea
-        class="input-textarea"
-        v-model="model"
-        ref="input"
-    />
-</template>
-
 <script setup>
 import { onMounted, ref } from 'vue';
 
