@@ -1,19 +1,20 @@
+<script setup>
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import { Link,  } from '@inertiajs/vue3';
+</script>
+
 <template>
-    <div class="div-guest-register">
-
-        <!-- le logo -->
-        <div class="logo-container">
-            <Link href="/">
-                <ApplicationLogo/>
-            </Link>
-        </div>
-
+    <header class="logo">
+        <Link href="/">
+            <ApplicationLogo/>
+        </Link>
         <!-- un slot pour l'entête de la page -->
-        <header class="" v-if="$slots.header">
-            <div class="">
-                <slot name="header" />
-            </div>
-        </header>
+        <h1 v-if="$slots.header">
+            <slot name="header" />
+        </h1>
+    </header>
+    
+    <main class="auth-container">
 
         <!-- le slot principale, pour la page -->
         <div
@@ -21,11 +22,5 @@
             <slot /> 
         </div>
 
-    </div>
+    </main>
 </template>
-
-<script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
-</script>
-
