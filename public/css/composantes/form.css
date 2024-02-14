@@ -1,14 +1,27 @@
-.text-input {
+input {
     font-size: var(--font-current);
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
     width: 100%;
     margin: auto;
-    padding-left: 10px;
+    padding-left: var(--spacing-thinnest);
     font-family: var(--font-base);
 }
 
-.text-input::placeholder {
+input::placeholder {
     padding-left: 3px; 
 }
+
+textarea {
+    margin-bottom: 25px;
+    margin-top: 0.25rem; 
+    display: block; 
+    width: 200%;
+    border: 1px solid black; 
+    margin-left: -60px;  
+}
+
+/* input[type="checkbox"] {
+
+} */
