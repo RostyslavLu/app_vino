@@ -18,7 +18,7 @@
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
-        <script src="node_modules/feather-icons/dist/feather.min.js"></script>
+<!--         <script src="node_modules/feather-icons/dist/feather.min.js"></script> -->
     </head>
     <body class="">
         @inertia

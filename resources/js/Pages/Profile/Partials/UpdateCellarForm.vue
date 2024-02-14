@@ -18,7 +18,6 @@ const form = useForm({
         <header>
             <h2 class="namereg">
                 votre cellier
-                <i data-feather="flag"></i>
             </h2>
         </header>
 
