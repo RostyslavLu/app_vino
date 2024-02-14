@@ -34,6 +34,13 @@ defineProps({
                         class=""
                     />
                 </div>
+                <div class="">
+                    <UpdateCellarForm
+                        :must-verify-email="mustVerifyEmail"
+                        :status="status"
+                        class=""
+                    />
+                </div>
 
                 <div class="">
                     <UpdatePasswordForm class="" />
