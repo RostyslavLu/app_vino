@@ -39,7 +39,7 @@ class CellarsController extends Controller
     public function userCellars()
     {
         $userCellars = DB::table('cellars')
-            ->where('users_id', Auth::id())
+            ->where('user_id', Auth::id())
             ->get();
         return $userCellars;
     }
