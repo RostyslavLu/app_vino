@@ -1,17 +1,24 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thinnest);
+    align-items: center;
+    font-family: var(--font-base);
+
+}
+
+
+
 input {
     font-size: var(--font-current);
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    width: 100%;
+    width: var(--dimension-smallest);
     margin: auto;
     padding-left: var(--spacing-thinnest);
-    font-family: var(--font-base);
 }
 
-input::placeholder {
-    padding-left: 3px; 
-}
 
 textarea {
     margin-bottom: 25px;
@@ -22,6 +29,3 @@ textarea {
     margin-left: -60px;  
 }
 
-/* input[type="checkbox"] {
-
-} */
