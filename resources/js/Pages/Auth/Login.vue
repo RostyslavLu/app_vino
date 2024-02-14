@@ -63,41 +63,32 @@ const submit = () => {
                 />
             </div>
 
-            <div>
-                <label class="flex-row">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <p class="text-accent">Sauvegarder ma connexion</p>
-                </label>
-            </div>
+            <label class="flex-row">
+                <Checkbox name="remember" v-model:checked="form.remember" />
+                <p>Sauvegarder ma connexion</p>
+            </label>
+
             <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
                 et ajouté une classe imaginaire, qu'on peut remplacer si on utilise 
                 ce formulaire. ce code évalue si form.processing est vrai, 
                 et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
-            <div>
-                <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    class="button"
+                >
                     Connexion
                 </PrimaryButton>
-            </div>
 
-            <div class="">
                 <Link
                     :href="route('password.request')"
-                    class="link"
                 >
                     Mot de passe oublié?
                 </Link>
-            </div>
-
-
-            <div class="div-link">  
                 <Link
                     :href="route('register')"
-                    class="link-register"
                     >
-                    Creer un compte
+                    Créer un compte
                 </Link>
-            </div>  
         </form>
     </GuestLayout>
 </template>

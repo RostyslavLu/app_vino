@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import FondBlancLayout from '@/Layouts/FondBlancLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -22,13 +22,14 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Forgot Password" />
-
-        <div class="">
+    <FondBlancLayout>
+        <template v-slot:header>
+            Mot de passe oublié
+        </template>
+        <section>
             Mot de passe oublié? Pas de problème. Dites-nous simplement votre adresse e-mail 
             et nous vous enverrons un lien de réinitialisation de mot de passe qui vous permettra d'en choisir un nouveau.
-        </div>
+        </section>
 
         <div v-if="status" class="">
             {{ status }}
@@ -41,9 +42,7 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class=""
                     v-model="form.email"
-                    required
                     autofocus
                     autocomplete="username"
                 />
@@ -63,5 +62,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </FondBlancLayout>
 </template>
