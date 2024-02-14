@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'cellar_name' => 'required|string|max:50',
+            'cellar_name' => 'string|max:50',
             'cellar_description' => 'string|max:100',
         ]);
 
