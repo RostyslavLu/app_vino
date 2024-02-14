@@ -4,8 +4,12 @@ input[type="search"] {
     color: var(--primary);
     background-color: var(--secondary);
     min-width: 100%;
+    padding-left: var(--spacing-nano);
 }
 input[type="search"]:focus {
     outline: none;
-    background-color: var(--tertiary);
+    background-color: var(--accent-light);
+}
+input[type="search"]::placeholder {
+    padding-left: var(--spacing-nano);
 }
