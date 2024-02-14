@@ -21,7 +21,8 @@ class ProfileController extends Controller
     public function edit(Request $request): Response
     {
         // chercher les informations du the premier cellier connecté à l'utilisateur
-        $cellar = Cellars::with('user')->first();
+        $user = Auth::user();
+        $cellar = $user->cellars()->first();
 
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,

@@ -46,6 +46,6 @@ class User extends Authenticatable
     //un cellier appartient à un utilisateur
     public function cellars()
     {
-        return $this->hasMany(Cellar::class);
+        return $this->hasMany(Cellars::class);
     }
 }

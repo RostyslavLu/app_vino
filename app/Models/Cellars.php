@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cellars extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'users_id'];
+    protected $fillable = ['name', 'description', 'user_id'];
 
     //un cellier appartient à un utilisateur
     public function user()
