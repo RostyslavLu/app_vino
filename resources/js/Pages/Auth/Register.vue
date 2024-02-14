@@ -1,15 +1,14 @@
 <template>
-    <GuestRegisterLayout class="body-register">
-        <Head title="Register" />
+    <GuestRegisterLayout>
+        <Head title="Inscription" />
 
-        <form @submit.prevent="submit" class="formreg-class">
+        <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name"/>
 
                 <TextInput
                     id="name"
                     type="text"
-                    class="textreg-input"
                     v-model="form.name"
                     required
                     autofocus
@@ -26,7 +25,6 @@
                 <TextInput
                     id="email"
                     type="email"
-                    class="textreg-input"
                     v-model="form.email"
                     required
                     autocomplete="username"
@@ -42,7 +40,6 @@
                 <TextInput
                     id="cellier"
                     type="text"
-                    class="textreg-input"
                     v-model="form.cellier"
                     required
                     autocomplete="nom du cellier"
@@ -58,7 +55,6 @@
                 <Textarea
                     id="description"
                     type="text"
-                    class="textreg-input"
                     v-model="form.description"
                     required
                     autocomplete="description"
@@ -74,7 +70,6 @@
                 <TextInput
                     id="password"
                     type="password"
-                    class="textreg-input"
                     v-model="form.password"
                     required
                     autocomplete="new-password"
@@ -90,7 +85,6 @@
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="textreg-input"
                     v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
@@ -101,7 +95,7 @@
             </div>
                 <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Sauvegarder
-                </PrimaryRegisterButton>  
+                </PrimaryRegisterButton>
         </form>
     </GuestRegisterLayout>
 </template>
