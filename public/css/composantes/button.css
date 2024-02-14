@@ -15,6 +15,11 @@
     border: 1px solid var(--wine-red);
 }
 
+.button.dark {
+    color: var(--tertiary);
+    background-color: var(--primary);
+}
+
 .button.small {
     font-size: var(--font-shortest);
     font-weight: 400;
