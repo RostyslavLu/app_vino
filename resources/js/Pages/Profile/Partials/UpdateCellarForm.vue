@@ -23,36 +23,34 @@ const form = useForm({
 
         <form @submit.prevent="form.patch(route('cellars.update', cellar.id))" class="">
             <div>
-                <InputLabel for="name" value="Name" />
-
                 <TextInput
-                    id="name"
+                    id="cellar_name"
                     type="text"
                     class=""
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
+                    placeholder="nom du cellier"
                 />
 
                 <InputError class="" :message="form.errors.name" />
             </div>
 
             <div>
-                <InputLabel for="description" value="Description" />
-
                 <TextInput
-                    id="description"
+                    id="cellar_description"
                     type="text"
                     class=""
                     v-model="form.description"
                     autocomplete="description"
+                    placeholder="description du cellier"
                 />
                 <!-- must figure out the errors... and the autocomplete -->
                 <InputError class="" :message="form.errors.description" />
             </div>
 
             <div class="">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
 
                 <Transition
                     enter-active-class=""
@@ -60,7 +58,7 @@ const form = useForm({
                     leave-active-class=""
                     leave-to-class=""
                 >
-                    <p v-if="form.recentlySuccessful" class="">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="">C'est enregistré.</p>
                 </Transition>
             </div>
         </form>

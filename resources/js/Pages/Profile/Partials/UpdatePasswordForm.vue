@@ -37,15 +37,10 @@ const updatePassword = () => {
     <section>
         <header>
             <h2 class="namereg">mot de passe</h2>
-
-            <p class="">
-                Ensure your account is using a long, random password to stay secure.
-            </p>
         </header>
 
         <form @submit.prevent="updatePassword" class="">
             <div>
-                <InputLabel for="current_password" value="Current Password" />
 
                 <TextInput
                     id="current_password"
@@ -54,14 +49,13 @@ const updatePassword = () => {
                     type="password"
                     class=""
                     autocomplete="current-password"
+                    placeholder="votre mot de passe"
                 />
 
                 <InputError :message="form.errors.current_password" class="" />
             </div>
 
             <div>
-                <InputLabel for="password" value="New Password" />
-
                 <TextInput
                     id="password"
                     ref="passwordInput"
@@ -69,27 +63,25 @@ const updatePassword = () => {
                     type="password"
                     class=""
                     autocomplete="new-password"
+                    placeholder="nouveau mot de passe"
                 />
-
                 <InputError :message="form.errors.password" class="" />
             </div>
 
             <div>
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
                 <TextInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
                     class=""
                     autocomplete="new-password"
+                    placeholder="confirmez le nouveau mot de passe"
                 />
-
                 <InputError :message="form.errors.password_confirmation" class="" />
             </div>
 
             <div class="">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
 
                 <Transition
                     enter-active-class=""
@@ -97,7 +89,7 @@ const updatePassword = () => {
                     leave-active-class=""
                     leave-to-class=""
                 >
-                    <p v-if="form.recentlySuccessful" class="">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="">c'est enregistré.</p>
                 </Transition>
             </div>
         </form>
