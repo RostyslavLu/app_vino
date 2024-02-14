@@ -36,7 +36,7 @@ const updatePassword = () => {
 <template>
     <section>
         <header>
-            <h2 class="">Update Password</h2>
+            <h2 class="namereg">mot de passe</h2>
 
             <p class="">
                 Ensure your account is using a long, random password to stay secure.

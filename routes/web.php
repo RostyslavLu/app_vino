@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScraperController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CellarsController;
+use App\Http\Controllers\CellarController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -37,7 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper.index');
+
+    Route::patch('/cellars/{cellar}', [CellarsController::class, 'update'])->name('cellars.update');
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
