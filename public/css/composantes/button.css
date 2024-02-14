@@ -1,11 +1,15 @@
-button {
+.button {
     font-family: var(--font-accent);
     font-size: var(--font-current);
     font-weight: 600;
-    line-height: var(--line-height-normal);
+    padding: var(--spacing-nano);
     color: var(--primary);
     background-color: var(--accent-light);
     border: 1px solid var(--primary);
     min-width: 100%;
 }
+.button.small {
+    font-size: var(--font-short);
+    font-weight: 400;
 
+}
