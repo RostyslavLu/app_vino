@@ -1,3 +1,8 @@
+<script setup>
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import { Link } from '@inertiajs/vue3';
+</script>
+
 <template>
     <main class="auth-container">
         <header class="flex-column">
@@ -13,8 +18,3 @@
         </section>
     </main>
 </template>
-
-<script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
-</script>

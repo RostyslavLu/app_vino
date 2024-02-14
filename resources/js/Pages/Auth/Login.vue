@@ -1,3 +1,34 @@
+<script setup>
+import Checkbox from '@/Components/Checkbox.vue';
+import GuestLayout from '@/Layouts/GuestLayout.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+
+defineProps({
+    canResetPassword: {
+        type: Boolean,
+    },
+    status: {
+        type: String,
+    },
+});
+
+const form = useForm({
+    email: '',
+    password: '',
+    remember: false,
+});
+
+const submit = () => {
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
+};
+</script>
+
 <template>
     <GuestLayout class="body-login">
         <Head title="Login" />
@@ -21,7 +52,7 @@
 
                 <InputError class="" :message="form.errors.email" />
             </div>
-            <div class="inputlabel">
+            <div class="">
                 <InputLabel for="password"/>
                 <TextInput
                     id="password"
@@ -35,7 +66,7 @@
                 <InputError :message="form.errors.password"  />
             </div>
 
-            <div class="checkbox">
+            <div class="">
                 <label class="checkbox-label">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="text-white">Sauvegarder ma connexion</span>
@@ -74,35 +105,3 @@
         </form>
     </GuestLayout>
 </template>
-
-
-<script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
-
-defineProps({
-    canResetPassword: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
-
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false,
-});
-
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
-</script>
