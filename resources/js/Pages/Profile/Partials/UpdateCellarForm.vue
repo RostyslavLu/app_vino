@@ -5,29 +5,20 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 
-defineProps({
-    mustVerifyEmail: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
-
-const user = usePage().props.auth.user;
+const cellar = usePage().props.cellar;
 
 const form = useForm({
-    name: user.name,
-    email: user.email,
+    name: cellar.name,
+    description: cellar.description
 });
 </script>
 
 <template>
     <section>
         <header>
-            <p class="">
-                Update your account's profile information and email address.
-            </p>
+            <h2 class="namereg">
+                votre cellier
+            </h2>
         </header>
 
         <form @submit.prevent="form.patch(route('cellar.update'))" class="">
@@ -48,39 +39,18 @@ const form = useForm({
             </div>
 
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="description" value="Description" />
 
                 <TextInput
-                    id="email"
-                    type="email"
+                    id="description"
+                    type="text"
                     class=""
-                    v-model="form.email"
+                    v-model="form.description"
                     required
-                    autocomplete="username"
+                    autocomplete="description"
                 />
-
-                <InputError class="" :message="form.errors.email" />
-            </div>
-
-            <div v-if="mustVerifyEmail && user.email_verified_at === null">
-                <p class="">
-                    Your email address is unverified.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                        class=""
-                    >
-                        Click here to re-send the verification email.
-                    </Link>
-                </p>
-
-                <div
-                    v-show="status === 'verification-link-sent'"
-                    class=""
-                >
-                    A new verification link has been sent to your email address.
-                </div>
+                <!-- must figure out the errors... and the autocomplete -->
+                <InputError class="" :message="form.errors.description" />
             </div>
 
             <div class="">

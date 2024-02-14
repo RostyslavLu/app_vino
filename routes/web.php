@@ -38,7 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper.index');
+
+    Route::patch('/cellar', [CellarController::class, 'update'])->name('cellar.update');
+    
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');

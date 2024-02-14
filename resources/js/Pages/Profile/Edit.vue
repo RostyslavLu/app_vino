@@ -3,6 +3,7 @@ import FondBlancLayout from '@/Layouts/FondBlancLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
+import UpdateCellarForm from './Partials/UpdateCellarForm.vue';
 import { Head } from '@inertiajs/vue3';
 
 
@@ -36,8 +37,6 @@ defineProps({
                 </div>
                 <div class="">
                     <UpdateCellarForm
-                        :must-verify-email="mustVerifyEmail"
-                        :status="status"
                         class=""
                     />
                 </div>
