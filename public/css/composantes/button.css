@@ -1,11 +1,22 @@
-button {
+.button {
     font-family: var(--font-accent);
     font-size: var(--font-current);
-    font-weight: 600;
-    line-height: var(--line-height-normal);
+    font-weight: 700;
+    padding: var(--spacing-micro);
     color: var(--primary);
     background-color: var(--accent-light);
     border: 1px solid var(--primary);
     min-width: 100%;
 }
 
+.button.red {
+    color: var(--secondary);
+    background-color: var(--wine-red);
+    border: 1px solid var(--wine-red);
+}
+
+.button.small {
+    font-size: var(--font-shortest);
+    font-weight: 400;
+    padding: var(--spacing-pico);
+}

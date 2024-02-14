@@ -1,17 +1,15 @@
 <template>
-    <GuestRegisterLayout class="body-register">
-        <Head title="Register" />
+    <GuestRegisterLayout>
+        <Head title="Inscription" />
 
-        <form @submit.prevent="submit" class="formreg-class">
+        <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name"/>
 
                 <TextInput
                     id="name"
                     type="text"
-                    class="textreg-input"
                     v-model="form.name"
-                    required
                     autofocus
                     autocomplete="name"
                     placeholder="nom"
@@ -26,9 +24,7 @@
                 <TextInput
                     id="email"
                     type="email"
-                    class="textreg-input"
                     v-model="form.email"
-                    required
                     autocomplete="username"
                     placeholder="courriel"
                 />
@@ -37,35 +33,31 @@
             </div>
 
             <div class="">
-                <InputLabel for="cellier" />
+                <InputLabel for="cellar_name" />
 
                 <TextInput
-                    id="cellier"
+                    id="cellar_name"
                     type="text"
-                    class="textreg-input"
-                    v-model="form.cellier"
-                    required
+                    v-model="form.cellar_name"
                     autocomplete="nom du cellier"
                     placeholder="nom du cellier"
                 />
 
-                <InputError class="" :message="form.errors.cellier" />
+                <InputError class="" :message="form.errors.cellar_name" />
             </div>
 
             <div class="">
-                <InputLabel for="description" />
+                <InputLabel for="dcellar_description" />
 
-                <Textarea
-                    id="description"
+                <TextInput
+                    id="cellar_description"
                     type="text"
-                    class="textreg-input"
-                    v-model="form.description"
-                    required
+                    v-model="form.cellar_description"
                     autocomplete="description"
                     placeholder="description du cellier"
-                ></textarea>
+                />
 
-                <InputError class="" :message="form.errors.description" />
+                <InputError class="" :message="form.errors.cellar_description" />
             </div>
 
             <div class="">
@@ -74,9 +66,7 @@
                 <TextInput
                     id="password"
                     type="password"
-                    class="textreg-input"
                     v-model="form.password"
-                    required
                     autocomplete="new-password"
                     placeholder="mot de passe"
                 />
@@ -90,9 +80,7 @@
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="textreg-input"
                     v-model="form.password_confirmation"
-                    required
                     autocomplete="new-password"
                     placeholder="confirmer le mot de passe"
                 />
@@ -101,7 +89,7 @@
             </div>
                 <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Sauvegarder
-                </PrimaryRegisterButton>  
+                </PrimaryRegisterButton>
         </form>
     </GuestRegisterLayout>
 </template>
