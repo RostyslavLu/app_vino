@@ -27,7 +27,7 @@
 	}
 
 	/* Anchor decoration is unwanted in nav. */
-	nav a { 
+	a { 
 		text-decoration: none; 
 	}
 
