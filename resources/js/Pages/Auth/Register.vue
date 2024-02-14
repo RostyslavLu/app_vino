@@ -33,31 +33,31 @@
             </div>
 
             <div class="">
-                <InputLabel for="cellier" />
+                <InputLabel for="cellar_name" />
 
                 <TextInput
-                    id="cellier"
+                    id="cellar_name"
                     type="text"
-                    v-model="form.cellier"
+                    v-model="form.cellar_name"
                     autocomplete="nom du cellier"
                     placeholder="nom du cellier"
                 />
 
-                <InputError class="" :message="form.errors.cellier" />
+                <InputError class="" :message="form.errors.cellar_name" />
             </div>
 
             <div class="">
-                <InputLabel for="description" />
+                <InputLabel for="dcellar_description" />
 
                 <TextInput
-                    id="description"
+                    id="cellar_description"
                     type="text"
-                    v-model="form.description"
+                    v-model="form.cellar_description"
                     autocomplete="description"
                     placeholder="description du cellier"
                 />
 
-                <InputError class="" :message="form.errors.description" />
+                <InputError class="" :message="form.errors.cellar_description" />
             </div>
 
             <div class="">
