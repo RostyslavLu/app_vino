@@ -1,9 +1,3 @@
-<template>
-    <div>
-        <input type="search" :value="modelValue" placeholder="Rechercher un vin" @input="updateValue($event)" />
-    </div>
-</template>
-
 <script setup>
 import { defineProps, defineEmits } from 'vue';
 
@@ -17,3 +11,12 @@ const updateValue = (event) => {
     emit('update:modelValue', event.target.value);
 };
 </script>
+
+<template>
+    <input
+    type="search"
+    :value="modelValue"
+    placeholder="Rechercher un vin"
+    @input="updateValue($event)"
+    />
+</template>

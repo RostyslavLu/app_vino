@@ -1,4 +1,4 @@
-main {
+.account-content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -6,23 +6,13 @@ main {
     background-color: #F7F9EF;
 }
 /* recherche */
-.search {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
+
 /* cellier utilisateur */
 .user-cellars {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-}
-.user-cellars > select {
-    background-color: #F7F9EF;
 }
 /* contenu de cellier  */
 .cellar-content {

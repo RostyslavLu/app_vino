@@ -10,9 +10,6 @@ import { Head } from '@inertiajs/vue3';
     <Head title="Mon compte" />
 
     <AuthenticatedLayout>
-        <!-- <section class="account-content">
-            <SearchVineCellar />
-        </section> -->
         <section class="account-content">
             <UserCellars />
         </section>
