@@ -28,13 +28,11 @@ const form = useForm({
 <!--        <p class="">
                 Update your account's profile information and email address.
             </p> -->
-            <vue-feather type="feather"></vue-feather>
+            <!-- <vue-feather type="feather"></vue-feather> -->
         </header>
 
         <form @submit.prevent="form.patch(route('profile.update'))" class="">
             <div>
-                <InputLabel for="name" value="Name" />
-
                 <TextInput
                     id="name"
                     type="text"
@@ -43,13 +41,13 @@ const form = useForm({
                     required
                     autofocus
                     autocomplete="name"
+                    placeholder="nom"
                 />
 
                 <InputError class="" :message="form.errors.name" />
             </div>
 
             <div>
-                <InputLabel for="email" value="Email" />
 
                 <TextInput
                     id="email"
@@ -58,6 +56,7 @@ const form = useForm({
                     v-model="form.email"
                     required
                     autocomplete="username"
+                    placeholder="courriel"
                 />
 
                 <InputError class="" :message="form.errors.email" />
@@ -85,7 +84,7 @@ const form = useForm({
             </div>
 
             <div class="">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
 
                 <Transition
                     enter-active-class=""
@@ -93,7 +92,7 @@ const form = useForm({
                     leave-active-class=""
                     leave-to-class=""
                 >
-                    <p v-if="form.recentlySuccessful" class="">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="">C'est enregistré.</p>
                 </Transition>
             </div>
         </form>

@@ -43,34 +43,30 @@ const closeModal = () => {
             <h2 class="namereg">supprimer</h2>
 
             <p class="">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-                your account, please download any data or information that you wish to retain.
+                Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier, ou vos vins. Assurer vous de bien vouloir tout supprimer.
             </p>
         </header>
 
-        <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+        <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="">
                 <h2 class="">
-                    Are you sure you want to delete your account?
+                    Êtes vous sure du vouloir supprimer votre compte?
                 </h2>
 
                 <p class="">
-                    Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                    enter your password to confirm you would like to permanently delete your account.
+                    Une fois votre compte supprimé, votre cellier, et vos vins seront effacées de façon permanente. Veillez entrer votre mot de passe pour confirmer.
                 </p>
 
                 <div class="">
-                    <InputLabel for="password" value="Password" class="" />
-
                     <TextInput
                         id="password"
                         ref="passwordInput"
                         v-model="form.password"
                         type="password"
                         class=""
-                        placeholder="Password"
+                        placeholder="mot de passe"
                         @keyup.enter="deleteUser"
                     />
 
@@ -78,7 +74,7 @@ const closeModal = () => {
                 </div>
 
                 <div class="">
-                    <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                    <SecondaryButton @click="closeModal"> Annuler </SecondaryButton>
 
                     <DangerButton
                         class=""
@@ -86,7 +82,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Delete Account
+                        Supprimer votre compte
                     </DangerButton>
                 </div>
             </div>
