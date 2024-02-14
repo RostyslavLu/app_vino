@@ -33,11 +33,11 @@ const submit = () => {
     <GuestLayout class="body-login">
         <Head title="Login" />
 
-        <div v-if="status" class="">
+        <div v-if="status">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit" class="">
+        <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email"/>
 
@@ -57,7 +57,6 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="text-input"
                     v-model="form.password"
                     autocomplete="current-password"
                     placeholder="mot de passe"

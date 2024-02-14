@@ -18,4 +18,5 @@
 
 /* ------Atomes ----------- */
 @import "atomes/utility.css";
+@import "atomes/input-error.css";
 

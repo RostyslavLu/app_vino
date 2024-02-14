@@ -1,0 +1,9 @@
+/*  */
+/* InputError.vue */
+
+.input-error {
+    color: var(--tertiary);
+    margin-top: var(--spacing-nano);
+
+}
+
