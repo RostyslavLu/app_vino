@@ -1,97 +1,17 @@
+/* style de page d'inscription de l'utilisateur */
 
-/* ============================================================= */
-
-/* GuestRegisterLayout.vue */
-
-.div-guest-register {
+.guest-register {
+    font-family: var(--font-accent);
+    background-color: var(--secondary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1rem;
 }
 
-
-.div-guest-register .logo-container {
-    align-self: flex-start;
-    margin-left: 35px;
-}
-
-/* Register.vue */
-
-/* body {
-    overflow: hidden; 
-} */
-
-.body-register {
-    background-color: rgba(247, 249, 239, 1);
-}
-
-.formreg-class {
-    margin-top: 45px;
-}
-
-.formreg-class input {
-    margin-bottom: 20px;
-}
-
-.textreg-input {
-    font-size: 1rem;
-    line-height: 2rem;
-    border: 1px solid black;
-    color: rgb(14, 13, 13);
-    background-color: white;
-    margin-left: -60px;
-    width: 200%;
-    margin-top: 0.25rem;
-    padding-left: 10px;
-
-}
-
-.textreg-input::placeholder {
-    padding-left: 3px;
-}
-
-
-/* GuestRegisterLayout.vue */
-
-.namereg {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #6B7280;
-}
-
-/* ApplicationLogoReg.vue */
-
-.logoreg-image {
-    width: 4rem;
-    height: 4rem;
-    object-fit: contain;
-    fill: currentColor;
-    color: #6B7280;
-}
-
-/* PrimaryRegisterButton.vue */
-
-.input-labelreg {
-    margin-top: 0.25rem;
-    display: block;
-    line-height: 2rem;
-    width: 200%;
-    border: 1px solid rgb(217, 159, 44);
-    background-color: rgb(238, 238, 195);
-    margin-left: -60px;
-    border-radius: 0.375rem;
-
-}
-
-/* Texarea.vue */
-.input-textarea {
-        margin-bottom: 25px;
-        margin-top: 0.25rem;
-        display: block;
-        width: 200%;
-        border: 1px solid black;
-        margin-left: -60px;
+.register-page-title {
+    font-size: var(--font-tallest);
+    color: var(--primary);
+    margin-bottom: var(--spacing-thinnest);
 }

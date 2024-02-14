@@ -2,8 +2,11 @@
 /* InputError.vue */
 
 .input-error {
-    color: var(--tertiary);
-    margin-top: var(--spacing-nano);
+    color: var(--accent-medium);
+    margin-bottom: var(--spacing-nano);
+}
 
+.input-icon {
+    color: var(--accent-medium);
 }
 

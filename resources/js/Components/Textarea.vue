@@ -16,3 +16,10 @@ onMounted(() => {
 
 defineExpose({ focus: () => input.value.focus() });
 </script>
+
+<template>
+    <textarea
+        v-model="model"
+        ref="input"
+    ></textarea>
+</template>

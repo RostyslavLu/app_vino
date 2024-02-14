@@ -1,18 +1,17 @@
 <template>
-    <div class="div-guest-register">
+    <div class="guest-register">
         <div class="logo-container">
             <Link href="/">
-                <ApplicationLogo/>
-   
+                <ApplicationLogo class="logo"/>
             </Link>
-    
+
         </div>
-        <div class="namereg">
+        <div class="register-page-title">
             enregistrement
        </div>
         <div
         >
-            <slot /> 
+            <slot />
         </div>
     </div>
 </template>
