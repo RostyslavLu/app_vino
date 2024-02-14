@@ -43,7 +43,7 @@ const closeModal = () => {
             <h2 class="namereg">supprimer</h2>
 
             <p class="">
-                Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier, ou vos vins. Assurer vous de bien vouloir tout supprimer.
+                Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
             </p>
         </header>
 
@@ -52,11 +52,11 @@ const closeModal = () => {
         <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="">
                 <h2 class="">
-                    Êtes vous sure du vouloir supprimer votre compte?
+                    Êtes vous certain du vouloir supprimer votre compte?
                 </h2>
 
                 <p class="">
-                    Une fois votre compte supprimé, votre cellier, et vos vins seront effacées de façon permanente. Veillez entrer votre mot de passe pour confirmer.
+                    Une fois votre compte supprimé, votre cellier et vos vins seront effacés de façon permanente. Veuillez entrer votre mot de passe pour confirmer.
                 </p>
 
                 <div class="">
