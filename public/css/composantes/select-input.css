@@ -1,0 +1,12 @@
+select {
+    font-size: var(--font-current);
+    font-weight: 700;
+    line-height: var(--line-height-normal);
+    color: var(--primary);
+    background-color: var(--secondary);
+    padding: 5px;
+    border:none;
+}
+option {
+    font-weight: 300;
+}
