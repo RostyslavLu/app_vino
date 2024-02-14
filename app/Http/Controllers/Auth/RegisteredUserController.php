@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Cellars;
 
 class RegisteredUserController extends Controller
 {
@@ -45,10 +46,23 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        Cellars::create([
+            'name' => $request->cellar_name,
+            'description' => $request->cellar_description,
+            'user_id' => $user->id,
+        ]);
+
         event(new Registered($user));
 
-        Auth::logout($user);
+        //TODO: est-ce qu'on veut que l'utilisateur qui vient de
+        //s'enregistrer soit logout? 
+        Auth::login($user);
 
-        return redirect()->route('login');
+
+/*         Auth::logout($user);
+
+        return redirect()->route('login'); */
+
+        return redirect()->route('dashboard');
     }
 }
