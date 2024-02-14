@@ -1,22 +1,17 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SearchVineCellar from '@/Components/SearchVineCellar.vue';
+import UserCellars from '@/Components/UserCellars.vue';
 import { Head } from '@inertiajs/vue3';
+
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Mon compte" />
 
     <AuthenticatedLayout>
-        <template #header>
-            <h2 class="">Dashboard</h2>
-        </template>
-
-        <div class="">
-            <div class="">
-                <div class="">
-                    <div class="">You're logged in!</div>
-                </div>
-            </div>
-        </div>
+        <section class="account-content">
+            <UserCellars />
+        </section>
     </AuthenticatedLayout>
 </template>
