@@ -66,8 +66,7 @@ const submit = () => {
             <div>
                 <label class="flex-row">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <p class="text-white">Sauvegarder ma connexion</p>
-                    <!--text-white, c'est nous ou c'est tailwind?-->
+                    <p class="text-accent">Sauvegarder ma connexion</p>
                 </label>
             </div>
             <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
@@ -75,13 +74,13 @@ const submit = () => {
                 ce formulaire. ce code évalue si form.processing est vrai, 
                 et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
-            <div class="inputlabel">
+            <div>
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
                     Connexion
                 </PrimaryButton>
             </div>
 
-            <div class="div-link">
+            <div class="">
                 <Link
                     :href="route('password.request')"
                     class="link"
