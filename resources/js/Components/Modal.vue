@@ -66,7 +66,7 @@ const maxWidthClass = '80vw';
 <template>
     <Teleport to="body">
         <Transition leave-active-class="">
-            <div v-show="show" class="modal-overlay " scroll-region>
+            <div v-show="show" class="modal-overlay" scroll-region>
                 <Transition
                     enter-active-class=""
                     enter-from-class=""
