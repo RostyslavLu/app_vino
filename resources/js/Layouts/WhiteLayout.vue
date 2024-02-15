@@ -13,8 +13,8 @@ import { Link,  } from '@inertiajs/vue3';
             <slot name="header" />
         </h1>
     </header>
-    
-    <main class="auth-container">
+   
+        <main class="auth-container">
 
         <!-- le slot principale, pour la page -->
         <div
