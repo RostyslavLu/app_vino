@@ -50,6 +50,8 @@ class CellarsController extends Controller
 
     public function userCellarContents($id)
     {
+
+
         $userCellarContents = DB::table('cellar_contents')
             ->where('cellars_id', $id)
             ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')

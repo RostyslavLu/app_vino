@@ -39,7 +39,9 @@ const searchWine = async () => {
         return;
     }
     const response = await axios.get(route('cellars.searchWineInUserCellars', search.value));
+    //console.log(response);
     userCellarContent.value = response.data;
+    //console.log(userCellarContent.value);
 };
 
 onMounted(() => {
