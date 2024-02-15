@@ -14,8 +14,8 @@
 .input-success {
     color: var(--wine-rose);
     margin-bottom: var(--spacing-thinnest);
-    max-width: 33ch;
-    font-size: var(--font-tall);
     max-width: 20ch;
+    font-size: var(--font-tall);
+    font-family: var(--font-alt);
 }
 

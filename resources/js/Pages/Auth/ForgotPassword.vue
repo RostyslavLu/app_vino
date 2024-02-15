@@ -26,8 +26,11 @@ const submit = () => {
         <template v-slot:header>
             Mot de passe
         </template>
-
+        
         <section class="white-text">
+            <div v-if="status" class="input-success">
+            {{ status }}
+            </div>
             <h2>Mot de passe oublié ?</h2>
             <p>Pas de problème. Nous vous enverrons un lien de réinitialisation de votre mot de passe sur l'adresse email que vous avez saisie lors de votre première connexion.</p>
         </section>

@@ -16,4 +16,8 @@ input:not([type="checkbox"]) {
     padding-left: var(--spacing-thinnest);
 }
 
+input:focus {
+    background-color: white;
+}
+
 
