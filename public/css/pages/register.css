@@ -1,5 +1,7 @@
 /* style de page d'inscription de l'utilisateur */
-
+.register h1 {
+    color: var(--primary);
+}
 .guest-register {
     font-family: var(--font-accent);
     background-color: var(--secondary);

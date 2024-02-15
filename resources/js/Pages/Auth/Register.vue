@@ -23,7 +23,7 @@ const submit = () => {
 </script>
 
 <template>
-    <WhiteLayout>
+    <WhiteLayout class="register">
         <Head title="Inscription" />
 
         <form @submit.prevent="submit">
