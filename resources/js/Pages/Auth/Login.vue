@@ -1,6 +1,6 @@
 <script setup>
 import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import BlackLayout from '@/Layouts/BlackLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -30,7 +30,7 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout class="body-login">
+    <BlackLayout class="body-login">
         <Head title="Login" />
 
         <div v-if="status">
@@ -90,5 +90,5 @@ const submit = () => {
                     Créer un compte
                 </Link>
         </form>
-    </GuestLayout>
+    </BlackLayout>
 </template>
