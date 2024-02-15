@@ -1,5 +1,5 @@
 <script setup>
-import FondBlancLayout from '@/Layouts/FondBlancLayout.vue';
+import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -22,9 +22,9 @@ const submit = () => {
 </script>
 
 <template>
-    <FondBlancLayout>
+    <WhiteLayout>
         <template v-slot:header>
-            Mot de passe oublié
+            Mot de passe oublié?
         </template>
         <section>
             Mot de passe oublié? Pas de problème. Dites-nous simplement votre adresse e-mail 
@@ -62,5 +62,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </FondBlancLayout>
+    </WhiteLayout>
 </template>

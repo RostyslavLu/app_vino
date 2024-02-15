@@ -1,5 +1,5 @@
 <script setup>
-import GuestRegisterLayout from '@/Layouts/GuestRegisterLayout.vue';
+import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
@@ -23,7 +23,7 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestRegisterLayout>
+    <WhiteLayout>
         <Head title="Inscription" />
 
         <form @submit.prevent="submit">
@@ -115,7 +115,7 @@ const submit = () => {
                     Sauvegarder
                 </PrimaryRegisterButton>
         </form>
-    </GuestRegisterLayout>
+    </WhiteLayout>
 </template>
 
 
