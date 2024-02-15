@@ -12,7 +12,6 @@ const selectedCellar = ref(1);
 const fetchUserCellars = async () => {
     const response = await axios.get(route('cellars.userCellars'));
     userCellars.value = response.data;
-    console.log(userCellars.value);
 };
 
 const fetchUserCellarContent = async (event) => {
@@ -39,9 +38,8 @@ const searchWine = async () => {
         return;
     }
     const response = await axios.get(route('cellars.searchWineInUserCellars', search.value));
-    //console.log(response);
     userCellarContent.value = response.data;
-    //console.log(userCellarContent.value);
+    console.log(response.data);
 };
 
 onMounted(() => {
