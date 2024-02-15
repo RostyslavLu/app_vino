@@ -1,5 +1,5 @@
 <script setup>
-import FondBlancLayout from '@/Layouts/FondBlancLayout.vue';
+import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
@@ -21,7 +21,7 @@ defineProps({
 <template>
     <Head title="Profile" />
 
-    <FondBlancLayout>
+    <WhiteLayout>
         <template #header>
             <h2 class="namereg">vos informations</h2>
         </template>
@@ -50,5 +50,5 @@ defineProps({
                 </div>
             </div>
         </div>
-    </FondBlancLayout>
+    </WhiteLayout>
 </template>
