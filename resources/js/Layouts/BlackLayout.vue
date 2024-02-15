@@ -1,23 +1,20 @@
-<template>
-    <div class="guest-register">
-        <div class="logo-container">
-            <Link href="/">
-                <ApplicationLogo class="logo"/>
-            </Link>
-
-        </div>
-        <div class="register-page-title">
-            enregistrement
-       </div>
-        <div
-        >
-            <slot />
-        </div>
-    </div>
-</template>
-
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 
+<template>
+    <main class="auth-container">
+        <header class="flex-column">
+            <Link href="/">
+                <ApplicationLogo class="logo white" />
+            </Link>
+            <h1>vino</h1>
+        </header>   
+            
+        <section
+        >
+            <slot /> 
+        </section>
+    </main>
+</template>
