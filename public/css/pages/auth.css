@@ -1,0 +1,88 @@
+
+/* BlackLayout.vue et WhiteLayout.vue */
+
+.auth-container {
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    color: var(--secondary);
+    justify-content: space-evenly;
+    font-family: var(--font-accent);
+}
+
+.auth-container a {
+    color: var(--accent-light);
+    font-size: var(--font-tall);
+}
+
+
+/* WhiteLayout.vue */
+.white-container {
+    background-color: var(--secondary);
+    align-items: center;
+    color: var(--primary);
+
+}
+
+.white-header {
+    padding: var(--spacing-thin);
+    min-height: 20vh;
+}
+
+/* Login.vue */
+.black-container {
+    background-color: var(--primary);
+    align-items: center;
+}   
+
+/* ForgotPassword.vue */
+
+.white-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    justify-content: space-evenly;
+}
+
+.white-text {
+    padding: 0 var(--spacing-thin);
+}
+
+.white-text>p {
+    margin: var(--spacing-thin) 0 0 0;
+}
+
+
+
+
+
+
+/* style de page d'inscription de l'utilisateur */
+
+.guest-register {
+    font-family: var(--font-accent);
+    background-color: var(--secondary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-page-title {
+    font-size: var(--font-tallest);
+    color: var(--primary);
+    margin-bottom: var(--spacing-thinnest);
+}
+
+
+
+
+
+
+
+
+
+
+

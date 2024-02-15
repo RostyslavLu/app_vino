@@ -42,9 +42,7 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class=""
                     v-model="form.email"
-                    required
                     autofocus
                     autocomplete="username"
                 />
@@ -58,9 +56,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class=""
                     v-model="form.password"
-                    required
                     autocomplete="new-password"
                 />
 
@@ -73,9 +69,7 @@ const submit = () => {
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class=""
                     v-model="form.password_confirmation"
-                    required
                     autocomplete="new-password"
                 />
 

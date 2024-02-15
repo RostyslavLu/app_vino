@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <main class="auth-container">
+    <div class="auth-container">
         <header class="flex-column">
             <Link href="/">
                 <ApplicationLogo class="logo white" />
@@ -12,9 +12,9 @@ import { Link } from '@inertiajs/vue3';
             <h1>vino</h1>
         </header>   
             
-        <section
+        <main
         >
             <slot /> 
-        </section>
-    </main>
+        </main>
+    </div>
 </template>
