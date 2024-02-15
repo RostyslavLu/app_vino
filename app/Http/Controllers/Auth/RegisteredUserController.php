@@ -59,7 +59,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
 
-/*         Auth::logout($user);
+/*      Auth::logout($user);
 
         return redirect()->route('login'); */
 
