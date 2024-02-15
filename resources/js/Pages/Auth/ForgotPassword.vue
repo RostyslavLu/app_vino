@@ -22,20 +22,20 @@ const submit = () => {
 </script>
 
 <template>
-    <WhiteLayout class="body-forgot-password">
-        <Head title="Mot de passe oublié" />
+    <WhiteLayout class="white-container">
+        <template v-slot:header>
+            Mot de passe
+        </template>
 
-        <div v-if="status">
-            {{ status }}
-        </div>
-
-        <div class="text-forgot-password">
+        <section class="white-text">
             <h2>Mot de passe oublié ?</h2>
             <p>Pas de problème. Nous vous enverrons un lien de réinitialisation de votre mot de passe sur l'adresse email que vous avez saisie lors de votre première connexion.</p>
-        </div>
+        </section>
 
         <form @submit.prevent="submit">
             <div>
+                <InputError class="input-error" :message="form.errors.email" />
+
                 <InputLabel for="email"/>
                 <TextInput
                     id="email"
@@ -46,14 +46,7 @@ const submit = () => {
                     autocomplete="username"
                 />
 
-                <InputError class="" :message="form.errors.email" />
             </div>
-
-            <!-- commentaire: J'ai enlevé une classe tailwind,
-                et ajouté une classe imaginaire,
-                qu'on peut remplacer si on utilise ce formulaire.
-                ce code évalue si form.processing est vrai,
-                et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
 
             <div >
                 <PrimaryButton class="button red">

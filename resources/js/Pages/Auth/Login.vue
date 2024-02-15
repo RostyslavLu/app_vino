@@ -30,7 +30,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BlackLayout class="body-login">
+    <BlackLayout class="black-container">
         <Head title="Login" />
 
         <div v-if="status">
