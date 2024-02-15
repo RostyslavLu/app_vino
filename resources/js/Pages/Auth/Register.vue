@@ -23,13 +23,15 @@ const submit = () => {
 </script>
 
 <template>
-    <WhiteLayout class="register">
-        <Head title="Inscription" />
+    <WhiteLayout class="white-container">
+        <template v-slot:header>
+            Inscription
+        </template>
 
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name"/>
-
+                <InputError :message="form.errors.name" />
                 <TextInput
                     id="name"
                     type="text"
@@ -39,12 +41,11 @@ const submit = () => {
                     placeholder="nom"
                 />
 
-                <InputError class="" :message="form.errors.name" />
             </div>
 
-            <div class="">
+            <div>
                 <InputLabel for="email" />
-
+                <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -53,12 +54,11 @@ const submit = () => {
                     placeholder="courriel"
                 />
 
-                <InputError class="" :message="form.errors.email" />
             </div>
 
-            <div class="">
+            <div>
                 <InputLabel for="cellar_name" />
-
+                <InputError class="" :message="form.errors.cellar_name" />
                 <TextInput
                     id="cellar_name"
                     type="text"
@@ -67,12 +67,11 @@ const submit = () => {
                     placeholder="nom du cellier"
                 />
 
-                <InputError class="" :message="form.errors.cellar_name" />
             </div>
 
-            <div class="">
+            <div>
                 <InputLabel for="cellar_description" />
-
+                <InputError :message="form.errors.cellar_description" />
                 <TextInput
                     id="cellar_description"
                     type="text"
@@ -81,12 +80,11 @@ const submit = () => {
                     placeholder="description du cellier"
                 />
 
-                <InputError class="" :message="form.errors.cellar_description" />
             </div>
 
-            <div class="">
+            <div>
                 <InputLabel for="password"/>
-
+                <InputError :message="form.errors.password" />
                 <TextInput
                     id="password"
                     type="password"
@@ -95,12 +93,11 @@ const submit = () => {
                     placeholder="mot de passe"
                 />
 
-                <InputError class="" :message="form.errors.password" />
             </div>
 
-            <div class="">
+            <div>
                 <InputLabel for="password_confirmation"/>
-
+                <InputError class="input-error" :message="form.errors.password_confirmation" />
                 <TextInput
                     id="password_confirmation"
                     type="password"
@@ -109,7 +106,6 @@ const submit = () => {
                     placeholder="confirmer le mot de passe"
                 />
 
-                <InputError class="" :message="form.errors.password_confirmation" />
             </div>
                 <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Sauvegarder

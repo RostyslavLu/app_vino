@@ -33,7 +33,7 @@ const submit = () => {
     <BlackLayout class="black-container">
         <Head title="Login" />
 
-        <div v-if="status">
+        <div v-if="status" class="input-success">
             {{ status }}
         </div>
 
