@@ -22,7 +22,6 @@
     background-color: var(--secondary);
     align-items: center;
     color: var(--primary);
-
 }
 
 .white-header {
@@ -76,6 +75,9 @@
     margin-bottom: var(--spacing-thinnest);
 }
 
+.inscription-container {
+    
+}
 
 
 

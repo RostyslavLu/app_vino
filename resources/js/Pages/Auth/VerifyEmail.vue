@@ -33,7 +33,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
         </div>
 
         <form @submit.prevent="submit">
-            <div class="">
+            <div>
                 <!-- commentaire: J'ai enlevé une classe tailwind, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
                 <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
                     Resend Verification Email
