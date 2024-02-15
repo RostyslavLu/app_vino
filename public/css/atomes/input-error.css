@@ -4,6 +4,7 @@
 .input-error {
     color: var(--accent-medium);
     margin-bottom: var(--spacing-nano);
+    max-width: 33ch;
 }
 
 .input-icon {
