@@ -8,7 +8,8 @@ const props = defineProps({
     },
     maxWidth: {
         type: String,
-        default: '2xl',
+        /* valeur temporaire */
+        default: '80vw',
     },
     closeable: {
         type: Boolean,
@@ -48,7 +49,10 @@ onUnmounted(() => {
     document.body.style.overflow = null;
 });
 
-const maxWidthClass = computed(() => {
+
+const maxWidthClass = '80vw';
+
+/* const maxWidthClass = computed(() => {
     return {
         sm: 'sm:max-w-sm',
         md: 'sm:max-w-md',
@@ -56,13 +60,13 @@ const maxWidthClass = computed(() => {
         xl: 'sm:max-w-xl',
         '2xl': 'sm:max-w-2xl',
     }[props.maxWidth];
-});
+}); */
 </script>
 
 <template>
     <Teleport to="body">
         <Transition leave-active-class="">
-            <div v-show="show" class="" scroll-region>
+            <div v-show="show" class="modal-overlay " scroll-region>
                 <Transition
                     enter-active-class=""
                     enter-from-class=""
@@ -71,7 +75,7 @@ const maxWidthClass = computed(() => {
                     leave-from-class=""
                     leave-to-class=""
                 >
-                    <div v-show="show" class="" @click="close">
+                    <div v-show="show" class="modal-overlay" @click="close">
                         <div class="" />
                     </div>
                 </Transition>
@@ -86,10 +90,11 @@ const maxWidthClass = computed(() => {
                 >
                     <div
                         v-show="show"
-                        class=""
-                        :class="maxWidthClass"
+                        class="modal-container"
                     >
-                        <slot v-if="show" />
+                        <div class="modal">
+                            <slot v-if="show" />
+                        </div>
                     </div>
                 </Transition>
             </div>
