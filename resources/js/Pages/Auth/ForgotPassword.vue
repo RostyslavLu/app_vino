@@ -24,7 +24,7 @@ const submit = () => {
 <template>
     <FondBlancLayout>
         <template v-slot:header>
-            Mot de passe oublié
+            Mot de passe oublié?
         </template>
         <section>
             Mot de passe oublié? Pas de problème. Dites-nous simplement votre adresse e-mail 
