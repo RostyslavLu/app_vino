@@ -39,7 +39,7 @@ class CellarsController extends Controller
     public function userCellars()
     {
         $userCellars = DB::table('cellars')
-            ->where('users_id', Auth::id())
+            ->where('user_id', Auth::id())
             ->get();
         return $userCellars;
     }
@@ -67,7 +67,8 @@ class CellarsController extends Controller
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.country, personal_wines.country) as country'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'))
+                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'),
+                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.grape_varieties, personal_wines.grape_varieties) as grape_varieties'))
             ->get();
             $userCellarContents = $userCellarContents->map(function ($item) {
                 $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
