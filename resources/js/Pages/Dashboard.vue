@@ -1,6 +1,5 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import SearchVineCellar from '@/Components/SearchVineCellar.vue';
+import MainLayout from '@/Layouts/MainLayout.vue';
 import UserCellars from '@/Components/UserCellars.vue';
 import { Head } from '@inertiajs/vue3';
 
@@ -9,9 +8,9 @@ import { Head } from '@inertiajs/vue3';
 <template>
     <Head title="Mon compte" />
 
-    <AuthenticatedLayout>
+    <MainLayout>
         <section class="user-account">
             <UserCellars />
         </section>
-    </AuthenticatedLayout>
+    </MainLayout>
 </template>
