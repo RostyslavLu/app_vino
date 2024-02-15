@@ -50,18 +50,25 @@ class CellarsController extends Controller
 
     public function userCellarContents($id)
     {
-        $userCellarContents = DB::table('cellar_contents')
-            ->where('cellars_id', $id)
-            ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
-            ->leftJoin('saq_wines', function ($join) {
-                $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
-                    ->where('cellar_contents.wine_sources_id', 1);
-            })
-            ->leftJoin('personal_wines', function ($join) {
-                $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
-                    ->where('cellar_contents.wine_sources_id', 2);
-            })
-            ->select('cellar_contents.*',
+
+        $user = Auth::id();
+        $userCellars = DB::table('cellars')
+            ->where('user_id', $user)
+            ->get();
+        foreach ($userCellars as $cellar) {
+            if ($cellar->id == $id) {
+                $userCellarContents = DB::table('cellar_contents')
+                    ->where('cellars_id', $id)
+                    ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
+                    ->leftJoin('saq_wines', function ($join) {
+                        $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
+                            ->where('cellar_contents.wine_sources_id', 1);
+                    })
+                    ->leftJoin('personal_wines', function ($join) {
+                        $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
+                            ->where('cellar_contents.wine_sources_id', 2);
+                    })
+                    ->select('cellar_contents.*',
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.name, personal_wines.name) as wine_name'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.price, personal_wines.price) as price'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
@@ -69,50 +76,92 @@ class CellarsController extends Controller
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'),
                         DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.grape_varieties, personal_wines.grape_varieties) as grape_varieties'))
-            ->get();
-            $userCellarContents = $userCellarContents->map(function ($item) {
-                $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
-                return $item;
-            });
+                    ->get();
+                $userCellarContents = $userCellarContents->map(function ($item) {
+                    $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
+                    return $item;
+                });
+                //$userCellarContents = $userCellarContents->map(function ($item) {
+                //    $item->cellar_name = DB::table('cellars')->where('id', $item->cellars_id)->value('name');
+                //    return $item;
+                //});
+                return $userCellarContents;
+            }
+        }
 
-        return $userCellarContents;
     }
 
     /**
      * fonction qui cherche un vin dans un cellier de l'utilisateur par nom
      */
-    public function searchWineInUserCellars($search) {
+    public function searchWineInUserCellars(Request $request) {
+        $search = $request->search;
         $user = Auth::id();
-        $userCellarContents = DB::table('cellar_contents')
-            ->where('cellars_id', $user)
-            ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
-            ->leftJoin('saq_wines', function ($join) {
-                $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
-                    ->where('cellar_contents.wine_sources_id', 1);
-            })
-            ->leftJoin('personal_wines', function ($join) {
-                $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
-                    ->where('cellar_contents.wine_sources_id', 2);
-            })
-            ->select('cellar_contents.*',
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.name, personal_wines.name) as wine_name'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.price, personal_wines.price) as price'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.country, personal_wines.country) as country'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'))
-            ->where('saq_wines.name', 'like', '%' . $search . '%')
-            ->orWhere('personal_wines.name', 'like', '%' . $search . '%')
+        $userCellarContents = [];
+
+        $userCellars = DB::table('cellars')
+            ->where('user_id', $user)
             ->get();
-            $userCellarContents = $userCellarContents->map(function ($item) {
-                $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
-                return $item;
-            });
-            $userCellarContents = $userCellarContents->map(function ($item) {
-                $item->cellar_name = DB::table('cellars')->where('id', $item->cellars_id)->value('name');
-                return $item;
-            });
+
+        foreach ($userCellars as $cellar) {
+            $contents = DB::table('cellar_contents')
+                ->where('cellars_id', $cellar->id)
+                ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
+                ->leftJoin('saq_wines', function ($join) {
+                    $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
+                        ->where('cellar_contents.wine_sources_id', 1);
+                })
+                ->leftJoin('personal_wines', function ($join) {
+                    $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
+                        ->where('cellar_contents.wine_sources_id', 2);
+                })
+                ->select('cellar_contents.*',
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.name, personal_wines.name) as wine_name'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.price, personal_wines.price) as price'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.country, personal_wines.country) as country'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'),
+                    DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.grape_varieties, personal_wines.grape_varieties) as grape_varieties'))
+                ->where('saq_wines.name', 'like', '%' . $search . '%')
+                ->orWhere('personal_wines.name', 'like', '%' . $search . '%')
+                ->get();
+
+            $userCellarContents = array_merge($userCellarContents, $contents->toArray());
+        }
+
 
         return $userCellarContents;
+        // $userCellarContents = DB::table('cellar_contents')
+        //     ->where('cellars_id', $user)
+        //     ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
+        //     ->leftJoin('saq_wines', function ($join) {
+        //         $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
+        //             ->where('cellar_contents.wine_sources_id', 1);
+        //     })
+        //     ->leftJoin('personal_wines', function ($join) {
+        //         $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
+        //             ->where('cellar_contents.wine_sources_id', 2);
+        //     })
+        //     ->select('cellar_contents.*',
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.name, personal_wines.name) as wine_name'),
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.price, personal_wines.price) as price'),
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.country, personal_wines.country) as country'),
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
+        //                 DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'))
+        //     ->where('saq_wines.name', 'like', '%' . $search . '%')
+        //     ->orWhere('personal_wines.name', 'like', '%' . $search . '%')
+        //     ->get();
+        //     $userCellarContents = $userCellarContents->map(function ($item) {
+        //         $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
+        //         return $item;
+        //     });
+        //     $userCellarContents = $userCellarContents->map(function ($item) {
+        //         $item->cellar_name = DB::table('cellars')->where('id', $item->cellars_id)->value('name');
+        //         return $item;
+        //     });
+
+        //return $userCellars;
     }
 }
