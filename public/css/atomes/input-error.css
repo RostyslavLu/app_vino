@@ -4,9 +4,18 @@
 .input-error {
     color: var(--accent-medium);
     margin-bottom: var(--spacing-nano);
+    max-width: 33ch;
 }
 
 .input-icon {
     color: var(--accent-medium);
+}
+
+.input-success {
+    color: var(--wine-rose);
+    margin-bottom: var(--spacing-thinnest);
+    max-width: 33ch;
+    font-size: var(--font-tall);
+    max-width: 20ch;
 }
 
