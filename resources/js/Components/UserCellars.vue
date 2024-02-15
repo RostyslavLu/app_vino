@@ -50,13 +50,13 @@ fetchUserCellars();
 </script>
 
 <template>
-    <article class="user-cellars">
+    <div class="user-cellars">
         <select-input v-model="selectedCellar" :options="userCellars" @change="fetchUserCellarContent($event)"></select-input>
-    </article>
-    <article>
+    </div>
+    <div>
         <search-input v-model="search" @input="searchWine" />
-    </article>
-    <article v-if="userCellarContent" >
+    </div>
+    <div v-if="userCellarContent" >
         <ul class="cellar-content">
             <li v-for="content in userCellarContent" :key="content.id">
                 <picture class="wine-image" >
@@ -64,16 +64,22 @@ fetchUserCellars();
                     <img :src="content.url_image" alt="content.name" />
                     <div class="wine-type" :style="{backgroundColor: getBackgroundColor(content.type)}"></div>
                 </picture>
-                <div class="wine-info">
-                    <p>{{ content.wine_name }}</p>
-                    <p>{{ content.country }}</p>
-                </div>
-                <div class="wine-quantity">
-                    <span>&#8593;</span>
-                    <div>{{ content.quantity }}</div>
-                    <span>&#8595;</span>
+                <div class="content-info">
+                    <h3>{{ content.wine_name }}</h3>
+                    <div class="wine-details">
+                        <div class="wine-info">
+                            <p>{{ content.country }}</p>
+                            <p>{{ content.region }}</p>
+                        </div>
+                        <div class="wine-quantity">
+                            <span>&#8593;</span>
+                            <div>{{ content.quantity }}</div>
+                            <span>&#8595;</span>
+                        </div>
+                    </div>
+                    <span>{{ content.cellar_name }}</span>
                 </div>
             </li>
         </ul>
-    </article>
+    </div>
 </template>

@@ -5,7 +5,6 @@ select {
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    padding-left: var(--spacing-micro);
     border:none;
     text-align: center;
 }
