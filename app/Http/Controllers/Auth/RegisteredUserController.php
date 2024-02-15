@@ -36,8 +36,8 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'cellar_name' => 'string|max:50',
-            'cellar_description' => 'string|max:100',
+            'cellar_name' => 'max:50',
+            'cellar_description' => 'max:100',
         ]);
 
         $user = User::create([
@@ -46,9 +46,21 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // il faut vérifier si le cellier à un nom
+        $cellarName = $request->cellar_name ?? '';
+        if($request->cellar_name == ''){
+            $cellarName = 'le cellier chez '.$user->name;
+        }
+
+        // il faut vérifier si le cellier à une description
+        $cellarDescription = $request->cellar_description ?? '';
+        if($request->cellar_description == ''){
+            $cellarDescription = 'aucune description';
+        }
+
         Cellars::create([
-            'name' => $request->cellar_name,
-            'description' => $request->cellar_description,
+            'name' => $cellarName,
+            'description' => $cellarDescription,
             'user_id' => $user->id,
         ]);
 
