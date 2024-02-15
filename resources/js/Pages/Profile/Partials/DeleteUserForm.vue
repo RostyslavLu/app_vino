@@ -7,6 +7,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
@@ -40,7 +41,7 @@ const closeModal = () => {
 <template>
     <section class="">
         <header>
-            <h2 class="namereg">supprimer</h2>
+            <h2 class="">supprimer</h2>
 
             <p class="">
                 Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
@@ -50,13 +51,16 @@ const closeModal = () => {
         <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
-            <div class="">
-                <h2 class="">
-                    Êtes vous certain du vouloir supprimer votre compte?
-                </h2>
+            <div class="modal-content">
+                <div class="modal-logo-container">
+                    <ApplicationLogo class="logo white" />
+                </div>
+                <h1>
+                    Etes-vous sûr?
+                </h1>
 
-                <p class="">
-                    Une fois votre compte supprimé, votre cellier et vos vins seront effacés de façon permanente. Veuillez entrer votre mot de passe pour confirmer.
+                <p>
+                    Votre compte, votre cellier et vos vins seront effacés de façon permanente. Veuillez entrer votre mot de passe pour confirmer.
                 </p>
 
                 <div class="">
@@ -73,7 +77,7 @@ const closeModal = () => {
                     <InputError :message="form.errors.password" class="" />
                 </div>
 
-                <div class="">
+                <div class="modal-buttons">
                     <SecondaryButton @click="closeModal"> Annuler </SecondaryButton>
 
                     <DangerButton
@@ -82,7 +86,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Supprimer votre compte
+                        Supprimer
                     </DangerButton>
                 </div>
             </div>
