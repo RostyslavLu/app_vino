@@ -9,7 +9,13 @@
 /* liste des celliers de l'utilisateur */
 .user-cellars {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: var(--spacing-thinnest);
+    align-items: center;
+}
+
+.user-cellars > select {
+    width: 100%;
 }
 
 /* contenu de cellier  */

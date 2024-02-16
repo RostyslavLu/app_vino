@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchInput from './SearchInput.vue';
 import SelectInput from './SelectInput.vue';
 import WineList from './WineList.vue';
+import ApplicationLogo from './ApplicationLogo.vue';
 
 const userCellars = ref([]);
 const userCellarContent = ref([]);
@@ -43,6 +44,7 @@ fetchUserCellars();
 
 <template>
     <div class="user-cellars">
+        <application-logo height="24" />
         <select-input v-model="selectedCellar" :options="userCellars" @change="fetchUserCellarContent($event); clearSearch()"></select-input>
     </div>
     <div>
