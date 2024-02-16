@@ -1,8 +1,7 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
@@ -23,20 +22,21 @@ const submit = () => {
 
 <template>
     <WhiteLayout class="white-container">
-        <template v-slot:header>
+        <template #header>
             Mot de passe
         </template>
-
+        
         <section class="white-text">
+            <div v-if="status" class="input-success">
+            {{ status }}
+            </div>
             <h2>Mot de passe oublié ?</h2>
             <p>Pas de problème. Nous vous enverrons un lien de réinitialisation de votre mot de passe sur l'adresse email que vous avez saisie lors de votre première connexion.</p>
         </section>
 
         <form @submit.prevent="submit">
             <div>
-                <InputError class="input-error" :message="form.errors.email" />
-
-                <InputLabel for="email"/>
+                <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -49,9 +49,9 @@ const submit = () => {
             </div>
 
             <div >
-                <PrimaryButton class="button red">
+                <PrimaryRegisterButton>
                     Réinitialiser
-                </PrimaryButton>
+                </PrimaryRegisterButton>
             </div>
         </form>
     </WhiteLayout>

@@ -1,7 +1,6 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -44,7 +43,6 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="email" />
                 <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
@@ -57,8 +55,7 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="cellar_name" />
-                <InputError class="" :message="form.errors.cellar_name" />
+                <InputError :message="form.errors.cellar_name" />
                 <TextInput
                     id="cellar_name"
                     type="text"
@@ -70,7 +67,6 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="cellar_description" />
                 <InputError :message="form.errors.cellar_description" />
                 <TextInput
                     id="cellar_description"
@@ -83,7 +79,6 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="password"/>
                 <InputError :message="form.errors.password" />
                 <TextInput
                     id="password"
@@ -96,7 +91,6 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="password_confirmation"/>
                 <InputError class="input-error" :message="form.errors.password_confirmation" />
                 <TextInput
                     id="password_confirmation"
@@ -107,9 +101,11 @@ const submit = () => {
                 />
 
             </div>
-                <PrimaryRegisterButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <div>
+                <PrimaryRegisterButton>
                     Sauvegarder
                 </PrimaryRegisterButton>
+            </div>
         </form>
     </WhiteLayout>
 </template>

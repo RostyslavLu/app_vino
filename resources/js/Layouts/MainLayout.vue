@@ -17,23 +17,23 @@ const showingNavigationDropdown = ref(false);
             <div class="">
                 <div class="">
                     <!-- Logo -->
-                    <div class="">
+                    <!-- <div class="">
                         <Link :href="route('dashboard')">
                         <ApplicationLogo class="logo" />
                         </Link>
-                    </div>
+                    </div> -->
 
                     <!-- Navigation Links -->
-                    <div class="">
+                    <!-- <div class="">
                         <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </NavLink>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="">
                     <!-- Settings Dropdown -->
-                    <div class="">
+                    <!-- <div class="">
                         <Dropdown align="right" width="48">
                             <template #trigger>
                                 <span class="">
@@ -57,11 +57,11 @@ const showingNavigationDropdown = ref(false);
                                 </DropdownLink>
                             </template>
                         </Dropdown>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Hamburger -->
-                <div class="">
+                <!-- <div class="">
                     <button @click="showingNavigationDropdown = !showingNavigationDropdown" class="">
                         <svg class="" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{
@@ -76,17 +76,17 @@ const showingNavigationDropdown = ref(false);
                                 d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <!-- Responsive Navigation Menu -->
         <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="">
-            <div class="">
+            <!-- <div class="">
                 <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                     Dashboard
                 </ResponsiveNavLink>
-            </div>
+            </div> -->
 
             <!-- Responsive Settings Options -->
             <div class="">

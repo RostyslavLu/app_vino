@@ -1,6 +1,6 @@
 <template>
     <button
-    class="button dark"
+    class="button register"
     >
         <slot />
     </button>

@@ -13,6 +13,8 @@
         --accent-dark: #723134;
 
 		--error: var(--accent-medium);
+		--success: var(--tertiary);
+		
 
         --wine-white: #E7DBA0;
         --wine-red: #92171C;

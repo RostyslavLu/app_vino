@@ -31,68 +31,55 @@ const form = useForm({
             <!-- <vue-feather type="feather"></vue-feather> -->
         </header>
 
-        <form @submit.prevent="form.patch(route('profile.update'))" class="">
+        <form @submit.prevent="form.patch(route('profile.update'))">
             <div>
+                <InputError :message="form.errors.name" />
                 <TextInput
                     id="name"
                     type="text"
-                    class=""
                     v-model="form.name"
-                    required
                     autofocus
                     autocomplete="name"
                     placeholder="nom"
                 />
-
-                <InputError class="" :message="form.errors.name" />
             </div>
 
             <div>
-
+                <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
-                    class=""
                     v-model="form.email"
-                    required
                     autocomplete="username"
                     placeholder="courriel"
                 />
-
-                <InputError class="" :message="form.errors.email" />
             </div>
 
             <div v-if="mustVerifyEmail && user.email_verified_at === null">
                 <p class="">
-                    Your email address is unverified.
+                    Votre adresse courriel n'est pas vérifiée.
                     <Link
                         :href="route('verification.send')"
                         method="post"
                         as="button"
-                        class=""
                     >
-                        Click here to re-send the verification email.
+                        Cliquer ici pour renvoyer le courriel de vérification.
                     </Link>
                 </p>
 
                 <div
                     v-show="status === 'verification-link-sent'"
-                    class=""
                 >
-                    A new verification link has been sent to your email address.
+                    Nouveau lien de vérification envoyé à votre adresse courriel.
                 </div>
             </div>
 
-            <div class="">
+            <div>
                 <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
 
-                <Transition
-                    enter-active-class=""
-                    enter-from-class=""
-                    leave-active-class=""
-                    leave-to-class=""
+                <Transition name="button-save"
                 >
-                    <p v-if="form.recentlySuccessful" class="">C'est enregistré.</p>
+                    <p v-if="form.recentlySuccessful" class="text-success">C'est enregistré.</p>
                 </Transition>
             </div>
         </form>
