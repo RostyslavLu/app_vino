@@ -23,6 +23,8 @@ const submit = () => {
 
 <template>
     <WhiteLayout class="white-container">
+        <Head title="Inscription" />
+
         <template v-slot:header>
             Inscription
         </template>

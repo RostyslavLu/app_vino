@@ -29,8 +29,8 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="Login" />
     <BlackLayout class="black-container">
-        <Head title="Login" />
 
         <div v-if="status" class="input-success">
             {{ status }}

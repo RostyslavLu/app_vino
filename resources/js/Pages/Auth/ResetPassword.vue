@@ -31,6 +31,7 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="réinitialisation de mot de passe" />
     <WhiteLayout class="white-container">
         <template v-slot:header>
             mot de passe
