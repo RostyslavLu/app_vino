@@ -21,7 +21,9 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="Mot de passe oublié" />
     <WhiteLayout class="white-container">
+
         <template #header>
             Mot de passe
         </template>

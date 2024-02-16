@@ -50,7 +50,7 @@ const closeModal = () => {
         <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="modal-content">
                 <div class="modal-logo-container">
-                    <ApplicationLogo class="logo white" />
+                    <ApplicationLogo class="logo white" @click="closeModal"/>
                 </div>
                 <h1>
                     Etes-vous sûr?

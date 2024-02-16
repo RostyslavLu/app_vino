@@ -12,6 +12,8 @@
         --accent-medium: #E8A73F;
         --accent-dark: #723134;
 
+		--semi-transparent-overlay: #e3decbbf;
+
 		--error: var(--accent-medium);
 		--success: var(--tertiary);
 		
