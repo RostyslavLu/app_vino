@@ -1,7 +1,6 @@
 <script setup>
 import DangerButton from '@/Components/DangerButton.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
@@ -18,7 +17,6 @@ const form = useForm({
 
 const confirmUserDeletion = () => {
     confirmingUserDeletion.value = true;
-
     nextTick(() => passwordInput.value.focus());
 };
 
@@ -33,17 +31,16 @@ const deleteUser = () => {
 
 const closeModal = () => {
     confirmingUserDeletion.value = false;
-
     form.reset();
 };
 </script>
 
 <template>
-    <section class="">
+    <section>
         <header>
-            <h2 class="">supprimer</h2>
+            <h2>supprimer</h2>
 
-            <p class="">
+            <p>
                 Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
             </p>
         </header>
@@ -63,13 +60,12 @@ const closeModal = () => {
                     Votre compte, votre cellier et vos vins seront effacés de façon permanente. Veuillez entrer votre mot de passe pour confirmer.
                 </p>
 
-                <div class="">
+                <div>
                     <TextInput
                         id="password"
                         ref="passwordInput"
                         v-model="form.password"
                         type="password"
-                        class=""
                         placeholder="mot de passe"
                         @keyup.enter="deleteUser"
                     />
@@ -81,7 +77,6 @@ const closeModal = () => {
                     <SecondaryButton @click="closeModal"> Annuler </SecondaryButton>
 
                     <DangerButton
-                        class=""
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
                         @click="deleteUser"

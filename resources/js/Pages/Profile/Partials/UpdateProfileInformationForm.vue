@@ -31,33 +31,28 @@ const form = useForm({
             <!-- <vue-feather type="feather"></vue-feather> -->
         </header>
 
-        <form @submit.prevent="form.patch(route('profile.update'))" class="">
+        <form @submit.prevent="form.patch(route('profile.update'))">
             <div>
+                <InputError :message="form.errors.name" />
                 <TextInput
                     id="name"
                     type="text"
-                    class=""
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
                     placeholder="nom"
                 />
-
-                <InputError class="" :message="form.errors.name" />
             </div>
 
             <div>
-
+                <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
-                    class=""
                     v-model="form.email"
                     autocomplete="username"
                     placeholder="courriel"
                 />
-
-                <InputError class="" :message="form.errors.email" />
             </div>
 
             <div v-if="mustVerifyEmail && user.email_verified_at === null">
@@ -67,7 +62,6 @@ const form = useForm({
                         :href="route('verification.send')"
                         method="post"
                         as="button"
-                        class=""
                     >
                         Cliquer ici pour renvoyer le courriel de vérification.
                     </Link>
@@ -75,14 +69,13 @@ const form = useForm({
 
                 <div
                     v-show="status === 'verification-link-sent'"
-                    class=""
                 >
                     Nouveau lien de vérification envoyé à votre adresse courriel.
                 </div>
             </div>
 
-            <div class="block-button">
-                <PrimaryButton class="button" :disabled="form.processing">Sauvegarder</PrimaryButton>
+            <div>
+                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
 
                 <Transition name="button-save"
                 >
