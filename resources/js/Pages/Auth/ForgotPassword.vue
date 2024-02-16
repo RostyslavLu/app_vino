@@ -22,7 +22,7 @@ const submit = () => {
 
 <template>
     <WhiteLayout class="white-container">
-        <template v-slot:header>
+        <template #header>
             Mot de passe
         </template>
         

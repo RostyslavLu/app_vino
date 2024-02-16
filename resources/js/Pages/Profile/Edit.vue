@@ -21,34 +21,26 @@ defineProps({
 <template>
     <Head title="Profile" />
 
-    <WhiteLayout>
+    <WhiteLayout class="white-container">
         <template #header>
-            <h2 class="namereg">vos informations</h2>
+            <h2>vos informations</h2>
         </template>
-
-        <div class="">
-            <div class="">
-                <div class="">
+                <section>
                     <UpdateProfileInformationForm
                         :must-verify-email="mustVerifyEmail"
                         :status="status"
-                        class=""
                     />
-                </div>
-                <div class="">
-                    <UpdateCellarForm
-                        class=""
-                    />
-                </div>
+                </section>
+                <section>
+                    <UpdateCellarForm />
+                </section>
 
-                <div class="">
-                    <UpdatePasswordForm class="" />
-                </div>
+                <section>
+                    <UpdatePasswordForm />
+                </section>
 
-                <div class="">
-                    <DeleteUserForm class="" />
-                </div>
-            </div>
-        </div>
+                <section>
+                    <DeleteUserForm />
+                </section>
     </WhiteLayout>
 </template>
