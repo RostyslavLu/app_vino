@@ -1,8 +1,7 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
@@ -32,12 +31,14 @@ const submit = () => {
 </script>
 
 <template>
-    <WhiteLayout>
-        <Head title="Reset Password" />
+    <WhiteLayout class="white-container">
+        <template v-slot:header>
+            mot de passe
+        </template>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputError class="" :message="form.errors.email" />
 
                 <TextInput
                     id="email"
@@ -47,40 +48,38 @@ const submit = () => {
                     autocomplete="username"
                 />
 
-                <InputError class="" :message="form.errors.email" />
             </div>
 
             <div class="">
-                <InputLabel for="password" value="Password" />
+                <InputError class="" :message="form.errors.password" />
 
                 <TextInput
                     id="password"
                     type="password"
                     v-model="form.password"
+                    autofocus
+                    placeholder="nouveau courriel"
                     autocomplete="new-password"
                 />
 
-                <InputError class="" :message="form.errors.password" />
             </div>
 
             <div class="">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
+                <InputError class="" :message="form.errors.password_confirmation" />
                 <TextInput
                     id="password_confirmation"
                     type="password"
                     v-model="form.password_confirmation"
+                    placeholder="nouveau courriel"
                     autocomplete="new-password"
                 />
 
-                <InputError class="" :message="form.errors.password_confirmation" />
             </div>
 
             <div class="">
-                <!-- commentaire: J'ai enlevé une classe tailwind, et ajouté une classe imaginaire, qu'on peut remplacer si on utilise ce formulaire. ce code évalue si form.processing est vrai, et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
-                <PrimaryButton :class="{ 'myCssClass': form.processing }" :disabled="form.processing">
+                <PrimaryRegisterButton>
                     Reset Password
-                </PrimaryButton>
+                </PrimaryRegisterButton>
             </div>
         </form>
     </WhiteLayout>
