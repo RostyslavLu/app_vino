@@ -13,5 +13,6 @@
 
 
 .temporary-user-info{
-
+    inline-size: 100px;
+    overflow-wrap: break-word;
 }

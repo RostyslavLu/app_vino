@@ -94,7 +94,7 @@ const showingNavigationDropdown = ref(false);
                     <div class="">
                         {{ $page.props.auth.user.name }}
                     </div>
-                    <div class="">{{ $page.props.auth.user.email }}</div>
+<!--                     <div class="">{{ $page.props.auth.user.email }}</div> -->
                 </div>
 
                 <div class="temporary-nav">
