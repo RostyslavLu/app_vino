@@ -65,7 +65,7 @@
   width: var(--spacing-thinnest);
   height: var(--spacing-thinnest);
   border-radius: 50%;
-  border: var(--border-slimmest) solid var(--primary);
+  /* border: var(--border-slimmest) solid var(--primary); */
 }
 
 .wine-details {
