@@ -1,0 +1,17 @@
+.temporary-nav-container{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: var(--spacing-thin);
+    justify-content: space-between;
+}
+
+.temporary-nav{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-thin);
+}
+
+
+.temporary-user-info{
+
+}
