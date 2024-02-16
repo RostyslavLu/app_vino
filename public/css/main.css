@@ -13,15 +13,18 @@
 
 
 /* ------Composantes ----------- */
-@import "composantes/logo.css";
-@import "composantes/form.css";
-@import "composantes/search-input.css";
-@import "composantes/select-input.css";
-@import "composantes/button.css";
-@import "composantes/modal.css";
+@import "components/logo.css";
+@import "components/form.css";
+@import "components/search-input.css";
+@import "components/select-input.css";
+@import "components/button.css";
+@import "components/modal.css";
 
 
 /* ------Atomes ----------- */
 @import "atomes/utility.css";
 @import "atomes/input-error.css";
+
+/* ------Layouts ---------- */
+@import "layouts/main-layout.css";
 

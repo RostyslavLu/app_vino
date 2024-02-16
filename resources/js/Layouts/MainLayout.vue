@@ -89,17 +89,18 @@ const showingNavigationDropdown = ref(false);
             </div> -->
 
             <!-- Responsive Settings Options -->
-            <div class="">
-                <div class="">
+            <div class="temporary-nav-container">
+                <div class="temporary-user-info">
                     <div class="">
                         {{ $page.props.auth.user.name }}
                     </div>
                     <div class="">{{ $page.props.auth.user.email }}</div>
                 </div>
 
-                <div class="">
+                <div class="temporary-nav">
                     <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
-                    <ResponsiveNavLink :href="route('logout')" method="post" as="button">
+                    <ResponsiveNavLink :href="route('logout')" method="post">
+                        <!--enlevé as="button" pour la démo-->
                         Log Out
                     </ResponsiveNavLink>
                 </div>
