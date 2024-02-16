@@ -30,6 +30,10 @@ const searchWine = async () => {
     console.log(response.data);
 };
 
+const clearSearch = () => {
+    search.value = '';
+};
+
 onMounted(() => {
   fetchUserCellarContent({ target: { value: selectedCellar.value } });
 });
@@ -39,7 +43,7 @@ fetchUserCellars();
 
 <template>
     <div class="user-cellars">
-        <select-input v-model="selectedCellar" :options="userCellars" @change="fetchUserCellarContent($event)"></select-input>
+        <select-input v-model="selectedCellar" :options="userCellars" @change="fetchUserCellarContent($event); clearSearch()"></select-input>
     </div>
     <div>
         <search-input v-model="search" @input="searchWine" />

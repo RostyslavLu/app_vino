@@ -40,9 +40,7 @@ export default {
                             <p>{{ content.region }}</p>
                         </div>
                         <div class="wine-quantity">
-                            <span>&#8593;</span>
                             <div>{{ content.quantity }}</div>
-                            <span>&#8595;</span>
                         </div>
                     </div>
                     <span v-if="content.cellar_name">Cellier:&nbsp;<strong>{{ content.cellar_name }}</strong></span>
