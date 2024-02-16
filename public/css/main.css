@@ -6,6 +6,10 @@
 @import "general/typography.css"; /* des règles de base pour la typographie */
 @import "pages/auth.css"; /* des règles spécifiques à l'authentification */
 @import "pages/dashboard.css"; /* des règles spécifiques à une page de page personnelle de l'utilisateur */
+@import "pages/forgot-password.css"; /* des règles spécifiques à une page de page mot de passe oublié */
+@import "pages/profile.css"; /* des règles spécifiques à une page de page de profil */
+
+
 
 
 /* ------Composantes ----------- */
