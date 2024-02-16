@@ -2,7 +2,6 @@
 import Checkbox from '@/Components/Checkbox.vue';
 import BlackLayout from '@/Layouts/BlackLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -39,7 +38,6 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email"/>
                 <InputError class="" :message="form.errors.email" />
                 <TextInput
                     id="email"
@@ -53,7 +51,6 @@ const submit = () => {
             </div>
             <div>
                 <InputError :message="form.errors.password"  />
-                <InputLabel for="password"/>
                 <TextInput
                     id="password"
                     type="password"
@@ -68,16 +65,11 @@ const submit = () => {
                 <p>Sauvegarder ma connexion</p>
             </label>
 
-            <!-- commentaire: J'ai enlevé une classe tailwind qui changeait l'opacité, 
-                et ajouté une classe imaginaire, qu'on peut remplacer si on utilise 
-                ce formulaire. ce code évalue si form.processing est vrai, 
-                et si c'est vrai, la class "myCssClass" est appliquée au bouton -->
-
-                <PrimaryButton
-                    class="button"
-                >
+                    <PrimaryButton>
                     Connexion
-                </PrimaryButton>
+                    </PrimaryButton>
+                
+                
 
                 <Link
                     :href="route('password.request')"
@@ -89,6 +81,6 @@ const submit = () => {
                     >
                     Créer un compte
                 </Link>
-        </form>
+            </form>
     </BlackLayout>
 </template>

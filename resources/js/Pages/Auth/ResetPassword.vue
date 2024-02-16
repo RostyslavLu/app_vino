@@ -1,8 +1,7 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
@@ -67,7 +66,6 @@ const submit = () => {
 
             <div class="">
                 <InputError class="" :message="form.errors.password_confirmation" />
-
                 <TextInput
                     id="password_confirmation"
                     type="password"
@@ -79,9 +77,9 @@ const submit = () => {
             </div>
 
             <div class="">
-                <PrimaryButton>
+                <PrimaryRegisterButton>
                     Reset Password
-                </PrimaryButton>
+                </PrimaryRegisterButton>
             </div>
         </form>
     </WhiteLayout>

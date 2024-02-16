@@ -2,19 +2,19 @@
 /* InputError.vue */
 
 .input-error {
-    color: var(--accent-medium);
+    color: var(--error);
     margin-bottom: var(--spacing-nano);
-    max-width: 33ch;
+    max-width: var(--dimension-tiny);
 }
 
 .input-icon {
-    color: var(--accent-medium);
+    color: var(--accent-error);
 }
 
 .input-success {
     color: var(--wine-rose);
     margin-bottom: var(--spacing-thinnest);
-    max-width: 20ch;
+    max-width: var(--dimension-tiny);
     font-size: var(--font-tall);
     font-family: var(--font-alt);
 }

@@ -12,7 +12,7 @@
 }
 
 .auth-container a {
-    color: var(--accent-light);
+    color: var(--accent-secondary);
     font-size: var(--font-tall);
 }
 
@@ -22,7 +22,6 @@
     background-color: var(--secondary);
     color: var(--primary);
     min-height: 100vh;
-    padding: var(--spacing-thin);
 }
 
 
@@ -38,15 +37,19 @@
 .white-main-container {
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-broad);
+    margin: var(--spacing-thin) 0;
+    padding: var(--spacing-thin);
+
 }
 
+.white-header {
+    padding: var(--spacing-thin);
+}
 
 .white-text>p {
     margin: var(--spacing-thin) 0 0 0;
 }
-
-
-
 
 
 
@@ -68,9 +71,7 @@
     margin-bottom: var(--spacing-thinnest);
 }
 
-.inscription-container {
-    
-}
+
 
 
 

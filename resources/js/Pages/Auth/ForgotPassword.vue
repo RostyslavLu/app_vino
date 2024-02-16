@@ -1,8 +1,7 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
@@ -37,9 +36,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputError class="input-error" :message="form.errors.email" />
-
-                <InputLabel for="email"/>
+                <InputError :message="form.errors.email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -52,9 +49,9 @@ const submit = () => {
             </div>
 
             <div >
-                <PrimaryButton class="button red">
+                <PrimaryRegisterButton>
                     Réinitialiser
-                </PrimaryButton>
+                </PrimaryRegisterButton>
             </div>
         </form>
     </WhiteLayout>
