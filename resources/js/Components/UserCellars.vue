@@ -77,7 +77,7 @@ fetchUserCellars();
                             <span>&#8595;</span>
                         </div>
                     </div>
-                    <span>{{ content.cellar_name }}</span>
+                    <span v-if="content.cellar_name">Cellier:&nbsp;{{ content.cellar_name }}</span>
                 </div>
             </li>
         </ul>
