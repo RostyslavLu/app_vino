@@ -60,6 +60,9 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+        //suprimer le cellier
+        $cellar = $user->cellars();
+        $cellar->delete();
         $user->delete();
 
         $request->session()->invalidate();
