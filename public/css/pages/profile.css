@@ -1,0 +1,25 @@
+/* UpdateProfileInformationForm */
+.block-button {
+    align-self: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--spacing-thinnest);
+}
+
+.text-success {
+    color: var(--primary);
+}
+
+/* Transition */
+
+.button-save-enter-active,
+.button-save-leave-active {
+    transition: all var(--duration-slow) var(--ease-in-out);
+}
+
+.button-save-enter-from,
+.button-save-leave-to {
+    transform: translateX(-25px);
+    opacity: var(--transparent);
+}
