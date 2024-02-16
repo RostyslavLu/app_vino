@@ -7,6 +7,7 @@ const attrs = useAttrs();
 </script>
 
 <template>
+    <!-- binder pour ajouter une classe parent diférente dans chaque page vue -->
     <div v-bind="attrs">
         <header class="white-header">
             <div class="logo">

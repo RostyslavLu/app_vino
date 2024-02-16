@@ -11,9 +11,14 @@ input:not([type="checkbox"]) {
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    width: 33ch;
+    min-width: var(--dimension-tiny);
     margin: auto;
     padding-left: var(--spacing-thinnest);
+    border-radius: var(--spacing-pico);
+}
+
+input:focus {
+    background-color: white;
 }
 
 
