@@ -5,7 +5,7 @@ const props = defineProps({
         required: true
     }
 });
-
+// fonction pour marquer la couleur du type de vin
 const getBackgroundColor = (wineColor) => {
     switch (wineColor) {
         case 'rouge':
