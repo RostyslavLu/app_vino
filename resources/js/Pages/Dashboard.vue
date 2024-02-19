@@ -17,7 +17,7 @@ const fetchUserCellars = async () => {
     const response = await axios.get(route('cellars.userCellars'));
     userCellars.value = response.data;
 };
-// fontion pour récupérer le contenu du cellier de l'utilisateur
+// fonction pour récupérer le contenu du cellier de l'utilisateur
 const fetchUserCellarContent = async (event) => {
     const response = await axios.get(route('cellars.userCellarContent', event.target.value));
     userCellarContent.value = response.data;
