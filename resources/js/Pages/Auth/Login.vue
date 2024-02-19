@@ -4,6 +4,7 @@ import BlackLayout from '@/Layouts/BlackLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
@@ -39,24 +40,26 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError class="" :message="form.errors.email" />
+                <InputLabel for="email" value="Courriel" />
                 <TextInput
                     id="email"
                     type="email"
                     v-model="form.email"
                     autofocus
                     autocomplete="username"
-                    placeholder="nom d'utilisateur"
+                    placeholder="nom@example.com"
                 />
 
             </div>
             <div>
                 <InputError :message="form.errors.password"  />
+                <InputLabel for="password" value="Mot de passe" />
                 <TextInput
                     id="password"
                     type="password"
                     v-model="form.password"
                     autocomplete="current-password"
-                    placeholder="mot de passe"
+                    placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
                 />
             </div>
 
@@ -68,8 +71,8 @@ const submit = () => {
                     <PrimaryButton>
                     Connexion
                     </PrimaryButton>
-                
-                
+
+
 
                 <Link
                     :href="route('password.request')"
