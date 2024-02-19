@@ -3,6 +3,7 @@ import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
@@ -31,7 +32,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="réinitialisation de mot de passe" />
+    <Head title="Réinitialisation de mot de passe" />
     <WhiteLayout class="white-container">
         <template v-slot:header>
             mot de passe
@@ -40,10 +41,10 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError class="" :message="form.errors.email" />
-
+                <InputLabel for="email" value="Votre courriel liée à votre compte" />
                 <TextInput
                     id="email"
-                    type="email"
+                    type="text"
                     v-model="form.email"
                     autofocus
                     autocomplete="username"
@@ -53,13 +54,13 @@ const submit = () => {
 
             <div class="">
                 <InputError class="" :message="form.errors.password" />
-
+                <InputLabel for="password" value="Nouveau mot de passe" />
                 <TextInput
                     id="password"
                     type="password"
                     v-model="form.password"
                     autofocus
-                    placeholder="nouveau courriel"
+                    placeholder="min. 2 caractères et max. 20 caractères."
                     autocomplete="new-password"
                 />
 
@@ -67,11 +68,12 @@ const submit = () => {
 
             <div class="">
                 <InputError class="" :message="form.errors.password_confirmation" />
+                <InputLabel for="password_confirmation" value="Confirmation du mot de passe" />
                 <TextInput
                     id="password_confirmation"
                     type="password"
                     v-model="form.password_confirmation"
-                    placeholder="nouveau courriel"
+                    placeholder="confirmer le mot de passe saisi ci-dessus"
                     autocomplete="new-password"
                 />
 
@@ -79,7 +81,7 @@ const submit = () => {
 
             <div class="">
                 <PrimaryRegisterButton>
-                    Reset Password
+                    Réinitialiser le mot de passe
                 </PrimaryRegisterButton>
             </div>
         </form>
