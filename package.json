@@ -17,7 +17,6 @@
         "vue": "^3.4.19"
     },
     "dependencies": {
-        "feather-icons": "^4.29.1",
-        "vue-feather": "^2.0.0"
+        "vue-feather-icons": "^5.1.0"
     }
 }
