@@ -26,13 +26,14 @@ const fetchUserCellarContent = async (event) => {
 const searchWine = async () => {
     if (search.value === '') {
         userCellarContent.value = [];
-        return;
+        // si le champ de recherche est vide, on récupère le contenu du cellier sélectionné
+        return fetchUserCellarContent({ target: { value: selectedCellar.value } });
     }
     const response = await axios.get(route('cellars.searchWineInUserCellars', search.value));
     userCellarContent.value = response.data;
     console.log(response.data);
 };
-
+// fonction pour effacer la champ de recherche
 const clearSearch = () => {
     search.value = '';
 };
