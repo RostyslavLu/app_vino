@@ -43,7 +43,7 @@ const submit = () => {
                 <InputLabel for="email" value="Courriel" />
                 <TextInput
                     id="email"
-                    type="email"
+                    type="text"
                     v-model="form.email"
                     autofocus
                     autocomplete="username"
