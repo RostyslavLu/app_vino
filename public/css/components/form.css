@@ -20,5 +20,9 @@ input:not([type="checkbox"]) {
 input:focus {
     background-color: white;
 }
+label {
+    display: block;
+    line-height: var(--line-height-tighter);
+}
 
 
