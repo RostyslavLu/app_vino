@@ -12,17 +12,17 @@ const userCellars = ref([]);
 const userCellarContent = ref([]);
 const search = ref('');
 const selectedCellar = ref(1);
-
+// fonction pour récupérer les celliers de l'utilisateur
 const fetchUserCellars = async () => {
     const response = await axios.get(route('cellars.userCellars'));
     userCellars.value = response.data;
 };
-
+// fontion pour récupérer le contenu du cellier de l'utilisateur
 const fetchUserCellarContent = async (event) => {
     const response = await axios.get(route('cellars.userCellarContent', event.target.value));
     userCellarContent.value = response.data;
 };
-
+// fonction pour rechercher des vins dans les celliers de l'utilisateur
 const searchWine = async () => {
     if (search.value === '') {
         userCellarContent.value = [];
