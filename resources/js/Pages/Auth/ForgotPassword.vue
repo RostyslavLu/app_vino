@@ -4,6 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import InputLabel from '@/Components/InputLabel.vue';
 
 defineProps({
     status: {
@@ -27,7 +28,7 @@ const submit = () => {
         <template #header>
             Mot de passe
         </template>
-        
+
         <section class="white-text">
             <div v-if="status" class="input-success">
             {{ status }}
@@ -39,12 +40,13 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError :message="form.errors.email" />
+                <InputLabel for="email" value="Votre courriel liée à votre compte" />
                 <TextInput
                     id="email"
-                    type="email"
+                    type="text"
                     v-model="form.email"
                     autofocus
-                    placeholder="votre adresse e-mail liée à votre compte"
+                    placeholder="nom@example.com"
                     autocomplete="username"
                 />
 
