@@ -1,26 +1,23 @@
-<script>
-export default {
-    props: {
-        cellarContent: {
-            type: Array,
-            required: true
-        }
-    },
-    methods: {
-        getBackgroundColor(wineColor) {
-            switch (wineColor) {
-                case 'rouge':
-                    return 'var(--wine-red)';
-                case 'blanc':
-                    return 'var(--wine-white)';
-                case 'rosé':
-                    return 'var(--wine-rose)';
-                default:
-                    return 'transparent';
-            }
-        }
+<script setup>
+const props = defineProps({
+    cellarContent: {
+        type: Array,
+        required: true
     }
-}
+});
+// fonction pour marquer la couleur du type de vin
+const getBackgroundColor = (wineColor) => {
+    switch (wineColor) {
+        case 'rouge':
+            return 'var(--wine-red)';
+        case 'blanc':
+            return 'var(--wine-white)';
+        case 'rosé':
+            return 'var(--wine-rose)';
+        default:
+            return 'transparent';
+    }
+};
 </script>
 
 <template>
