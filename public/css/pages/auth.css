@@ -71,9 +71,14 @@
 }
 
 .required {
-    color: var(--wine-red);
+    color: var(--required);
 }
 
+.text-required {
+    min-width: var(--dimension-tiny);
+    margin: auto;
+    padding-left: var(--spacing-thinnest);
+}
 
 
 

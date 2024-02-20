@@ -7,6 +7,7 @@
 		--primary: #2D2D2D;
 		--secondary: #F7F9EF;
 		--tertiary: #FED709;
+        --required: #FF0000;
 
 		--accent-light: #E3DECB;
         --accent-medium: #E8A73F;
@@ -16,7 +17,7 @@
 
 		--error: var(--accent-medium);
 		--success: var(--tertiary);
-		
+
 
         --wine-white: #E7DBA0;
         --wine-red: #92171C;
@@ -69,7 +70,7 @@
 	/* = FONT-SIZE */
 	/*========================= */
         --base-font-size:  16px;
-        
+
         --font-miniature:  0.625rem; /* 10px */
         --font-shortest:   0.75rem; /* 12px */
         --font-shorter:    0.875rem; /* 14px */
