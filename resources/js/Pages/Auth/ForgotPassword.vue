@@ -40,7 +40,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError :message="form.errors.email" />
-                <InputLabel for="email" value="Votre courriel liée à votre compte" />
+                <InputLabel for="email" value="Votre courriel liée à votre compte" required="true"/>
                 <TextInput
                     id="email"
                     type="text"
