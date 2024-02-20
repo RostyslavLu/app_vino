@@ -2,10 +2,10 @@
 /* BlackLayout.vue et WhiteLayout.vue */
 
 .auth-container {
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--secondary);
     justify-content: space-evenly;
     font-family: var(--font-accent);
@@ -30,7 +30,7 @@
 .black-container {
     background-color: var(--primary);
     align-items: center;
-}   
+}
 
 /* ForgotPassword.vue */
 
@@ -70,8 +70,15 @@
     margin-bottom: var(--spacing-thinnest);
 }
 
+.required {
+    color: var(--required);
+}
 
-
+.text-required {
+    min-width: var(--dimension-tiny);
+    margin: auto;
+    padding-left: var(--spacing-thinnest);
+}
 
 
 

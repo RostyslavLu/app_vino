@@ -15,7 +15,7 @@
     color: var(--wine-rose);
     margin-bottom: var(--spacing-thinnest);
     max-width: var(--dimension-tiny);
-    font-size: var(--font-tall);
+    font-size: var(--font-short);
     font-family: var(--font-alt);
 }
 
