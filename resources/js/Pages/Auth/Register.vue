@@ -33,7 +33,11 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError :message="form.errors.name" />
-                <InputLabel for="name" value="Nom" />
+                <InputLabel
+                    for="name"
+                    value="Nom"
+                    required="true"
+                />
                 <TextInput
                     id="name"
                     type="text"
@@ -47,7 +51,11 @@ const submit = () => {
 
             <div>
                 <InputError :message="form.errors.email" />
-                <InputLabel for="email" value="Courriel" />
+                <InputLabel
+                    for="email"
+                    value="Courriel"
+                    required="true"
+                />
                 <TextInput
                     id="email"
                     type="text"
@@ -73,7 +81,10 @@ const submit = () => {
 
             <div>
                 <InputError :message="form.errors.cellar_description" />
-                <InputLabel for="cellar_description" value="Description du cellier" />
+                <InputLabel
+                    for="cellar_description"
+                    value="Description du cellier"
+                />
                 <TextInput
                     id="cellar_description"
                     type="text"
@@ -86,7 +97,11 @@ const submit = () => {
 
             <div>
                 <InputError :message="form.errors.password" />
-                <InputLabel for="password" value="Mot de passe" />
+                <InputLabel
+                    for="password"
+                    value="Mot de passe"
+                    required="true"
+                />
                 <TextInput
                     id="password"
                     type="password"
@@ -99,7 +114,11 @@ const submit = () => {
 
             <div>
                 <InputError class="input-error" :message="form.errors.password_confirmation" />
-                <InputLabel for="password_confirmation" value="Confirmation du mot de passe" />
+                <InputLabel
+                    for="password_confirmation"
+                    value="Confirmation du mot de passe"
+                    required="true"
+                />
                 <TextInput
                     id="password_confirmation"
                     type="password"
@@ -108,6 +127,11 @@ const submit = () => {
                     placeholder="confirmer le mot de passe saisi ci-dessus"
                 />
 
+            </div>
+            <div>
+                <p class="text-required">
+                    <span class="required">&#42;</span>&nbsp;Champs obligatoires
+                </p>
             </div>
             <div>
                 <PrimaryRegisterButton>
