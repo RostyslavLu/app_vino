@@ -74,7 +74,7 @@ const submit = () => {
                     type="text"
                     v-model="form.cellar_name"
                     autocomplete="nom du cellier"
-                    placeholder="ex. Château de la Tour"
+                    placeholder="ex. Château"
                 />
 
             </div>
