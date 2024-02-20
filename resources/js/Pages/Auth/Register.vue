@@ -129,8 +129,8 @@ const submit = () => {
 
             </div>
             <div>
-                <p>
-                    <span class="required">&#42;</span> Champs obligatoires
+                <p class="text-required">
+                    <span class="required">&#42;</span>&nbsp;Champs obligatoires
                 </p>
             </div>
             <div>
