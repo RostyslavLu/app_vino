@@ -12,7 +12,7 @@ defineProps({
 
 <template>
     <label>
-        <span v-if="value">{{ value }}<span v-if="required">&nbsp;&#42;</span></span>
+        <span v-if="value">{{ value }}<span v-if="required" class="required">&nbsp;&#42;</span></span>
         <span v-else><slot /></span>
     </label>
 </template>
