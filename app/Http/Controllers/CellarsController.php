@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Cellars;
+use App\Models\Cellar_content;
+use App\Models\Type;
 
 class CellarsController extends Controller
 {
@@ -38,9 +40,7 @@ class CellarsController extends Controller
      */
     public function userCellars()
     {
-        $userCellars = DB::table('cellars')
-            ->where('user_id', Auth::id())
-            ->get();
+        $userCellars = Cellars::where('user_id', Auth::id())->get();
         return $userCellars;
     }
 
@@ -52,10 +52,7 @@ class CellarsController extends Controller
     {
         $user = Auth::id();
         //récupérer les celliers de l'utilisateur
-        $userCellars = DB::table('cellars')
-            ->where('user_id', $user)
-            ->get();
-        // récupérer les vins dans le cellier de l'utilisateur
+        $userCellars = Cellars::where('user_id', $user)->find($id);
         foreach ($userCellars as $cellar) {
             // si le cellier correspond à l'id
             if ($cellar->id == $id) {
