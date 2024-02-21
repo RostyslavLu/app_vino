@@ -41,7 +41,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputError class="" :message="form.errors.email" />
-                <InputLabel for="email" value="Votre courriel liée à votre compte" />
+                <InputLabel for="email" value="Votre courriel liée à votre compte" required="true" />
                 <TextInput
                     id="email"
                     type="text"
@@ -54,7 +54,7 @@ const submit = () => {
 
             <div>
                 <InputError class="" :message="form.errors.password" />
-                <InputLabel for="password" value="Nouveau mot de passe" />
+                <InputLabel for="password" value="Nouveau mot de passe" required="true" />
                 <TextInput
                     id="password"
                     type="password"
@@ -68,7 +68,7 @@ const submit = () => {
 
             <div class="">
                 <InputError class="" :message="form.errors.password_confirmation" />
-                <InputLabel for="password_confirmation" value="Confirmation du mot de passe" />
+                <InputLabel for="password_confirmation" value="Confirmation du mot de passe" required="true" />
                 <TextInput
                     id="password_confirmation"
                     type="password"
