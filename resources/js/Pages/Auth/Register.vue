@@ -26,11 +26,14 @@ const submit = () => {
     <WhiteLayout class="white-container">
         <Head title="Inscription" />
 
-        <template v-slot:header>
+        <template #header>
             Inscription
         </template>
 
         <form @submit.prevent="submit">
+            <div v-if="status" class="input-success">
+            {{ status }}
+            </div>
             <div>
                 <InputError :message="form.errors.name" />
                 <InputLabel
