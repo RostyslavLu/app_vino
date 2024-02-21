@@ -101,7 +101,7 @@ const showingNavigationDropdown = ref(false);
                     <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
                     <ResponsiveNavLink :href="route('logout')" method="post">
                         <!--enlevé as="button" pour la démo-->
-                        Log Out
+                        Déconnexion
                     </ResponsiveNavLink>
                 </div>
             </div>
