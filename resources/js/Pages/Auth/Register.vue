@@ -47,7 +47,7 @@ const submit = () => {
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                    placeholder="ex. Jean Legrand"
+                    placeholder="Mon nom"
                 />
 
             </div>
@@ -64,7 +64,7 @@ const submit = () => {
                     type="text"
                     v-model="form.email"
                     autocomplete="username"
-                    placeholder="ex. jean@example.com"
+                    placeholder="nom@example.com"
                 />
 
             </div>
@@ -77,7 +77,7 @@ const submit = () => {
                     type="text"
                     v-model="form.cellar_name"
                     autocomplete="nom du cellier"
-                    placeholder="ex. Château de la Tour"
+                    placeholder="ex. chalet (optionnel)"
                 />
 
             </div>
@@ -93,7 +93,7 @@ const submit = () => {
                     type="text"
                     v-model="form.cellar_description"
                     autocomplete="description"
-                    placeholder="ex. Cellier de collection de vins rares."
+                    placeholder="ex. Collection Bordeaux (optionnel)"
                 />
 
             </div>
@@ -110,7 +110,7 @@ const submit = () => {
                     type="password"
                     v-model="form.password"
                     autocomplete="new-password"
-                    placeholder="min. 2 caractères et max. 20 caractères."
+                    placeholder="min. 8 caractères"
                 />
 
             </div>
@@ -127,7 +127,7 @@ const submit = () => {
                     type="password"
                     v-model="form.password_confirmation"
                     autocomplete="new-password"
-                    placeholder="confirmer le mot de passe saisi ci-dessus"
+                    placeholder="confirmer le mot de passe"
                 />
 
             </div>
