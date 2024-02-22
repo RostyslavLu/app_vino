@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
@@ -14,40 +13,40 @@ defineProps({
     },
 });
 
-const user = usePage().props.auth.user;
+const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
-const form = useForm({
+const form = useForm({ // Crée un formulaire réactif
     name: user.name,
     email: user.email,
 });
 
-const editingName = ref(false);
+const editingName = ref(false); // Crée une variable réactive qui indique si le nom est en cours d'édition
 const editingEmail = ref(false);
 
-const startEditingName = () => {
+const startEditingName = () => { // Active le mode édition
     editingName.value = true;
 };
 
 const startEditingEmail = () => {
-    editingEmail.value = true;
+    editingEmail.value = true; // Active le mode édition
 };
 
 const stopEditing = () => {
+    form.reset(); // Réinitialise les valeurs du formulaire à leurs valeurs initiales
+    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
     editingName.value = false;
     editingEmail.value = false;
 };
 
 const save = () => {
-    form.patch(route('profile.update'), {
-        preserveScroll: true,
+    form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
+        preserveScroll: true, // Préserve la position de la page après la soumission du formulaire
         onSuccess: () => {
-            stopEditing();
-        },
-        onError: () => {
-            // If there are validation errors, don't stop editing
+            stopEditing(); // Désactive le mode édition
         },
     });
-};</script>
+};
+</script>
 
 <template>
     <form @submit.prevent="save">
@@ -96,6 +95,7 @@ const save = () => {
                     <TextInput 
                     id="email"
                     v-model="form.email"
+                    autofocus
                     autocomplete="username"
                     />
                     <img src="/img/icons/check.svg" alt="Accept" @click="save">
