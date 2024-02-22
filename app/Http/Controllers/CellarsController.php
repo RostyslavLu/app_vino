@@ -23,13 +23,13 @@ class CellarsController extends Controller
         //la validation des champs
         $request->validate([
             'name' => 'max:50',
-            'description' => 'max:100',
+            // 'description' => 'max:100',
         ]);
 
         //la mise à jour
         $cellar->update([
             'name' => $request->name,
-            'description' => $request->description
+            // 'description' => $request->description
         ]);
 
         //le retour vers la page précédente

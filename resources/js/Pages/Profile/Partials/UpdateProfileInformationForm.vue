@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
@@ -14,75 +13,94 @@ defineProps({
     },
 });
 
-const user = usePage().props.auth.user;
+const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
-const form = useForm({
+const form = useForm({ // Crée un formulaire réactif
     name: user.name,
     email: user.email,
 });
 
-const editingName = ref(false);
+const editingName = ref(false); // Crée une variable réactive qui indique si le nom est en cours d'édition
 const editingEmail = ref(false);
 
-const startEditingName = () => {
+const startEditingName = () => { // Active le mode édition
     editingName.value = true;
 };
 
 const startEditingEmail = () => {
-    editingEmail.value = true;
+    editingEmail.value = true; // Active le mode édition
 };
 
 const stopEditing = () => {
+    form.reset(); // Réinitialise les valeurs du formulaire à leurs valeurs initiales
+    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
     editingName.value = false;
     editingEmail.value = false;
 };
 
 const save = () => {
-    form.patch(route('profile.update'));
-    stopEditing();
+    form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
+        preserveScroll: true, // Préserve la position de la page après la soumission du formulaire
+        onSuccess: () => {
+            stopEditing(); // Désactive le mode édition
+        },
+    });
 };
 </script>
 
 <template>
     <form @submit.prevent="save">
-        <h2>Mes informations</h2>
+            <h2>Mes informations</h2>     
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="flex-row">
+            <div v-if="!editingName" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/user.svg" class="icon">
                 <span>{{ form.name }}</span>
+
+                </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
             </div>
             <div v-else>
-                <InputLabel for="name">
-                    Nom
-                </InputLabel>
-                <TextInput
+                <div class="flex-row">     
+                    <img src="/img/icons/user.svg" class="icon">
+       
+                    <TextInput
                     id="name"
                     type="text"
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                />
-                <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                <img src="/img/icons/cross.svg" alt="Cancel" @click="stopEditing">
+                    />
+                    
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
+                
             </div>
         </div>
         <div>
             <InputError :message="form.errors.email" />
-            <div v-if="!editingEmail" class="flex-row">
-                <span>{{ form.email }}</span>
+            <div v-if="!editingEmail" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
+                    <span>{{ form.email }}</span>
+
+                </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
             </div>
             <div v-else>
-                <InputLabel for="email">
-                    Adresse email
-                </InputLabel>
-                <TextInput
+                <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
+                    <TextInput 
                     id="email"
-                    type="email"
                     v-model="form.email"
+                    autofocus
                     autocomplete="username"
-                />
+                    />
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
             </div>
         </div>
     </form>

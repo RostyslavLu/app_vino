@@ -82,7 +82,7 @@ const submit = () => {
 
             </div>
 
-            <div>
+            <!-- <div>
                 <InputError :message="form.errors.cellar_description" />
                 <InputLabel
                     for="cellar_description"
@@ -96,7 +96,7 @@ const submit = () => {
                     placeholder="ex. Collection Bordeaux (optionnel)"
                 />
 
-            </div>
+            </div> -->
 
             <div>
                 <InputError :message="form.errors.password" />
