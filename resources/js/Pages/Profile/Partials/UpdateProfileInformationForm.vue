@@ -56,15 +56,18 @@ const save = () => {
                 <InputLabel for="name">
                     Nom
                 </InputLabel>
-                <TextInput
+                <div class="flex-row">
+                    <TextInput
                     id="name"
                     type="text"
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                />
-                <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                <img src="/img/icons/cross.svg" alt="Cancel" @click="stopEditing">
+                    />
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
+                
             </div>
         </div>
         <div>
@@ -77,12 +80,17 @@ const save = () => {
                 <InputLabel for="email">
                     Adresse email
                 </InputLabel>
-                <TextInput
+                <div class="flex-row">
+                    <TextInput 
                     id="email"
-                    type="email"
                     v-model="form.email"
                     autocomplete="username"
-                />
+                    />
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
+                
+
             </div>
         </div>
     </form>
