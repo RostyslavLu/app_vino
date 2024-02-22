@@ -23,7 +23,7 @@ defineProps({
 
     <WhiteLayout class="white-container">
         <template #header>
-            <h2>mon profil</h2>
+            <h2>Profil</h2>
         </template>
                 <section>
                     <UpdateProfileInformationForm
