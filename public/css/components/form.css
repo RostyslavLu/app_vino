@@ -10,8 +10,9 @@ input:not([type="checkbox"]) {
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    min-width: var(--dimension-tiny);
-    margin: auto;
+    /* min-width: var(--dimension-tiny); */
+    /* margin: auto; */
+    /* align-items: center; */
     padding-left: var(--spacing-thinnest);
     border-radius: var(--spacing-pico);
 }

@@ -38,10 +38,16 @@ const stopEditing = () => {
 };
 
 const save = () => {
-    form.patch(route('profile.update'));
-    stopEditing();
-};
-</script>
+    form.patch(route('profile.update'), {
+        preserveScroll: true,
+        onSuccess: () => {
+            stopEditing();
+        },
+        onError: () => {
+            // If there are validation errors, don't stop editing
+        },
+    });
+};</script>
 
 <template>
     <form @submit.prevent="save">
@@ -53,9 +59,6 @@ const save = () => {
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
             </div>
             <div v-else>
-                <InputLabel for="name">
-                    Nom
-                </InputLabel>
                 <div class="flex-row">
                     <TextInput
                     id="name"
@@ -77,9 +80,6 @@ const save = () => {
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
             </div>
             <div v-else>
-                <InputLabel for="email">
-                    Adresse email
-                </InputLabel>
                 <div class="flex-row">
                     <TextInput 
                     id="email"

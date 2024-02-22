@@ -16,7 +16,7 @@ class ProfileController extends Controller
 {
 
     /**
-     * Display the user's profile form.
+     * Afficher le profil de l'utilisateur.
      */
     public function edit(Request $request): Response
     {
@@ -32,7 +32,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Mettre à jour les informations de l'utilisateur.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -48,7 +48,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Delete the user's account.
+     * Effacer le compte de l'utilisateur.
      */
     public function destroy(Request $request): RedirectResponse
     {
