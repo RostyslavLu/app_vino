@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Cellars;
 use App\Models\Cellar_content;
+use App\Models\Saq_wine;
 use App\Models\Type;
+use App\Models\Personal_wine;
 
 class CellarsController extends Controller
 {
@@ -52,35 +54,25 @@ class CellarsController extends Controller
     {
         $user = Auth::id();
         //récupérer les celliers de l'utilisateur
-        $userCellars = Cellars::where('user_id', $user)->find($id);
+        $userCellars = Cellars::where('user_id', $user)->get();
+
         foreach ($userCellars as $cellar) {
             // si le cellier correspond à l'id
             if ($cellar->id == $id) {
                 // vins sources (SAQ ou personnels)
-                $userCellarContents = DB::table('cellar_contents')
-                    ->where('cellars_id', $id)
-                    ->leftJoin('wine_sources', 'cellar_contents.wine_sources_id', '=', 'wine_sources.id')
-                    ->leftJoin('saq_wines', function ($join) {
-                        $join->on('cellar_contents.saq_wines_id', '=', 'saq_wines.id')
-                            ->where('cellar_contents.wine_sources_id', 1);
-                    })
-                    ->leftJoin('personal_wines', function ($join) {
-                        $join->on('cellar_contents.personal_wines_id', '=', 'personal_wines.id')
-                            ->where('cellar_contents.wine_sources_id', 2);
-                    })
-                    // sélection des colonnes pour les vins sources (SAQ ou personnels)
-                    ->select('cellar_contents.*',
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.name, personal_wines.name) as wine_name'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.price, personal_wines.price) as price'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.url_image, personal_wines.url_image) as url_image'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.country, personal_wines.country) as country'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.region, personal_wines.region) as region'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.types_id, personal_wines.types_id) as types_id'),
-                        DB::raw('IF(cellar_contents.wine_sources_id = 1, saq_wines.grape_varieties, personal_wines.grape_varieties) as grape_varieties'))
+                $userCellarContents = Cellar_content::where('cellars_id', $id)
+                    ->where('saq_wines_id', '!=', null)
+                    ->orWhere('personal_wines_id', '!=', null)
                     ->get();
-                // ajout des colonnes type et nom du cellier
+                // ajout des colonnes type, nom du vin, url de l'image, pays et région etc
                 $userCellarContents = $userCellarContents->map(function ($item) {
-                    $item->type = DB::table('types')->where('id', $item->types_id)->value('type');
+                    $item->type = Type::where('id', $item->types_id)->value('type');
+                    $item->wine_name =  Saq_wine::where('id', $item->saq_wines_id)->value('name') ?? Personal_wine::where('id', $item->personal_wines_id)->value('name');
+                    $item->url_image =  Saq_wine::where('id', $item->saq_wines_id)->value('url_image') ?? Personal_wine::where('id', $item->personal_wines_id)->value('url_image');
+                    $item->country =  Saq_wine::where('id', $item->saq_wines_id)->value('country') ?? Personal_wine::where('id', $item->personal_wines_id)->value('country');
+                    $item->region =  Saq_wine::where('id', $item->saq_wines_id)->value('region') ?? Personal_wine::where('id', $item->personal_wines_id)->value('region');
+                    $item->types_id =  Saq_wine::where('id', $item->saq_wines_id)->value('types_id') ?? Personal_wine::where('id', $item->personal_wines_id)->value('types_id');
+                    $item->type = Type::where('id', $item->types_id)->value('type');
                     return $item;
                 });
                 return $userCellarContents;
@@ -97,9 +89,7 @@ class CellarsController extends Controller
         $user = Auth::id();
         $userCellarContents = [];
         //récupérer les celliers de l'utilisateur
-        $userCellars = DB::table('cellars')
-            ->where('user_id', $user)
-            ->get();
+        $userCellars = Cellars::where('user_id', $user)->get();
         //récupérer les vins dans les celliers de l'utilisateur
         foreach ($userCellars as $cellar) {
             $contents = DB::table('cellar_contents')
