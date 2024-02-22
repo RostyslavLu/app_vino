@@ -46,6 +46,11 @@ class CellarsController extends Controller
         return $userCellars;
     }
 
+    public function addWineToCellar(Request $request)
+    {
+        
+    }
+
     /**
      * fonction qui retourne les vins dans un cellier de l'utilisateur
      */

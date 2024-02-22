@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard')->middleware('verified');
 
+    Route::get('/add-wine-cellar', function () {
+        return Inertia::render('AddWineToCellar');
+        })->name('addWineToCellar')->middleware('verified');
+
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard')->middleware('verified');

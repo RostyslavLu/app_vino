@@ -15,5 +15,9 @@
         "postcss": "^8.4.31",
         "vite": "^5.1.3",
         "vue": "^3.4.19"
+    },
+    "dependencies": {
+        "@inertiajs/inertia": "^0.11.1",
+        "vue-router": "^4.3.0"
     }
 }
