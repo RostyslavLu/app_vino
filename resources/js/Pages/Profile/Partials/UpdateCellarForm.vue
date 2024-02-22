@@ -1,66 +1,59 @@
 <script setup>
+import { ref } from 'vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useForm, usePage } from '@inertiajs/vue3';
 
 const cellar = usePage().props.cellar;
 
 const form = useForm({
     name: cellar.name,
-    description: cellar.description
 });
+
+const editingName = ref(false);
+
+const startEditingName = () => {
+    editingName.value = true;
+};
+
+const stopEditing = () => {
+    editingName.value = false;
+};
+
+const save = () => {
+    form.patch(route('cellars.update', cellar.id), {
+        preserveScroll: true,
+        onSuccess: () => {
+            stopEditing();
+        },
+        onError: () => {
+        },
+    });
+};
 </script>
 
 <template>
-    <section>
-        <header>
-            <h2 class="namereg">
-                votre cellier
-            </h2>
-        </header>
-
-        <form @submit.prevent="form.patch(route('cellars.update', cellar.id))" class="">
-            <div>
-                <TextInput
-                    id="cellar_name"
+    <form @submit.prevent="save">
+        <h2>Mes celliers</h2>
+        <div>
+            <InputError :message="form.errors.name" />
+            <div v-if="!editingName" class="flex-row">
+                <span>{{ form.name }}</span>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+            </div>
+            <div v-else>
+                <div class="flex-row">
+                    <TextInput
+                    id="name"
                     type="text"
-                    class=""
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                    placeholder="nom du cellier"
-                />
-
-                <InputError class="" :message="form.errors.name" />
+                    />
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
             </div>
-
-            <div>
-                <TextInput
-                    id="cellar_description"
-                    type="text"
-                    class=""
-                    v-model="form.description"
-                    autocomplete="description"
-                    placeholder="description du cellier"
-                />
-                <!-- must figure out the errors... and the autocomplete -->
-                <InputError class="" :message="form.errors.description" />
-            </div>
-
-            <div class="">
-                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
-
-                <Transition
-                    enter-active-class=""
-                    enter-from-class=""
-                    leave-active-class=""
-                    leave-to-class=""
-                >
-                    <p v-if="form.recentlySuccessful" class="">C'est enregistré.</p>
-                </Transition>
-            </div>
-        </form>
-    </section>
+        </div>
+    </form>
 </template>
