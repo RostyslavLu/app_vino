@@ -1,9 +1,9 @@
 <script setup>
+import { ref } from 'vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useForm, usePage } from '@inertiajs/vue3';
 
 defineProps({
     mustVerifyEmail: {
@@ -20,68 +20,70 @@ const form = useForm({
     name: user.name,
     email: user.email,
 });
+
+const editingName = ref(false);
+const editingEmail = ref(false);
+
+const startEditingName = () => {
+    editingName.value = true;
+};
+
+const startEditingEmail = () => {
+    editingEmail.value = true;
+};
+
+const stopEditing = () => {
+    editingName.value = false;
+    editingEmail.value = false;
+};
+
+const save = () => {
+    form.patch(route('profile.update'));
+    stopEditing();
+};
 </script>
 
 <template>
-    <section>
-        <header>
-<!--        <p class="">
-                Update your account's profile information and email address.
-            </p> -->
-            <!-- <vue-feather type="feather"></vue-feather> -->
-        </header>
-
-        <form @submit.prevent="form.patch(route('profile.update'))">
-            <div>
-                <InputError :message="form.errors.name" />
+    <form @submit.prevent="save">
+        <h2>Mes informations</h2>
+        <div>
+            <InputError :message="form.errors.name" />
+            <div v-if="!editingName" class="flex-row">
+                <span>{{ form.name }}</span>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+            </div>
+            <div v-else>
+                <InputLabel for="name">
+                    Nom
+                </InputLabel>
                 <TextInput
                     id="name"
                     type="text"
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                    placeholder="nom"
                 />
+                <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                <img src="/img/icons/cross.svg" alt="Cancel" @click="stopEditing">
             </div>
-
-            <div>
-                <InputError :message="form.errors.email" />
+        </div>
+        <div>
+            <InputError :message="form.errors.email" />
+            <div v-if="!editingEmail" class="flex-row">
+                <span>{{ form.email }}</span>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
+            </div>
+            <div v-else>
+                <InputLabel for="email">
+                    Adresse email
+                </InputLabel>
                 <TextInput
                     id="email"
                     type="email"
                     v-model="form.email"
                     autocomplete="username"
-                    placeholder="courriel"
                 />
             </div>
-
-            <div v-if="mustVerifyEmail && user.email_verified_at === null">
-                <p class="">
-                    Votre adresse courriel n'est pas vérifiée.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                    >
-                        Cliquer ici pour renvoyer le courriel de vérification.
-                    </Link>
-                </p>
-
-                <div
-                    v-show="status === 'verification-link-sent'"
-                >
-                    Nouveau lien de vérification envoyé à votre adresse courriel.
-                </div>
-            </div>
-
-            <div>
-                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
-
-                <Transition name="button-save"
-                >
-                    <p v-if="form.recentlySuccessful" class="text-success">C'est enregistré.</p>
-                </Transition>
-            </div>
-        </form>
-    </section>
+        </div>
+    </form>
 </template>

@@ -52,7 +52,7 @@ const submit = () => {
 
             </div>
 
-            <div class="">
+            <div>
                 <InputError class="" :message="form.errors.password" />
                 <InputLabel for="password" value="Nouveau mot de passe" required="true" />
                 <TextInput

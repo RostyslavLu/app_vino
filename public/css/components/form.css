@@ -2,7 +2,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-thinnest);
-    align-items: center;
     font-family: var(--font-base);
 }
 
