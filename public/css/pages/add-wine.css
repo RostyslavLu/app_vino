@@ -1,0 +1,16 @@
+.add-wine-header {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-thin);
+}
+
+.add-wine-header h2 {
+    color: var(--secondary);
+}
+
+.add-wine-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
