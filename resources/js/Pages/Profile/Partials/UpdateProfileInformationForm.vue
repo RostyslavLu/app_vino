@@ -48,39 +48,42 @@ const save = () => {
         <h2>Mes informations</h2>
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName">
-            <span>{{ form.name }}</span>
-            <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+            <div v-if="!editingName" class="flex-row">
+                <span>{{ form.name }}</span>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+            </div>
+            <div v-else>
+                <InputLabel for="name">
+                    Nom
+                </InputLabel>
+                <TextInput
+                    id="name"
+                    type="text"
+                    v-model="form.name"
+                    autofocus
+                    autocomplete="name"
+                />
+                <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                <img src="/img/icons/cross.svg" alt="Cancel" @click="stopEditing">
+            </div>
         </div>
-            <TextInput
-                v-else
-                id="name"
-                type="text"
-                v-model="form.name"
-                autofocus
-                autocomplete="name"
-                placeholder="nom"
-            />
-        </div>
-
         <div>
             <InputError :message="form.errors.email" />
-            <div v-if="!editingEmail">
+            <div v-if="!editingEmail" class="flex-row">
                 <span>{{ form.email }}</span>
-                <button @click="startEditingEmail">
-                    <img src="/path-to-pencil-icon.png" alt="Edit">
-                </button>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
             </div>
-            <TextInput
-                v-else
-                id="email"
-                type="email"
-                v-model="form.email"
-                autocomplete="username"
-                placeholder="courriel"
-            />
+            <div v-else>
+                <InputLabel for="email">
+                    Adresse email
+                </InputLabel>
+                <TextInput
+                    id="email"
+                    type="email"
+                    v-model="form.email"
+                    autocomplete="username"
+                />
+            </div>
         </div>
-
-        <!-- Rest of the form... -->
     </form>
 </template>
