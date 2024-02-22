@@ -19,11 +19,11 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Profile" />
+    <Head title="Profil" />
 
     <WhiteLayout class="white-container">
         <template #header>
-            <h2>vos informations</h2>
+            <h2>mon profil</h2>
         </template>
                 <section>
                     <UpdateProfileInformationForm
