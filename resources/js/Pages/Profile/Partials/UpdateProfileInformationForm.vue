@@ -51,15 +51,21 @@ const save = () => {
 
 <template>
     <form @submit.prevent="save">
-        <h2>Mes informations</h2>
+            <h2>Mes informations</h2>     
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="flex-row">
+            <div v-if="!editingName" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/user.svg" class="icon">
                 <span>{{ form.name }}</span>
+
+                </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
             </div>
             <div v-else>
-                <div class="flex-row">
+                <div class="flex-row">     
+                    <img src="/img/icons/user.svg" class="icon">
+       
                     <TextInput
                     id="name"
                     type="text"
@@ -67,6 +73,7 @@ const save = () => {
                     autofocus
                     autocomplete="name"
                     />
+                    
                     <img src="/img/icons/check.svg" alt="Accept" @click="save">
                     <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
                 </div>
@@ -75,12 +82,17 @@ const save = () => {
         </div>
         <div>
             <InputError :message="form.errors.email" />
-            <div v-if="!editingEmail" class="flex-row">
-                <span>{{ form.email }}</span>
+            <div v-if="!editingEmail" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
+                    <span>{{ form.email }}</span>
+
+                </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
             </div>
             <div v-else>
                 <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
                     <TextInput 
                     id="email"
                     v-model="form.email"

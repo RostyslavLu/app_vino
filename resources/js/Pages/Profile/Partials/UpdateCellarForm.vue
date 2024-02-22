@@ -37,14 +37,17 @@ const save = () => {
         <h2>Mes celliers</h2>
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="flex-row">
-                <img src="/img/cellar-blanc.png" class="icon">
-
-                <span>{{ form.name }}</span>
+            <div v-if="!editingName" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/cellier-fond-blanc.png" class="icon">
+                    <span>{{ form.name }}</span>
+                </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
             </div>
             <div v-else>
                 <div class="flex-row">
+                    <img src="/img/cellier-fond-blanc.png" class="icon">
+
                     <TextInput
                     id="cellar_name"
                     type="text"
