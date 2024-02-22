@@ -101,8 +101,6 @@ const save = () => {
                     <img src="/img/icons/check.svg" alt="Accept" @click="save">
                     <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
                 </div>
-                
-
             </div>
         </div>
     </form>

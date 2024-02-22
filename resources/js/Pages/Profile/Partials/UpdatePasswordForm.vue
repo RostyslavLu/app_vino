@@ -1,6 +1,5 @@
 <script setup>
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
@@ -34,10 +33,10 @@ const updatePassword = () => {
 </script>
 
 <template>
-    <section>
-        <header>
-            <h2 class="namereg">mot de passe</h2>
-        </header>
+
+  
+            <h2>mot de passe</h2>
+     
 
         <form @submit.prevent="updatePassword" class="">
             <div>
@@ -93,5 +92,5 @@ const updatePassword = () => {
                 </Transition>
             </div>
         </form>
-    </section>
+
 </template>
