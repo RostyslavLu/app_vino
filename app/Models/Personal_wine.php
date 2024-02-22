@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Saq_wine extends Model
+class Personal_wine extends Model
 {
     use HasFactory;
     protected $fillable = [
