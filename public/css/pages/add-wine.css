@@ -1,3 +1,6 @@
+.add-wine {
+    font-family: var(--font-accent);
+}
 .add-wine-header {
     display: flex;
     flex-direction: column;
@@ -13,4 +16,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.add-wine-search, .add-wine-filters {
+    padding: var(--spacing-thin);
+}
+
+.add-wine-search > label{
+    color: var(--secondary);
+    font-family: var(--font-base);
 }

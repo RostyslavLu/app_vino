@@ -3,12 +3,19 @@ import { Head, Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import SearchInput from '@/Components/SearchInput.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 
+const search = ref('');
+
+const searchWineSaq = () => {
+    console.log(search.value);
+};
 </script>
 
 <template>
     <Head title="Ajouter un vin à mon cellier" />
-        <AddWineCellar class="black-container">
+        <AddWineCellar class="black-container add-wine">
             <template #header>
                 <div class="add-wine-header">
                     <div class="add-wine-controls">
@@ -25,8 +32,13 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
             </template>
 
             <template #main>
-                <div>
+                <div class="add-wine-search">
                     <!-- Contenue -->
+                    <InputLabel for="search" value="Rechercher un vin" />
+                    <SearchInput v-model="search" @input="searchWineSaq" placeholder="ex. chateau"/>
+                </div>
+                <div class="add-wine-filters">
+
                 </div>
             </template>
 
