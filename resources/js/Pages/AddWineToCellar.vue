@@ -2,10 +2,10 @@
 import { Head, Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import SearchInput from '@/Components/SearchInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
+import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
 const search = ref('');
 const winesListSaq = ref([]);
@@ -28,7 +28,7 @@ const fetchWinesListSaq = async () => {
                 <!-- Entete -->
                 <div class="add-wine-header">
                     <div class="add-wine-controls">
-                        <ApplicationLogo class="logo white" width="48" heigth="48" />
+                        <AppLogoFondNoir width="48" heigth="48" />
                         <Link :href="route('dashboard')">
                             <svg style="cursor: pointer;"
                                 height="48" width="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ const fetchWinesListSaq = async () => {
                             </svg>
                         </Link>
                     </div>
-                    <h2>Ajouter un vin</h2>
+                    <h1>Ajouter un vin</h1>
                 </div>
             </template>
 
