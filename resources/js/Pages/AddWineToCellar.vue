@@ -10,15 +10,17 @@ import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 const search = ref('');
 const winesListSaq = ref([]);
 
-
+// fonction pour rechercher des vins dans la SAQ (non fonctionnelle pour le moment)
 const searchWineSaq = () => {
     console.log(search.value);
 };
-
+// fonction pour récupérer la liste des vins de la SAQ
 const fetchWinesListSaq = async () => {
-    const response = await axios.get(route('cellars.searchWineInSaq'));
+    const response = await axios.get(route('cellars.winesSaq'));
     winesListSaq.value = response.data;
 };
+// appel de la fonction pour récupérer la liste des vins de la SAQ
+fetchWinesListSaq();
 </script>
 
 <template>

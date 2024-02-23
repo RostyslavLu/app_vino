@@ -46,11 +46,6 @@ class CellarsController extends Controller
         return $userCellars;
     }
 
-    public function addWineToCellar(Request $request)
-    {
-        
-    }
-
     /**
      * fonction qui retourne les vins dans un cellier de l'utilisateur
      */
@@ -71,7 +66,7 @@ class CellarsController extends Controller
                     ->get();
                 // ajout des colonnes type, nom du vin, url de l'image, pays et région etc
                 $userCellarContents = $userCellarContents->map(function ($item) {
-                    $item->wine_name =  Saq_wine::where('id', $item->saq_wines_id)->value('name') ?? Personal_wine::where('id', $item->personal_wines_id)->value('name');
+                    $item->name =  Saq_wine::where('id', $item->saq_wines_id)->value('name') ?? Personal_wine::where('id', $item->personal_wines_id)->value('name');
                     $item->url_image =  Saq_wine::where('id', $item->saq_wines_id)->value('url_image') ?? Personal_wine::where('id', $item->personal_wines_id)->value('url_image');
                     $item->country =  Saq_wine::where('id', $item->saq_wines_id)->value('country') ?? Personal_wine::where('id', $item->personal_wines_id)->value('country');
                     $item->region =  Saq_wine::where('id', $item->saq_wines_id)->value('region') ?? Personal_wine::where('id', $item->personal_wines_id)->value('region');
@@ -100,8 +95,8 @@ class CellarsController extends Controller
                 ->where('wine_sources_id', 1)
                 ->leftJoin('saq_wines', 'cellar_contents.saq_wines_id', '=', 'saq_wines.id')
                 ->leftJoin('personal_wines', 'cellar_contents.personal_wines_id', '=', 'personal_wines.id')
-                ->select('cellar_contents.*', 'saq_wines.name as wine_name', 'saq_wines.price', 'saq_wines.url_image', 'saq_wines.country', 'saq_wines.region', 'saq_wines.types_id', 'saq_wines.grape_varieties',
-                'personal_wines.name as wine_name', 'personal_wines.price as personal_wine_price', 'personal_wines.url_image as personal_wine_url_image', 'personal_wines.country as personal_wine_country', 'personal_wines.region as personal_wine_region', 'personal_wines.types_id as personal_wine_types_id', 'personal_wines.grape_varieties as personal_wine_grape_varieties')
+                ->select('cellar_contents.*', 'saq_wines.name as name', 'saq_wines.price', 'saq_wines.url_image', 'saq_wines.country', 'saq_wines.region', 'saq_wines.types_id', 'saq_wines.grape_varieties',
+                'personal_wines.name as name', 'personal_wines.price as personal_wine_price', 'personal_wines.url_image as personal_wine_url_image', 'personal_wines.country as personal_wine_country', 'personal_wines.region as personal_wine_region', 'personal_wines.types_id as personal_wine_types_id', 'personal_wines.grape_varieties as personal_wine_grape_varieties')
                 ->where('saq_wines.name', 'like', '%' . $search . '%')
                 ->orWhere('personal_wines.name', 'like', '%' . $search . '%')
                 ->get();
@@ -151,5 +146,10 @@ class CellarsController extends Controller
         //     $userCellarContents = array_merge($userCellarContents, $contents->toArray());
         // }
         return $userCellarContents;
+    }
+    public function winesSaq()
+    {
+        $winesSaq = Saq_wine::all()->take(20);
+        return $winesSaq;
     }
 }
