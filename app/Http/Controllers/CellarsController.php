@@ -147,6 +147,9 @@ class CellarsController extends Controller
         // }
         return $userCellarContents;
     }
+    /**
+     * fonction - temporaire- qui retourne les vins de la SAQ (20 premiers)
+     */
     public function winesSaq()
     {
         $winesSaq = Saq_wine::all()->take(20);
