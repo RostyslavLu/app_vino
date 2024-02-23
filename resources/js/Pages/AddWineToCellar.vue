@@ -8,22 +8,16 @@ import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
 const search = ref('');
-const winesListSaq = ref([]);
+/* const winesListSaq = ref([]); */
 
 // fonction pour rechercher des vins dans la SAQ (non fonctionnelle pour le moment)
 const searchWineSaq = () => {
     console.log(search.value);
 };
-// fonction pour récupérer la liste des vins de la SAQ
-/* const fetchWinesListSaq = async () => {
-    const response = await axios.get(route('cellars.winesSaq'));
-    winesListSaq.value = response.data;
-}; */
-// appel de la fonction pour récupérer la liste des vins de la SAQ
-//fetchWinesListSaq();
 
 //les vins 
 const  wines = usePage().props.wines;
+
 </script>
 
 <template>
@@ -54,16 +48,16 @@ const  wines = usePage().props.wines;
                 <div class="add-wine-filters">
                     <h3>Filtres</h3>
                     <div class="add-wine-filters-list">
-                        <Link >Dates</Link>
-                        <Link >Pays</Link>
-                        <Link >Millésime</Link>
-                        <Link >Rouge</Link>
-                        <Link >Blanc</Link>
-                        <Link >Rosé</Link>
+                        <Link href="/dates">Dates</Link>
+                        <Link href="/pays">Pays</Link>
+                        <Link href="/millesime">Millésime</Link>
+                        <Link href="/rouge">Rouge</Link>
+                        <Link href="/blanc">Blanc</Link>
+                        <Link href="/rose">Rosé</Link>
                     </div>
                 </div>
                 <div class="add-wine-list">
-                    <WineList :cellarContent="winesListSaq" />
+                    <WineList :cellarContent="wines.data" :wines="wines"/>
                 </div>
             </template>
         </AddWineCellar>
