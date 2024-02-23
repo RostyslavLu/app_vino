@@ -23,12 +23,14 @@ const stopEditing = () => {
     editingPassword.value = false;
 };
 
+const showSuccessMessage = ref(false); // message de succès
 const updatePassword = () => {
     form.put(route('password.update'), {
         preserveScroll: true,
         onSuccess: () => {
             stopEditing();
             form.reset();
+            showSuccessMessage.value = true;  
         },
         onError: () => {
             if (form.errors.password) {
@@ -47,8 +49,8 @@ const updatePassword = () => {
 <template>
     <form @submit.prevent="updatePassword">
         <h2>Mot de passe</h2>
-        <div>
             <InputError :message="form.errors.current_password" />
+            <p class="input-success" v-show="showSuccessMessage">Votre mot de passe a été modifié avec succès!</p>
             <div v-if="!editingPassword" class="profile-line">
                 <div class="flex-row">
                     <img src="/img/icons/lock.svg" class="icon">
@@ -95,6 +97,5 @@ const updatePassword = () => {
                     <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
                 </div>  
             </div>
-        </div>
     </form>
 </template>
