@@ -13,6 +13,13 @@ le git quand il ne contient pas de dossiers... de ce que j'ai compris
     align-items: center;
 }
 
+.flex-gap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thinnest);
+
+}
+
 .flex-row {
     display: flex;
     flex-direction: row;
