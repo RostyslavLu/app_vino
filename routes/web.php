@@ -43,7 +43,9 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('AddWineToCellar');
         })->name('addWineToCellar')->middleware('verified'); */
 
-     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
+    Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
+
+    Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
 
     Route::get('/', function () {
         return Inertia::render('Dashboard');
