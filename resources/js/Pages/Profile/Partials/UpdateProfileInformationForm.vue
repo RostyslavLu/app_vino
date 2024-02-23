@@ -1,9 +1,8 @@
 <script setup>
+import { ref } from 'vue';
 import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useForm, usePage } from '@inertiajs/vue3';
 
 defineProps({
     mustVerifyEmail: {
@@ -14,74 +13,95 @@ defineProps({
     },
 });
 
-const user = usePage().props.auth.user;
+const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
-const form = useForm({
+const form = useForm({ // Crée un formulaire réactif
     name: user.name,
     email: user.email,
 });
+
+const editingName = ref(false); // Crée une variable réactive qui indique si le nom est en cours d'édition
+const editingEmail = ref(false);
+
+const startEditingName = () => { // Active le mode édition
+    editingName.value = true;
+};
+
+const startEditingEmail = () => {
+    editingEmail.value = true; // Active le mode édition
+};
+
+const stopEditing = () => {
+    form.reset(); // Réinitialise les valeurs du formulaire à leurs valeurs initiales
+    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
+    editingName.value = false;
+    editingEmail.value = false;
+};
+
+const save = () => {
+    form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
+        preserveScroll: true, // Préserve la position de la page après la soumission du formulaire
+        onSuccess: () => {
+            stopEditing(); // Désactive le mode édition
+        },
+    });
+};
 </script>
 
 <template>
-    <section>
-        <header>
-<!--        <p class="">
-                Update your account's profile information and email address.
-            </p> -->
-            <!-- <vue-feather type="feather"></vue-feather> -->
-        </header>
+    <form @submit.prevent="save">
+            <h2>Mes informations</h2>     
+        <div>
+            <InputError :message="form.errors.name" />
+            <div v-if="!editingName" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/user.svg" class="icon">
+                <span>{{ form.name }}</span>
 
-        <form @submit.prevent="form.patch(route('profile.update'))">
-            <div>
-                <InputError :message="form.errors.name" />
-                <TextInput
+                </div>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+            </div>
+            <div v-else>
+                <div class="flex-row">     
+                    <img src="/img/icons/user.svg" class="icon">
+       
+                    <TextInput
                     id="name"
                     type="text"
                     v-model="form.name"
                     autofocus
                     autocomplete="name"
-                    placeholder="nom"
-                />
+                    />
+                    
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                </div>
+                
             </div>
+        </div>
+        <div>
+            <InputError :message="form.errors.email" />
+            <div v-if="!editingEmail" class="profile-line">
+                <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
+                    <span>{{ form.email }}</span>
 
-            <div>
-                <InputError :message="form.errors.email" />
-                <TextInput
+                </div>
+                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
+            </div>
+            <div v-else>
+                <div class="flex-row">
+                    <img src="/img/icons/mail.svg" class="icon">
+                    <TextInput 
                     id="email"
-                    type="email"
                     v-model="form.email"
+                    autofocus
                     autocomplete="username"
-                    placeholder="courriel"
-                />
-            </div>
-
-            <div v-if="mustVerifyEmail && user.email_verified_at === null">
-                <p class="">
-                    Votre adresse courriel n'est pas vérifiée.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                    >
-                        Cliquer ici pour renvoyer le courriel de vérification.
-                    </Link>
-                </p>
-
-                <div
-                    v-show="status === 'verification-link-sent'"
-                >
-                    Nouveau lien de vérification envoyé à votre adresse courriel.
+                    />
+                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
                 </div>
             </div>
-
-            <div>
-                <PrimaryButton :disabled="form.processing">Sauvegarder</PrimaryButton>
-
-                <Transition name="button-save"
-                >
-                    <p v-if="form.recentlySuccessful" class="text-success">C'est enregistré.</p>
-                </Transition>
-            </div>
-        </form>
-    </section>
+        </div>
+    </form>
 </template>

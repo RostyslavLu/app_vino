@@ -16,7 +16,8 @@ le git quand il ne contient pas de dossiers... de ce que j'ai compris
 .flex-row {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-thin);
+    gap: var(--spacing-thinnest);
+    align-items: center;
 }
 
 .text-accent {

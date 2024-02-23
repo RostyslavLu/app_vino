@@ -7,12 +7,14 @@
 @import "pages/auth.css"; /* des règles spécifiques à l'authentification */
 @import "pages/dashboard.css"; /* des règles spécifiques à une page de page personnelle de l'utilisateur */
 @import "pages/profile.css"; /* des règles spécifiques à une page de page de profil */
+@import "pages/add-wine.css"; /* des règles spécifiques à une page d'ajout de vin */
 
 
 
 
 /* ------Composantes ----------- */
 @import "components/logo.css";
+@import "components/icon.css";
 @import "components/form.css";
 @import "components/search-input.css";
 @import "components/select-input.css";
