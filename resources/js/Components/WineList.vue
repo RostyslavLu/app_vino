@@ -24,9 +24,9 @@ const props = defineProps({
     </ul>
     <!-- Pagination -->
     <div>
-        <Link v-if="wines.prev_page_url" :href="wines.prev_page_url">Previous</Link>
+        <Link v-if="wines.prev_page_url" :href="wines.prev_page_url">Précédente</Link>
         page {{ wines.current_page }} de {{ wines.last_page }} pages 
-        <Link v-if="wines.next_page_url" :href="wines.next_page_url">Next</Link>
+        <Link v-if="wines.next_page_url" :href="wines.next_page_url">Prochaine</Link>
         <!-- nombre de pages -->
     </div>
 </template>
