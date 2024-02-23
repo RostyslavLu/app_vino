@@ -217,6 +217,7 @@ return [
         "countries" => "pays",
         "customer" => "client",
         "customers" => "clients",
+        "current_password" => "mot de passe actuel",
         "day" => "jour",
         "days" => "jours",
         "date_end" => "date de fin",

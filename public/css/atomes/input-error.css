@@ -13,8 +13,8 @@
 
 .input-success {
     color: var(--wine-red);
-    margin-bottom: var(--spacing-thinnest);
-    max-width: var(--dimension-tiny);
+    margin-bottom: var(--spacing-nano);
+    /* max-width: var(--dimension-small); */
     /* font-size: var(--font-tall); */
     font-family: var(--font-alt);
 }
