@@ -14,7 +14,7 @@ class Saq_wineController extends Controller
 
 /*         dd($wines); */
 
-        return Inertia::render('SaqWines', [
+        return Inertia::render('AddWineToCellar', [
             'wines' => $wines,
         ]);
     }

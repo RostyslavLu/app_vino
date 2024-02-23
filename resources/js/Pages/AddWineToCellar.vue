@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
@@ -15,12 +15,15 @@ const searchWineSaq = () => {
     console.log(search.value);
 };
 // fonction pour récupérer la liste des vins de la SAQ
-const fetchWinesListSaq = async () => {
+/* const fetchWinesListSaq = async () => {
     const response = await axios.get(route('cellars.winesSaq'));
     winesListSaq.value = response.data;
-};
+}; */
 // appel de la fonction pour récupérer la liste des vins de la SAQ
-fetchWinesListSaq();
+//fetchWinesListSaq();
+
+//les vins 
+const  wines = usePage().props.wines;
 </script>
 
 <template>
