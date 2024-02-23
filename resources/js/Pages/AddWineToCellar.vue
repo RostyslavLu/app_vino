@@ -43,8 +43,8 @@ fetchWinesListSaq();
             </template>
 
             <template #main>
+                <!-- Contenu principal -->
                 <div class="add-wine-search">
-                    <!-- Contenue -->
                     <InputLabel for="search" value="Rechercher un vin" />
                     <SearchInput v-model="search" @input="searchWineSaq" placeholder="ex. chateau"/>
                 </div>
@@ -63,6 +63,5 @@ fetchWinesListSaq();
                     <WineList :cellarContent="winesListSaq" />
                 </div>
             </template>
-
         </AddWineCellar>
 </template>

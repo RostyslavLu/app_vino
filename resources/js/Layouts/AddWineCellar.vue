@@ -5,7 +5,6 @@
     <div>
         <header>
             <slot name="header">
-                <h2>Ajouter un vin à mon cellier</h2>
             </slot>
         </header>
         <main>
