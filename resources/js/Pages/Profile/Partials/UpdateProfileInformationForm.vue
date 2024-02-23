@@ -4,14 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
-defineProps({
-    mustVerifyEmail: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
+// defineProps call removed
 
 const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
@@ -21,18 +14,23 @@ const form = useForm({ // Crée un formulaire réactif
 });
 
 const editingName = ref(false); // Crée une variable réactive qui indique si le nom est en cours d'édition
+const oldName = ref(user.name); // Crée un référence pour stocker l'ancien nom
 const editingEmail = ref(false);
+const oldEmail = ref(user.email); // Crée un référence pour stocker l'ancien courriel
 
 const startEditingName = () => { // Active le mode édition
+    oldName.value = form.name; // Stocke l'ancien nom
     editingName.value = true;
 };
 
 const startEditingEmail = () => {
+    oldEmail.value = form.email; // Stocke l'ancien courriel
     editingEmail.value = true; // Active le mode édition
 };
 
 const stopEditing = () => {
-    form.reset(); // Réinitialise les valeurs du formulaire à leurs valeurs initiales
+    form.name = oldName.value; // Restaure l'ancien nom
+    form.email = oldEmail.value; // Restaure l'ancien courriel
     form.clearErrors(); // Efface tous les messages d'erreur du formulaire
     editingName.value = false;
     editingEmail.value = false;
@@ -42,6 +40,7 @@ const save = () => {
     form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
         preserveScroll: true, // Préserve la position de la page après la soumission du formulaire
         onSuccess: () => {
+            oldEmail.value = form.email; // Met à jour l'ancien courriel
             stopEditing(); // Désactive le mode édition
         },
     });
@@ -85,7 +84,6 @@ const save = () => {
                 <div class="flex-row">
                     <img src="/img/icons/at-sign.svg" class="icon">
                     <span>{{ form.email }}</span>
-
                 </div>
                 <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
             </div>
