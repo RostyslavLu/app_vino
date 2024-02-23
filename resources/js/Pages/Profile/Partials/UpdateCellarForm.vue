@@ -4,19 +4,25 @@ import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
+// defineProps call removed
+
 const cellar = usePage().props.cellar;
 
 const form = useForm({
     name: cellar.name,
 });
 
+
 const editingName = ref(false);
+const oldName = ref(cellar.name);
 
 const startEditingName = () => {
+    oldName.value = form.name;
     editingName.value = true;
 };
 
 const stopEditing = () => {
+    form.name = oldName.value; //restaure l'ancien nom
     editingName.value = false;
 };
 
@@ -24,9 +30,8 @@ const save = () => {
     form.patch(route('cellars.update', cellar.id), {
         preserveScroll: true,
         onSuccess: () => {
+            oldName.value = form.name;
             stopEditing();
-        },
-        onError: () => {
         },
     });
 };

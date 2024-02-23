@@ -4,14 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
-defineProps({
-    mustVerifyEmail: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
+// defineProps call removed
 
 const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
