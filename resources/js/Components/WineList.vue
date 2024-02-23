@@ -1,11 +1,23 @@
 <script setup>
+import { Link, usePage } from '@inertiajs/vue3';
+
 import { defineProps } from 'vue';
 const props = defineProps({
     cellarContent: {
         type: Array,
         required: true
+    },
+    wines:{
+        type: Object,
+        required: true
     }
 });
+/* //les vins 
+const  wines = usePage().props.wines;
+
+//les infos pour la pagination
+const cellarContent = usePage().props.wines.data; */
+
 // fonction pour marquer la couleur du type de vin
 const getBackgroundColor = (wineColor) => {
     switch (wineColor) {
@@ -47,4 +59,11 @@ const getBackgroundColor = (wineColor) => {
             </div>
         </li>
     </ul>
+    <!-- Pagination -->
+    <div>
+        <Link v-if="wines.prev_page_url" :href="wines.prev_page_url">Previous</Link>
+        page {{ wines.current_page }} of {{ wines.last_page }} pages 
+        <Link v-if="wines.next_page_url" :href="wines.next_page_url">Next</Link>
+        <!-- nombre de pages -->
+    </div>
 </template>
