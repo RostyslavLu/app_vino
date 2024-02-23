@@ -1,14 +1,12 @@
 .add-wine {
     font-family: var(--font-accent);
+    min-height: 100vh;
+    color: var(--secondary);
+    padding: var(--spacing-thin)
 }
 .add-wine-header {
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-thin);
-}
-
-.add-wine-header h2 {
-    color: var(--secondary);
 }
 
 .add-wine-controls {
@@ -17,12 +15,32 @@
     align-items: center;
     justify-content: space-between;
 }
-
-.add-wine-search, .add-wine-filters {
-    padding: var(--spacing-thin);
+.add-wine-search {
+    margin-top: var(--spacing-thin);
 }
 
 .add-wine-search > label{
     color: var(--secondary);
     font-family: var(--font-base);
+}
+
+.add-wine-filters {
+    margin-top: var(--spacing-thin);
+}
+
+.add-wine-filters-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing-nano);
+    margin-top: var(--spacing-micro);
+}
+
+.add-wine-list {
+    margin-top: var(--spacing-thin);
+}
+
+.add-wine-filters-list > a {
+    color: var(--secondary);
+    font-size: var(--font-shortest);
 }

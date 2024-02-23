@@ -5,6 +5,7 @@ use App\Http\Controllers\ScraperController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CellarsController;
 use App\Http\Controllers\CellarController;
+use App\Models\Cellars;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
+    Route::get('/wines-saq', [CellarsController::class, 'winesSaq'])->name('cellars.winesSaq');
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
