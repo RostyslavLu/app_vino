@@ -46,7 +46,7 @@ onMounted(() => {
 fetchUserCellars();
 </script>
 
-<template >
+<template>
     <Head title="Mon compte" />
     <MainLayout>
         <section class="user-account">
