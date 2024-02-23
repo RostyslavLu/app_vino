@@ -6,11 +6,17 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 
+// pour afficher le texte
+const showText = ref(false); // controle l'affichage du texte
+const toggleText = () => {
+    showText.value = !showText.value; // Change la valeur de showText chaque fois que l'icône est cliquée
+};
+
+
+// pour supprimer un compte dans la modale
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
-
 const form = useForm({
     password: '',
 });
@@ -36,16 +42,17 @@ const closeModal = () => {
 </script>
 
 <template>
-    <section>
-        <header>
-            <h2>supprimer</h2>
-
-            <p>
+        <header class="profile-line">
+            <h2>Supprimer mon compte</h2>
+            <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" />
+        </header>
+        <article v-show="showText">
+            <p >
                 Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
             </p>
-        </header>
-
-        <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
+            <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
+        </article>
+            
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="modal-content">
@@ -86,5 +93,4 @@ const closeModal = () => {
                 </div>
             </div>
         </Modal>
-    </section>
 </template>

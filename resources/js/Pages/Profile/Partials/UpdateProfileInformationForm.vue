@@ -83,7 +83,7 @@ const save = () => {
             <InputError :message="form.errors.email" />
             <div v-if="!editingEmail" class="profile-line">
                 <div class="flex-row">
-                    <img src="/img/icons/mail.svg" class="icon">
+                    <img src="/img/icons/at-sign.svg" class="icon">
                     <span>{{ form.email }}</span>
 
                 </div>
