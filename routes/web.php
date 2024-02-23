@@ -34,20 +34,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
     Route::get('/wines-saq', [CellarsController::class, 'winesSaq'])->name('cellars.winesSaq');
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard')->middleware('verified');
+    Route::get('/dashboard', [CellarsController::class, 'index'])->name('dashboard')->middleware('verified');
 
-    
+
 /*      Route::get('/add-wine-cellar', function () {
         return Inertia::render('AddWineToCellar');
         })->name('addWineToCellar')->middleware('verified'); */
 
      Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
 
-    Route::get('/', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard')->middleware('verified');
+
 });
 
 require __DIR__.'/auth.php';

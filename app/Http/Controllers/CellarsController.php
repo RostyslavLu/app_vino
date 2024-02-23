@@ -11,10 +11,13 @@ use App\Models\Cellar_content;
 use App\Models\Saq_wine;
 use App\Models\Type;
 use App\Models\Personal_wine;
+use Inertia\Inertia;
 
 class CellarsController extends Controller
 {
-
+    public function index(){
+        return Inertia::render('Dashboard');
+    }
      /**
     * Mise à jour des informations du cellier de l'utilisateur.
     */
@@ -43,7 +46,10 @@ class CellarsController extends Controller
     public function userCellars()
     {
         $userCellars = Cellars::where('user_id', Auth::id())->get();
-        return $userCellars;
+        
+        return Inertia::render('Cellars', [
+            'userCellars' => $userCellars
+        ]);
     }
 
     /**

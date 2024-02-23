@@ -4,7 +4,7 @@ import axios from 'axios';
 import SearchInput from '@/Components/SearchInput.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import WineList from '@/Components/WineList.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
 
