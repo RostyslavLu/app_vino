@@ -1,52 +1,35 @@
-.modal-container {
+.modal {
     position: absolute;
-    display: flex;
-    top: 70%;
-    left: 50%;
-    z-index: 2;
-    transform: translate(-50%, -50%);
-    max-width: calc(70vw - 2 * var(--spacing-thin));
-    flex-direction: row;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.modal-overlay{
-    position: absolute;
-    z-index: 1;
     top:0;
     left:0;
-    width: 100%;
-    height: 100%;
+    min-width: 100dvw;
+    min-height: 100dvh;
     background-color: var(--semi-transparent-overlay);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.modal{
+
+.modal .__container {
     background-color: var(--primary);
     color: var(--secondary);
-    z-index: 3;
+    margin: 0 var(--spacing-thin);
+    padding: var(--spacing-thin);
 }
+
+
+.modal .__content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thinnest);
+}
+
 
 .modal-buttons{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: var(--spacing-thin)
+    padding-top: var(--spacing-thin) */
 }
 
-.modal-content{
-    padding: var(--spacing-thin);
-    box-sizing: border-box;
-}
-
-.modal-content h1 {
-    padding-bottom: var(--spacing-thinnest);
-}
-
-.modal-content p {
-    padding-bottom: var(--spacing-thin);
-}
-
-.modal-content .modal-logo-container{
-    padding-bottom: var(--spacing-thinnest);
-}

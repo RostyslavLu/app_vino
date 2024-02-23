@@ -1,15 +1,10 @@
 <script setup>
-import { computed, onMounted, onUnmounted, watch } from 'vue';
+import { onMounted, onUnmounted, watch } from 'vue';
 
 const props = defineProps({
     show: {
         type: Boolean,
         default: false,
-    },
-    maxWidth: {
-        type: String,
-        /* valeur temporaire */
-        default: '80vw',
     },
     closeable: {
         type: Boolean,
@@ -49,55 +44,21 @@ onUnmounted(() => {
     document.body.style.overflow = null;
 });
 
-
-const maxWidthClass = '80vw';
-
-/* const maxWidthClass = computed(() => {
-    return {
-        sm: 'sm:max-w-sm',
-        md: 'sm:max-w-md',
-        lg: 'sm:max-w-lg',
-        xl: 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl',
-    }[props.maxWidth];
-}); */
+const closeOnOutsideClick = (e) => {
+    if (e.target === e.currentTarget) {
+        close();
+    }
+};
 </script>
 
 <template>
     <Teleport to="body">
-        <Transition leave-active-class="">
-            <div v-show="show" class="modal-overlay" scroll-region>
-                <Transition
-                    enter-active-class=""
-                    enter-from-class=""
-                    enter-to-class=""
-                    leave-active-class=""
-                    leave-from-class=""
-                    leave-to-class=""
-                >
-                    <div v-show="show" class="modal-overlay" @click="close">
-                        <div class="" />
-                    </div>
-                </Transition>
-
-                <Transition
-                    enter-active-class=""
-                    enter-from-class=""
-                    enter-to-class=""
-                    leave-active-class=""
-                    leave-from-class=""
-                    leave-to-class=""
-                >
-                    <div
-                        v-show="show"
-                        class="modal-container"
-                    >
-                        <div class="modal">
-                            <slot v-if="show" />
-                        </div>
-                    </div>
-                </Transition>
+        <div v-show="show" class="modal" scroll-region @click="closeOnOutsideClick">
+            <div v-show="show" class="__container">
+                <div class="__content">
+                    <slot v-if="show" />
+                </div>
             </div>
-        </Transition>
+        </div>
     </Teleport>
 </template>

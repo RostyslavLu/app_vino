@@ -1,5 +1,6 @@
 <script setup>
 import DangerButton from '@/Components/DangerButton.vue';
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
@@ -38,6 +39,7 @@ const deleteUser = () => {
 const closeModal = () => {
     confirmingUserDeletion.value = false;
     form.reset();
+    form.errors.password = null; // Réinitialise les erreurs de mot de passe
 };
 </script>
 
@@ -55,19 +57,13 @@ const closeModal = () => {
             
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
-            <div class="modal-content">
-                <div class="modal-logo-container">
-                    <ApplicationLogo class="logo white" @click="closeModal"/>
-                </div>
-                <h1>
-                    Etes-vous sûr?
-                </h1>
-
-                <p>
-                    Votre compte, votre cellier et vos vins seront effacés de façon permanente. Veuillez entrer votre mot de passe pour confirmer.
-                </p>
-
+                <ApplicationLogo class="logo white" @click="closeModal"/>
+                <h1>Êtes-vous sûr?</h1>
+                <p>Votre compte, votre cellier et vos vins seront effacés de façon permanente. 
+                <br>Cette action est irréversible.</p>
+                <p>Veuillez entrer votre mot de passe pour confirmer.</p>
                 <div>
+                    <InputError :message="form.errors.password" />
                     <TextInput
                         id="password"
                         ref="passwordInput"
@@ -76,8 +72,6 @@ const closeModal = () => {
                         placeholder="mot de passe"
                         @keyup.enter="deleteUser"
                     />
-
-                    <InputError :message="form.errors.password" />
                 </div>
 
                 <div class="modal-buttons">
@@ -91,6 +85,5 @@ const closeModal = () => {
                         Supprimer
                     </DangerButton>
                 </div>
-            </div>
         </Modal>
 </template>

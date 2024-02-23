@@ -26,10 +26,7 @@ defineProps({
             <h2>Profil</h2>
         </template>
                 <section>
-                    <UpdateProfileInformationForm
-                        :must-verify-email="mustVerifyEmail"
-                        :status="status"
-                    />
+                    <UpdateProfileInformationForm />
                 </section>
                 <section>
                     <UpdateCellarForm />
