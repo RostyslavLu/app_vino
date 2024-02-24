@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cellars;
 use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,12 +18,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
-        // chercher les informations du the premier cellier connecté à l'utilisateur
+        // chercher les informations du premier cellier connecté à l'utilisateur
         $user = Auth::user();
         $cellar = $user->cellars()->first();
 
         return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
             'cellar' => $cellar,
         ]);

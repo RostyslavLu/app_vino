@@ -4,7 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 
-// defineProps call removed
+// "defineProps call" enlevé car il n'est pas nécessaire ici
 
 const user = usePage().props.auth.user; // Récupère l'utilisateur authentifié
 
