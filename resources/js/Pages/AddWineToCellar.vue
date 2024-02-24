@@ -7,14 +7,6 @@ import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
-/* //const search = ref('');
-const searchResults = ref([]);
-
-// fonction pour rechercher des vins dans la SAQ (non fonctionnelle pour le moment)
-const searchWineSaq = () => {
-    console.log(search.value);
-}; */
-
 const { props } = usePage();
 const wines = ref(props.wines);
 const search = ref(props.search);
