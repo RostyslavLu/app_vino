@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
         })->name('addWineToCellar')->middleware('verified'); */
 
     Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
+    Route::get('/saq-empty-search', [Saq_wineController::class, 'emptySearch'])->name('searchSaq.empty');
 
     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
 

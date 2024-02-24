@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
@@ -7,35 +7,30 @@ import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
-const search = ref('');
+/* //const search = ref('');
 const searchResults = ref([]);
-/* const winesListSaq = ref([]); */
 
 // fonction pour rechercher des vins dans la SAQ (non fonctionnelle pour le moment)
 const searchWineSaq = () => {
     console.log(search.value);
-};
-
-//les vins 
-//const  wines = usePage().props.wines;
+}; */
 
 const { props } = usePage();
 const wines = ref(props.wines);
-//const searchQuery = ref('');
+const search = ref(props.search);
 
 const searchWines = async () => {
-    try {
-/*      const response = await getWines('/saq-search', { query: search.value });
-        wines.value = response.data.wines; */
-        console.log(search.value);
-        await fetch(`/search/${search.value}`);
-        const data = await response.json();
-        searchResults.value = data.results;
-    } catch (error) {
-        console.error('Error fetching wines:', error);
-        // Handle error here, such as displaying a message to the user
+    let response;
+    // il faut avoir une route pour un champ de recherche vidé
+    if (search.value.trim() === ''){
+        response = await fetch(`/saq-empty-search`);
+    }else{
+        response = await fetch(`/saq-search/${search.value}`);
     }
+    const data = await response.json();
+    wines.value = data.wines;
 };
+
 
 </script>
 

@@ -11,20 +11,25 @@ class Saq_wineController extends Controller
     //montrer tout les vins
     public function index(){
         $wines = Saq_wine::paginate(20);
+        $search = '';
 
         return Inertia::render('AddWineToCellar', [
-            'wines' => $wines,
+            'wines' => $wines, 
+            'search' => $search, 
         ]);
     }
 
     //rechercher dans les vins de la SAQ
-    public function search(Request $request, $search)
+    public function search($search)
     {
-        $wines = Saq_wine::where('name', 'like', "%$search%")->get();
+        $wines = Saq_wine::where('name', 'like', "%$search%")->paginate(20);
+        return ['wines' => $wines, 'search' => $search];
+    }
 
-        return inertia('AddWineToCellar', [
-            'wines' => $wines,
-        ]);
+    //une fonction pour un champ de recherche vidé
+    public function emptySearch(){
+        $wines = Saq_wine::paginate(20);
+        return ['wines' => $wines, 'search' => ''];
     }
 
 }
