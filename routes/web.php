@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
     Route::get('/wines-saq', [CellarsController::class, 'winesSaq'])->name('cellars.winesSaq');
 
-    Route::get('/dashboard', [CellarsController::class, 'index'])->name('dashboard')->middleware('verified');
+    Route::get('/dashboard', [CellarsController::class, 'index'])->name('dashboard');
 
 
 /*      Route::get('/add-wine-cellar', function () {
@@ -42,8 +42,13 @@ Route::middleware('auth')->group(function () {
         })->name('addWineToCellar')->middleware('verified'); */
 
      Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
-
-
+     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'
+    //  Route::get('/', function () {
+    //     return Inertia::render('Dashboard');
+    // })->name('dashboard')->middleware('verified');
+    Route::get('/', function () {
+        return to_route('login');
+        });
 });
 
 require __DIR__.'/auth.php';
