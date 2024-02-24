@@ -7,16 +7,22 @@ import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
-const search = ref('');
-/* const winesListSaq = ref([]); */
+const { props } = usePage();
+const wines = ref(props.wines);
+const search = ref(props.search);
 
-// fonction pour rechercher des vins dans la SAQ (non fonctionnelle pour le moment)
-const searchWineSaq = () => {
-    console.log(search.value);
+const searchWines = async () => {
+    let response;
+    // il faut avoir une route pour un champ de recherche vidé
+    if (search.value.trim() === ''){
+        response = await fetch(`/saq-empty-search`);
+    }else{
+        response = await fetch(`/saq-search/${search.value}`);
+    }
+    const data = await response.json();
+    wines.value = data.wines;
 };
 
-//les vins 
-const  wines = usePage().props.wines;
 
 </script>
 
@@ -43,7 +49,7 @@ const  wines = usePage().props.wines;
                 <!-- Contenu principal -->
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin" />
-                    <SearchInput v-model="search" @input="searchWineSaq" placeholder="ex. chateau"/>
+                    <SearchInput v-model="search" @input="searchWines" placeholder="ex. chateau"/>
                 </div>
                 <div class="add-wine-filters">
                     <h3>Filtres</h3>
@@ -57,6 +63,7 @@ const  wines = usePage().props.wines;
                     </div>
                 </div>
                 <div class="add-wine-list">
+                    <!--dans la variable wines, on recoit tout, incluant les infos pour la pagination, tandisque wines.data, c'est les infos pour les vins-->
                     <WineList :cellarContent="wines.data" :wines="wines"/>
                 </div>
             </template>

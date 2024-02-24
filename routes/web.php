@@ -22,29 +22,35 @@ use Inertia\Inertia;
 |
 */
 Route::middleware('auth')->group(function () {
+    //les routes pour la page profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // le scraper
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper.index');
 
+    // le cellier
     Route::patch('/cellars/{cellar}', [CellarsController::class, 'update'])->name('cellars.update');
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
+
+    // c'est quoi cette route? on peut l'effacer?
     Route::get('/wines-saq', [CellarsController::class, 'winesSaq'])->name('cellars.winesSaq');
 
+    // la route dashboard
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard')->middleware('verified');
 
-    
-/*      Route::get('/add-wine-cellar', function () {
-        return Inertia::render('AddWineToCellar');
-        })->name('addWineToCellar')->middleware('verified'); */
 
-     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('add-wine-cellar');
+    // les routes saq 
+    Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
+    Route::get('/saq-empty-search', [Saq_wineController::class, 'emptySearch'])->name('searchSaq.empty');
+    Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('addWineToCellar');
 
+    // la route home (pointe présentement à la vue dashboard)
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard')->middleware('verified');
