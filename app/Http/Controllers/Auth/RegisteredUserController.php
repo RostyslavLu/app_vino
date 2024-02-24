@@ -37,7 +37,6 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'cellar_name' => 'max:50',
-            'cellar_description' => 'max:100',
         ]);
 
         $user = User::create([
@@ -52,20 +51,13 @@ class RegisteredUserController extends Controller
             $cellarName = 'le cellier chez '.$user->name;
         }
 
-        // il faut vérifier si le cellier à une description
-        $cellarDescription = $request->cellar_description ?? '';
-        if($request->cellar_description == ''){
-            $cellarDescription = 'aucune description';
-        }
+
 
         Cellars::create([
             'name' => $cellarName,
-            'description' => $cellarDescription,
+            'description' => 'Pas de description fournie.', // Valeur non vide par défaut
             'user_id' => $user->id,
         ]);
-
-        event(new Registered($user));
-
         //TODO: est-ce qu'on veut que l'utilisateur qui vient de
         //s'enregistrer soit logout? 
         Auth::login($user);
