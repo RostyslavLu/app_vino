@@ -20,8 +20,7 @@ class Saq_wineController extends Controller
     }
 
     //rechercher dans les vins de la SAQ
-    public function search($search)
-    {
+    public function search($search){
         $wines = Saq_wine::where('name', 'like', "%$search%")->paginate(20);
         return ['wines' => $wines, 'search' => $search];
     }

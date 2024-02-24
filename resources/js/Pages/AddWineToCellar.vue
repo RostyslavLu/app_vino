@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, usePage, router } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
