@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
@@ -7,11 +7,14 @@ import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
+// using asynchronous fetch. breaks laravel's pagination
+/*
 const { props } = usePage();
 const wines = ref(props.wines);
 const search = ref(props.search);
 
-const searchWines = async () => {
+
+ const searchWines = async () => {
     let response;
     // il faut avoir une route pour un champ de recherche vidé
     if (search.value.trim() === ''){
@@ -21,8 +24,21 @@ const searchWines = async () => {
     }
     const data = await response.json();
     wines.value = data.wines;
-};
+}; */
 
+const { props } = usePage();
+const wines = ref(props.wines);
+const search = ref(props.search);
+const searchInput = ref(false);
+
+//entamer la recherche sur la bd
+const searchWines = () => {  
+    if (search.value.trim() === ''){
+        router.get('/saq-empty-search')
+    }else{
+        router.get(`/saq-search/${search.value}`)
+    }
+};
 
 </script>
 
@@ -49,7 +65,8 @@ const searchWines = async () => {
                 <!-- Contenu principal -->
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin" />
-                    <SearchInput v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <p>vins trouvés: {{ wines.total }}</p>
                 </div>
                 <div class="add-wine-filters">
                     <h3>Filtres</h3>

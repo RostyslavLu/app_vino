@@ -18,15 +18,15 @@ const props = defineProps({
 <template v-if="cellarContent">
     <ul class="cellar-content">
         <li v-if="!cellarContent.length">
-            Chargement...
+            Aucun résultat
         </li>
         <WineListItem v-for="content in cellarContent" :key="content.id" :content="content" />
     </ul>
     <!-- Pagination -->
     <div>
         <Link v-if="wines.prev_page_url" :href="wines.prev_page_url">Précédente</Link>
+        <!-- nombre de pages -->
         page {{ wines.current_page }} de {{ wines.last_page }} pages 
         <Link v-if="wines.next_page_url" :href="wines.next_page_url">Prochaine</Link>
-        <!-- nombre de pages -->
     </div>
 </template>
