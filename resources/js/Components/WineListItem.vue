@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
+import AddSaqWineButton from '@/Components/AddSaqWineButton.vue';
 
 const props = defineProps({
     content: {
@@ -38,7 +39,7 @@ const getBackgroundColor = (wineColor) => {
                     <p>{{ content.region }}</p>
                 </div>
                 <div class="wine-quantity">
-                    <div>{{ content.quantity }}</div>
+                    <AddSaqWineButton :id="content.id"/>
                 </div>
             </div>
         </div>

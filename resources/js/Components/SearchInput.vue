@@ -23,7 +23,6 @@ const vFocus = {
     v-focus
     type="search"
     :value="modelValue"
-    autofocus
     placeholder="Rechercher un vin"
     @input="updateValue($event)"
     />
