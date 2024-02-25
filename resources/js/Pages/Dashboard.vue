@@ -26,7 +26,7 @@ const filteredCellarContents = computed(() => searchWine());
         <section class="user-account">
             <div class="user-cellars">
             <h2 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h2>
-                <Link :href="route('add-wine-cellar')">
+                <Link :href="route('addWineToCellar')">
                     <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
