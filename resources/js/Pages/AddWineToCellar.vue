@@ -7,25 +7,6 @@ import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
 import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 
-// using asynchronous fetch. breaks laravel's pagination
-/*
-const { props } = usePage();
-const wines = ref(props.wines);
-const search = ref(props.search);
-
-
- const searchWines = async () => {
-    let response;
-    // il faut avoir une route pour un champ de recherche vidé
-    if (search.value.trim() === ''){
-        response = await fetch(`/saq-empty-search`);
-    }else{
-        response = await fetch(`/saq-search/${search.value}`);
-    }
-    const data = await response.json();
-    wines.value = data.wines;
-}; */
-
 const { props } = usePage();
 const wines = ref(props.wines);
 const search = ref(props.search);
