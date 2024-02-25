@@ -41,7 +41,6 @@ const getBackgroundColor = (wineColor) => {
                     <div>{{ content.quantity }}</div>
                 </div>
             </div>
-            <span v-if="content.cellar_name">Cellier:&nbsp;<strong>{{ content.cellar_name }}</strong></span>
         </div>
     </li>
 </template>

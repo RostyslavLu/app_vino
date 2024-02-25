@@ -36,13 +36,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
 
-    // c'est quoi cette route? on peut l'effacer?
-    Route::get('/wines-saq', [CellarsController::class, 'winesSaq'])->name('cellars.winesSaq');
+    Route::get('/dashboard', [CellarsController::class, 'index'])->name('dashboard');
 
-    // la route dashboard
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard')->middleware('verified');
+    // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'
+    //  Route::get('/', function () {
+    //     return Inertia::render('Dashboard');
+    // })->name('dashboard')->middleware('verified');
+  
+    // la route home (pointe présentement à la vue dashboard)
+    Route::get('/', function () {
+        return to_route('login');
+        });
 
 
     // les routes saq 
@@ -50,10 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/saq-empty-search', [Saq_wineController::class, 'emptySearch'])->name('searchSaq.empty');
     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('addWineToCellar');
 
-    // la route home (pointe présentement à la vue dashboard)
-    Route::get('/', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard')->middleware('verified');
+
 });
 
 require __DIR__.'/auth.php';
