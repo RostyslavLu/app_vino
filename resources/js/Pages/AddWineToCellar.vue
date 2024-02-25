@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
@@ -10,19 +10,16 @@ import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
 const { props } = usePage();
 const wines = ref(props.wines);
 const search = ref(props.search);
+const searchInput = ref(false);
 
-const searchWines = async () => {
-    let response;
-    // il faut avoir une route pour un champ de recherche vidé
+//entamer la recherche sur la bd
+const searchWines = () => {  
     if (search.value.trim() === ''){
-        response = await fetch(`/saq-empty-search`);
+        router.get('/saq-empty-search')
     }else{
-        response = await fetch(`/saq-search/${search.value}`);
+        router.get(`/saq-search/${search.value}`)
     }
-    const data = await response.json();
-    wines.value = data.wines;
 };
-
 
 </script>
 
@@ -49,7 +46,8 @@ const searchWines = async () => {
                 <!-- Contenu principal -->
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin" />
-                    <SearchInput v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <p>vins trouvés: {{ wines.total }}</p>
                 </div>
                 <div class="add-wine-filters">
                     <h3>Filtres</h3>

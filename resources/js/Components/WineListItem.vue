@@ -1,12 +1,12 @@
 <script setup>
 import { defineProps } from 'vue';
+
 const props = defineProps({
     content: {
         type: Object,
         required: true
     },
 });
-
 
 // fonction pour marquer la couleur du type de vin
 const getBackgroundColor = (wineColor) => {
