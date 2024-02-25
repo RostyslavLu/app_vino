@@ -16,7 +16,7 @@ const search = ref('');
 const searchWine = () => {
     return cellarContents.filter(content => content.name.includes(search.value));
 };
-// les vins filtrés
+// les vins filtrés par la recherche de l'utilisateur par nom
 const filteredCellarContents = computed(() => searchWine());
 </script>
 
@@ -33,6 +33,17 @@ const filteredCellarContents = computed(() => searchWine());
                             d="M5 12h14m-7 7V5" />
                     </svg>
                 </Link>
+            </div>
+            <div class="cadd-wine-filters">
+                <h3>Filtres</h3>
+                <div class="add-wine-filters-list">
+                    <Link style="color: var(--primary);" href="/dates">Dates</Link>
+                    <Link style="color: var(--primary);" href="/pays">Pays</Link>
+                    <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
+                    <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
+                    <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
+                    <Link style="color: var(--primary);" href="/rose">Rosé</Link>
+                </div>
             </div>
             <div>
                 <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />

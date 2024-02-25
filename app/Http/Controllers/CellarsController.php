@@ -36,6 +36,9 @@ class CellarsController extends Controller
             $item->type = Type::where('id', $item->types_id)->value('type');
             return $item;
         });
+        //pagination
+
+        //retourner la vue
         return Inertia::render('Dashboard', [
             'userCellar' => $userCellar,
             'cellarContents' => $cellarContents,
