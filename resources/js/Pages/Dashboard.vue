@@ -1,49 +1,23 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+
 import SearchInput from '@/Components/SearchInput.vue';
-import SelectInput from '@/Components/SelectInput.vue';
+import { ref, computed } from 'vue';
 import WineList from '@/Components/WineList.vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
+const userCellar = usePage().props.userCellar;
+const cellarContents = usePage().props.cellarContents;
+const wines = usePage().props.wines;
 
-const userCellars = ref([]);
-const userCellarContent = ref([]);
 const search = ref('');
-const selectedCellar = ref(1);
-// fonction pour récupérer les celliers de l'utilisateur
-const fetchUserCellars = async () => {
-    const response = await axios.get(route('cellars.userCellars'));
-    userCellars.value = response.data;
-};
-// fonction pour récupérer le contenu du cellier de l'utilisateur
-const fetchUserCellarContent = async (event) => {
-    const response = await axios.get(route('cellars.userCellarContent', event.target.value));
-    userCellarContent.value = response.data;
-};
-// fonction pour rechercher des vins dans les celliers de l'utilisateur
-const searchWine = async () => {
-    if (search.value === '') {
-        userCellarContent.value = [];
-        // si le champ de recherche est vide, on récupère le contenu du cellier sélectionné
-        return fetchUserCellarContent({ target: { value: selectedCellar.value } });
-    }
-    const response = await axios.get(route('cellars.searchWineInUserCellars', search.value));
-    userCellarContent.value = response.data;
-    console.log(response.data);
-};
-// fonction pour effacer la champ de recherche
-const clearSearch = () => {
-    search.value = '';
-};
 
-onMounted(() => {
-    fetchUserCellarContent({ target: { value: selectedCellar.value } });
-});
-
-fetchUserCellars();
+// fonction pour rechercher des vins dans le cellier par nom
+const searchWine = () => {
+    return cellarContents.filter(content => content.name.includes(search.value));
+};
+// les vins filtrés par la recherche de l'utilisateur par nom
+const filteredCellarContents = computed(() => searchWine());
 </script>
 
 <template>
@@ -51,22 +25,34 @@ fetchUserCellars();
     <MainLayout>
         <section class="user-account">
             <div class="user-cellars">
-                <select-input v-model="selectedCellar" :options="userCellars"
-                    @change="fetchUserCellarContent($event); clearSearch()"></select-input>
+            <h2 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h2>
                 <Link :href="route('add-wine-cellar')">
-                <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 12h14m-7 7V5" />
-                </svg>
+                    <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14m-7 7V5" />
+                    </svg>
                 </Link>
+            </div>
+            <div class="cadd-wine-filters">
+                <h3>Filtres</h3>
+                <div class="add-wine-filters-list">
+                    <Link style="color: var(--primary);" href="/dates">Dates</Link>
+                    <Link style="color: var(--primary);" href="/pays">Pays</Link>
+                    <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
+                    <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
+                    <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
+                    <Link style="color: var(--primary);" href="/rose">Rosé</Link>
+                </div>
             </div>
             <div>
                 <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />
             </div>
-            <wine-list :cellarContent="userCellarContent" v-if="userCellarContent.length > 0" />
-            <div v-else-if="userCellarContent.length === 0">
-                <p>aucun vin n'a été trouvé</p>
+            <div v-if="filteredCellarContents.length > 0">
+                <wine-list :cellarContent="filteredCellarContents" :wines="wines" />
+            </div>
+            <div v-else>
+                <p>Vous n'avez pas encore de vin dans votre cellier</p>
             </div>
         </section>
     </MainLayout>
