@@ -41,7 +41,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    /* background-color: var(--secondary); */
+    background-color: var(--secondary);
     padding-left: var(--spacing-nano);
 }
 .wine-image > img {

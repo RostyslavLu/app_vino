@@ -50,6 +50,9 @@ class CellarContentController extends Controller
             'wines' => $wines,
         ]);
     }
+    /**
+     * fonction pour sauvegarder un vin dans le cellier de l'utilisateur (à terminer)
+     */
     public function store(Request $request){
         //récupérer l'id de l'utilisateur
         $user = Auth::id();
@@ -58,21 +61,21 @@ class CellarContentController extends Controller
         //validation des champs
         $request->validate([
             'quantity' => 'required',
-            'vintage' => 'year',
             'notes' => 'max:100',
+            'saq_wines_id' => 'numeric',
         ]);
         //ajout du vin dans le cellier de l'utilisateur
         Cellar_content::create([
             'cellars_id' => $userCellar[0]->id,
             'saq_wines_id' => $request->saq_wines_id,
-            'personal_wines_id' => $request->personal_wines_id,
             'quantity' => $request->quantity,
-            'vintage' => $request->vintage,
-            'notes' => $request->notes,
+            'wine_sources_id' => 1,
+            'purchase_date' => date('Y-m-d H:i:s'),
         ]);
 
         //retourner la vue (meme page) avec un message de succès
-        return with('success', 'Le vin a été ajouté à votre cellier');
+        session()->flash('success', 'Le vin a été ajouté à votre cellier');
+        return Inertia::location(url()->previous());
     }
 
 }
