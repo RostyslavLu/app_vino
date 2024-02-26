@@ -47,12 +47,12 @@ const updatePassword = () => {
 </script>
 
 <template>
-    <form @submit.prevent="updatePassword">
+    <form @submit.prevent="updatePassword" class="profile">
         <h2>Mot de passe</h2>
         <div>
             <InputError :message="form.errors.current_password" />
             <p class="input-success" v-show="showSuccessMessage">Votre mot de passe a été modifié avec succès!</p>
-            <div v-if="!editingPassword" class="profile-line">
+            <div v-if="!editingPassword" class="__inline">
                 <div class="flex-row">
                     <img src="/img/icons/lock.svg" class="icon">
                     <span>********</span>

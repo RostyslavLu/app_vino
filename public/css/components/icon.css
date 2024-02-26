@@ -1,10 +1,5 @@
 .icon {
     width: 25px;
     height: 25px;
+    fill: var(--primary);
 }
-
-.icon.white {
-    stroke: white;
-    fill: white;
-    background-color: white;
-  }

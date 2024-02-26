@@ -6,7 +6,7 @@ form {
 }
 
 input:not([type="checkbox"]) {
-    font-size: var(--font-current);
+    /* font-size: var(--font-current); */
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);

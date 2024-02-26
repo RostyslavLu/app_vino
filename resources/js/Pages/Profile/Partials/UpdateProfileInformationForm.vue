@@ -29,12 +29,16 @@ const startEditingEmail = () => {
 };
 
 const stopEditing = () => {
-    form.name = oldName.value; // Restaure l'ancien nom
-    form.email = oldEmail.value; // Restaure l'ancien courriel
-    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
     editingName.value = false;
     editingEmail.value = false;
 };
+
+const cancelEditing = () => {
+    form.name = oldName.value; // Restaure l'ancien nom
+    form.email = oldEmail.value; // Restaure l'ancien courriel
+    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
+    stopEditing(); // Désactive le mode édition
+}
 
 const save = () => {
     form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
@@ -48,11 +52,11 @@ const save = () => {
 </script>
 
 <template>
-    <form @submit.prevent="save">
+    <form @submit.prevent="save" class="profile">
             <h2>Mes informations</h2>     
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="profile-line">
+            <div v-if="!editingName" class="__inline">
                 <div class="flex-row">
                     <img src="/img/icons/user.svg" class="icon">
                 <span>{{ form.name }}</span>
@@ -80,7 +84,7 @@ const save = () => {
         </div>
         <div>
             <InputError :message="form.errors.email" />
-            <div v-if="!editingEmail" class="profile-line">
+            <div v-if="!editingEmail" class="__inline">
                 <div class="flex-row">
                     <img src="/img/icons/at-sign.svg" class="icon">
                     <span>{{ form.email }}</span>
@@ -97,7 +101,7 @@ const save = () => {
                     autocomplete="username"
                     />
                     <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="cancelEditing">
                 </div>
             </div>
         </div>
