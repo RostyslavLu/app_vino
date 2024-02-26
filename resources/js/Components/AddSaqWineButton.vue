@@ -21,11 +21,11 @@ const form = useForm({
 });
 
 const submit = () => {
-    if (form.quantity <= 0) {
-        return form.quantity = 1;
-    }
+
     form.post(route('cellar-content.store'), {
-        onFinish: () => form.reset('quantity'),
+        onFinish: () => {
+            form.quantity = 1;
+        }
     });
 };
 

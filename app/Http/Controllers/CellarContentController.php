@@ -75,7 +75,9 @@ class CellarContentController extends Controller
 
         //retourner la vue (meme page) avec un message de succès
         session()->flash('success', 'Le vin a été ajouté à votre cellier');
-        return Inertia::location(url()->previous());
+        //return Inertia::render('Dashboard', [
+
+        return Redirect::back()->with('success', 'Le vin a été ajouté à votre cellier');
     }
 
 }
