@@ -20,7 +20,7 @@
 @import "components/select-input.css";
 @import "components/button.css";
 @import "components/modal.css";
-
+@import "components/pagination.css";
 
 /* ------Atomes ----------- */
 @import "atomes/utility.css";

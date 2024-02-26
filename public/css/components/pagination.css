@@ -1,0 +1,6 @@
+.pagination{
+    padding-top: var(--spacing-thin);
+    display: flex;
+    justify-content: space-around;
+}
+
