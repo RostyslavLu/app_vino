@@ -29,12 +29,16 @@ const startEditingEmail = () => {
 };
 
 const stopEditing = () => {
-    form.name = oldName.value; // Restaure l'ancien nom
-    form.email = oldEmail.value; // Restaure l'ancien courriel
-    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
     editingName.value = false;
     editingEmail.value = false;
 };
+
+const cancelEditing = () => {
+    form.name = oldName.value; // Restaure l'ancien nom
+    form.email = oldEmail.value; // Restaure l'ancien courriel
+    form.clearErrors(); // Efface tous les messages d'erreur du formulaire
+    stopEditing(); // Désactive le mode édition
+}
 
 const save = () => {
     form.patch(route('profile.update'), { // Envoie une requête PATCH à la route profile.update
@@ -97,7 +101,7 @@ const save = () => {
                     autocomplete="username"
                     />
                     <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                    <img src="/img/icons/x.svg" alt="Cancel" @click="cancelEditing">
                 </div>
             </div>
         </div>
