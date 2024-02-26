@@ -10,7 +10,10 @@ class Saq_wineController extends Controller
 {
     //montrer tout les vins
     public function index(){
-        $wines = Saq_wine::paginate(20);
+        $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
+            ->select('saq_wines.*', 'types.type')
+            ->paginate(20);
+
         $search = '';
 
         return Inertia::render('AddWineToCellar', [
@@ -21,9 +24,11 @@ class Saq_wineController extends Controller
 
     //rechercher dans les vins de la SAQ
     public function search($search){
-/*         $wines = Saq_wine::where('name', 'like', "%$search%")->paginate(20);
-        return ['wines' => $wines, 'search' => $search]; */
-        $wines = Saq_wine::where('name', 'like', "%$search%")->paginate(20);
+        $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
+            ->select('saq_wines.*', 'types.type')
+            ->where('name', 'like', "%$search%")
+            ->paginate(20);
+
         return Inertia::render('AddWineToCellar', [
             'wines' => $wines, 
             'search' => $search,
@@ -32,7 +37,10 @@ class Saq_wineController extends Controller
 
     //une fonction pour un champ de recherche vidé
     public function emptySearch(){
-        $wines = Saq_wine::paginate(20);
+        $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
+            ->select('saq_wines.*', 'types.type')
+            ->paginate(20);
+
         return Inertia::render('AddWineToCellar', [
             'wines' => $wines, 
             'search' => ''
