@@ -9,7 +9,7 @@ import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
     <header class="flex-between">
         <ApplicationLogoWhite class="logo"/>
         <!-- Menu de navigation -->
-        <NavigationMenu class="main-menu"/>
+        <NavigationMenu class="main-nav"/>
     </header>
     
 
