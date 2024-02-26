@@ -1,5 +1,5 @@
 <script setup>
-import ApplicationLogoFondNoir from '@/Components/ApplicationLogoFondNoir.vue';
+import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 
@@ -7,7 +7,7 @@ import { Link } from '@inertiajs/vue3';
     <div class="auth-container">
         <header class="flex-column">
             <Link href="/">
-                <ApplicationLogoFondNoir class="logo" />
+                <ApplicationLogoBlack class="logo" />
             </Link>
             <h1>vino</h1>
         </header>   

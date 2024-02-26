@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
@@ -17,11 +17,9 @@ const showingNavigationDropdown = ref(false);
             <div class="">
                 <div class="">
                     <!-- Logo -->
-                    <!-- <div class="">
-                        <Link :href="route('dashboard')">
-                        <ApplicationLogo class="logo" />
-                        </Link>
-                    </div> -->
+                    <div class="">
+                        <ApplicationLogoWhite class="logo" />
+                    </div>
 
                     <!-- Navigation Links -->
                     <!-- <div class="">
