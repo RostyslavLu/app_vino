@@ -44,16 +44,19 @@ const closeModal = () => {
 </script>
 
 <template>
-        <header class="profile-line">
-            <h2>Supprimer mon compte</h2>
-            <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" />
-        </header>
-        <article v-show="showText" class="profil-delete ">
-            <p>
-                Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
-            </p>
-            <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
-        </article>
+        <div class="profile">
+            <header class="__inline">
+                <h2>Supprimer mon compte</h2>
+                <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" class="icon" />
+            </header>
+            <article v-show="showText">
+                <p class="__delete-text">
+                    Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
+                </p>
+                <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
+            </article>
+        </div>
+
             
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">

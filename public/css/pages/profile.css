@@ -1,35 +1,13 @@
-/* UpdateProfileInformationForm */
-/* .block-button {
-    align-self: flex-start;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: var(--spacing-thinnest);
-}
-
-.text-success {
-    color: var(--primary);
-} */
-
-/* Transition */
-
-/* .button-save-enter-active,
-.button-save-leave-active {
-    transition: all var(--duration-slow) var(--ease-in-out);
-}
-
-.button-save-enter-from,
-.button-save-leave-to {
-    transform: translateX(-25px);
-    opacity: var(--transparent);
-} */
-
-
 /* Page profil */
-
-.profile-line {
+.profile .__inline {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.profile .__delete-text {
+    margin: var(--spacing-thinner) 0;
+    background-color: var(--wine-rose);
+    padding: var(--spacing-thinner) var(--spacing-thinnest);
 }

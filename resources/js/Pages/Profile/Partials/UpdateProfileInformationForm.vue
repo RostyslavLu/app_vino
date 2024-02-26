@@ -52,11 +52,11 @@ const save = () => {
 </script>
 
 <template>
-    <form @submit.prevent="save">
+    <form @submit.prevent="save" class="profile">
             <h2>Mes informations</h2>     
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="profile-line">
+            <div v-if="!editingName" class="__inline">
                 <div class="flex-row">
                     <img src="/img/icons/user.svg" class="icon">
                 <span>{{ form.name }}</span>
@@ -84,7 +84,7 @@ const save = () => {
         </div>
         <div>
             <InputError :message="form.errors.email" />
-            <div v-if="!editingEmail" class="profile-line">
+            <div v-if="!editingEmail" class="__inline">
                 <div class="flex-row">
                     <img src="/img/icons/at-sign.svg" class="icon">
                     <span>{{ form.email }}</span>
