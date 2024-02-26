@@ -5,6 +5,7 @@
     gap: var(--spacing-thinnest);
     padding: var(--spacing-thinnest);
     background-color: var(--secondary);
+    min-height: 100dvh;
 }
 
 .dashboard .__container {
