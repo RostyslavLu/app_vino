@@ -9,5 +9,5 @@ const model = defineModel({
 </script>
 
 <template>
-    <input type="number" v-model="model" />
+    <input type="number" v-model="model" min="1" />
 </template>
