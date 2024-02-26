@@ -50,6 +50,9 @@ class CellarContentController extends Controller
             'wines' => $wines,
         ]);
     }
+    /**
+     * fonction pour sauvegarder un vin dans le cellier de l'utilisateur
+     */
     public function store(Request $request){
         //récupérer l'id de l'utilisateur
         $user = Auth::id();
