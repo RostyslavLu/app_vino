@@ -24,31 +24,33 @@ const searchWines = () => {
 </script>
 
 <template>
-    <Head title="Mon compte" />
-    <MainLayout>
-        <section class="user-account">
-            <div class="user-cellars">
-            <h2 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h2>
-                <Link :href="route('addWineToCellar')">
-                    <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    
+        <Head title="Mon compte" />
+        <div class="dashboard">
+            <MainLayout>
+                <section class="__container">
+                    <div class="__cellar">
+                        <h2 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h2>
+                        <Link :href="route('addWineToCellar')">
+                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 12h14m-7 7V5" />
-                    </svg>
-                </Link>
-            </div>
-            <div class="cadd-wine-filters">
-                <h3>Filtres</h3>
-                <div class="add-wine-filters-list">
-                    <Link style="color: var(--primary);" href="/dates">Dates</Link>
-                    <Link style="color: var(--primary);" href="/pays">Pays</Link>
-                    <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
-                    <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
-                    <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
-                    <Link style="color: var(--primary);" href="/rose">Rosé</Link>
-                </div>
-            </div>
-            <div>
+                            </svg>
+                        </Link>
+                    </div>
+                    <div class="cadd-wine-filters">
+                        <h3>Filtres</h3>
+                        <div class="add-wine-filters-list">
+                            <Link style="color: var(--primary);" href="/dates">Dates</Link>
+                            <Link style="color: var(--primary);" href="/pays">Pays</Link>
+                            <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
+                            <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
+                            <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
+                            <Link style="color: var(--primary);" href="/rose">Rosé</Link>
+                        </div>
+                    </div>
+                <div>
                 <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />
                 <span v-if="wines">
                     {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
@@ -56,11 +58,12 @@ const searchWines = () => {
                     <span v-if="wines.total > 1">trouvés</span>
                     <span v-else>trouvé</span>
                 </span>
-            </div>
-            <div>
-                <wine-list :cellarContent="wines.data" :wines="wines" />
-            </div>
-        </section>
-    </MainLayout>
+                </div>
+                <div>
+                    <wine-list :cellarContent="wines.data" :wines="wines" />
+                </div>
+            </section>
+        </MainLayout>
+    </div>
 </template>
 

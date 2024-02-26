@@ -1,5 +1,5 @@
 .icon {
-    width: 25px;
-    height: 25px;
-    fill: var(--primary);
+    width: var(--icon);
+    height: var(--icon);
 }
+
