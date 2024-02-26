@@ -11,6 +11,7 @@ class Cellar_content extends Model
     protected $fillable = [
         'quantity',
         'vintage',
+        'purchase_date',
         'notes',
         'cellars_id',
         'personal_wines_id',

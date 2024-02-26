@@ -50,8 +50,16 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: var(--tertiary);
+    justify-content: center;
+    gap: 0;
 }
 .button-content label {
     line-height: 0;
 }
+
+.quantity-arrows > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
