@@ -6,8 +6,16 @@
     padding: var(--spacing-thinnest);
     background-color: var(--secondary);
 }
+
+.dashboard .__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thinnest);
+}
+
+
 /* liste des celliers de l'utilisateur */
-.user-cellars {
+.dashboard .__cellar {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-thinnest);
@@ -15,9 +23,7 @@
     justify-content: space-between;
 }
 
-.user-cellars > select {
-    width: 100%;
-}
+
 
 /* contenu de cellier  */
 .cellar-content {
