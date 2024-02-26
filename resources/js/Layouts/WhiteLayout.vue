@@ -1,5 +1,5 @@
 <script setup>
-import ApplicationLogoWhite from '@/Components/ApplicationWhite.vue';
+import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
 import { Link } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 

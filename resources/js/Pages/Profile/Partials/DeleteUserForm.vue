@@ -1,6 +1,6 @@
 <script setup>
 import DangerButton from '@/Components/DangerButton.vue';
-import ApplicationLogoFondNoir from '@/Components/ApplicationLogoFondNoir.vue';
+import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
@@ -60,7 +60,7 @@ const closeModal = () => {
             
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
-                <ApplicationLogoFondNoir class="logo" @click="closeModal"/>
+                <ApplicationLogoBlack class="logo" @click="closeModal"/>
                 <h1>Êtes-vous sûr?</h1>
                 <p>Votre compte, votre cellier et vos vins seront effacés de façon permanente. 
                 <br>Cette action est irréversible.</p>
