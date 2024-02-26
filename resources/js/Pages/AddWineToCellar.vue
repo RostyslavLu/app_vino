@@ -5,7 +5,7 @@ import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import WineList from '@/Components/WineList.vue';
-import AppLogoFondNoir from '@/Components/AppLogoFondNoir.vue';
+import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 
 const { props } = usePage();
 const wines = ref(props.wines);
@@ -30,7 +30,7 @@ const searchWines = () => {
                 <!-- Entete -->
                 <div class="add-wine-header">
                     <div class="add-wine-controls">
-                        <AppLogoFondNoir width="48" heigth="48" />
+                        <ApplicationLogoBlack width="48" heigth="48" />
                         <Link :href="route('dashboard')">
                             <svg style="cursor: pointer;"
                                 height="48" width="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

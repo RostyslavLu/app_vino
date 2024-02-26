@@ -21,6 +21,8 @@
 @import "components/button.css";
 @import "components/modal.css";
 @import "components/pagination.css";
+@import "components/main-nav.css";
+@import "components/navigation.css";
 
 /* ------Atomes ----------- */
 @import "atomes/utility.css";
