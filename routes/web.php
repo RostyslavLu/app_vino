@@ -6,6 +6,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CellarsController;
 use App\Http\Controllers\CellarController;
 use App\Models\Cellars;
+use App\Http\Controllers\CellarContentController;
 use App\Http\Controllers\Saq_wineController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -36,20 +37,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
 
-    Route::get('/dashboard', [CellarsController::class, 'index'])->name('dashboard');
+    Route::post('/cellar-content/{cellar_content}', [CellarContentController::class, 'store'])->name('cellar-content.store');
+
+    Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
 
     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'
     //  Route::get('/', function () {
     //     return Inertia::render('Dashboard');
     // })->name('dashboard')->middleware('verified');
-  
+
     // la route home (pointe présentement à la vue dashboard)
     Route::get('/', function () {
         return to_route('login');
         });
 
 
-    // les routes saq 
+    // les routes saq
     Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
     Route::get('/saq-empty-search', [Saq_wineController::class, 'emptySearch'])->name('searchSaq.empty');
     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('addWineToCellar');

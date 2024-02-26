@@ -31,3 +31,13 @@
     font-weight: 400;
     padding: var(--spacing-pico);
 }
+
+.button-add-wine {
+    font-size: var(--font-short);
+    background-color: var(--tertiary);
+    color: var(--primary);
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-nano);
+}

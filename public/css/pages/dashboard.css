@@ -31,52 +31,57 @@
     border-block-end: solid;
     writing-mode: horizontal-tb;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 5fr 7fr;
     gap: var(--spacing-thinnest);
 }
 
 /* carte vine dans le cellier */
 .wine-image {
     display: flex;
-    justify-content: center;
-    flex-grow: 2;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    /* background-color: var(--secondary); */
+    padding-left: var(--spacing-nano);
 }
 .wine-image > img {
-    max-height: 250px;
+    max-height: 150px;
 }
 .wine-info {
     display: block;
-    flex-grow: 3;
+    flex-shrink: 1;
 }
 .wine-info > p {
     margin-top: var(--spacing-pico);
+    min-width: 0;
 }
 .wine-quantity {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 .wine-quantity > div{
-    padding:  var(--spacing-thinnest);
     font-size: var(--font-tallest);
-}
-.wine-image {
-    position: relative;
 }
 
 .wine-type {
-  position: absolute;
-  left: 0px;
+  /* position: absolute;
+  left: 0px; */
   width: var(--spacing-thinnest);
   height: var(--spacing-thinnest);
   border-radius: 50%;
-  /* border: var(--border-slimmest) solid var(--primary); */
+  border: var(--border-slimmest) solid var(--primary);
+  padding: var(--spacing-nano);
 }
 
 .wine-details {
     display: flex;
     flex-direction: row;
-    margin-top: var(--spacing-nano);
+    margin-top: var(--spacing-thinnest);
+}
+.wine-details > div {
+    flex-basis: 80px;
 }

@@ -20,9 +20,27 @@ input:not([type="checkbox"]) {
 input:focus {
     background-color: white;
 }
+
 label {
     display: block;
     line-height: var(--line-height-tighter);
 }
 
+input[type=number] {
+    border: none;
+    max-width: var(--spacing-thinner);
+    background-color: var(--primary);
+    color: var(--tertiary);
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: var(--spacing-nano);
+}
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number]:focus {
+    outline: none;
+    border: none;
+}

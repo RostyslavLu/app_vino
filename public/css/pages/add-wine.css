@@ -44,3 +44,14 @@
     color: var(--secondary);
     font-size: var(--font-shortest);
 }
+
+.button-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: var(--tertiary);
+}
+.button-content label {
+    line-height: 0;
+}

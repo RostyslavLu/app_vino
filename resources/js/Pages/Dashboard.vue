@@ -10,14 +10,17 @@ const userCellar = usePage().props.userCellar;
 const cellarContents = usePage().props.cellarContents;
 const wines = usePage().props.wines;
 
-const search = ref('');
+// const search = ref('');
 
 // fonction pour rechercher des vins dans le cellier par nom
-const searchWine = () => {
-    return cellarContents.filter(content => content.name.includes(search.value));
-};
+// const searchWine = () => {
+//     return cellarContents.filter(content => content.name.includes(search.value));
+// };
 // les vins filtrés par la recherche de l'utilisateur par nom
-const filteredCellarContents = computed(() => searchWine());
+//const filteredCellarContents = computed(() => searchWine());
+const searchWines = () => {
+    router.get(`/saq-search/${search.value}`);
+};
 </script>
 
 <template>
@@ -47,12 +50,15 @@ const filteredCellarContents = computed(() => searchWine());
             </div>
             <div>
                 <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />
+                <span v-if="wines">
+                    {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
+                    <span v-else>vin&nbsp;</span>
+                    <span v-if="wines.total > 1">trouvés</span>
+                    <span v-else>trouvé</span>
+                </span>
             </div>
-            <div v-if="filteredCellarContents.length > 0">
-                <wine-list :cellarContent="filteredCellarContents" :wines="wines" />
-            </div>
-            <div v-else>
-                <p>Vous n'avez pas encore de vin dans votre cellier</p>
+            <div>
+                <wine-list :cellarContent="wines.data" :wines="wines" />
             </div>
         </section>
     </MainLayout>
