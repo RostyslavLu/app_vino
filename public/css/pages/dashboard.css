@@ -28,7 +28,6 @@
 .cellar-content > li {
     min-height: 150px;
     padding: var(--spacing-thinnest) 0;
-    border-block-end: solid;
     writing-mode: horizontal-tb;
     display: grid;
     grid-template-columns: 5fr 7fr;
@@ -37,9 +36,10 @@
 
 /* carte vine dans le cellier */
 .wine-image {
+    position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; 
     align-items: center;
     background-color: var(--secondary);
     padding-left: var(--spacing-nano);
@@ -68,8 +68,8 @@
 }
 
 .wine-type {
-  /* position: absolute;
-  left: 0px; */
+  position: absolute;
+  left: 5px;
   width: var(--spacing-thinnest);
   height: var(--spacing-thinnest);
   border-radius: 50%;
