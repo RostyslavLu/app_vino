@@ -1,5 +1,5 @@
 <script setup>
-import ApplicationLogo from '@/Components/AppLogoFondBlanc.vue';
+import ApplicationLogoFondBlanc from '@/Components/ApplicationLogoFondBlanc.vue';
 import { Link } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 
@@ -10,12 +10,11 @@ const attrs = useAttrs();
     <!-- binder pour ajouter une classe parent diférente dans chaque page vue -->
     <div v-bind="attrs">
         <header class="white-header">
-            <div class="logo">
+
                 <Link href="/">
-                    <ApplicationLogo/>
+                    <ApplicationLogoFondBlanc class="logo"/>
                 </Link>
-            </div>
-            
+                
             <!-- un slot pour l'entête de la page -->
             <h1 v-if="$slots.header">
                 <slot name="header" />

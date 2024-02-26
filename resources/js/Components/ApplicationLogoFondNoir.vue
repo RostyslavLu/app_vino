@@ -1,5 +1,5 @@
 <script setup>
-// No specific logic needed for this SVG component
+// Pas de logique spécifique nécessaire pour ce composant SVG
 </script>
 
 <template>
