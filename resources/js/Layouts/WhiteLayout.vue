@@ -1,5 +1,5 @@
 <script setup>
-import ApplicationLogoFondBlanc from '@/Components/ApplicationLogoFondBlanc.vue';
+import ApplicationLogoWhite from '@/Components/ApplicationWhite.vue';
 import { Link } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 
@@ -12,7 +12,7 @@ const attrs = useAttrs();
         <header class="white-header">
 
                 <Link href="/">
-                    <ApplicationLogoFondBlanc class="logo"/>
+                    <ApplicationLogoWhite class="logo"/>
                 </Link>
                 
             <!-- un slot pour l'entête de la page -->
