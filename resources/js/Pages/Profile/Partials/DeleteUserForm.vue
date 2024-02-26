@@ -1,6 +1,6 @@
 <script setup>
 import DangerButton from '@/Components/DangerButton.vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogoFondNoir from '@/Components/ApplicationLogoFondNoir.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
@@ -44,20 +44,23 @@ const closeModal = () => {
 </script>
 
 <template>
-        <header class="profile-line">
-            <h2>Supprimer mon compte</h2>
-            <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" />
-        </header>
-        <article v-show="showText" class="profil-delete ">
-            <p>
-                Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
-            </p>
-            <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
-        </article>
+        <div class="profile">
+            <header class="__inline">
+                <h2>Supprimer mon compte</h2>
+                <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" class="icon" />
+            </header>
+            <article v-show="showText">
+                <p class="__delete-text">
+                    Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
+                </p>
+                <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
+            </article>
+        </div>
+
             
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
-                <ApplicationLogo class="logo white" @click="closeModal"/>
+                <ApplicationLogoFondNoir class="logo" @click="closeModal"/>
                 <h1>Êtes-vous sûr?</h1>
                 <p>Votre compte, votre cellier et vos vins seront effacés de façon permanente. 
                 <br>Cette action est irréversible.</p>
