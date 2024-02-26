@@ -1,7 +1,9 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, useForm, router } from '@inertiajs/vue3';
 import InputLabel from './InputLabel.vue';
 import NumberInput from './NumberInput.vue';
+import { defineProps, toRefs } from 'vue';
+
 const props = defineProps({
     id: {
         type: Number,
@@ -9,8 +11,17 @@ const props = defineProps({
     }
 });
 
+const { id } = toRefs(props);
+
+const form = useForm({
+    'quantity': 1,
+    'vintage': '',
+    'notes': '',
+    'saq_wines_id': id,
+});
+
 const submit = () => {
-    form.post(route('cellar-content.store', {cellar_content: id}), {
+    form.post(route('cellar-content.store'), {
         onFinish: () => form.reset('quantity'),
     });
 };
@@ -19,9 +30,9 @@ const submit = () => {
 <template>
     <form @submit.prevent="submit" class="button-content">
         <InputLabel for="quantity">
-            <NumberInput v-model="quantity" />
+            <NumberInput v-model="form.quantity" />
         </InputLabel>
-        <button class="button-add-wine">Ajouter</button>
+        <button type="submit" class="button-add-wine">Ajouter</button>
     </form>
     <slot></slot>
 </template>

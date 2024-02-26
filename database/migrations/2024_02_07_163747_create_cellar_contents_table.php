@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->foreign('saq_wines_id')->references('id')->on('saq_wines');
             $table->foreign('personal_wines_id')->references('id')->on('personal_wines');
             $table->foreign('wine_sources_id')->references('id')->on('wine_sources');
+            $table->dateTime('purchase_date')->default(DB::raw('CURRENT_TIMESTAMP'))->change();
         });
     }
 

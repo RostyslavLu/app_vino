@@ -13,7 +13,7 @@ const search = ref(props.search);
 const searchInput = ref(false);
 
 //entamer la recherche sur la bd
-const searchWines = () => {  
+const searchWines = () => {
     if (search.value.trim() === ''){
         router.get('/saq-empty-search')
     }else{
