@@ -51,7 +51,7 @@ class CellarContentController extends Controller
         ]);
     }
     /**
-     * fonction pour sauvegarder un vin dans le cellier de l'utilisateur
+     * fonction pour sauvegarder un vin dans le cellier de l'utilisateur (à terminer)
      */
     public function store(Request $request){
         //récupérer l'id de l'utilisateur

@@ -51,6 +51,7 @@
     flex-wrap: nowrap;
     align-items: center;
     background-color: var(--tertiary);
+    gap: 0;
 }
 .button-content label {
     line-height: 0;

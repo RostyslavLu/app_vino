@@ -33,7 +33,6 @@ input[type=number] {
     color: var(--tertiary);
     -moz-appearance: textfield;
     appearance: textfield;
-    margin: var(--spacing-nano);
 }
 
 input[type=number]::-webkit-inner-spin-button {
