@@ -6,3 +6,27 @@
 .white {
     fill: var(--secondary);
 }
+.path-style {
+    stroke-width: 0;
+}
+
+.circle-red {
+    fill: #ff1d25;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+}
+
+.circle-yellow {
+    fill: #ff0;
+    stroke: #020202;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+}
+
+.circle-purple {
+    fill: #f0f;
+    stroke: #020202;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+}

@@ -38,11 +38,11 @@ const save = () => {
 </script>
 
 <template>
-    <form @submit.prevent="save">
+    <form @submit.prevent="save" class="profile">
         <h2>Mes celliers</h2>
         <div>
             <InputError :message="form.errors.name" />
-            <div v-if="!editingName" class="profile-line">
+            <div v-if="!editingName" class="__inline">
                 <div class="flex-row">
                     <img src="/img/cellier-fond-blanc.png" class="icon">
                     <span>{{ form.name }}</span>
