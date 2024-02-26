@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 import { Link } from '@inertiajs/vue3';
+import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 const props = defineProps({
     userCellar: Array
@@ -19,9 +20,8 @@ const toggleMenu = () => {
         <div v-if="showMenu" class="main-nav">
             <h3>Celliers</h3>
             <Link v-for="cellar in userCellar" :key="cellar.id" href="/dashboard">{{ cellar.name }}</Link>
-            <Link href="/logout">Déconnexion</Link>
+            <ResponsiveNavLink :href="route('logout')" method="post">déconnexion </ResponsiveNavLink>
             <Link href="/profile">Profil</Link>
         </div>
     </div>
 </template>
-
