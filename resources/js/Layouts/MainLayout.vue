@@ -6,10 +6,10 @@ import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
 
 
 <template>
-    <header class="navigation">
+    <header class="flex-between">
         <ApplicationLogoWhite class="logo"/>
         <!-- Menu de navigation -->
-        <NavigationMenu class="icon"/>
+        <NavigationMenu class="main-nav"/>
     </header>
     
 
