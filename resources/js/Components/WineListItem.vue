@@ -27,16 +27,15 @@ const getBackgroundColor = (wineColor) => {
 <template>
     <li>
         <picture class="wine-image">
+            <div class="wine-type" :style="{ backgroundColor: getBackgroundColor(content.type) }"></div>
             <source :srcset="content.url_image" type="image/webp" />
             <img :src="content.url_image" :alt="content.name" />
-            <div class="wine-type" :style="{ backgroundColor: getBackgroundColor(content.type) }"></div>
         </picture>
         <div class="content-info">
             <h3>{{ content.name }}</h3>
             <div class="wine-details">
                 <div class="wine-info">
                     <p>{{ content.country }}</p>
-                    <p>{{ content.region }}</p>
                 </div>
                 <div class="wine-quantity">
                     <AddSaqWineButton :id="content.id"/>
