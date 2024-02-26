@@ -44,7 +44,7 @@
     color: var(--secondary);
     font-size: var(--font-shortest);
 }
-
+/* composant pour ajouter bouteille de vin au cellier d'utilisateur*/
 .button-content {
     display: flex;
     flex-direction: row;
@@ -57,9 +57,19 @@
     line-height: 0;
 }
 
+.quantity-arrows {
+    padding-right: var(--spacing-micro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .quantity-arrows > button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
-
+.quantity-arrows > button > svg {
+    display: block;
+}

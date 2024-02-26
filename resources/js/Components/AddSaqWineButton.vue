@@ -51,19 +51,19 @@ const submit = () => {
 <template>
     <form @submit.prevent="submit" class="button-content">
         <div class="quantity-arrows">
-            <button type="button" @click="form.quantity++" class="quantity-arrow">
-                <svg width="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <button type="button" @click="form.quantity++">
+                <svg width="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path stroke="white" fill-rule="evenodd" d="M5.6 13.7A2 2 0 0 0 7 17h10a2 2 0 0 0 1.5-3.3l-4.9-5.9a2 2 0 0 0-3 0l-5 6Z" clip-rule="evenodd"/>
                 </svg>
             </button>
-            <button type="button" @click="form.quantity > 1 && form.quantity--" class="quantity-arrow">
-                <svg width="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <button type="button" @click="form.quantity > 1 && form.quantity--">
+                <svg width="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path stroke="white" fill-rule="evenodd" d="M18.4 10.3A2 2 0 0 0 17 7H7a2 2 0 0 0-1.5 3.3l4.9 5.9a2 2 0 0 0 3 0l5-6Z" clip-rule="evenodd"/>
                 </svg>
             </button>
         </div>
         <InputLabel for="quantity">
-            <NumberInput v-model="form.quantity" @blur="validateQuantity" />
+            <NumberInput v-model="form.quantity" @blur="validateQuantity" @keydown.up.prevent="form.quantity++" @keydown.down.prevent="form.quantity > 1 && form.quantity--"/>
         </InputLabel>
         <button type="submit" class="button-add-wine">Ajouter</button>
     </form>
