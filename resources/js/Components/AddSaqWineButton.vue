@@ -65,7 +65,7 @@ const submit = () => {
         <InputLabel for="quantity">
             <NumberInput v-model="form.quantity" @blur="validateQuantity" @keydown.up.prevent="form.quantity++" @keydown.down.prevent="form.quantity > 1 && form.quantity--"/>
         </InputLabel>
-        <button type="submit" class="button-add-wine">Ajouter</button>
+        <button type="submit" :disabled="form.processing" class="button-add-wine">Ajouter</button>
     </form>
     <slot></slot>
 </template>
