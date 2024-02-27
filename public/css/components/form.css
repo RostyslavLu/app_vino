@@ -27,10 +27,11 @@ label {
 }
 
 input[type=number] {
+    font-size: var(--font-tall);
     border: none;
     max-width: var(--spacing-thinner);
     background-color: var(--primary);
-    color: var(--tertiary);
+    color: var(--secondary);
     padding: 0;
     -moz-appearance: textfield;
     appearance: textfield;
