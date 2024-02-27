@@ -21,7 +21,7 @@ defineProps({
 <template>
     <Head title="Profil" />
 
-    <WhiteLayout class="white-container">
+    <WhiteLayout class="white-layout">
         <template #header>
             <h2>Profil</h2>
         </template>

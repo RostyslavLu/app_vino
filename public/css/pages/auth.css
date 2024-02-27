@@ -16,67 +16,32 @@
     font-size: var(--font-tall);
 }
 
-
-/* WhiteLayout.vue */
-.white-container {
-    background-color: var(--secondary);
-    color: var(--primary);
-    min-height: 100vh;
-}
-
-
-
 /* Login.vue */
 .black-container {
     background-color: var(--primary);
     align-items: center;
 }
 
-/* ForgotPassword.vue */
-
-.white-main-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-broad);
-    padding: var(--spacing-thin);
-}
-
-.white-header {
-    padding: var(--spacing-thin);
-}
-
-.white-text>p {
-    margin: var(--spacing-thin) 0 0 0;
-}
-
-
-
-/* style de page d'inscription de l'utilisateur */
-
-.guest-register {
-    font-family: var(--font-accent);
+/* WhiteLayout.vue */
+.white-layout {
     background-color: var(--secondary);
-    min-height: 100vh;
+    color: var(--primary);
+    min-height: 100dvh;
+    padding: var(--spacing-thin);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: var(--spacing-thin);
 }
 
-.register-page-title {
-    font-size: var(--font-tallest);
-    color: var(--primary);
-    margin-bottom: var(--spacing-thinnest);
+.white-layout .__main-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thin);
+    /* padding: var(--spacing-thin); */
 }
 
-.required {
-    color: var(--required);
-}
-
-.text-required {
-    min-width: var(--dimension-tiny);
-    margin: auto;
-    padding-left: var(--spacing-thinnest);
+.white-layout .__text>p {
+    margin: var(--spacing-thin) 0 0 0;
 }
 
 

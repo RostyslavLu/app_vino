@@ -33,7 +33,7 @@ const submit = () => {
 
 <template>
     <Head title="Réinitialisation de mot de passe" />
-    <WhiteLayout class="white-container">
+    <WhiteLayout class="white-layout">
         <template v-slot:header>
             mot de passe
         </template>
@@ -79,7 +79,7 @@ const submit = () => {
 
             </div>
 
-            <div class="">
+            <div>
                 <PrimaryRegisterButton>
                     Réinitialiser le mot de passe
                 </PrimaryRegisterButton>
