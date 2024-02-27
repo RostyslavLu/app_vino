@@ -16,11 +16,13 @@
     font-size: var(--font-tall);
 }
 
+
 /* Login.vue */
 .black-container {
     background-color: var(--primary);
     align-items: center;
 }
+
 
 /* WhiteLayout.vue */
 .white-layout {
