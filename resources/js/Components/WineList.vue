@@ -13,7 +13,8 @@ const props = defineProps({
         type: Object,
         required: true
     },
-    isAddVisible: Boolean
+    isAddVisible: Boolean,
+    isUpdateVisible: Boolean
 });
 
 const showDetailStates = ref({});
@@ -33,7 +34,7 @@ const toggleDetail = (id) => {
         </li>
         <!-- la liste des vins -->
         <li v-for="content in cellarContent">
-            <WineListItem :isAddVisible="isAddVisible" :content="content" v-if="!showDetailStates[content.id]" />
+            <WineListItem :isAddVisible="isAddVisible" :isUpdateVisible="isUpdateVisible" :content="content" v-if="!showDetailStates[content.id]" />
             <WineDetail :content="content" v-else />
             <!-- Le toggle -->
             <div class="flex-row">
