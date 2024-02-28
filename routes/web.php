@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
 
-    Route::post('/cellar-content', [CellarContentController::class, 'store'])->name('cellar-content.store');
+    Route::post('/add-wine-cellar', [CellarContentController::class, 'store'])->name('cellar-content.store');
 
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
 

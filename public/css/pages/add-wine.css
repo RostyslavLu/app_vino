@@ -44,6 +44,14 @@
     color: var(--secondary);
     font-size: var(--font-shortest);
 }
+
+.add-wine-success {
+    color: var(--wine-rose);
+    font-size: var(--font-short);
+    text-align: center;
+    margin-top: var(--spacing-thin);
+}
+
 /* composant pour ajouter bouteille de vin au cellier d'utilisateur*/
 .button-content {
     display: flex;
@@ -61,6 +69,7 @@
     padding-right: var(--spacing-micro);
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-thinner);
     align-items: center;
     justify-content: center;
 }
