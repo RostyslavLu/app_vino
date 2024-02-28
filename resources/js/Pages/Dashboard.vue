@@ -67,7 +67,8 @@ const searchWines = () => {
                         </div>
                     </div>
                 <div>
-                <search-input v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
+                <!-- Search input -->
+                <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
                 <span v-if="wines">
                     {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
                     <span v-else>vin&nbsp;</span>

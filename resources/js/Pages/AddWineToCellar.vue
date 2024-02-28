@@ -59,7 +59,8 @@ watchEffect(() => {
                 <!-- Contenu principal -->
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin" />
-                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <!-- Search input -->
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau" />
                     <p>vins trouvés: {{ wines.total }}</p>
                 </div>
                 <div class="add-wine-filters">

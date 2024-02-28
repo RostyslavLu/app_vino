@@ -32,8 +32,8 @@ class CellarSearchController extends Controller
 
         //dd($cellarContents);
 
-         //retourner la vue
-            return Inertia::render('Dashboard', [
+        //retourner la vue
+        return Inertia::render('AddWineToCellar', [
             'userCellar' => $userCellar,
             'cellarContents' => $cellarContents,
             'wines' => $cellarContents,
