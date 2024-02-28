@@ -1,11 +1,16 @@
 .dashboard {
+    background-color: var(--secondary);
+}
+
+.dashboard .__layout {
     font-family: var(--font-accent);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-thinnest);
     padding: var(--spacing-thinnest);
-    background-color: var(--secondary);
     min-height: 100dvh;
+    max-width: var(--max-width);
+    margin: auto;
 }
 
 .dashboard .__container {
