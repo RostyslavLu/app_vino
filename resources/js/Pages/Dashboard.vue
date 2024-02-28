@@ -3,14 +3,29 @@
 import SearchInput from '@/Components/SearchInput.vue';
 import { ref, computed } from 'vue';
 import WineList from '@/Components/WineList.vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
+
+const { props } = usePage();
 
 const userCellar = usePage().props.userCellar;
 const cellarContents = usePage().props.cellarContents;
-const wines = usePage().props.wines;
+//const wines = usePage().props.wines;
 
-// const search = ref('');
+const wines = ref(props.wines);
+const search = ref(props.search);
+const searchInput = ref(false);
+
+//entamer la recherche sur la bd
+const searchWines = () => {
+    if (search.value.trim() === ''){
+        router.get('/dashboard')
+    }else{
+        router.get(`/cellar-search/${search.value}`)
+    }
+};
+
+console.log("cellarCOntents", cellarContents)
 
 // fonction pour rechercher des vins dans le cellier par nom
 // const searchWine = () => {
@@ -18,9 +33,9 @@ const wines = usePage().props.wines;
 // };
 // les vins filtrés par la recherche de l'utilisateur par nom
 //const filteredCellarContents = computed(() => searchWine());
-const searchWines = () => {
+/* const searchWines = () => {
     router.get(`/saq-search/${search.value}`);
-};
+}; */
 </script>
 
 <template>
@@ -51,7 +66,7 @@ const searchWines = () => {
                         </div>
                     </div>
                 <div>
-                <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />
+                <search-input v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
                 <span v-if="wines">
                     {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
                     <span v-else>vin&nbsp;</span>

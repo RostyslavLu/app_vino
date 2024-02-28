@@ -19,7 +19,7 @@ const searchInput = ref(false);
 //entamer la recherche sur la bd
 const searchWines = () => {
     if (search.value.trim() === ''){
-        router.get('/saq-empty-search')
+        router.get('/add-wine-cellar')
     }else{
         router.get(`/saq-search/${search.value}`)
     }
