@@ -2,7 +2,6 @@
 import Checkbox from '@/Components/Checkbox.vue';
 import BlackLayout from '@/Layouts/BlackLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -68,9 +67,9 @@ const submit = () => {
                 <p>Sauvegarder ma connexion</p>
             </label>
 
-                    <PrimaryButton>
+                    <button>
                     Connexion
-                    </PrimaryButton>
+                    </button>
 
 
 
