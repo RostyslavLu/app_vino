@@ -23,13 +23,13 @@ const submit = () => {
 
 <template>
     <Head title="Mot de passe oublié" />
-    <WhiteLayout class="white-container">
+    <WhiteLayout class="white-layout">
 
         <template #header>
             Mot de passe
         </template>
 
-        <section class="white-text">
+        <section class="__text">
             <div v-if="status" class="input-success">
             {{ status }}
             </div>
