@@ -9,7 +9,10 @@ import MainLayout from '@/Layouts/MainLayout.vue';
 const { props } = usePage();
 
 const userCellar = usePage().props.userCellar;
-const cellarContents = usePage().props.cellarContents;
+
+//on peut peut-être cesser d'envoyer cellarContents du controlleur
+
+//const cellarContents = usePage().props.cellarContents;
 //const wines = usePage().props.wines;
 
 const wines = ref(props.wines);
@@ -24,8 +27,6 @@ const searchWines = () => {
         router.get(`/cellar-search/${search.value}`)
     }
 };
-
-console.log("cellarCOntents", cellarContents)
 
 // fonction pour rechercher des vins dans le cellier par nom
 // const searchWine = () => {

@@ -27,14 +27,16 @@ class CellarSearchController extends Controller
             ->join('saq_wines', 'cellar_contents.saq_wines_id', '=', 'saq_wines.id')
             ->join('types', 'saq_wines.types_id', '=', 'types.id')
             ->select('saq_wines.*', 'types.type', 'cellar_contents.quantity')
-            ->where('name', 'like', "%$search%");
+            ->where('name', 'like', "%$search%")
+            ->paginate(10);
 
-        dd($cellarContents);
+        //dd($cellarContents);
+
          //retourner la vue
-/*          return Inertia::render('Dashboard', [
+            return Inertia::render('Dashboard', [
             'userCellar' => $userCellar,
             'cellarContents' => $cellarContents,
-            'wines' => $wines,
-        ]); */
+            'wines' => $cellarContents,
+        ]);
     }
 }
