@@ -43,7 +43,7 @@ watchEffect(() => {
                 <!-- Entete -->
                 <div class="add-wine-header">
                     <div class="add-wine-controls">
-                        <ApplicationLogoBlack width="48" heigth="48" />
+                        <ApplicationLogoBlack  />
                         <Link :href="route('dashboard')">
                             <svg style="cursor: pointer;"
                                 height="48" width="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
