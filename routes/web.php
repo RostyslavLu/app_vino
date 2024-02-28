@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
 
     Route::post('/add-wine-cellar', [CellarContentController::class, 'store'])->name('cellar-content.store');
-
+    Route::patch('/cellar-content', [CellarContentController::class, 'update'])->name('cellar-content.update');
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
 
     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'

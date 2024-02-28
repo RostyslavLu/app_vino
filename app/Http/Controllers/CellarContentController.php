@@ -99,4 +99,29 @@ class CellarContentController extends Controller
             'success' => 'Le vin a été ajouté à votre cellier',
         ]);
     }
+    public function update(Request $request) {
+        //récupérer l'id de l'utilisateur
+        $user = Auth::id();
+        //récupérer le cellier de l'utilisateur
+        $userCellar = Cellars::where('user_id', $user)->get();
+        //validation des champs
+        $request->validate([
+            'quantity' => 'required',
+            'notes' => 'max:100',
+            'saq_wines_id' => 'numeric',
+        ]);
+        //retrouver le vin dans le cellier de l'utilisateur
+        $userCellarContents = Cellar_content::where('cellars_id', $userCellar[0]->id)->get();
+        foreach ($userCellarContents as $userCellarContent) {
+            if ($userCellarContent->saq_wines_id == $request->saq_wines_id) {
+                Cellar_content::where('saq_wines_id', $request->saq_wines_id)->update([
+                    'quantity' => $request->quantity,
+                    'notes' => $request->notes,
+                ]);
+                return Inertia::render('dashboard', [
+                    'success' => 'Le vin a été modifié dans votre cellier',
+                ]);
+            }
+        }
+    }
 }
