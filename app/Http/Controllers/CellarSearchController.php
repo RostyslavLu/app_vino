@@ -20,9 +20,9 @@ class CellarSearchController extends Controller
         //récupérer les vins dans le cellier de l'utilisateur
    /*      $cellarContents = Cellar_content::where('cellars_id', $userCellar[0]->id)->get(); */
 
-        $cellarContents = Cellar_content::join('types', $userCellar[0]->id)->get()
+        $cellarContents = Cellar_content::join('types', $userCellar[0]->id)->get();
 
-        $wines = Cellar_content::join('types', 'saq_wines.types_id', '=', 'types.id')
+/*         $wines = Cellar_content::join('types', 'saq_wines.types_id', '=', 'types.id') 
             ->select('saq_wines.*', 'types.type')
             ->where('name', 'like', "%$search%")
             ->paginate(20);
@@ -37,7 +37,7 @@ class CellarSearchController extends Controller
             'userCellar' => $userCellar,
             'cellarContents' => $cellarContents,
             'wines' => $wines,
-        ]);
+        ]);*/
     }
 
 }
