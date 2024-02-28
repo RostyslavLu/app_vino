@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue';
 import AddSaqWineButton from '@/Components/AddSaqWineButton.vue';
-import UpdateSaqWineButton from './UpdateSaqWineButton.vue';
+import UpdateSaqWineButton from '@/Components/UpdateSaqWineButton.vue';
 
 const props = defineProps({
     content: {
