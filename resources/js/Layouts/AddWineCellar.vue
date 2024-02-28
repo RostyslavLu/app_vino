@@ -2,7 +2,8 @@
 </script>
 
 <template>
-    <div>
+    <div class="black-layout">
+     <div class="__layout">
         <header>
             <slot name="header">
             </slot>
@@ -15,5 +16,6 @@
             <slot name="footer">
             </slot>
         </footer>
+        </div>
     </div>
 </template>
