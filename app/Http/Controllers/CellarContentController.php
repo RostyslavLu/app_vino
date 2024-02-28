@@ -72,6 +72,20 @@ class CellarContentController extends Controller
             'notes' => 'max:100',
             'saq_wines_id' => 'numeric',
         ]);
+        $userCellarContents = Cellar_content::where('cellars_id', $userCellar[0]->id)->get();
+        //vérifier si le vin est déjà dans le cellier
+        foreach ($userCellarContents as $userCellarContent) {
+            if ($userCellarContent->saq_wines_id == $request->saq_wines_id) {
+                Cellar_content::where('saq_wines_id', $request->saq_wines_id)->update([
+                    'quantity' => $userCellarContent->quantity + $request->quantity,
+                ]);
+                return Inertia::render('AddWineToCellar', [
+                    'success' => 'Le vin a été ajouté à votre cellier',
+                ]);
+            }
+        }
+
+
         //ajout du vin dans le cellier de l'utilisateur
         Cellar_content::create([
             'cellars_id' => $userCellar[0]->id,
@@ -80,7 +94,7 @@ class CellarContentController extends Controller
             'wine_sources_id' => 1,
             'purchase_date' => date('Y-m-d H:i:s'),
         ]);
-        // retour avec un message de succès
+
         return Inertia::render('AddWineToCellar', [
             'success' => 'Le vin a été ajouté à votre cellier',
         ]);
