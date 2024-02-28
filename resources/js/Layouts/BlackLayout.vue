@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="auth">
+    <div class="black-layout">
         <header class="flex-column">
             <Link href="/">
                 <ApplicationLogoBlack class="logo" />

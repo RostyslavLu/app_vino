@@ -29,5 +29,6 @@
 
 /* ------Layouts ---------- */
 @import "layouts/main-layout.css";
-@import "layouts/auth.css";
+@import "layouts/black-layout.css";
+@import "layouts/white-layout.css";
 

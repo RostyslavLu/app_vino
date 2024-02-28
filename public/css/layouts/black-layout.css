@@ -1,0 +1,30 @@
+/* BlackLayout.vue */
+.black-layout {
+    background-color: var(--primary);
+}
+.black-layout .__layout {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary);
+    justify-content: space-evenly;
+    font-family: var(--font-accent);
+    padding: var(--spacing-thinnest);
+    max-width: 600px;
+    margin: auto;
+}
+
+.black-layout a {
+    color: var(--accent-secondary);
+    font-size: var(--font-tall);
+}
+
+
+/* Login.vue */
+.black-layout.__container {
+    align-items: center;
+}
+
+.black-layout .__content {
+    min-width: var(--space-small);
+}

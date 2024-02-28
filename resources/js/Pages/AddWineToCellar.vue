@@ -38,14 +38,15 @@ watchEffect(() => {
 
 <template>
     <Head title="Ajouter un vin à mon cellier" />
-        <AddWineCellar class="black-container add-wine">
+        <AddWineCellar >
             <template #header>
                 <!-- Entete -->
-                <div class="add-wine-header">
-                    <div class="add-wine-controls">
-                        <ApplicationLogoBlack  />
-                        <Link :href="route('dashboard')">
-                            <svg style="cursor: pointer;"
+                <div>
+                    <div class="flex-between">
+                        <ApplicationLogoBlack class="logo"  />
+                        <Link 
+                            :href="route('dashboard')"
+                            ><svg class="icon" style="cursor: pointer;"
                                 height="48" width="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6m0 12L6 6"/>
                             </svg>
