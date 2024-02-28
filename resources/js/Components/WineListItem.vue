@@ -9,7 +9,8 @@ const props = defineProps({
         required: true
     },
     isAddVisible: Boolean,
-    isUpdateVisible: Boolean
+    isUpdateVisible: Boolean,
+    quantity: Number
 });
 
 // fonction pour marquer la couleur du type de vin
@@ -41,7 +42,7 @@ const getBackgroundColor = (wineColor) => {
                 </div>
                 <div class="wine-quantity">
                     <AddSaqWineButton :isAddVisible="isAddVisible" :id="content.id"/>
-                    <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :quantity="quantity" :id="content.id"/>
+                    <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :wineQuantity="quantity" :id="content.id"/>
                 </div>
             </div>
         </div>

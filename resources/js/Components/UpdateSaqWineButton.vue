@@ -7,7 +7,7 @@ const props = defineProps({
         required: true
     },
     isUpdateVisible: Boolean,
-    quantity: Number
+    wineQuantity: Number
 });
 </script>
 
@@ -23,7 +23,7 @@ const props = defineProps({
                     </g>
                 </svg>
             </button>
-            <div class="update-wine-quantity">1</div>
+            <div class="update-wine-quantity">{{ wineQuantity }}</div>
             <button type="button" @click="form.quantity > 0 && form.quantity--">
                 <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
                     <g id="Calque_1-2">
