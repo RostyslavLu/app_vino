@@ -2,7 +2,6 @@
 import { Link } from '@inertiajs/vue3';
 import { defineProps, ref } from 'vue';
 import WineListItem from '@/Components/WineListItem.vue'
-//import ToggleWineDetail from '@/Components/ToggleWineDetail.vue';
 import WineDetail from '@/Components/WineDetail.vue';
 
 const props = defineProps({
@@ -35,6 +34,7 @@ const toggleDetail = (id) => {
         <li v-for="content in cellarContent">
             <WineListItem :content="content" v-if="!showDetailStates[content.id]" />
             <WineDetail :content="content" v-else />
+            <!-- Le toggle -->
             <div class="flex-row">
                 <button @click="toggleDetail(content.id)" v-if="!showDetailStates[content.id]">
                     <!-- plus square -->

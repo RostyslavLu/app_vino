@@ -35,6 +35,14 @@ const getBackgroundColor = (wineColor) => {
         <h3>{{ content.name }}</h3>
         <div class="wine-details">
             <div class="wine-info">
+                <ul>
+                    <li>{{ content.country }}</li>
+                    <li>{{ content.region }}</li>
+                    <li>{{ content.grape_varieties }}</li>
+                    <li>{{ content.format }}</li>
+                    <li>alcohol: {{ content.degree_alcohol }}</li>
+                    <li>sucre: {{ content.sugar_content }}</li>
+                </ul>
                 <p>{{ content.description }}</p>
             </div>
             <div class="wine-quantity">

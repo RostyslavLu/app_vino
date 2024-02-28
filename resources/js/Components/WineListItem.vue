@@ -25,7 +25,6 @@ const getBackgroundColor = (wineColor) => {
 </script>
 
 <template>
-    <li>
         <picture class="wine-image">
             <div class="wine-type" :style="{ backgroundColor: getBackgroundColor(content.type) }"></div>
             <source :srcset="content.url_image" type="image/webp" />
@@ -42,5 +41,4 @@ const getBackgroundColor = (wineColor) => {
                 </div>
             </div>
         </div>
-    </li>
 </template>
