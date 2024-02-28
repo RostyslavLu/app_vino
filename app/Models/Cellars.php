@@ -20,4 +20,10 @@ class Cellars extends Model
         return $this->belongsTo(User::class);
     }
 
+    //un cellier a plusieurs cellarContents
+    public function cellarContents()
+    {
+        return $this->hasMany(Cellar_content::class);
+    }
+
 }

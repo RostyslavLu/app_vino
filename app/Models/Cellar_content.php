@@ -18,4 +18,10 @@ class Cellar_content extends Model
         'saq_wines_id',
         'wine_sources_id',
     ];
+
+    //un contenue de cellier a une relation avec Saq_wine
+    public function saqWine()
+    {
+        return $this->belongsTo(Saq_wine::class);
+    }
 }

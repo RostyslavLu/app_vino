@@ -23,7 +23,8 @@ class Saq_wine extends Model
         'degree_alcohol',
         'sugar_content'
     ];
-    public function cellarContent()
+
+        public function cellarContent()
     {
         return $this->hasOne(Cellar_content::class);
     }

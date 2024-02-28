@@ -3,23 +3,24 @@
 import SearchInput from '@/Components/SearchInput.vue';
 import { ref, computed } from 'vue';
 import WineList from '@/Components/WineList.vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
+const { props } = usePage();
+
 const userCellar = usePage().props.userCellar;
-const cellarContents = usePage().props.cellarContents;
-const wines = usePage().props.wines;
 
-// const search = ref('');
+const wines = ref(props.wines);
+const search = ref(props.search);
+const searchInput = ref(false);
 
-// fonction pour rechercher des vins dans le cellier par nom
-// const searchWine = () => {
-//     return cellarContents.filter(content => content.name.includes(search.value));
-// };
-// les vins filtrés par la recherche de l'utilisateur par nom
-//const filteredCellarContents = computed(() => searchWine());
+//entamer la recherche sur la bd
 const searchWines = () => {
-    router.get(`/saq-search/${search.value}`);
+    if (search.value.trim() === ''){
+        router.get('/dashboard')
+    }else{
+        router.get(`/cellar-search/${search.value}`)
+    }
 };
 </script>
 
@@ -51,7 +52,8 @@ const searchWines = () => {
                         </div>
                     </div>
                 <div>
-                <search-input v-model="search" @input="searchWine" placeholder="Rechercher un vin dans les celliers" />
+                <!-- Search input -->
+                <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
                 <span v-if="wines">
                     {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
                     <span v-else>vin&nbsp;</span>
@@ -60,7 +62,7 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <wine-list :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
+                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
                 </div>
             </section>
         </MainLayout>
