@@ -36,7 +36,7 @@ const toggleDetail = (id) => {
         <!-- la liste des vins -->
         <li v-for="content in cellarContent">
             <WineListItem :isAddVisible="isAddVisible" :isUpdateVisible="isUpdateVisible" :content="content" :quantity="content.quantity" v-if="!showDetailStates[content.id]" />
-            <WineDetail :content="content" v-else />
+            <WineDetail :isAddVisible="isAddVisible" :isUpdateVisible="isUpdateVisible" :quantity="content.quantity" :content="content" v-else />
             <!-- Le toggle -->
             <div class="flex-row">
                 <button @click="toggleDetail(content.id)" v-if="!showDetailStates[content.id]">

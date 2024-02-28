@@ -1,10 +1,11 @@
-.quantity-arrows {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-thinnest);
-}
 .update-wine-quantity {
     font-size: var(--font-tallest);
+}
+
+.update-container {
+    min-width: 60px;
+}
+
+.update-container > div {
+    gap: var(--spacing-micro);
 }
