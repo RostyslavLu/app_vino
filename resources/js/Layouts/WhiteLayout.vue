@@ -1,21 +1,16 @@
 <script setup>
 import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
 import NavigationMenu from '@/Components/NavigationMenu.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
-import { usePage } from '@inertiajs/vue3';
 
-const userCellar = usePage().props.userCellar;
+const cellar = usePage().props.cellar;
 const attrs = useAttrs();
-
+console.log(cellar);
 defineProps({
     showNavigation: {
         type: Boolean,
         default: false
-    },
-    userCellar: {
-        type: Array,
-        default: () => []
     }
 });
 </script>
@@ -28,7 +23,7 @@ defineProps({
                     <ApplicationLogoWhite class="logo"/>
                 </Link>
             <!-- Menu de navigation -->
-            <NavigationMenu v-if="showNavigation" :userCellar="userCellar" class="main-nav"/>
+            <NavigationMenu v-if="showNavigation" :cellar="cellar" />
             </div>
                 
             <h1><slot name="header"></slot></h1>

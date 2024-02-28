@@ -9,6 +9,7 @@
     color: var(--secondary);
     min-height: 100dvh;
     padding: var(--spacing-thin);
+    font-family: var(--font-accent);
 }
 
 .navigation-menu a {
