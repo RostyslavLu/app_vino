@@ -1,28 +1,37 @@
 <script setup>
 import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
-import { Link } from '@inertiajs/vue3';
+import NavigationMenu from '@/Components/NavigationMenu.vue';
+import { Link, usePage } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 
+const cellar = usePage().props.cellar;
 const attrs = useAttrs();
+console.log(cellar);
+defineProps({
+    showNavigation: {
+        type: Boolean,
+        default: false
+    }
+});
 </script>
 
 <template>
-    <!-- binder pour ajouter une classe parent diférente dans chaque page vue -->
     <div v-bind="attrs">
-        <header class="white-header">
-
+        <header >
+            <div class="flex-between">
                 <Link href="/">
                     <ApplicationLogoWhite class="logo"/>
                 </Link>
+            <!-- Menu de navigation -->
+            <NavigationMenu v-if="showNavigation" :cellar="cellar" />
+            </div>
                 
-            <!-- un slot pour l'entête de la page -->
-            <h1 v-if="$slots.header">
-                <slot name="header" />
-            </h1>
+            <h1><slot name="header"></slot></h1>
         </header>
+        
         <!-- le slot principale, pour la page -->
-        <main class="white-main-container">
-                <slot /> 
+        <main class="__main-container">
+            <slot /> 
         </main>
     </div>
 </template>

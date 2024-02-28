@@ -23,7 +23,7 @@ const submit = () => {
 </script>
 
 <template>
-    <WhiteLayout class="white-container">
+    <WhiteLayout class="white-layout">
         <Head title="Inscription" />
 
         <template #header>
@@ -49,7 +49,6 @@ const submit = () => {
                     autocomplete="name"
                     placeholder="Mon nom"
                 />
-
             </div>
 
             <div>
@@ -81,22 +80,6 @@ const submit = () => {
                 />
 
             </div>
-
-            <!-- <div>
-                <InputError :message="form.errors.cellar_description" />
-                <InputLabel
-                    for="cellar_description"
-                    value="Description du cellier"
-                />
-                <TextInput
-                    id="cellar_description"
-                    type="text"
-                    v-model="form.cellar_description"
-                    autocomplete="description"
-                    placeholder="ex. Collection Bordeaux (optionnel)"
-                />
-
-            </div> -->
 
             <div>
                 <InputError :message="form.errors.password" />

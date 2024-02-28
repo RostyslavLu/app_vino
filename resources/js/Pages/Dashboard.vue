@@ -24,13 +24,13 @@ const searchWines = () => {
 </script>
 
 <template>
-    
         <Head title="Mon compte" />
         <div class="dashboard">
+            
             <MainLayout>
                 <section class="__container">
                     <div class="__cellar">
-                        <h2 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h2>
+                        <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">
                             <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
