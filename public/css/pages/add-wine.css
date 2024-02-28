@@ -2,11 +2,12 @@
     font-family: var(--font-accent);
     min-height: 100vh;
     color: var(--secondary);
-    padding: var(--spacing-thin)
+    padding: var(--spacing-thinnest)
 }
 .add-wine-header {
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-thinnest);
 }
 
 .add-wine-controls {
@@ -14,6 +15,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+.add-wine-controls > svg {
+    max-width: var(--logo);
+    max-height: var(--logo);
 }
 .add-wine-search {
     margin-top: var(--spacing-thin);
@@ -50,6 +55,7 @@
     font-size: var(--font-short);
     text-align: center;
     margin-top: var(--spacing-thin);
+    min-width: 100%;
 }
 
 /* composant pour ajouter bouteille de vin au cellier d'utilisateur*/

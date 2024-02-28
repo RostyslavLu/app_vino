@@ -1,18 +1,32 @@
 .navigation-menu {
-    position: absolute;
-    top: 10;
+    position: fixed;
+    top: 0;
     right: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-thin);
+    gap: var(--spacing-broad);
     background-color: var(--primary);
     color: var(--secondary);
     min-height: 100dvh;
     padding: var(--spacing-thin);
     font-family: var(--font-accent);
+    transition: var(----ease-in-quad);
+    z-index: 1;
 }
 
 .navigation-menu a {
     color: white;
     text-decoration: none;
+}
+
+/* section cellier et le reste */
+.navigation-menu section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-thinnest);
+    margin-top: var(--spacing-broad);
+}
+
+.navigation-menu .__active {
+    border-bottom: 4px solid #ff0000;
 }

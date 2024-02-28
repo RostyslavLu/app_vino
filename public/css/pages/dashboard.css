@@ -33,11 +33,12 @@
     padding: 0;
 }
 .cellar-content > li {
-    min-height: 150px;
+    /* min-height: 150px; */
+    min-height: clamp(100px, 20dvh, 30dvh);
     padding: var(--spacing-thinnest) 0;
     writing-mode: horizontal-tb;
     display: grid;
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: minmax(80px, auto) 1fr;
     gap: var(--spacing-thinnest);
 }
 
@@ -46,13 +47,15 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap; 
-    align-items: center;
-    background-color: var(--secondary);
+    flex-wrap: nowrap;
+    align-items: start;
+    /* background-color: var(--secondary); */
     padding-left: var(--spacing-nano);
+
 }
 .wine-image > img {
-    max-height: 150px;
+    max-height: clamp(100px, 20dvh, 30dvh);
+    object-fit: contain;
 }
 .wine-info {
     display: block;
@@ -65,7 +68,7 @@
 .wine-quantity {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-shrink: 0;
     margin-left: auto;
@@ -88,7 +91,5 @@
     display: flex;
     flex-direction: row;
     margin-top: var(--spacing-thinnest);
-}
-.wine-details > div {
-    flex-basis: 80px;
+    gap: var(--spacing-micro);
 }
