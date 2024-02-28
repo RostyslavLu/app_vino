@@ -2,7 +2,6 @@
 import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
@@ -77,7 +76,7 @@ const closeModal = () => {
                 </div>
 
                 <div class="modal-buttons">
-                    <SecondaryButton @click="closeModal"> Annuler </SecondaryButton>
+                    <button @click="closeModal"> Annuler </button>
 
                     <button class="danger"
                         :class="{ 'opacity-25': form.processing }"
