@@ -4,9 +4,10 @@ import NavigationMenu from '@/Components/NavigationMenu.vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 
-const cellar = usePage().props.cellar;
+const page = usePage();
+const cellar = page.props.cellar;
 const attrs = useAttrs();
-console.log(cellar);
+
 defineProps({
     showNavigation: {
         type: Boolean,
@@ -19,8 +20,11 @@ defineProps({
     <div v-bind="attrs">
         <header >
             <div class="flex-between">
-                <ApplicationLogoWhite class="logo"/>
-                <!-- Menu de navigation -->
+                <Link 
+                    href="/"
+                    ><ApplicationLogoWhite class="logo"/></Link
+                >
+            <!-- Menu de navigation -->
                 <NavigationMenu v-if="showNavigation" :cellar="cellar" />
             </div>
                 

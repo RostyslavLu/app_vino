@@ -1,8 +1,8 @@
 
 /* BlackLayout.vue et WhiteLayout.vue */
 
-.auth-container {
-    min-height: 100vh;
+.auth {
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,16 +11,20 @@
     font-family: var(--font-accent);
 }
 
-.auth-container a {
+.auth a {
     color: var(--accent-secondary);
     font-size: var(--font-tall);
 }
 
 
 /* Login.vue */
-.black-container {
+.auth.__black-container {
     background-color: var(--primary);
     align-items: center;
+}
+
+.auth .__black-content {
+    min-width: var(--dimension-tiny);
 }
 
 

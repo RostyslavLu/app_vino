@@ -56,7 +56,7 @@
 		--dimension-small:     calc(var(--font-tallest) * 20);
 		--dimension-big:       calc(var(--font-huger) * 20);
 		--dimension-bigger:    calc(var(--font-hugest) * 20);
-		--dimension-big:   calc(var(--font-giant) * 10);
+		--dimension-biggest:   calc(var(--font-giant) * 10);
 
 	/*========================= */
 	/* = FONT-FAMILY */

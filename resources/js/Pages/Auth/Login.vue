@@ -31,9 +31,9 @@ const submit = () => {
 
 <template>
     <Head title="Login" />
-    <BlackLayout class="black-container">
-
-        <div v-if="status" class="input-success">
+    <BlackLayout class="__black-container">
+        <article class="__black-content">
+            <div v-if="status" class="input-success">
             {{ status }}
         </div>
 
@@ -85,5 +85,7 @@ const submit = () => {
                     Créer un compte
                 </Link>
             </form>
+        </article>
+        
     </BlackLayout>
 </template>
