@@ -4,6 +4,7 @@ import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
 import { usePage } from '@inertiajs/vue3';
 
 const cellar = usePage().props.cellar;
+
 </script>
 
 <template>

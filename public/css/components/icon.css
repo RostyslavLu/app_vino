@@ -7,3 +7,13 @@
     fill: var(--secondary);
 }
 
+.icon-x-menu {
+    width: var(--logo);
+    height: var(--logo);
+    position: fixed;
+    top: var(--spacing-thinnest);
+    right: var(--spacing-thinnest);
+    z-index: 2;
+    color: var(--secondary);
+}
+
