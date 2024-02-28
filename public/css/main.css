@@ -4,7 +4,6 @@
 @import "general/base.css"; /* des règles de base */
 @import "general/rhythm.css"; /* des règles de base pour gerer le rhythm */
 @import "general/typography.css"; /* des règles de base pour la typographie */
-@import "pages/auth.css"; /* des règles spécifiques à l'authentification */
 @import "pages/dashboard.css"; /* des règles spécifiques à une page de page personnelle de l'utilisateur */
 @import "pages/profile.css"; /* des règles spécifiques à une page de page de profil */
 @import "pages/add-wine.css"; /* des règles spécifiques à une page d'ajout de vin */
@@ -30,4 +29,5 @@
 
 /* ------Layouts ---------- */
 @import "layouts/main-layout.css";
+@import "layouts/auth.css";
 

@@ -16,7 +16,8 @@
 
 		--semi-transparent-overlay: #e3decbbf;
 
-		--error: var(--accent-medium);
+		--error-black: var(--tertiary);
+		--error-white: var(--required);
 		--success: var(--tertiary);
 
 
@@ -24,6 +25,9 @@
         --wine-red: #92171C;
         --wine-rose: #E7BBA7;
 
+		--red: #ff1d25;
+		--rose: #ff00ff;
+		--yellow: #ffff00;
 	/*============================ */
 	/* = SPACING */
 	/*============================ */
@@ -56,8 +60,8 @@
 		--dimension-small:     calc(var(--font-tallest) * 20);
 		--dimension-big:       calc(var(--font-huger) * 20);
 		--dimension-bigger:    calc(var(--font-hugest) * 20);
-		--dimension-big:   calc(var(--font-giant) * 10);
-
+		--dimension-biggest:   calc(var(--font-giant) * 10);
+		--space-small:         clamp(2rem, 8dvw, 4rem);
 	/*========================= */
 	/* = FONT-FAMILY */
 	/*========================= */

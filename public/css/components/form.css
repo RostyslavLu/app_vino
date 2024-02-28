@@ -6,13 +6,13 @@ form {
 }
 
 input:not([type="checkbox"]) {
-    /* font-size: var(--font-current); */
+    font-size: var(--font-current);
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    /* min-width: var(--dimension-tiny); */
-    /* margin: auto; */
-    /* align-items: center; */
+    width: 100%;
+    margin: auto;
+    align-items: center;
     padding-left: var(--spacing-thinnest);
     border-radius: var(--spacing-pico);
 }
