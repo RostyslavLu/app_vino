@@ -1,11 +1,17 @@
 /*  */
 /* InputError.vue */
 
-.input-error {
-    color: var(--error);
+.auth .input-error {
+    color: var(--error-black);
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);
 }
+
+.white-layout .input-error {
+    color: var(--error-white);
+    margin-bottom: var(--spacing-nano);
+}
+
 
 .input-icon {
     color: var(--accent-error);

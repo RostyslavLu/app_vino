@@ -10,7 +10,7 @@ input:not([type="checkbox"]) {
     line-height: var(--line-height-normal);
     color: var(--primary);
     background-color: var(--secondary);
-    min-width: var(--dimension-tiny);
+    width: 100%;
     margin: auto;
     align-items: center;
     padding-left: var(--spacing-thinnest);

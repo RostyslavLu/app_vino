@@ -16,7 +16,8 @@
 
 		--semi-transparent-overlay: #e3decbbf;
 
-		--error: var(--accent-medium);
+		--error-black: var(--tertiary);
+		--error-white: var(--required);
 		--success: var(--tertiary);
 
 
@@ -24,6 +25,9 @@
         --wine-red: #92171C;
         --wine-rose: #E7BBA7;
 
+		--red: #ff1d25;
+		--rose: #ff00ff;
+		--yellow: #ffff00;
 	/*============================ */
 	/* = SPACING */
 	/*============================ */
