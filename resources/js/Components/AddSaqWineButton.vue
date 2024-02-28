@@ -20,7 +20,7 @@ const form = useForm({
     'saq_wines_id': id,
 });
 // fonction pour valider la quantité ou cas ou l'utilisateur entre une quantité négative ou un 0
-const initialQuantity = 1;
+
 const validateQuantity = () => {
     if (form.quantity < 1 || isNaN(form.quantity)) {
         form.quantity = initialQuantity;
@@ -29,20 +29,11 @@ const validateQuantity = () => {
     }
 };
 // fonction pour soumettre le formulaire
-let scrollPosition = 0;
 
 const submit = () => {
-    // sauvegarder la position de la page pour la rétablir après la soumission du formulaire
-    scrollPosition = window.pageYOffset;
     form.post(route('cellar-content.store'), {
-        onStart: () => {
-            // sauvegarder la position de la page pour la rétablir après la soumission du formulaire
-            window.scrollTo(0, scrollPosition);
-        },
         onFinish: () => {
             form.quantity = 1;
-            // rétablir la position de la page après la soumission du formulaire
-            window.scrollTo(0, scrollPosition);
         }
     });
 };
@@ -52,20 +43,24 @@ const submit = () => {
     <form @submit.prevent="submit" class="button-content">
         <div class="quantity-arrows">
             <button type="button" @click="form.quantity++">
-                <svg width="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path stroke="white" fill-rule="evenodd" d="M5.6 13.7A2 2 0 0 0 7 17h10a2 2 0 0 0 1.5-3.3l-4.9-5.9a2 2 0 0 0-3 0l-5 6Z" clip-rule="evenodd"/>
+                <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
+                    <g id="Calque_1-2">
+                        <path d="m44.73,9.01l25.22,33.78c3.69,4.94.16,11.97-6,11.97H13.5c-6.16,0-9.69-7.03-6-11.97L32.72,9.01c3-4.01,9.01-4.01,12,0Z" style="fill: transparent; stroke: var(--secondary); stroke-miterlimit:10; stroke-width:12px;"/>
+                    </g>
                 </svg>
             </button>
             <button type="button" @click="form.quantity > 1 && form.quantity--">
-                <svg width="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path stroke="white" fill-rule="evenodd" d="M18.4 10.3A2 2 0 0 0 17 7H7a2 2 0 0 0-1.5 3.3l4.9 5.9a2 2 0 0 0 3 0l5-6Z" clip-rule="evenodd"/>
+                <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
+                    <g id="Calque_1-2">
+                        <path d="m32.72,51.75L7.5,17.97c-3.69-4.94-.16-11.97,6-11.97h50.44c6.16,0,9.69,7.03,6,11.97l-25.22,33.78c-3,4.01-9.01,4.01-12,0Z" style="fill: transparent; stroke:var(--secondary); stroke-miterlimit:10; stroke-width:12px;"/>
+                    </g>
                 </svg>
             </button>
         </div>
         <InputLabel for="quantity">
             <NumberInput v-model="form.quantity" @blur="validateQuantity" @keydown.up.prevent="form.quantity++" @keydown.down.prevent="form.quantity > 1 && form.quantity--"/>
         </InputLabel>
-        <button type="submit" class="button-add-wine">Ajouter</button>
+        <button type="submit" :disabled="form.processing" class="button-add-wine">Ajouter</button>
     </form>
     <slot></slot>
 </template>

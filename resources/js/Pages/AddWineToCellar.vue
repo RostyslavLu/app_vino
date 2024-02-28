@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link, usePage, router } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import AddWineCellar from '@/Layouts/AddWineCellar.vue';
 import SearchInput from '@/Components/SearchInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
@@ -8,6 +8,10 @@ import WineList from '@/Components/WineList.vue';
 import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 
 const { props } = usePage();
+//
+let page = usePage();
+let showMessage = ref(false);
+//
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
@@ -20,6 +24,15 @@ const searchWines = () => {
         router.get(`/saq-search/${search.value}`)
     }
 };
+// message de succès après l'ajout d'un vin apparaît pendant 2.5 secondes
+watchEffect(() => {
+  if (page.props.success) {
+    showMessage.value = true;
+    setTimeout(() => {
+      showMessage.value = false;
+    }, 2500);
+  }
+});
 
 </script>
 
@@ -60,6 +73,11 @@ const searchWines = () => {
                         <Link href="/rose">Rosé</Link>
                     </div>
                 </div>
+                <!-- Message de succès après l'ajout d'un vin -->
+                <div v-if="showMessage">
+                    <p class="add-wine-success">{{ page.props.success }}</p>
+                </div>
+
                 <div class="add-wine-list">
                     <!--dans la variable wines, on recoit tout, incluant les infos pour la pagination, tandisque wines.data, c'est les infos pour les vins-->
                     <WineList :cellarContent="wines.data" :wines="wines"/>
