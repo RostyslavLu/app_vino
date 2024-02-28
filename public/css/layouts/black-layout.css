@@ -10,7 +10,7 @@
     justify-content: space-evenly;
     font-family: var(--font-accent);
     padding: var(--spacing-thinnest);
-    max-width: 600px;
+    max-width: var(--max-width);
     margin: auto;
 }
 

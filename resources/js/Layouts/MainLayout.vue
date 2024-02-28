@@ -8,14 +8,17 @@ const cellar = usePage().props.cellar;
 </script>
 
 <template>
-    <header class="flex-between">
-        <ApplicationLogoWhite class="logo"/>
-        <!-- Menu de navigation -->
-        <NavigationMenu :cellar="cellar"/>    
-    </header>
+    <div class="__layout">
+        <header class="flex-between">
+            <ApplicationLogoWhite class="logo"/>
+            <!-- Menu de navigation -->
+            <NavigationMenu :cellar="cellar"/>    
+        </header>
 
     <!-- Contenu principal de la page -->
-    <main>
-        <slot />
-    </main>
+        <main>
+            <slot />
+        </main>
+    </div>
+ 
 </template>
