@@ -13,13 +13,15 @@ use App\Models\Type;
 use App\Models\Personal_wine;
 use Inertia\Inertia;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Session;
 
 class CellarContentController extends Controller
 {
     /**
      * fonction pour afficher les contenues du cellier de l'utilisateur
      */
-    public function index(){
+    public function index()
+    {
         //récupérer l'id de l'utilisateur
         $user = Auth::id();
         //récupérer les celliers de l'utilisateur
@@ -53,7 +55,8 @@ class CellarContentController extends Controller
     /**
      * fonction pour sauvegarder un vin dans le cellier de l'utilisateur (à terminer)
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         //récupérer l'id de l'utilisateur
         $user = Auth::id();
         //récupérer le cellier de l'utilisateur
@@ -72,12 +75,9 @@ class CellarContentController extends Controller
             'wine_sources_id' => 1,
             'purchase_date' => date('Y-m-d H:i:s'),
         ]);
-
-        //retourner la vue (meme page) avec un message de succès
-        session()->flash('success', 'Le vin a été ajouté à votre cellier');
-        //return Inertia::render('Dashboard', [
-
-        return Redirect::back()->with('success', 'Le vin a été ajouté à votre cellier');
+        // retour avec un message de succès
+        return Inertia::render('AddWineToCellar', [
+            'success' => 'Le vin a été ajouté à votre cellier',
+        ]);
     }
-
 }

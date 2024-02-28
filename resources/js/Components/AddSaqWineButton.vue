@@ -20,7 +20,7 @@ const form = useForm({
     'saq_wines_id': id,
 });
 // fonction pour valider la quantité ou cas ou l'utilisateur entre une quantité négative ou un 0
-const initialQuantity = 1;
+
 const validateQuantity = () => {
     if (form.quantity < 1 || isNaN(form.quantity)) {
         form.quantity = initialQuantity;
@@ -29,20 +29,11 @@ const validateQuantity = () => {
     }
 };
 // fonction pour soumettre le formulaire
-let scrollPosition = 0;
 
 const submit = () => {
-    // sauvegarder la position de la page pour la rétablir après la soumission du formulaire
-    scrollPosition = window.pageYOffset;
     form.post(route('cellar-content.store'), {
-        onStart: () => {
-            // sauvegarder la position de la page pour la rétablir après la soumission du formulaire
-            window.scrollTo(0, scrollPosition);
-        },
         onFinish: () => {
             form.quantity = 1;
-            // rétablir la position de la page après la soumission du formulaire
-            window.scrollTo(0, scrollPosition);
         }
     });
 };
