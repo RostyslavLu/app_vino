@@ -106,8 +106,7 @@ class CellarContentController extends Controller
         $userCellar = Cellars::where('user_id', $user)->get();
         //validation des champs
         $request->validate([
-            'quantity' => 'required',
-            'notes' => 'max:100',
+            'quantity' => 'required|min:1',
             'saq_wines_id' => 'numeric',
         ]);
         //retrouver le vin dans le cellier de l'utilisateur
@@ -116,7 +115,6 @@ class CellarContentController extends Controller
             if ($userCellarContent->saq_wines_id == $request->saq_wines_id) {
                 Cellar_content::where('saq_wines_id', $request->saq_wines_id)->update([
                     'quantity' => $request->quantity,
-                    'notes' => $request->notes,
                 ]);
                 return Inertia::render('dashboard', [
                     'success' => 'Le vin a été modifié dans votre cellier',
