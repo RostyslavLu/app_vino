@@ -10,11 +10,6 @@ const { props } = usePage();
 
 const userCellar = usePage().props.userCellar;
 
-//on peut peut-être cesser d'envoyer cellarContents du controlleur
-
-//const cellarContents = usePage().props.cellarContents;
-//const wines = usePage().props.wines;
-
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
@@ -27,16 +22,6 @@ const searchWines = () => {
         router.get(`/cellar-search/${search.value}`)
     }
 };
-
-// fonction pour rechercher des vins dans le cellier par nom
-// const searchWine = () => {
-//     return cellarContents.filter(content => content.name.includes(search.value));
-// };
-// les vins filtrés par la recherche de l'utilisateur par nom
-//const filteredCellarContents = computed(() => searchWine());
-/* const searchWines = () => {
-    router.get(`/saq-search/${search.value}`);
-}; */
 </script>
 
 <template>
@@ -77,7 +62,7 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <wine-list :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
+                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
                 </div>
             </section>
         </MainLayout>

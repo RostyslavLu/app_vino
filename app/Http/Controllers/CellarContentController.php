@@ -85,6 +85,4 @@ class CellarContentController extends Controller
             'success' => 'Le vin a été ajouté à votre cellier',
         ]);
     }
-
-    
 }
