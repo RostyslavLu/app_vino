@@ -19,7 +19,7 @@ const searchInput = ref(false);
 //entamer la recherche sur la bd
 const searchWines = () => {
     if (search.value.trim() === ''){
-        router.get('/saq-empty-search')
+        router.get('/add-wine-cellar')
     }else{
         router.get(`/saq-search/${search.value}`)
     }
@@ -59,7 +59,8 @@ watchEffect(() => {
                 <!-- Contenu principal -->
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin" />
-                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau"/>
+                    <!-- Search input -->
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="ex. chateau" />
                     <p>vins trouvés: {{ wines.total }}</p>
                 </div>
                 <div class="add-wine-filters">

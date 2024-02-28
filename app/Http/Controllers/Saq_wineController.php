@@ -34,17 +34,4 @@ class Saq_wineController extends Controller
             'search' => $search,
         ]);
     }
-
-    //une fonction pour un champ de recherche vidé
-    public function emptySearch(){
-        $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
-            ->select('saq_wines.*', 'types.type')
-            ->paginate(20);
-
-        return Inertia::render('AddWineToCellar', [
-            'wines' => $wines, 
-            'search' => ''
-        ]);
-    }
-
 }

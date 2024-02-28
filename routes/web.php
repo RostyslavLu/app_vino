@@ -5,6 +5,7 @@ use App\Http\Controllers\ScraperController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CellarsController;
 use App\Http\Controllers\CellarController;
+use App\Http\Controllers\CellarSearchController;
 use App\Models\Cellars;
 use App\Http\Controllers\CellarContentController;
 use App\Http\Controllers\Saq_wineController;
@@ -35,11 +36,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/cellars/{cellar}', [CellarsController::class, 'update'])->name('cellars.update');
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
-    Route::get('/cellars-search/{search}', [CellarsController::class, 'searchWineInUserCellars'])->name('cellars.searchWineInUserCellars');
+  
 
     Route::post('/add-wine-cellar', [CellarContentController::class, 'store'])->name('cellar-content.store');
 
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
+    
+    Route::get('/cellar-search/{search}', [CellarSearchController::class, 'search'])->name('cellar.search');
 
     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'
     //  Route::get('/', function () {
@@ -54,7 +57,6 @@ Route::middleware('auth')->group(function () {
 
     // les routes saq
     Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
-    Route::get('/saq-empty-search', [Saq_wineController::class, 'emptySearch'])->name('searchSaq.empty');
     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('addWineToCellar');
 
 
