@@ -41,7 +41,7 @@ const getBackgroundColor = (wineColor) => {
                 </div>
                 <div class="wine-quantity">
                     <AddSaqWineButton :isAddVisible="isAddVisible" :id="content.id"/>
-                    <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :id="content.id"/>
+                    <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :quantity="quantity" :id="content.id"/>
                 </div>
             </div>
         </div>

@@ -60,7 +60,7 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <wine-list :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines" />
+                    <wine-list :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
                 </div>
             </section>
         </MainLayout>

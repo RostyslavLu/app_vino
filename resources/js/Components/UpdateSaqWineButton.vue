@@ -6,15 +6,16 @@ const props = defineProps({
         type: Number,
         required: true
     },
-    isUpdateVisible: Boolean
+    isUpdateVisible: Boolean,
+    quantity: Number
 });
 </script>
 
 <template>
     <form @submit.prevent="submit" v-if="isUpdateVisible">
         <div class="update-container">
-            <div class="update-wine-quantity">1</div>
-            <div class="update-wine-controls">
+
+            <div class="quantity-arrows">
                 <button type="button" @click="form.quantity++">
                 <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
                     <g id="Calque_1-2">
@@ -22,6 +23,7 @@ const props = defineProps({
                     </g>
                 </svg>
             </button>
+            <div class="update-wine-quantity">1</div>
             <button type="button" @click="form.quantity > 0 && form.quantity--">
                 <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
                     <g id="Calque_1-2">
