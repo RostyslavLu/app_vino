@@ -11,6 +11,7 @@
     padding: var(--spacing-thin);
     font-family: var(--font-accent);
     transition: var(----ease-in-quad);
+    z-index: 1;
 }
 
 .navigation-menu a {
