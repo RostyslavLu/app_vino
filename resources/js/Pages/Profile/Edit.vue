@@ -20,7 +20,7 @@ defineProps({
 <template>
     <Head title="Profil" />
 
-    <WhiteLayout class="white-layout" :showNavigation="true">
+    <WhiteLayout class="white-layout" :showNavigation="true" :userCellar="userCellar">
         <template #header>
             <h1>Profil</h1>
         </template>

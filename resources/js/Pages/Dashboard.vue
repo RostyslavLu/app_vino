@@ -5,8 +5,6 @@ import { ref, computed } from 'vue';
 import WineList from '@/Components/WineList.vue';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
-import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
-import NavigationMenu from '@/Components/NavigationMenu.vue';
 
 const userCellar = usePage().props.userCellar;
 const cellarContents = usePage().props.cellarContents;
