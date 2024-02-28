@@ -20,8 +20,8 @@ const toggleMenu = () => {
         <div v-if="showMenu" class="main-nav">
             <h3>Celliers</h3>
             <Link v-for="cellar in userCellar" :key="cellar.id" href="/dashboard">{{ cellar.name }}</Link>
-            <ResponsiveNavLink :href="route('logout')" method="post">déconnexion </ResponsiveNavLink>
             <Link href="/profile">Profil</Link>
+            <ResponsiveNavLink :href="route('logout')" method="post">Déconnexion </ResponsiveNavLink>
         </div>
     </div>
 </template>

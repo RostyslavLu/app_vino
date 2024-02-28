@@ -32,7 +32,7 @@
     padding: var(--spacing-thin);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-thin);
+    gap: var(--spacing-broad);
 }
 
 .white-layout .__main-container {
