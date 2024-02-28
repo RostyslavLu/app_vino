@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-/* section cellier et section le reste */
+/* section cellier et le reste */
 .navigation-menu section {
     display: flex;
     flex-direction: column;
