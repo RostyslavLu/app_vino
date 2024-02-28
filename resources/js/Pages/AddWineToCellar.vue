@@ -74,7 +74,7 @@ watchEffect(() => {
                     </div>
                 </div>
                 <!-- Message de succès après l'ajout d'un vin -->
-                <div v-if="showMessage">
+                <div v-if="showMessage" class="add-wine-message">
                     <p class="add-wine-success">{{ page.props.success }}</p>
                 </div>
 

@@ -17,8 +17,8 @@
     justify-content: space-between;
 }
 .add-wine-controls > svg {
-    width: var(--logo);
-    height: var(--logo);
+    max-width: var(--logo);
+    max-height: var(--logo);
 }
 .add-wine-search {
     margin-top: var(--spacing-thin);
@@ -55,6 +55,7 @@
     font-size: var(--font-short);
     text-align: center;
     margin-top: var(--spacing-thin);
+    min-width: 100%;
 }
 
 /* composant pour ajouter bouteille de vin au cellier d'utilisateur*/
