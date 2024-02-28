@@ -7,6 +7,7 @@ const props = defineProps({
         type: Object,
         required: true
     },
+    isAddVisible: Boolean
 });
 
 // fonction pour marquer la couleur du type de vin
@@ -37,7 +38,7 @@ const getBackgroundColor = (wineColor) => {
                     <p>{{ content.country }}</p>
                 </div>
                 <div class="wine-quantity">
-                    <AddSaqWineButton :id="content.id"/>
+                    <AddSaqWineButton :isAddVisible="isAddVisible" :id="content.id"/>
                 </div>
             </div>
         </div>
