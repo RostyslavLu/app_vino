@@ -25,6 +25,7 @@
 /* ------Atomes ----------- */
 @import "atomes/utility.css";
 @import "atomes/input-error.css";
+@import "atomes/wine-quality.css";
 
 /* ------Layouts ---------- */
 @import "layouts/main-layout.css";
