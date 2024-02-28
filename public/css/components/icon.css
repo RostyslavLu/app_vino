@@ -3,3 +3,7 @@
     height: var(--icon);
 }
 
+.icon .__white {
+    fill: var(--secondary);
+}
+
