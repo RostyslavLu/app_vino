@@ -1,5 +1,4 @@
 <script setup>
-import DangerButton from '@/Components/DangerButton.vue';
 import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
@@ -53,7 +52,7 @@ const closeModal = () => {
                 <p class="__delete-text">
                     Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
                 </p>
-                <DangerButton @click="confirmUserDeletion">Supprimer votre compte</DangerButton>
+                <button class="danger" @click="confirmUserDeletion">Supprimer votre compte</button>
             </article>
         </div>
 
@@ -80,13 +79,13 @@ const closeModal = () => {
                 <div class="modal-buttons">
                     <SecondaryButton @click="closeModal"> Annuler </SecondaryButton>
 
-                    <DangerButton
+                    <button class="danger"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
                         Supprimer
-                    </DangerButton>
+                    </button>
                 </div>
         </Modal>
 </template>
