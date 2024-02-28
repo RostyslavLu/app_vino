@@ -17,23 +17,25 @@ defineProps({
 </script>
 
 <template>
-    <div v-bind="attrs">
-        <header >
-            <div class="flex-between">
-                <Link 
-                    href="/"
-                    ><ApplicationLogoWhite class="logo"/></Link
-                >
-            <!-- Menu de navigation -->
-                <NavigationMenu v-if="showNavigation" :cellar="cellar" />
-            </div>
-                
-            <h1><slot name="header"></slot></h1>
-        </header>
-        
-        <!-- le slot principale, pour la page -->
-        <main class="__main-container">
-            <slot /> 
-        </main>
+    <div v-bind="attrs" class="white-layout">
+        <div class="__layout">
+            <header >
+                <div class="flex-between">
+                    <Link 
+                        href="/"
+                        ><ApplicationLogoWhite class="logo"/></Link
+                    >
+                <!-- Menu de navigation -->
+                    <NavigationMenu v-if="showNavigation" :cellar="cellar" />
+                </div>
+                    
+                <h1><slot name="header"></slot></h1>
+            </header>
+            
+            <!-- le slot principale, pour la page -->
+            <main class="__main-container">
+                <slot /> 
+            </main>
+        </div>
     </div>
 </template>
