@@ -8,8 +8,8 @@
 }
 
 .icon-x-menu {
-    width: var(--logo);
-    height: var(--logo);
+    width: var(--icon);
+    height: var(--icon);
     position: fixed;
     top: var(--spacing-thinnest);
     right: var(--spacing-thinnest);
