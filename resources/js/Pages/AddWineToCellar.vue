@@ -80,7 +80,7 @@ watchEffect(() => {
 
                 <div class="add-wine-list">
                     <!--dans la variable wines, on recoit tout, incluant les infos pour la pagination, tandisque wines.data, c'est les infos pour les vins-->
-                    <WineList :cellarContent="wines.data" :wines="wines"/>
+                    <WineList :isAddVisible="true" :cellarContent="wines.data" :wines="wines"/>
                 </div>
             </template>
         </AddWineCellar>

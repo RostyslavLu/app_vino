@@ -42,7 +42,7 @@ const searchWines = () => {
 <template>
         <Head title="Mon compte" />
         <div class="dashboard">
-            
+
             <MainLayout>
                 <section class="__container">
                     <div class="__cellar">
@@ -76,7 +76,7 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <wine-list :cellarContent="wines.data" :wines="wines" />
+                    <wine-list :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
                 </div>
             </section>
         </MainLayout>

@@ -2,14 +2,16 @@
 import { Link, useForm, router } from '@inertiajs/vue3';
 import InputLabel from './InputLabel.vue';
 import NumberInput from './NumberInput.vue';
-import { defineProps, toRefs } from 'vue';
+import { defineProps, defineEmits, toRefs } from 'vue';
 
 const props = defineProps({
     id: {
         type: Number,
         required: true
-    }
+    },
+    isAddVisible: Boolean
 });
+const emits = defineEmits(['addWine']);
 
 const { id } = toRefs(props);
 
@@ -31,6 +33,7 @@ const validateQuantity = () => {
 // fonction pour soumettre le formulaire
 
 const submit = () => {
+    emits('addWine');
     form.post(route('cellar-content.store'), {
         onFinish: () => {
             form.quantity = 1;
@@ -40,7 +43,7 @@ const submit = () => {
 
 </script>
 <template>
-    <form @submit.prevent="submit" class="button-content">
+    <form @submit.prevent="submit" class="button-content" v-if="isAddVisible">
         <div class="quantity-arrows">
             <button type="button" @click="form.quantity++">
                 <svg id="Calque_2" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">

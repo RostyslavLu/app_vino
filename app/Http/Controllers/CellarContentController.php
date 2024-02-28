@@ -34,6 +34,11 @@ class CellarContentController extends Controller
             $item->url_image =  Saq_wine::where('id', $item->saq_wines_id)->value('url_image') ?? Personal_wine::where('id', $item->personal_wines_id)->value('url_image');
             $item->country =  Saq_wine::where('id', $item->saq_wines_id)->value('country') ?? Personal_wine::where('id', $item->personal_wines_id)->value('country');
             $item->region =  Saq_wine::where('id', $item->saq_wines_id)->value('region') ?? Personal_wine::where('id', $item->personal_wines_id)->value('region');
+            $item->grape_varieties =  Saq_wine::where('id', $item->saq_wines_id)->value('grape_varieties') ?? Personal_wine::where('id', $item->personal_wines_id)->value('grape_varieties');
+            $item->format =  Saq_wine::where('id', $item->saq_wines_id)->value('format') ?? Personal_wine::where('id', $item->personal_wines_id)->value('format');
+            $item->degree_alcohol =  Saq_wine::where('id', $item->saq_wines_id)->value('degree_alcohol') ?? Personal_wine::where('id', $item->personal_wines_id)->value('degree_alcohol');
+            $item->sugar_content =  Saq_wine::where('id', $item->saq_wines_id)->value('sugar_content') ?? Personal_wine::where('id', $item->personal_wines_id)->value('sugar_content');
+            $item->description =  Saq_wine::where('id', $item->saq_wines_id)->value('description') ?? Personal_wine::where('id', $item->personal_wines_id)->value('description');
             $item->types_id =  Saq_wine::where('id', $item->saq_wines_id)->value('types_id') ?? Personal_wine::where('id', $item->personal_wines_id)->value('types_id');
             $item->type = Type::where('id', $item->types_id)->value('type');
             return $item;
