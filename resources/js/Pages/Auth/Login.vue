@@ -68,7 +68,7 @@ const submit = () => {
                     <p>Sauvegarder ma connexion</p>
                 </label>
 
-                    <button>
+                    <button class="button">
                     Connexion
                     </button>
                 <Link
