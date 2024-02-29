@@ -13,6 +13,8 @@ const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
+//vérifier si notre page a un fond noir ou non
+const saqPage = false;
 
 //entamer la recherche sur la bd
 const searchWines = () => {
@@ -33,9 +35,9 @@ const searchWines = () => {
                     <div class="__cellar">
                         <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">
-                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
+                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="100" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            <path stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
                             d="M5 12h14m-7 7V5" />
                             </svg>
                         </Link>
@@ -43,9 +45,6 @@ const searchWines = () => {
                     <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-                            <Link style="color: var(--primary);" href="/dates">Dates</Link>
-                            <Link style="color: var(--primary);" href="/pays">Pays</Link>
-                            <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
                             <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
                             <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
                             <Link style="color: var(--primary);" href="/rose">Rosé</Link>
@@ -62,12 +61,11 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
+                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
                 </div>
             </section>
         </MainLayout>
-
-            </div>
+        </div>
     </div>
 </template>
 

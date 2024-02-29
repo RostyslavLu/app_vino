@@ -1,6 +1,8 @@
 .pagination{
     padding-top: var(--spacing-thin);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: var(--spacing-thin);
+    align-items: center;
 }
 
