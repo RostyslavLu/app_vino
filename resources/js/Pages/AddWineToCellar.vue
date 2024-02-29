@@ -15,6 +15,8 @@ let showMessage = ref(false);
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
+//vérifier si notre page a un fond noir ou non
+const saqPage = true;
 
 //entamer la recherche sur la bd
 const searchWines = () => {
@@ -79,7 +81,7 @@ watchEffect(() => {
 
                 <div class="add-wine-list">
                     <!--dans la variable wines, on recoit tout, incluant les infos pour la pagination, tandisque wines.data, c'est les infos pour les vins-->
-                    <WineList :isAddVisible="true" :cellarContent="wines.data" :wines="wines"/>
+                    <WineList :isAddVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
                 </div>
             </template>
         </AddWineCellar>

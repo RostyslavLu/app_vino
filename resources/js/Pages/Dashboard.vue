@@ -13,6 +13,8 @@ const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
+//vérifier si notre page a un fond noir ou non
+const saqPage = false;
 
 //entamer la recherche sur la bd
 const searchWines = () => {
@@ -59,12 +61,11 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines"  />
+                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
                 </div>
             </section>
         </MainLayout>
-
-            </div>
+        </div>
     </div>
 </template>
 

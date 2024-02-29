@@ -57,7 +57,7 @@ const toggleDetail = (id) => {
         <Link v-if="wines.prev_page_url" :href="wines.prev_page_url">
             <!-- https://feathericons.dev/?search=chevron-left&iconset=feather -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"  class="main-grid-item-icon" fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <polyline points="15 18 9 12 15 6" />
+            <polyline points="15 18 9 12 15 6" :fill="isAddVisible ? 'var(--accent-light)' : 'var(--primary)'"/>
             </svg>
         </Link>
 
@@ -68,7 +68,7 @@ const toggleDetail = (id) => {
         <Link v-if="wines.next_page_url" :href="wines.next_page_url">
             <!-- https://feathericons.dev/?search=chevron-right&iconset=feather -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" class="main-grid-item-icon" fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <polyline points="9 18 15 12 9 6" />
+            <polyline points="9 18 15 12 9 6" :fill="isAddVisible ? 'var(--accent-light)' : 'var(--primary)'"/>
             </svg>
         </Link>
     </div>
