@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CellarSearchController extends Controller
 {
     //rechercher dans les vins de la SAQ
-    public function search($search){
+    public function search($filter, $search=''){
         //récupérer l'id de l'utilisateur
         $user = Auth::user();
 
@@ -21,20 +21,29 @@ class CellarSearchController extends Controller
         //récupérer le premier cellier de l'utilisateur
         $firstCellarId = $user->cellars()->orderBy('created_at')->first()->id;
 
-        //requete sql
-        $cellarContents = Cellar_content::where('cellars_id', $firstCellarId)
+        // requete sql
+        $query = Cellar_content::where('cellars_id', $firstCellarId)
             ->join('saq_wines', 'cellar_contents.saq_wines_id', '=', 'saq_wines.id')
             ->join('types', 'saq_wines.types_id', '=', 'types.id')
-            ->select('saq_wines.*', 'types.type', 'cellar_contents.quantity')
-            ->where('name', 'like', "%$search%")
-/*             ->where('type', '=', 'blanc') */
-            ->paginate(10);
+            ->select('saq_wines.*', 'types.type', 'cellar_contents.quantity');
+        
+        // Ajouter la recherche et le filtre de façon conditionelle a la requete
+        if (!is_null($search)) {
+            $query->where('name', 'like', "%$search%");
+        }
+        if ($filter !== 'all') {
+            $query->where('type', '=', $filter);
+        }
 
-        //retourner la vue
+        //completer la requete en ajoutant la pagination
+        $cellarContents = $query->paginate(10);
+
+        // retourner la vue
         return Inertia::render('Dashboard', [
             'userCellar' => $userCellar,
             'wines' => $cellarContents,
             'search' => $search,
+            'filter' => $filter,
         ]);
     }
 }
