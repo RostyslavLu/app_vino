@@ -1,7 +1,6 @@
 <script setup>
 import WhiteLayout from '@/Layouts/WhiteLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import PrimaryRegisterButton from '@/Components/PrimaryRegisterButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import { Head, useForm } from '@inertiajs/vue3';
@@ -80,9 +79,9 @@ const submit = () => {
             </div>
 
             <div>
-                <PrimaryRegisterButton>
+                <button class="button register">
                     Réinitialiser le mot de passe
-                </PrimaryRegisterButton>
+                </button>
             </div>
         </form>
     </WhiteLayout>

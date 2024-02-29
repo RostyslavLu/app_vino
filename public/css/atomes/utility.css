@@ -1,10 +1,6 @@
-/*  c'est un fichier vide, parceque le répertoire n'est pas sauvé sur 
-le git quand il ne contient pas de dossiers... de ce que j'ai compris
-
-
- Nous pourrons voir ensemble quel serait la meilleur structure pour ces dossiers. 
- Par example, nous pourrions créer une structure qui fait mirroire à la structure 
- des repertoire de composantes vue pour organiser les css correspondants*/
+/* 
+composante générales, réutilisables 
+ */
 
 
  .flex-column {
@@ -40,4 +36,10 @@ le git quand il ne contient pas de dossiers... de ce que j'ai compris
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.line{
+/*     height: var(--spacing-thinnest);
+    width: 100%;
+    background-color: var(--primary); */
 }
