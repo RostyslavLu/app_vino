@@ -59,7 +59,7 @@ const quantity_minus = () => {
                     </g>
                 </svg>
             </button>
-            <div v-if="wineQuantity" class="update-wine-quantity">{{ wineQuantity }}</div>
+            <div v-text="wineQuantity" class="update-wine-quantity"></div>
             <button type="button" @click="quantity_minus">
                 <svg id="Calque_2" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.45 60.76">
                     <g id="Calque_1-2">
