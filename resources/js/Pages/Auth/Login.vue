@@ -37,7 +37,7 @@ const submit = () => {
             {{ status }}
             </div>
 
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit" class="__login-form-width">
                 <div>
                     <InputError :message="form.errors.email" />
                     <InputLabel for="email" value="Courriel" />
@@ -68,7 +68,7 @@ const submit = () => {
                     <p>Sauvegarder ma connexion</p>
                 </div>
 
-                <button class="button">
+                <button class="button __beige">
                     Connexion
                 </button>
                 <Link

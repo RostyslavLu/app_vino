@@ -28,3 +28,8 @@
     max-width: 300px;
     margin: auto;
 }
+
+.black-layout .__login-form-width {
+    min-width: var(--dimension-tiniest);
+    margin: auto;
+}

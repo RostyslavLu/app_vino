@@ -13,9 +13,10 @@ input:not([type="checkbox"]) {
     width: 100%;
     margin: auto;
     align-items: center;
-    padding-left: var(--spacing-thinnest);
     border-radius: var(--spacing-pico);
+    text-indent: var(--spacing-thinnest);
 }
+
 
 input:focus {
     background-color: white;

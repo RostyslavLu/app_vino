@@ -2,16 +2,24 @@
     font-family: var(--font-accent);
     font-size: var(--font-current);
     padding: var(--spacing-micro) var(--spacing-thinnest);
-    color: var(--primary);
-    background-color: var(--accent-light);
     border: var(--border-slimmest) solid var(--primary);
     width: 100%;
     margin: var(--spacing-thinnest) 0;
     cursor: pointer;
 }
 
-.button.register {
+.button.__beige {
+    background-color: var(--accent-light);
+    color: var(--primary);
+}
+
+.button.__dark-red {
     background-color: var(--accent-dark);
+    color: var(--secondary);
+}
+
+.button.__ {
+    background-color: var(--);
     color: var(--accent-light);
 }
 
