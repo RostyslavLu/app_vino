@@ -1,5 +1,7 @@
 <script setup>
+import { ref } from 'vue';
 import { defineProps } from 'vue';
+import { router } from '@inertiajs/vue3';
 
 const props = defineProps({
     id: {
@@ -8,15 +10,15 @@ const props = defineProps({
     },
     isDeleteVisible: Boolean
 });
-
-const deleteWine = () => {
-    console.log('delete wine');
+const id = ref(props.id);
+const deleteWine = async() => {
+    router.get(`/cellar-content/${id.value}`);
 };
 
 </script>
 
 <template>
-    <button v-if="isDeleteVisible" type="button" @click="deleteWine" class="button-delete">
+    <button v-if="isDeleteVisible " type="button" @click="deleteWine" class="button-delete">
          Supprimer
     </button>
 </template>

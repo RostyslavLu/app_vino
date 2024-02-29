@@ -64,10 +64,10 @@ const searchWines = () => {
                 </span>
                 </div>
                 <div v-if="showMessage" class="success-message">
-                    <p>Успішно оновлено кількість вина в вашому погребі</p>
+                    <p>succés</p>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
+                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage"  />
                 </div>
             </section>
         </MainLayout>

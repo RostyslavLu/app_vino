@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     // le contenu du cellier
     Route::post('/add-wine-cellar', [CellarContentController::class, 'store'])->name('cellar-content.store');
     Route::patch('/cellar-content', [CellarContentController::class, 'update'])->name('cellar-content.update');
+    Route::get('/cellar-content/{id}', [CellarContentController::class, 'destroy'])->name('cellar-content.destroy');
     // page du cellier de l'utilisateur
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
 

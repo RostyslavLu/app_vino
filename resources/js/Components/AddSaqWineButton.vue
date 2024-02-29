@@ -9,7 +9,7 @@ const props = defineProps({
         type: Number,
         required: true
     },
-    isAddVisible: Boolean
+    isAddVisible: Boolean,
 });
 const emits = defineEmits(['addWine']);
 

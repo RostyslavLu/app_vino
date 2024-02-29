@@ -23,7 +23,6 @@ const quantity_plus = async() => {
             id: id.value,
             quantity: wineQuantity.value
         });
-        showMessage.value = true;
     } catch (error) {
         console.error(error);
     }
