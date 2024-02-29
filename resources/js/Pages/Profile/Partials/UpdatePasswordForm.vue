@@ -57,7 +57,7 @@ const updatePassword = () => {
                     <img src="/img/icons/lock-black.svg" class="icon">
                     <span>********</span>
                 </div>
-                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingPassword">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon-small" @click="startEditingPassword">
             </div>
             <div v-else class="flex-gap">
                 <div class="flex-row">

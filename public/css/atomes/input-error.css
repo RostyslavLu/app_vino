@@ -5,6 +5,7 @@
     color: var(--error-black);
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);
+    font-family: var(--font-accent);
 }
 
 .white-layout .input-error {
@@ -17,11 +18,17 @@
     color: var(--accent-error);
 }
 
-.input-success {
-    color: var(--wine-red);
-    margin-bottom: var(--spacing-nano);
-    /* max-width: var(--dimension-small); */
-    /* font-size: var(--font-tall); */
-    font-family: var(--font-alt);
+.white-layout .input-success {
+    color: var(--pink);
+    margin-bottom: var(--spacing-thinnest);
+    font-family: var(--font-accent);
+    font-size: var(--font-tall);
 }
+
+.modal .input-error {
+    color: var(--error-black);
+    margin-bottom: var(--spacing-nano);
+    font-family: var(--font-accent);
+}
+
 
