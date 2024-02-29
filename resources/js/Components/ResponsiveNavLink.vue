@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <Link :href="href" :class="classes">
+    <Link :href="href">
         <slot />
     </Link>
 </template>
