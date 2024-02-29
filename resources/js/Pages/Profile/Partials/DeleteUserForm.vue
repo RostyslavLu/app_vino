@@ -45,7 +45,7 @@ const closeModal = () => {
         <div class="profile">
             <header class="__inline">
                 <h2>Supprimer mon compte</h2>
-                <img src="/img/icons/plus-square.svg" alt="Voir plus" @click="toggleText" class="icon" />
+                <img src="/img/icons/plus-square-black.svg" alt="Voir plus" @click="toggleText" class="icon" />
             </header>
             <article v-show="showText">
                 <p class="__delete-text">

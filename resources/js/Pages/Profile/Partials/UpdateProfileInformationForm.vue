@@ -58,15 +58,15 @@ const save = () => {
             <InputError :message="form.errors.name" />
             <div v-if="!editingName" class="__inline">
                 <div class="flex-row">
-                    <img src="/img/icons/user.svg" class="icon">
+                    <img src="/img/icons/user-black.svg" class="icon">
                 <span>{{ form.name }}</span>
 
                 </div>
-                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingName">
             </div>
             <div v-else>
                 <div class="flex-row">     
-                    <img src="/img/icons/user.svg" class="icon">
+                    <img src="/img/icons/user-black.svg" class="icon">
        
                     <TextInput
                     id="name"
@@ -76,8 +76,8 @@ const save = () => {
                     autocomplete="name"
                     />
                     
-                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="cancelEditing">
+                    <img src="/img/icons/check-black.svg" alt="Accept" class="icon" @click="save">
+                    <img src="/img/icons/x-black.svg" alt="Cancel" class="icon" @click="cancelEditing">
                 </div>
                 
             </div>
@@ -86,22 +86,22 @@ const save = () => {
             <InputError :message="form.errors.email" />
             <div v-if="!editingEmail" class="__inline">
                 <div class="flex-row">
-                    <img src="/img/icons/at-sign.svg" class="icon">
+                    <img src="/img/icons/at-sign-black.svg" class="icon">
                     <span>{{ form.email }}</span>
                 </div>
-                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingEmail">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingEmail">
             </div>
             <div v-else>
                 <div class="flex-row">
-                    <img src="/img/icons/mail.svg" class="icon">
+                    <img src="/img/icons/at-sign-black.svg" class="icon">
                     <TextInput 
                     id="email"
                     v-model="form.email"
                     autofocus
                     autocomplete="username"
                     />
-                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="cancelEditing">
+                    <img src="/img/icons/check-black.svg" alt="Accept" class="icon" @click="save">
+                    <img src="/img/icons/x-black.svg" alt="Cancel" class="icon" @click="cancelEditing">
                 </div>
             </div>
         </div>

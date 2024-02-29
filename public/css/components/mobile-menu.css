@@ -28,11 +28,11 @@
 }
 
 .mobile-menu .__active {
-    border-bottom: 4px solid #ff0000;
+    border-bottom: 4px solid var(--required);
 }
 
 .mobile-menu .__active a {
-    color: #ff0000;
+    color: var(--required);
 }
 
 .mobile-menu .__logout {

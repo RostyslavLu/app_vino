@@ -2,6 +2,7 @@
 
 		--logo: clamp(35px, 15vw, 100px);
 		--icon: clamp(25px, 8vw, 50px);
+		--icon-small: clamp(20px, 6vw, 40px);
 		--max-width: 600px;
 	/*============================ */
 	/* = COLORS */
