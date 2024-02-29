@@ -30,3 +30,15 @@
 .navigation-menu .__active {
     border-bottom: 4px solid #ff0000;
 }
+
+.navigation-menu .__active a {
+    color: #ff0000;
+}
+
+.navigation-menu .__logout {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    font-size: var(--current);
+    cursor: pointer;
+}

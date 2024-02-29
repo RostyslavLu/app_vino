@@ -13,6 +13,8 @@ const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
+//vérifier si notre page a un fond noir ou non
+const saqPage = false;
 
 //entamer la recherche sur la bd
 const searchWines = () => {
@@ -28,26 +30,24 @@ const searchWines = () => {
 
 <template>
         <Head title="Mon compte" />
-        <div class="dashboard">
-
-            <MainLayout>
-                <section class="__container">
+        <div class="main-layout">
+            <div class="__layout __dashboad-gap">
+                <MainLayout>
+                <section class="__main-container __dashboard-gap">
                     <div class="__cellar">
                         <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">
-                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="24" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
+                            <!-- https://feathericons.dev/?search=plus-circle&iconset=feather -->
+                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="main-grid-item-icon" fill="none" stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".8">
+                            <circle cx="12" cy="12" r="10" fill="var(--success)"/>
+                            <line x1="12" x2="12" y1="8" y2="16" />
+                            <line x1="8" x2="16" y1="12" y2="12" />
                             </svg>
                         </Link>
                     </div>
                     <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-                            <Link style="color: var(--primary);" href="/dates">Dates</Link>
-                            <Link style="color: var(--primary);" href="/pays">Pays</Link>
-                            <Link style="color: var(--primary);" href="/millesime">Millésime</Link>
                             <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
                             <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
                             <Link style="color: var(--primary);" href="/rose">Rosé</Link>
@@ -67,10 +67,11 @@ const searchWines = () => {
                     <p>Успішно оновлено кількість вина в вашому погребі</p>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :isDeleteVisible="true"  :cellarContent="wines.data" :wines="wines"  />
+                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
                 </div>
             </section>
         </MainLayout>
+        </div>
     </div>
 </template>
 

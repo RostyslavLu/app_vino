@@ -2,7 +2,6 @@
 composante générales, réutilisables 
  */
 
-
  .flex-column {
     display: flex;
     flex-direction: column;
@@ -38,8 +37,10 @@ composante générales, réutilisables
     justify-content: space-between;
 }
 
+/* 
 .line{
-/*     height: var(--spacing-thinnest);
+     height: var(--spacing-thinnest);
     width: 100%;
-    background-color: var(--primary); */
+    background-color: var(--primary);
 }
+*/

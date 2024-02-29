@@ -1,6 +1,5 @@
 <script setup>
 import ApplicationLogoWhite from '@/Components/ApplicationLogoWhite.vue';
-import NavigationMenu from '@/Components/NavigationMenu.vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import { useAttrs } from 'vue';
 
@@ -20,15 +19,10 @@ defineProps({
     <div v-bind="attrs" class="white-layout">
         <div class="__layout">
             <header >
-                <div class="flex-between">
-                    <Link 
-                        href="/"
-                        ><ApplicationLogoWhite class="logo"/></Link
-                    >
-                <!-- Menu de navigation -->
-                    <NavigationMenu v-if="showNavigation" :cellar="cellar" />
-                </div>
-                    
+                <Link 
+                    href="/"
+                    ><ApplicationLogoWhite class="logo"/></Link
+                >
                 <h1><slot name="header"></slot></h1>
             </header>
             

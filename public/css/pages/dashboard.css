@@ -1,23 +1,7 @@
-.dashboard {
-    background-color: var(--secondary);
-}
 
-.dashboard .__layout {
-    font-family: var(--font-accent);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-thinnest);
-    padding: var(--spacing-thinnest);
-    min-height: 100dvh;
-    max-width: var(--max-width);
-    margin: auto;
-}
 
-.dashboard .__container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-thinnest);
-}
+
+
 
 
 /* liste des celliers de l'utilisateur */
