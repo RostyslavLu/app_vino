@@ -54,14 +54,14 @@ const updatePassword = () => {
             <p class="input-success" v-show="showSuccessMessage">Votre mot de passe a été modifié avec succès!</p>
             <div v-if="!editingPassword" class="__inline">
                 <div class="flex-row">
-                    <img src="/img/icons/lock.svg" class="icon">
+                    <img src="/img/icons/lock-black.svg" class="icon">
                     <span>********</span>
                 </div>
-                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingPassword">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingPassword">
             </div>
             <div v-else class="flex-gap">
                 <div class="flex-row">
-                    <img src="/img/icons/lock.svg" class="icon">
+                    <img src="/img/icons/lock-black.svg" class="icon">
                     <TextInput
                         id="current_password"
                         type="password"
@@ -74,7 +74,7 @@ const updatePassword = () => {
                 </div>
                 <InputError :message="form.errors.password" />
                 <div class="flex-row">
-                    <img src="/img/icons/key.svg" class="icon">
+                    <img src="/img/icons/key-black.svg" class="icon">
                     <TextInput
                         id="password"
                         type="password"
@@ -86,7 +86,7 @@ const updatePassword = () => {
                 </div>
                 <InputError :message="form.errors.password_confirmation" />
                 <div class="flex-row">
-                    <img src="/img/icons/key.svg" class="icon">
+                    <img src="/img/icons/key-black.svg" class="icon">
                     <TextInput
                         id="password_confirmation"
                         type="password"
@@ -94,8 +94,8 @@ const updatePassword = () => {
                         autocomplete="new-password"
                         placeholder="Confirmer le mot de passe"
                     />
-                    <img src="/img/icons/check.svg" alt="Accept" @click="updatePassword">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                    <img src="/img/icons/check-black.svg" alt="Accept" class="icon" @click="updatePassword">
+                    <img src="/img/icons/x-black.svg" alt="Cancel" class="icon" @click="stopEditing">
                 </div>  
             </div>
         </div>

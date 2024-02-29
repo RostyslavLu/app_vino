@@ -3,8 +3,12 @@
     height: var(--icon);
 }
 
-.icon.__white {
-    color: var(--secondary);
+.icon .__white {
+    fill: var(--secondary);
+}
+
+.icon .__black {
+    fill: var(--primary);
 }
 
 .icon-x-menu {
@@ -15,5 +19,10 @@
     right: var(--spacing-thinnest);
     z-index: 2;
     color: var(--secondary);
+}
+
+.icon-small {
+    height: var(--icon-small);
+    width: var(--icon-small);
 }
 
