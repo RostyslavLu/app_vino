@@ -12,6 +12,7 @@ const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
+const successMessage = ref(props.success);
 //vérifier si notre page a un fond noir ou non
 const saqPage = false;
 
@@ -23,8 +24,6 @@ const searchWines = () => {
         router.get(`/cellar-search/${search.value}`)
     }
 };
-
-const message = computed(() => props.success);
 
 </script>
 
@@ -63,7 +62,7 @@ const message = computed(() => props.success);
                     <span v-else>trouvé</span>
                 </span>
                 </div>
-                <div v-if="message" class="success-message">
+                <div v-if="successMessage" class="success-message">
                     <p>{{ message }}</p>
                 </div>
                 <div>
