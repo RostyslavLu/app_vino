@@ -115,9 +115,9 @@ const submit = () => {
                     </p>
                 </div>
                 <div>
-                    <PrimaryRegisterButton>
+                    <button class="button register">
                         Sauvegarder
-                    </PrimaryRegisterButton>
+                    </button>
                 </div>
             </form>
     </WhiteLayout>

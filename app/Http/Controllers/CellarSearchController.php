@@ -27,6 +27,7 @@ class CellarSearchController extends Controller
             ->join('types', 'saq_wines.types_id', '=', 'types.id')
             ->select('saq_wines.*', 'types.type', 'cellar_contents.quantity')
             ->where('name', 'like', "%$search%")
+/*             ->where('type', '=', 'blanc') */
             ->paginate(10);
 
         //retourner la vue

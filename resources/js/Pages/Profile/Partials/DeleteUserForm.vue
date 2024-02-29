@@ -76,7 +76,7 @@ const closeModal = () => {
                 </div>
 
                 <div class="modal-buttons">
-                    <button @click="closeModal"> Annuler </button>
+                    <button :type="type" @click="closeModal"> Annuler </button>
 
                     <button class="danger"
                         :class="{ 'opacity-25': form.processing }"
