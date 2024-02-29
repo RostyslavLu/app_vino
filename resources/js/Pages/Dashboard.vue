@@ -65,8 +65,25 @@ const message = computed(() => props.success);
                             </svg>
                         </Link>
                     </div>
-                    <!-- Les filtres -->
-                    <div class="cadd-wine-filters">
+                <div>
+                <div class="add-wine-search">
+                    <InputLabel for="search" value="Rechercher un vin" />
+                    <!-- Search input -->
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
+                </div>
+                <span v-if="wines">
+                    {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
+                    <span v-else>vin&nbsp;</span>
+                    <span v-if="wines.total > 1">trouvés</span>
+                    <span v-else>trouvé</span>
+                </span>
+                </div>
+                <div v-if="message" class="success-message">
+                    <p>{{ message }}</p>
+                </div>
+
+                <!-- Les filtres -->
+                <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
                             <button 
@@ -107,19 +124,7 @@ const message = computed(() => props.success);
                             </button>     
                         </div>
                     </div>
-                <div>
-                <!-- Search input -->
-                <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
-                <span v-if="wines">
-                    {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
-                    <span v-else>vin&nbsp;</span>
-                    <span v-if="wines.total > 1">trouvés</span>
-                    <span v-else>trouvé</span>
-                </span>
-                </div>
-                <div v-if="message" class="success-message">
-                    <p>{{ message }}</p>
-                </div>
+
                 <div>
                     <!-- la liste des vins -->
                     <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" />
