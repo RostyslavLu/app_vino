@@ -50,8 +50,12 @@ const closeModal = () => {
             <article v-show="showText">
                 <p class="__delete-text">
                     Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
+                    <button 
+                        class="button __beige" 
+                        @click="confirmUserDeletion"
+                        >Supprimer votre compte</button
+                    >
                 </p>
-                <button class="danger" @click="confirmUserDeletion">Supprimer votre compte</button>
             </article>
         </div>
 
@@ -75,16 +79,17 @@ const closeModal = () => {
                     />
                 </div>
 
-                <div class="modal-buttons">
-                    <button :type="type" @click="closeModal"> Annuler </button>
-
-                    <button class="danger"
-                        :class="{ 'opacity-25': form.processing }"
-                        :disabled="form.processing"
-                        @click="deleteUser"
+                <div class="flex-row">
+                    <button 
+                        class="button __beige"
+                        @click="closeModal"
+                        >Annuler</button
                     >
-                        Supprimer
-                    </button>
+                    <button 
+                        class="button __red"
+                        @click="deleteUser"
+                        >Supprimer</button
+                    >
                 </div>
         </Modal>
 </template>
