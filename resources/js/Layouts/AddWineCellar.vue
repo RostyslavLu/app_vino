@@ -3,7 +3,7 @@
 
 <template>
     <div class="black-layout">
-     <div class="__layout">
+     <div class="__layout __max-width">
         <header>
             <slot name="header">
             </slot>
