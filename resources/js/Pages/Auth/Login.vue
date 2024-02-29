@@ -39,7 +39,7 @@ const submit = () => {
 
             <form @submit.prevent="submit">
                 <div>
-                    <InputError class="" :message="form.errors.email" />
+                    <InputError :message="form.errors.email" />
                     <InputLabel for="email" value="Courriel" />
                     <TextInput
                         id="email"
