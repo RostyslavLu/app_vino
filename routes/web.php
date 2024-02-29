@@ -29,19 +29,20 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // le scraper
+    // le scraper pour la recoupreation des données de la SAQ
     Route::get('/scraper', [ScraperController::class, 'scraper'])->name('scraper.index');
 
     // le cellier
     Route::patch('/cellars/{cellar}', [CellarsController::class, 'update'])->name('cellars.update');
     Route::get('/cellars', [CellarsController::class, 'userCellars'])->name('cellars.userCellars');
     Route::get('/cellars/{id}', [CellarsController::class, 'userCellarContents'])->name('cellars.userCellarContent');
-  
 
+    // le contenu du cellier
     Route::post('/add-wine-cellar', [CellarContentController::class, 'store'])->name('cellar-content.store');
     Route::patch('/cellar-content', [CellarContentController::class, 'update'])->name('cellar-content.update');
+    // page du cellier de l'utilisateur
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
-    
+
     Route::get('/cellar-search/{search}', [CellarSearchController::class, 'search'])->name('cellar.search');
 
     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'

@@ -1,7 +1,7 @@
 <script setup>
 
 import SearchInput from '@/Components/SearchInput.vue';
-import { ref, computed } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import WineList from '@/Components/WineList.vue';
 import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
@@ -24,6 +24,8 @@ const searchWines = () => {
         router.get(`/cellar-search/${search.value}`)
     }
 };
+
+
 </script>
 
 <template>
@@ -61,8 +63,11 @@ const searchWines = () => {
                     <span v-else>trouvé</span>
                 </span>
                 </div>
+                <div v-if="showMessage" class="success-message">
+                    <p>Успішно оновлено кількість вина в вашому погребі</p>
+                </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
+                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
                 </div>
             </section>
         </MainLayout>
