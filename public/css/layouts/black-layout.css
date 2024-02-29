@@ -1,17 +1,20 @@
 /* BlackLayout.vue */
 .black-layout {
     background-color: var(--primary);
+    color: var(--secondary);
 }
 .black-layout .__layout {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    color: var(--secondary);
     justify-content: space-evenly;
     font-family: var(--font-accent);
-    padding: var(--spacing-thinnest);
+}
+
+.black-layout .__max-width {
     max-width: var(--max-width);
     margin: auto;
+    padding: var(--spacing-thinnest);
 }
 
 .black-layout a {
@@ -21,10 +24,9 @@
 
 
 /* Login.vue */
-.black-layout.__container {
-    align-items: center;
-}
+
 
 .black-layout .__content {
-    min-width: var(--space-small);
+    max-width: 500px;
+    margin: auto;
 }

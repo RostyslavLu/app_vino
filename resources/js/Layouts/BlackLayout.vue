@@ -4,17 +4,22 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="black-layout">
-        <header class="flex-column">
-            <Link href="/">
-                <ApplicationLogoBlack class="logo" />
-            </Link>
+    <div class="black-layout __container">
+        <div class="__layout">
+            <header class="flex-column">
+                <Link href="/">
+                    <ApplicationLogoBlack class="logo" />
+                </Link>
             <h1>vino</h1>
-        </header>   
+            </header>   
             
-        <main
-        >
-            <slot /> 
-        </main>
+            <main>
+                <slot /> 
+            </main>
+
+
+
+        </div>
+
     </div>
 </template>
