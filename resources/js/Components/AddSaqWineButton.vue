@@ -21,8 +21,8 @@ const form = useForm({
     'notes': '',
     'saq_wines_id': id,
 });
-// fonction pour valider la quantité ou cas ou l'utilisateur entre une quantité négative ou un 0
 
+// fonction pour valider la quantité ou cas ou l'utilisateur entre une quantité négative ou un 0
 const validateQuantity = () => {
     if (form.quantity < 1 || isNaN(form.quantity)) {
         form.quantity = initialQuantity;
@@ -30,8 +30,8 @@ const validateQuantity = () => {
         initialQuantity = form.quantity;
     }
 };
-// fonction pour soumettre le formulaire
 
+// fonction pour soumettre le formulaire
 const submit = () => {
     emits('addWine');
     form.post(route('cellar-content.store'), {

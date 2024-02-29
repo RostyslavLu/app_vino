@@ -22,7 +22,6 @@
     padding: 0;
 }
 .cellar-content > li {
-    /* min-height: 150px; */
     min-height: clamp(100px, 20dvh, 30dvh);
     padding: var(--spacing-thinnest) 0;
     writing-mode: horizontal-tb;
@@ -38,7 +37,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: start;
-    /* background-color: var(--secondary); */
     padding-left: var(--spacing-nano);
 
 }

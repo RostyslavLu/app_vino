@@ -9,11 +9,13 @@ const props = defineProps({
     },
     quantity: Number,
     isUpdateVisible: Boolean,
-    wineQuantity: Number,
+    wineQuantity: Number
 });
+
 const id = ref(props.id);
 const wineQuantity = ref(props.wineQuantity);
 
+//augmente la quantité de vin dans le cellier
 const quantity_plus = async() => {
     wineQuantity.value++;
     try {
@@ -21,7 +23,7 @@ const quantity_plus = async() => {
             id: id.value,
             quantity: wineQuantity.value
         });
-        console.log(response);
+        showMessage.value = true;
     } catch (error) {
         console.error(error);
     }
@@ -29,6 +31,7 @@ const quantity_plus = async() => {
 
 };
 
+// diminue la quantité de vin dans le cellier
 const quantity_minus = () => {
     if (wineQuantity.value > 0) {
         wineQuantity.value--;
@@ -38,7 +41,7 @@ const quantity_minus = () => {
             id: id.value,
             quantity: wineQuantity.value
         });
-        console.log(response);
+
     } catch (error) {
         console.error(error);
     }

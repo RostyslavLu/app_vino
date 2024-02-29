@@ -2,6 +2,7 @@
 import { defineProps } from 'vue';
 import AddSaqWineButton from '@/Components/AddSaqWineButton.vue';
 import UpdateSaqWineButton from '@/Components/UpdateSaqWineButton.vue';
+import DeleteSaqWineButton from '@/Components/DeleteSaqWineButton.vue';
 
 const props = defineProps({
     content: {
@@ -10,7 +11,8 @@ const props = defineProps({
     },
     isAddVisible: Boolean,
     isUpdateVisible: Boolean,
-    quantity: Number
+    quantity: Number,
+    isDeleteVisible: Boolean
 });
 
 // fonction pour marquer la couleur du type de vin
@@ -43,6 +45,7 @@ const getBackgroundColor = (wineColor) => {
                 <div class="wine-quantity">
                     <AddSaqWineButton :isAddVisible="isAddVisible" :id="content.id"/>
                     <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :wineQuantity="quantity" :id="content.id"/>
+                    <DeleteSaqWineButton :isDeleteVisible="isDeleteVisible" :id="content.id"/>
                 </div>
             </div>
         </div>
