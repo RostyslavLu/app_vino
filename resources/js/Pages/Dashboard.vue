@@ -65,48 +65,12 @@ const message = computed(() => props.success);
                             </svg>
                         </Link>
                     </div>
-                    <!-- Les filtres -->
-                    <div class="cadd-wine-filters">
-                        <h3>Filtres</h3>
-                        <div class="add-wine-filters-list">
-                            <button 
-                                class="invisible" 
-                                @click="changeFilter('rouge')">
-                                <div class="flex-row">
-                                    <img v-if="filter === 'rouge'" src="/img/icons/droplet-red.svg" alt="menu" class="icon">
-                                    Rouge
-                                </div>
-                            </button>
-                            <button  
-                                class="invisible" 
-                                :style="{ backgroundColor: filter === 'blanc' ? 'var(--wine-blanc)' : 'var(--secondary)' }" 
-                                @click="changeFilter('blanc')">
-                                <div class="flex-row">
-                                    <img v-if="filter === 'blanc'" src="/img/icons/droplet-yellow.svg" alt="menu" class="icon">
-                                    Blanc
-                                </div>
-                            </button>
-                            <button  
-                                class="invisible" 
-                                @click="changeFilter('rose')">
-                                <div class="flex-row">
-                                    <img v-if="filter === 'rose'" src="/img/icons/droplet-pink.svg" alt="menu" class="icon">
-                                    Rosé
-                                </div>
-                            </button>
-                            <button  
-                                class="invisible" 
-                                @click="changeFilter('all')">
-                                <div class="flex-row">
-                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="menu" class="icon">
-                                    Tous
-                                </div>
-                            </button>     
-                        </div>
-                    </div>
                 <div>
-                <!-- Search input -->
-                <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
+                <div class="add-wine-search">
+                    <InputLabel for="search" value="Rechercher un vin" />
+                    <!-- Search input -->
+                    <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
+                </div>
                 <span v-if="wines">
                     {{ wines.total }} <span v-if="wines.total > 1">vins&nbsp;</span>
                     <span v-else>vin&nbsp;</span>
@@ -117,6 +81,50 @@ const message = computed(() => props.success);
                 <div v-if="message" class="success-message">
                     <p>{{ message }}</p>
                 </div>
+
+                <!-- Les filtres -->
+                <div class="cadd-wine-filters">
+                        <h3>Filtres</h3>
+                        <div class="add-wine-filters-list">
+                            <button 
+                                class="invisible" 
+                                @click="changeFilter('rouge')">
+                                <div class="flex-row">
+                                    Rouge
+                                    <img v-if="filter === 'rouge'" src="/img/icons/droplet-red.svg" alt="filter-red" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
+                                </div>
+                            </button>
+                            <button  
+                                class="invisible" 
+                                @click="changeFilter('blanc')">
+                                <div class="flex-row">
+                                    Blanc
+                                    <img v-if="filter === 'blanc'" src="/img/icons/droplet-yellow.svg" alt="filter-white" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
+                                </div>
+                            </button>
+                            <button  
+                                class="invisible" 
+                                @click="changeFilter('rose')">
+                                <div class="flex-row">
+                                    Rosé
+                                    <img v-if="filter === 'rose'" src="/img/icons/droplet-pink.svg" alt="filter-rose" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
+                                </div>
+                            </button>
+                            <button  
+                                class="invisible" 
+                                @click="changeFilter('all')">
+                                <div class="flex-row">
+                                    Tous
+                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
+                                </div>
+                            </button>     
+                        </div>
+                    </div>
+
                 <div>
                     <!-- la liste des vins -->
                     <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" />

@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
         });
 
     // les routes saq
-    Route::get('/saq-search/{search}', [Saq_wineController::class, 'search'])->name('searchSaq');
+    Route::get('/saq-search/{filter}/{search?}', [Saq_wineController::class, 'search'])->where('search', '^$|(.*)')->name('searchSaq');
     Route::get('/add-wine-cellar', [Saq_wineController::class, 'index'])->name('addWineToCellar');
 
 });
