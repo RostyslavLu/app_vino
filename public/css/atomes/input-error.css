@@ -1,7 +1,7 @@
 /*  */
 /* InputError.vue */
 
-.auth .input-error {
+.black-layout .input-error {
     color: var(--error-black);
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);

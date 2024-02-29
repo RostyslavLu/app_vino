@@ -10,13 +10,10 @@
     justify-content: space-evenly;
     font-family: var(--font-accent);
     padding: var(--spacing-thinnest);
-
-}
-
-.black-layout .__max-width {
     max-width: var(--max-width);
     margin: auto;
 }
+
 
 .black-layout a {
     color: var(--accent-secondary);

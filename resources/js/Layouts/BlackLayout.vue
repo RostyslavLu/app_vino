@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="black-layout __container">
+    <div class="black-layout">
         <div class="__layout">
             <header class="flex-column">
                 <Link href="/">
