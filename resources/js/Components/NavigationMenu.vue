@@ -50,7 +50,7 @@ const toggleMenu = () => {
                 >
             </div>
             <div class="flex-row">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <img src="/img/icons/log-out.svg" alt="menu" class="icon __white"/>
                 <Link 
                     href="/logout"
                     class="__logout" 
@@ -62,14 +62,16 @@ const toggleMenu = () => {
             </div>
         </div>
         <div class="desktop-menu">
-            <div>   
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <div class="flex-column"> 
+                <img src="/img/icons/user.svg" alt="menu" class="icon"/>  
                 <Link href="/profile">Profile</Link>
-
             </div>
-            <Link href="/dashboard">Cellar</Link>
             <div class="flex-column">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <img src="/img/cellier-fond-blanc.png" class="icon">                
+                <Link href="/dashboard">Cellier</Link>
+            </div>
+            <div class="flex-column">
+                <img src="/img/icons/log-out.svg" alt="menu" class="icon"/>
                 <Link 
                     href="/logout"
                     class="__logout" 

@@ -26,7 +26,7 @@
     .desktop-menu {
         display: flex;
         flex-direction: row;
-        gap: var(--spacing-thin);
+        gap: var(--spacing-broad);
         font-size: var(--font-tall);
     }
 }
