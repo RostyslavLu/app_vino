@@ -47,15 +47,15 @@ const closeModal = () => {
                 <h2>Supprimer mon compte</h2>
                 <img src="/img/icons/plus-square-black.svg" alt="Voir plus" @click="toggleText" class="icon" />
             </header>
-            <article v-show="showText">
-                <p class="__delete-text">
+            <article v-show="showText" class="__delete-text">
+                <p >
                     Une fois votre compte supprimé, vous n'aurez plus accès à votre cellier ni à vos vins. Assurez-vous de bien vouloir tout supprimer.
-                    <button 
+                </p>
+                <button 
                         class="button __beige" 
                         @click="confirmUserDeletion"
                         >Supprimer votre compte</button
                     >
-                </p>
             </article>
         </div>
 

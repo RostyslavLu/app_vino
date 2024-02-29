@@ -10,6 +10,6 @@
     margin: var(--spacing-thinner) 0;
     font-weight: bold;
     background-color: var(--soft-pink);
-    padding: var(--spacing-thinner) var(--spacing-thinnest);
+    padding: var(--spacing-thin);
 }
 

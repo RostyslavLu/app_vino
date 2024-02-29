@@ -29,7 +29,6 @@
     color: var(--error-black);
     margin-bottom: var(--spacing-nano);
     font-family: var(--font-accent);
-    font-size: var(--font-current);
 }
 
 
