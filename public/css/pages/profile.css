@@ -13,3 +13,7 @@
     padding: var(--spacing-thin);
 }
 
+.profile .__delete-text p {
+    margin: var(--spacing-thin) 0;
+}
+
