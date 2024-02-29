@@ -18,30 +18,27 @@ defineProps({
 
 <template>
     <Head title="Profil" />
-<div class="dashboard">
-    <MainLayout class="" :showNavigation="true" :userCellar="cellar">
-        <template #header>
-            <h1>Profil</h1>
-        </template>
-        <article class="__layout">
+    <div class="dashboard">
+        <MainLayout>
+            <template #header>
+                <h1>Profil</h1>
+            </template>
+            <article class="__layout">
+                <section>
+                <UpdateProfileInformationForm />
+            </section>
             <section>
-            <UpdateProfileInformationForm />
-        </section>
-        <section>
-            <UpdateCellarForm />
-        </section>
-        <section>
-            <UpdatePasswordForm />
-        </section>
-        <section>
-            <DeleteUserForm />
-        </section>
+                <UpdateCellarForm />
+            </section>
+            <section>
+                <UpdatePasswordForm />
+            </section>
+            <section>
+                <DeleteUserForm />
+            </section>
 
-        </article>
+            </article>
 
-    </MainLayout>
-
-
-</div>
-    
+        </MainLayout>
+    </div>
 </template>
