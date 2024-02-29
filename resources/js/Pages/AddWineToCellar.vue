@@ -67,9 +67,6 @@ watchEffect(() => {
                 <div class="add-wine-filters">
                     <h3>Filtres</h3>
                     <div class="add-wine-filters-list">
-                        <Link href="/dates">Dates</Link>
-                        <Link href="/pays">Pays</Link>
-                        <Link href="/millesime">Millésime</Link>
                         <Link href="/rouge">Rouge</Link>
                         <Link href="/blanc">Blanc</Link>
                         <Link href="/rose">Rosé</Link>
