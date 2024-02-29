@@ -6,15 +6,27 @@
     display: none;
 }
 
-
+.desktop-menu .__logout {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: none;
+    font-size: var(--current);
+    cursor: pointer;
+}
 
 
 @media (min-width: 600px) {
     .hamburger-icon {
         display: none;
     }
+    .mobile-menu {
+        display: none;
+    }
 
     .desktop-menu {
         display: flex;
+        flex-direction: row;
+        gap: var(--spacing-thin);
+        font-size: var(--font-tall);
     }
 }

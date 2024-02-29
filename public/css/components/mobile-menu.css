@@ -39,6 +39,6 @@
     background-color: var(--primary);
     color: var(--secondary);
     border: none;
-    font-size: var(--current);
+    font-size: var(--font-current);
     cursor: pointer;
 }
