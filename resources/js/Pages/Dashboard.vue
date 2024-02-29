@@ -5,6 +5,7 @@ import { ref, computed, watchEffect } from 'vue';
 import WineList from '@/Components/WineList.vue';
 import { Head, Link, usePage, router } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
+import { setBlockTracking } from 'vue';
 
 const { props } = usePage();
 
@@ -16,6 +17,9 @@ const searchInput = ref(false);
 const filter = ref(props.filter);
 
 // cette fonction est appelé lorsqu'on selectionne un filtre
+// c'est conçu pour pouvoir recliquer sur un filtre pour le 
+// désactiver, mais pour l'instant, on doit cliquer sur "tous"
+// pour désactiver.
 const changeFilter = (newFilter) => {
     if(filter.value == newFilter){
         filter.value = 'all';
@@ -26,11 +30,13 @@ const changeFilter = (newFilter) => {
 }
 
 // cette fonction est appelé lorsqu'on tape dans la barre de recherche
+// il faut gérer les champs vides... 
 const searchWines = () => {
-    if (search.value == undefined){
+    if(search.value == undefined){
         search.value = '';
     }
-    if (search.value == '' && filter.value == '' || search.value == '' && filter.value == 'all'){
+    if(search.value == '' && filter.value == '' || 
+        search.value == '' && filter.value == 'all'){
         router.get('/dashboard')
     }
     if(filter.value == undefined){
@@ -40,7 +46,6 @@ const searchWines = () => {
         router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
 };
-
 </script>
 
 <template>
