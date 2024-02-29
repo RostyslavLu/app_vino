@@ -10,7 +10,6 @@ import { setBlockTracking } from 'vue';
 const { props } = usePage();
 
 const userCellar = usePage().props.userCellar;
-
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
@@ -46,6 +45,11 @@ const searchWines = () => {
         router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
 };
+
+
+const message = computed(() => props.success);
+
+
 </script>
 
 <template>
@@ -84,11 +88,14 @@ const searchWines = () => {
                     <span v-else>trouvé</span>
                 </span>
                 </div>
-                <div v-if="showMessage" class="success-message">
-                    <p>Успішно оновлено кількість вина в вашому погребі</p>
+                <div v-if="message" class="success-message">
+                    <p>{{ message }}</p>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" />
+
+                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage"  />
+
+
                 </div>
             </section>
         </MainLayout>

@@ -9,6 +9,11 @@ const props = defineProps({
         type: Object,
         required: true
     },
+    wines:{
+        type: Object,
+        required: true
+    },
+
     isAddVisible: Boolean,
     isUpdateVisible: Boolean,
     quantity: Number,
@@ -28,6 +33,7 @@ const getBackgroundColor = (wineColor) => {
             return 'transparent';
     }
 };
+
 </script>
 
 <template>
@@ -45,7 +51,7 @@ const getBackgroundColor = (wineColor) => {
                 <div class="wine-quantity">
                     <AddSaqWineButton :isAddVisible="isAddVisible" :id="content.id"/>
                     <UpdateSaqWineButton :isUpdateVisible="isUpdateVisible" :wineQuantity="quantity" :id="content.id"/>
-                    <DeleteSaqWineButton :isDeleteVisible="isDeleteVisible" :id="content.id"/>
+                    <DeleteSaqWineButton :isDeleteVisible="isDeleteVisible" :content="content" :id="content.id"/>
                 </div>
             </div>
         </div>
