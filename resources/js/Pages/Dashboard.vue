@@ -73,33 +73,36 @@ const message = computed(() => props.success);
                                 class="invisible" 
                                 @click="changeFilter('rouge')">
                                 <div class="flex-row">
-                                    <img v-if="filter === 'rouge'" src="/img/icons/droplet-red.svg" alt="menu" class="icon">
                                     Rouge
+                                    <img v-if="filter === 'rouge'" src="/img/icons/droplet-red.svg" alt="filter-red" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
                             <button  
                                 class="invisible" 
-                                :style="{ backgroundColor: filter === 'blanc' ? 'var(--wine-blanc)' : 'var(--secondary)' }" 
                                 @click="changeFilter('blanc')">
                                 <div class="flex-row">
-                                    <img v-if="filter === 'blanc'" src="/img/icons/droplet-yellow.svg" alt="menu" class="icon">
                                     Blanc
+                                    <img v-if="filter === 'blanc'" src="/img/icons/droplet-yellow.svg" alt="filter-white" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
                             <button  
                                 class="invisible" 
                                 @click="changeFilter('rose')">
                                 <div class="flex-row">
-                                    <img v-if="filter === 'rose'" src="/img/icons/droplet-pink.svg" alt="menu" class="icon">
                                     Rosé
+                                    <img v-if="filter === 'rose'" src="/img/icons/droplet-pink.svg" alt="filter-rose" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
                             <button  
                                 class="invisible" 
                                 @click="changeFilter('all')">
                                 <div class="flex-row">
-                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="menu" class="icon">
                                     Tous
+                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
+                                    <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>     
                         </div>
