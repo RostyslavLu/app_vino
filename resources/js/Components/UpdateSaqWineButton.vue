@@ -26,8 +26,6 @@ const quantity_plus = async() => {
     } catch (error) {
         console.error(error);
     }
-
-
 };
 
 // diminue la quantité de vin dans le cellier

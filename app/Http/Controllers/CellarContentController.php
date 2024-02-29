@@ -136,7 +136,10 @@ class CellarContentController extends Controller
         $userCellar = Cellars::where('user_id', $user)->get();
         //supprimer le vin du cellier de l'utilisateur
         $wine = Cellar_content::where('id', $id)->delete();
-        return Redirect::route('dashboard');
+
+        return Inertia::share('dashboard', [
+            'success' => 'Le vin a été supprimé de votre cellier',
+        ]);
 
     }
 }
