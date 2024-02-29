@@ -16,13 +16,6 @@ const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
 
-
-
-
-
-
-// section ajoutée
-
 const filter = ref(props.filter);
 
 // cette fonction est appelé lorsqu'on selectionne un filtre
@@ -53,23 +46,6 @@ const searchWines = () => {
         router.get(`/saq-search/${filter.value}/${search.value}`)
     }
 };
-
-
-
-
-
-
-// vielle section
-
-//entamer la recherche sur la bd
-/* const searchWines = () => {
-    if (search.value.trim() === ''){
-        router.get('/add-wine-cellar')
-    }else{
-        router.get(`/saq-search/${search.value}`)
-    }
-}; */
-
 
 // message de succès après l'ajout d'un vin apparaît pendant 2.5 secondes
 watchEffect(() => {

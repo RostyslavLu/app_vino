@@ -26,8 +26,6 @@ class Saq_wineController extends Controller
     //rechercher dans les vins de la SAQ
     public function search($filter, $search=''){
 
-
-
         $query = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
             ->select('saq_wines.*', 'types.type')
             ->where('name', 'like', "%$search%");
@@ -44,12 +42,6 @@ class Saq_wineController extends Controller
 
             //completer la requete en ajoutant la pagination
             $wines = $query->paginate(20); 
-
-/*         $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
-            ->select('saq_wines.*', 'types.type')
-            ->where('name', 'like', "%$search%")
-            ->orderBy('name')
-            ->paginate(20); */
 
         return Inertia::render('AddWineToCellar', [
             'wines' => $wines, 
