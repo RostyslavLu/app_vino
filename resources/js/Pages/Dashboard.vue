@@ -13,18 +13,29 @@ const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
-//vérifier si notre page a un fond noir ou non
-const saqPage = false;
+const filter = ref(props.filter);
+
+//changer le filtre
+const changeFilter = (newFilter) => {
+    if(filter.value == newFilter){
+        filter.value = 'all';
+    }else{
+        filter.value = newFilter;
+        searchWines();
+    }
+}
 
 //entamer la recherche sur la bd
 const searchWines = () => {
-    if (search.value.trim() === ''){
+/*     console.log("filter.value", filter.value) */
+    if (search.value.trim() === '' && filter == ''){
         router.get('/dashboard')
+    }if(filter.value == undefined){
+        filter.value = 'all';
     }else{
-        router.get(`/cellar-search/${search.value}`)
+        router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
 };
-
 
 </script>
 
@@ -48,9 +59,10 @@ const searchWines = () => {
                     <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-                            <Link style="color: var(--primary);" href="/rouge">Rouge</Link>
-                            <Link style="color: var(--primary);" href="/blanc">Blanc</Link>
-                            <Link style="color: var(--primary);" href="/rose">Rosé</Link>
+                            <button class='invisible' style="background-color: var(--wine-red);" @click="changeFilter('rouge')">Rouge</button>
+                            <button class='invisible' style="background-color: var(--wine-white);" @click="changeFilter('blanc')">Blanc</button>
+                            <button class='invisible' style="background-color: var(--wine-rose);" @click="changeFilter('rose')">Rosé</button>
+                            <button class='invisible' style="background-color: var(--accent-light);" @click="changeFilter('all')">Tous</button>
                         </div>
                     </div>
                 <div>
@@ -67,7 +79,7 @@ const searchWines = () => {
                     <p>Успішно оновлено кількість вина в вашому погребі</p>
                 </div>
                 <div>
-                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" :saqPage="saqPage" />
+                    <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" />
                 </div>
             </section>
         </MainLayout>
