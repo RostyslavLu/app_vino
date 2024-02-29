@@ -16,9 +16,7 @@ const searchInput = ref(false);
 const filter = ref(props.filter);
 
 // cette fonction est appelé lorsqu'on selectionne un filtre
-// c'est conçu pour pouvoir recliquer sur un filtre pour le 
-// désactiver, mais pour l'instant, on doit cliquer sur "tous"
-// pour désactiver.
+// et permet de recliquer sur un filtre pour le désactiver.
 const changeFilter = (newFilter) => {
     if(filter.value == newFilter){
         filter.value = 'all';
@@ -46,9 +44,7 @@ const searchWines = () => {
     }
 };
 
-
 const message = computed(() => props.success);
-
 
 </script>
 
@@ -69,13 +65,10 @@ const message = computed(() => props.success);
                             </svg>
                         </Link>
                     </div>
+                    <!-- Les filtres -->
                     <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-<!--                             <button  style="background-color: var(--wine-red);" @click="changeFilter('rouge')">Rouge</button>
-                            <button  style="background-color: var(--wine-white);" @click="changeFilter('blanc')">Blanc</button>
-                            <button  style="background-color: var(--wine-rose);" @click="changeFilter('rose')">Rosé</button>
-                            <button  style="background-color: var(--accent-light);" @click="changeFilter('all')">Tous</button> -->
                             <button 
                                 class="invisible" 
                                 @click="changeFilter('rouge')">
@@ -125,10 +118,8 @@ const message = computed(() => props.success);
                     <p>{{ message }}</p>
                 </div>
                 <div>
-
+                    <!-- la liste des vins -->
                     <WineList :isUpdateVisible="true" :isDeleteVisible="true" :cellarContent="wines.data" :wines="wines" />
-
-
                 </div>
             </section>
         </MainLayout>
