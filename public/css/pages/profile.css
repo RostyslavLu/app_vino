@@ -8,6 +8,7 @@
 
 .profile .__delete-text {
     margin: var(--spacing-thinner) 0;
-    background-color: var(--wine-rose);
+    background-color: var(--rose);
     padding: var(--spacing-thinner) var(--spacing-thinnest);
 }
+

@@ -8,7 +8,6 @@ const cellar = usePage().props.cellar;
 </script>
 
 <template>
-    <div class="__layout">
         <header >
             <div class="flex-between">
                 <!-- logo -->
@@ -25,6 +24,4 @@ const cellar = usePage().props.cellar;
         <main>
             <slot />
         </main>
-    </div>
- 
 </template>

@@ -18,27 +18,33 @@ defineProps({
 
 <template>
     <Head title="Profil" />
-    <div class="dashboard">
-        <MainLayout>
+    <div class="main-layout">
+        <div class="__layout __profile-gap">
+            <MainLayout>
             <template #header>
                 <h1>Profil</h1>
             </template>
-            <article class="__layout">
+            <article class="__main-container __profile-gap">
                 <section>
-                <UpdateProfileInformationForm />
-            </section>
-            <section>
-                <UpdateCellarForm />
-            </section>
-            <section>
-                <UpdatePasswordForm />
-            </section>
-            <section>
-                <DeleteUserForm />
-            </section>
+                    <UpdateProfileInformationForm />
+                </section>
+                <section>
+                    <UpdateCellarForm />
+                </section>
+                <section>
+                    <UpdatePasswordForm />
+                </section>
+                <section>
+                    <DeleteUserForm />
+                </section>
 
-            </article>
-
+                </article>
         </MainLayout>
+
+
+
+
+
+        </div>
     </div>
 </template>
