@@ -19,11 +19,11 @@ const props = defineProps({
 const getBackgroundColor = (wineColor) => {
     switch (wineColor) {
         case 'rouge':
-            return 'var(--wine-red)';
+            return 'var(--red)';
         case 'blanc':
-            return 'var(--wine-white)';
+            return 'var(--yellow)';
         case 'rosé':
-            return 'var(--wine-rose)';
+            return 'var(--pink)';
         default:
             return 'transparent';
     }
