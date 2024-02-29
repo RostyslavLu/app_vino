@@ -9,12 +9,13 @@
     flex-direction: column;
     justify-content: space-evenly;
     font-family: var(--font-accent);
+    padding: var(--spacing-thinnest);
+
 }
 
 .black-layout .__max-width {
     max-width: var(--max-width);
     margin: auto;
-    padding: var(--spacing-thinnest);
 }
 
 .black-layout a {
@@ -27,6 +28,6 @@
 
 
 .black-layout .__content {
-    max-width: 500px;
+    max-width: 300px;
     margin: auto;
 }
