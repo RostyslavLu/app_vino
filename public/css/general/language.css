@@ -2,6 +2,7 @@
 
 		--logo: clamp(35px, 15vw, 100px);
 		--icon: clamp(25px, 8vw, 50px);
+		--icon-small: clamp(20px, 6vw, 40px);
 		--max-width: 600px;
 	/*============================ */
 	/* = COLORS */
@@ -75,7 +76,7 @@
 	/*========================= */
 	/* = FONT-SIZE */
 	/*========================= */
-        --base-font-size:  clamp(14px, 1.5vw, 24px);
+        --base-font-size:  clamp(14px, 1.5vw, 32px);
 
         --font-miniature:  0.625rem; /* 10px */
         --font-shortest:   0.75rem; /* 12px */

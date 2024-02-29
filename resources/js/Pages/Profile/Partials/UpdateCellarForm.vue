@@ -47,7 +47,7 @@ const save = () => {
                     <img src="/img/cellier-fond-blanc.png" class="icon">
                     <span>{{ form.name }}</span>
                 </div>
-                <img src="/img/icons/edit-3.svg" alt="Edit" @click="startEditingName">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingName">
             </div>
             <div v-else>
                 <div class="flex-row">
@@ -60,8 +60,8 @@ const save = () => {
                     autofocus
                     autocomplete="nom du cellier"
                     />
-                    <img src="/img/icons/check.svg" alt="Accept" @click="save">
-                    <img src="/img/icons/x.svg" alt="Cancel" @click="stopEditing">
+                    <img src="/img/icons/check-black.svg" alt="Accept" class="icon" @click="save">
+                    <img src="/img/icons/x-black.svg" alt="Cancel" class="icon" @click="stopEditing">
                 </div>
             </div>
         </div>

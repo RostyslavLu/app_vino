@@ -7,13 +7,22 @@
     fill: var(--secondary);
 }
 
+.icon .__black {
+    fill: var(--primary);
+}
+
 .icon-x-menu {
     width: var(--icon);
     height: var(--icon);
     position: fixed;
-    top: var(--spacing-thinnest);
+    top: var(--spacing-thin);
     right: var(--spacing-thinnest);
     z-index: 2;
     color: var(--secondary);
+}
+
+.icon-small {
+    height: var(--icon-small);
+    width: var(--icon-small);
 }
 
