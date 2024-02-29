@@ -35,10 +35,11 @@ const searchWines = () => {
                     <div class="__cellar">
                         <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">
-                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;" width="100" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <path stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
-                            d="M5 12h14m-7 7V5" />
+                            <!-- https://feathericons.dev/?search=plus-circle&iconset=feather -->
+                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="main-grid-item-icon" fill="none" stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".8">
+                            <circle cx="12" cy="12" r="10" fill="var(--success)"/>
+                            <line x1="12" x2="12" y1="8" y2="16" />
+                            <line x1="8" x2="16" y1="12" y2="12" />
                             </svg>
                         </Link>
                     </div>
