@@ -39,7 +39,7 @@ const submit = () => {
 
             <form @submit.prevent="submit">
                 <div>
-                    <InputError class="" :message="form.errors.email" />
+                    <InputError :message="form.errors.email" />
                     <InputLabel for="email" value="Courriel" />
                     <TextInput
                         id="email"
@@ -63,14 +63,14 @@ const submit = () => {
                     />  
                 </div>
 
-                <label class="flex-row">
+                <div class="flex-row">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <p>Sauvegarder ma connexion</p>
-                </label>
+                </div>
 
-                    <button class="button">
+                <button class="button">
                     Connexion
-                    </button>
+                </button>
                 <Link
                     :href="route('password.request')"
                     >Mot de passe oublié?</Link

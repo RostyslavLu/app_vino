@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     // page du cellier de l'utilisateur
     Route::get('/dashboard', [CellarContentController::class, 'index'])->name('dashboard');
 
-    Route::get('/cellar-search/{search}', [CellarSearchController::class, 'search'])->name('cellar.search');
+    Route::get('/cellar-search/{filter}/{search?}', [CellarSearchController::class, 'search'])->where('search', '^$|(.*)')->name('cellar.search');
 
     // code commenté pour le moment parce que données de cellier l'utilisateur tombe a la page '/' et non pas '/dashboard'
     //  Route::get('/', function () {

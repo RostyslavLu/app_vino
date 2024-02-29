@@ -31,8 +31,8 @@
     .desktop-menu {
         display: flex;
         flex-direction: row;
-        gap: var(--spacing-broad);
-        font-size: var(--font-tall);
+        gap: var(--spacing-thin);
+        font-size: var(--font-current);
         font-weight: bold;
     }
 
