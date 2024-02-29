@@ -15,23 +15,27 @@ const search = ref(props.search);
 const searchInput = ref(false);
 const filter = ref(props.filter);
 
-//changer le filtre
+// cette fonction est appelé lorsqu'on selectionne un filtre
 const changeFilter = (newFilter) => {
     if(filter.value == newFilter){
         filter.value = 'all';
     }else{
         filter.value = newFilter;
-        searchWines();
     }
+    searchWines();
 }
 
-//entamer la recherche sur la bd
+// cette fonction est appelé lorsqu'on tape dans la barre de recherche
 const searchWines = () => {
-/*     console.log("filter.value", filter.value) */
-    if (search.value.trim() === '' && filter == ''){
+    if (search.value == undefined){
+        search.value = '';
+    }
+    if (search.value == '' && filter.value == '' || search.value == '' && filter.value == 'all'){
         router.get('/dashboard')
-    }if(filter.value == undefined){
+    }
+    if(filter.value == undefined){
         filter.value = 'all';
+        router.get(`/cellar-search/${filter.value}/${search.value}`)
     }else{
         router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
@@ -59,10 +63,10 @@ const searchWines = () => {
                     <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-                            <button class='invisible' style="background-color: var(--wine-red);" @click="changeFilter('rouge')">Rouge</button>
-                            <button class='invisible' style="background-color: var(--wine-white);" @click="changeFilter('blanc')">Blanc</button>
-                            <button class='invisible' style="background-color: var(--wine-rose);" @click="changeFilter('rose')">Rosé</button>
-                            <button class='invisible' style="background-color: var(--accent-light);" @click="changeFilter('all')">Tous</button>
+                            <button  style="background-color: var(--wine-red);" @click="changeFilter('rouge')">Rouge</button>
+                            <button  style="background-color: var(--wine-white);" @click="changeFilter('blanc')">Blanc</button>
+                            <button  style="background-color: var(--wine-rose);" @click="changeFilter('rose')">Rosé</button>
+                            <button  style="background-color: var(--accent-light);" @click="changeFilter('all')">Tous</button>
                         </div>
                     </div>
                 <div>
