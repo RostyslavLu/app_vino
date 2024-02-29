@@ -17,8 +17,8 @@ const wineQuantity = ref(props.wineQuantity);
 const quantity_plus = async() => {
     wineQuantity.value++;
     try {
-        const response = await axios.put(`/cellar-content`, {
-            saq_wines_id: id.value,
+        const response = await axios.patch(`/cellar-content`, {
+            id: id.value,
             quantity: wineQuantity.value
         });
         console.log(response);
@@ -34,8 +34,8 @@ const quantity_minus = () => {
         wineQuantity.value--;
     }
     try {
-        const response = axios.put(`/cellar-content`, {
-            saq_wines_id: id.value,
+        const response = axios.patch(`/cellar-content`, {
+            id: id.value,
             quantity: wineQuantity.value
         });
         console.log(response);
