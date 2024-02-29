@@ -16,9 +16,7 @@ const deleteWine = () => {
 </script>
 
 <template>
-    <div v-if="isDeleteVisible">
-        <button type="button" @click="deleteWine">
+    <button v-if="isDeleteVisible" type="button" @click="deleteWine" class="button-delete">
          Supprimer
-        </button>
-    </div>
+    </button>
 </template>
