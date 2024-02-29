@@ -20,7 +20,8 @@
 @import "components/button.css";
 @import "components/modal.css";
 @import "components/pagination.css";
-@import "components/navigation-menu.css";
+@import "components/mobile-menu.css";
+@import "components/desktop-menu.css";
 
 /* ------Atomes ----------- */
 @import "atomes/utility.css";

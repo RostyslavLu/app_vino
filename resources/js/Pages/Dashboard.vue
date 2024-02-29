@@ -33,7 +33,7 @@ const searchWines = () => {
         <div class="main-layout">
             <div class="__layout __dashboad-gap">
                 <MainLayout>
-                <section class="__main-container __dashboard-gap">
+                <section class="__main-container __dashboard-gap dashboard">
                     <div class="__cellar">
                         <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">

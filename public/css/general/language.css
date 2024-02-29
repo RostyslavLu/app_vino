@@ -75,7 +75,7 @@
 	/*========================= */
 	/* = FONT-SIZE */
 	/*========================= */
-        --base-font-size:  clamp(14px, 1.5vw, 24px);
+        --base-font-size:  clamp(14px, 1.5vw, 32px);
 
         --font-miniature:  0.625rem; /* 10px */
         --font-shortest:   0.75rem; /* 12px */

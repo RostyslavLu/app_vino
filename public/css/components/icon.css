@@ -11,7 +11,7 @@
     width: var(--icon);
     height: var(--icon);
     position: fixed;
-    top: var(--spacing-thinnest);
+    top: var(--spacing-thin);
     right: var(--spacing-thinnest);
     z-index: 2;
     color: var(--secondary);
