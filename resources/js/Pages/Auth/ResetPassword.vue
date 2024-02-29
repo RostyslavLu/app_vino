@@ -79,7 +79,7 @@ const submit = () => {
             </div>
 
             <div>
-                <button class="button register">
+                <button class="button __dark-red">
                     Réinitialiser le mot de passe
                 </button>
             </div>

@@ -114,7 +114,7 @@ const submit = () => {
                     </p>
                 </div>
                 <div>
-                    <button class="button register">
+                    <button class="button __dark-red">
                         Sauvegarder
                     </button>
                 </div>

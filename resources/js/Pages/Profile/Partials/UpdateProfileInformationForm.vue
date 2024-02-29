@@ -62,7 +62,7 @@ const save = () => {
                 <span>{{ form.name }}</span>
 
                 </div>
-                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingName">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon-small" @click="startEditingName">
             </div>
             <div v-else>
                 <div class="flex-row">     
@@ -89,7 +89,7 @@ const save = () => {
                     <img src="/img/icons/at-sign-black.svg" class="icon">
                     <span>{{ form.email }}</span>
                 </div>
-                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingEmail">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon-small" @click="startEditingEmail">
             </div>
             <div v-else>
                 <div class="flex-row">
