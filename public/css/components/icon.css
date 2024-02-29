@@ -3,8 +3,8 @@
     height: var(--icon);
 }
 
-.icon .__white {
-    fill: var(--secondary);
+.icon.__white {
+    color: var(--secondary);
 }
 
 .icon-x-menu {
