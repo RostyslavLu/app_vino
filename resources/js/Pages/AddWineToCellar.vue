@@ -9,8 +9,8 @@ import ApplicationLogoBlack from '@/Components/ApplicationLogoBlack.vue';
 
 const { props } = usePage();
 //
-let page = usePage();
-let showMessage = ref(false);
+const page = usePage();
+const showMessage = ref(false);
 //
 const wines = ref(props.wines);
 const search = ref(props.search);
@@ -44,7 +44,7 @@ watchEffect(() => {
                 <div>
                     <div class="flex-between">
                         <ApplicationLogoBlack class="logo"  />
-                        <Link 
+                        <Link
                             :href="route('dashboard')"
                             ><svg class="icon" style="cursor: pointer;"
                                 height="48" width="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

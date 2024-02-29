@@ -9,8 +9,9 @@ const props = defineProps({
     },
     quantity: Number,
     isUpdateVisible: Boolean,
-    wineQuantity: Number,
+    wineQuantity: Number
 });
+
 const id = ref(props.id);
 const wineQuantity = ref(props.wineQuantity);
 
@@ -22,7 +23,7 @@ const quantity_plus = async() => {
             id: id.value,
             quantity: wineQuantity.value
         });
-        console.log(response);
+        showMessage.value = true;
     } catch (error) {
         console.error(error);
     }
@@ -40,7 +41,7 @@ const quantity_minus = () => {
             id: id.value,
             quantity: wineQuantity.value
         });
-        console.log(response);
+
     } catch (error) {
         console.error(error);
     }
