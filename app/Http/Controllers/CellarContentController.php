@@ -137,7 +137,8 @@ class CellarContentController extends Controller
         //supprimer le vin du cellier de l'utilisateur
         $wine = Cellar_content::where('id', $id)->delete();
         $message = 'Le vin a été supprimé de votre cellier';
-        Session::flash('success_message', $message);
-        return Redirect::route('dashboard');
+
+        return redirect()->back()->with('success', $message);
     }
+
 }

@@ -2,7 +2,7 @@
 /* InputError.vue */
 
 .black-layout .input-error {
-    color: var(--error-black);
+    color: var(--pink);
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);
 }
