@@ -21,7 +21,7 @@ const toggleMenu = () => {
             <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>      
           
-        <div v-if="showMenu" class="navigation-menu">
+        <div v-if="showMenu" class="mobile-menu">
             <section>
                 <h2>Cellier</h2>
                 <div class="flex-row">
@@ -68,22 +68,3 @@ const toggleMenu = () => {
         </div>
     </div>
 </template>
-<style scoped>
-.hamburger-icon, .desktop-menu {
-    display: flex;
-}
-
-.desktop-menu {
-    display: none;
-}
-
-@media (min-width: 600px) {
-    .hamburger-icon {
-        display: none;
-    }
-
-    .desktop-menu {
-        display: flex;
-    }
-}
-</style>

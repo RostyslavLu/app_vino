@@ -1,4 +1,4 @@
-.navigation-menu {
+.mobile-menu {
     position: fixed;
     top: 0;
     right: 0;
@@ -14,28 +14,28 @@
     z-index: 1;
 }
 
-.navigation-menu a {
+.mobile-menu a {
     color: white;
     text-decoration: none;
 }
 
 /* section cellier et le reste */
-.navigation-menu section {
+.mobile-menu section {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-thinnest);
     margin-top: var(--spacing-broad);
 }
 
-.navigation-menu .__active {
+.mobile-menu .__active {
     border-bottom: 4px solid #ff0000;
 }
 
-.navigation-menu .__active a {
+.mobile-menu .__active a {
     color: #ff0000;
 }
 
-.navigation-menu .__logout {
+.mobile-menu .__logout {
     background-color: var(--primary);
     color: var(--secondary);
     border: none;

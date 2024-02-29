@@ -1,0 +1,20 @@
+.hamburger-icon, .desktop-menu {
+    display: flex;
+}
+
+.desktop-menu {
+    display: none;
+}
+
+
+
+
+@media (min-width: 600px) {
+    .hamburger-icon {
+        display: none;
+    }
+
+    .desktop-menu {
+        display: flex;
+    }
+}
