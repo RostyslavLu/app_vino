@@ -1,5 +1,5 @@
 <script setup>
-import WhiteLayout from '@/Layouts/WhiteLayout.vue';
+import MainLayout from '@/Layouts/MainLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
@@ -18,12 +18,13 @@ defineProps({
 
 <template>
     <Head title="Profil" />
-
-    <WhiteLayout class="white-layout" :showNavigation="true" :userCellar="cellar">
+<div class="dashboard">
+    <MainLayout class="" :showNavigation="true" :userCellar="cellar">
         <template #header>
             <h1>Profil</h1>
         </template>
-        <section>
+        <article class="__layout">
+            <section>
             <UpdateProfileInformationForm />
         </section>
         <section>
@@ -35,5 +36,12 @@ defineProps({
         <section>
             <DeleteUserForm />
         </section>
-    </WhiteLayout>
+
+        </article>
+
+    </MainLayout>
+
+
+</div>
+    
 </template>
