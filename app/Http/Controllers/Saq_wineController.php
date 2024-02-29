@@ -12,6 +12,7 @@ class Saq_wineController extends Controller
     public function index(){
         $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
             ->select('saq_wines.*', 'types.type')
+            ->orderBy('name')
             ->paginate(20);
 
         $search = '';
@@ -27,6 +28,7 @@ class Saq_wineController extends Controller
         $wines = Saq_wine::join('types', 'saq_wines.types_id', '=', 'types.id')
             ->select('saq_wines.*', 'types.type')
             ->where('name', 'like', "%$search%")
+            ->orderBy('name')
             ->paginate(20);
 
         return Inertia::render('AddWineToCellar', [
