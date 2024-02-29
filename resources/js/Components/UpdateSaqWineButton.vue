@@ -14,6 +14,7 @@ const props = defineProps({
 const id = ref(props.id);
 const wineQuantity = ref(props.wineQuantity);
 
+//augmente la quantité de vin dans le cellier
 const quantity_plus = async() => {
     wineQuantity.value++;
     try {
@@ -29,6 +30,7 @@ const quantity_plus = async() => {
 
 };
 
+// diminue la quantité de vin dans le cellier
 const quantity_minus = () => {
     if (wineQuantity.value > 0) {
         wineQuantity.value--;

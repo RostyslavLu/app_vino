@@ -99,6 +99,9 @@ class CellarContentController extends Controller
             'success' => 'Le vin a été ajouté à votre cellier',
         ]);
     }
+    /**
+     * fonction pour modifier la quantité d'un vin dans le cellier de l'utilisateur
+     */
     public function update(Request $request) {
         //récupérer l'id de l'utilisateur
         $user = Auth::id();
