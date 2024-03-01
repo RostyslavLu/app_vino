@@ -118,7 +118,7 @@ const message = computed(() => props.success);
                                 @click="changeFilter('all')">
                                 <div class="flex-row">
                                     Tous
-                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
+                                    <img v-if="filter === 'all' || filter === undefined" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>     
