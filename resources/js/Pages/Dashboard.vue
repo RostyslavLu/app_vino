@@ -8,13 +8,13 @@ import MainLayout from '@/Layouts/MainLayout.vue';
 import { setBlockTracking } from 'vue';
 
 const { props } = usePage();
-
+const page = usePage();
 const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
 const filter = ref(props.filter);
-
+const showMessage = ref(false);
 // cette fonction est appelé lorsqu'on selectionne un filtre
 // et permet de recliquer sur un filtre pour le désactiver.
 const changeFilter = (newFilter) => {
@@ -27,12 +27,12 @@ const changeFilter = (newFilter) => {
 }
 
 // cette fonction est appelé lorsqu'on tape dans la barre de recherche
-// il faut gérer les champs vides... 
+// il faut gérer les champs vides...
 const searchWines = () => {
     if(search.value == undefined){
         search.value = '';
     }
-    if(search.value == '' && filter.value == '' || 
+    if(search.value == '' && filter.value == '' ||
         search.value == '' && filter.value == 'all'){
         router.get('/dashboard')
     }
@@ -44,7 +44,19 @@ const searchWines = () => {
     }
 };
 
-const message = computed(() => props.success);
+const message = computed(() => {
+    if (page.props.flash.success) {
+        return page.props.flash.success;
+    }
+});
+watchEffect(() => {
+    if (page.props.flash.success) {
+        showMessage.value = true;
+        setTimeout(() => {
+            showMessage.value = false;
+        }, 25000);
+    }
+});
 
 </script>
 
@@ -78,7 +90,7 @@ const message = computed(() => props.success);
                     <span v-else>trouvé</span>
                 </span>
                 </div>
-                <div v-if="message" class="success-message">
+                <div v-if="showMessage" class="success-message">
                     <p>{{ message }}</p>
                 </div>
 
@@ -86,8 +98,8 @@ const message = computed(() => props.success);
                 <div class="cadd-wine-filters">
                         <h3>Filtres</h3>
                         <div class="add-wine-filters-list">
-                            <button 
-                                class="invisible" 
+                            <button
+                                class="invisible"
                                 @click="changeFilter('rouge')">
                                 <div class="flex-row">
                                     Rouge
@@ -95,8 +107,8 @@ const message = computed(() => props.success);
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
-                            <button  
-                                class="invisible" 
+                            <button
+                                class="invisible"
                                 @click="changeFilter('blanc')">
                                 <div class="flex-row">
                                     Blanc
@@ -104,8 +116,8 @@ const message = computed(() => props.success);
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
-                            <button  
-                                class="invisible" 
+                            <button
+                                class="invisible"
                                 @click="changeFilter('rose')">
                                 <div class="flex-row">
                                     Rosé
@@ -113,15 +125,15 @@ const message = computed(() => props.success);
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>
-                            <button  
-                                class="invisible" 
+                            <button
+                                class="invisible"
                                 @click="changeFilter('all')">
                                 <div class="flex-row">
                                     Tous
                                     <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
-                            </button>     
+                            </button>
                         </div>
                     </div>
 

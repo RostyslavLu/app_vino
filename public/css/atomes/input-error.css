@@ -1,8 +1,13 @@
 /*  */
 /* InputError.vue */
 
+<<<<<<< HEAD
 .input-error {
     color: var(--color-error);
+=======
+.black-layout .input-error {
+    color: var(--pink);
+>>>>>>> 6e78867c291fc6f1b2b003ee49d311c44639b8cf
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);
     font-family: var(--font-accent);
