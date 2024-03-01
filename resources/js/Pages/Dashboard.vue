@@ -90,7 +90,7 @@ watchEffect(() => {
                     <span v-else>trouvé</span>
                 </span>
                 </div>
-                <div v-if="showMessage" class="success-message">
+                <div v-if="showMessage" class="input-success">
                     <p>{{ message }}</p>
                 </div>
 

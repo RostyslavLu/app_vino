@@ -90,7 +90,7 @@ watchEffect(() => {
                 
                 <!-- Message de succès après l'ajout d'un vin -->
                 <div v-if="showMessage" class="add-wine-message">
-                    <p class="black-layout input-error">{{ page.props.success }}</p>
+                    <p class="input-success">{{ page.props.success }}</p>
                 </div>
                 <!-- Les filtres -->
                 <div class="cadd-wine-filters">
