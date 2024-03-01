@@ -18,7 +18,7 @@ const deleteWine = async() => {
 </script>
 
 <template>
-    <button  v-if="isDeleteVisible " type="button" @click="deleteWine" class="button red">
+    <button  v-if="isDeleteVisible " type="button" @click="deleteWine" class="button __dark-red">
          Supprimer
     </button>
 </template>

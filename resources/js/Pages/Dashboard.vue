@@ -46,6 +46,7 @@ const searchWines = () => {
         router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
 };
+
 const message = computed(() => {
     if (page.props.flash.success) {
         return page.props.flash.success;

@@ -52,7 +52,7 @@ const submit = () => {
             </div>
 
             <div >
-                <button class="button register">
+                <button class="button __dark-red">
                     Réinitialiser
                 </button>
             </div>

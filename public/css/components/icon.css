@@ -24,5 +24,6 @@
 .icon-small {
     height: var(--icon-small);
     width: var(--icon-small);
+    cursor: pointer;
 }
 

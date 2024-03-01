@@ -35,6 +35,9 @@ class CellarSearchController extends Controller
             $query->where('type', '=', $filter);
         }
 
+        //mettre en ordre alphabetique
+        $query->orderBy('name');
+
         //completer la requete en ajoutant la pagination
         $cellarContents = $query->paginate(10);
 

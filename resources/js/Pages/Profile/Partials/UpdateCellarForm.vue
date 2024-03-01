@@ -47,7 +47,7 @@ const save = () => {
                     <img src="/img/cellier-fond-blanc.png" class="icon">
                     <span>{{ form.name }}</span>
                 </div>
-                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon" @click="startEditingName">
+                <img src="/img/icons/edit-3-black.svg" alt="Edit" class="icon-small" @click="startEditingName">
             </div>
             <div v-else>
                 <div class="flex-row">
