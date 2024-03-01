@@ -9,14 +9,12 @@ import { setBlockTracking } from 'vue';
 
 const { props } = usePage();
 const page = usePage();
-
 const userCellar = usePage().props.userCellar;
 const wines = ref(props.wines);
 const search = ref(props.search);
 const searchInput = ref(false);
-const showMessage = ref(false);
 const filter = ref(props.filter);
-
+const showMessage = ref(false);
 // cette fonction est appelé lorsqu'on selectionne un filtre
 // et permet de recliquer sur un filtre pour le désactiver.
 const changeFilter = (newFilter) => {
@@ -30,19 +28,18 @@ const changeFilter = (newFilter) => {
 
 // cette fonction est appelé lorsqu'on tape dans la barre de recherche
 // il faut gérer les champs vides...
-
 const searchWines = () => {
-    if (search.value == undefined) {
+    if(search.value == undefined){
         search.value = '';
     }
-    if (search.value == '' && filter.value == '' ||
-        search.value == '' && filter.value == 'all') {
+    if(search.value == '' && filter.value == '' ||
+        search.value == '' && filter.value == 'all'){
         router.get('/dashboard')
     }
-    if (filter.value == undefined) {
+    if(filter.value == undefined){
         filter.value = 'all';
         router.get(`/cellar-search/${filter.value}/${search.value}`)
-    } else {
+    }else{
         router.get(`/cellar-search/${filter.value}/${search.value}`)
     }
 };
@@ -61,27 +58,23 @@ watchEffect(() => {
     }
 });
 
-
 </script>
 
 <template>
-    <Head title="Mon compte" />
-    <div class="main-layout">
-        <div class="__layout __dashboad-gap">
-            <MainLayout>
+        <Head title="Mon compte" />
+        <div class="main-layout">
+            <div class="__layout __dashboad-gap">
+                <MainLayout>
                 <section class="__main-container __dashboard-gap dashboard">
                     <div class="__cellar">
                         <h1 v-for="cellar in userCellar" :key="cellar.id">{{ cellar.name }}</h1>
                         <Link :href="route('addWineToCellar')">
-                        <!-- https://feathericons.dev/?search=plus-circle&iconset=feather -->
-                        <svg style="display: inline-block; vertical-align: middle; cursor: pointer;"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100"
-                            class="main-grid-item-icon" fill="none" stroke="var(--primary)" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width=".8">
-                            <circle cx="12" cy="12" r="10" fill="var(--success)" />
+                            <!-- https://feathericons.dev/?search=plus-circle&iconset=feather -->
+                            <svg style="display: inline-block; vertical-align: middle; cursor: pointer;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="main-grid-item-icon" fill="none" stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".8">
+                            <circle cx="12" cy="12" r="10" fill="var(--success)"/>
                             <line x1="12" x2="12" y1="8" y2="16" />
                             <line x1="8" x2="16" y1="12" y2="12" />
-                        </svg>
+                            </svg>
                         </Link>
                     </div>
                 <div>
@@ -97,8 +90,8 @@ watchEffect(() => {
                     <span v-else>trouvé</span>
                 </span>
                 </div>
-                <div v-if="showMessage" >
-                    <p class="white-layout input-success">{{ message }}</p>
+                <div v-if="showMessage" class="success-message">
+                    <p>{{ message }}</p>
                 </div>
 
                 <!-- Les filtres -->
