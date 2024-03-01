@@ -49,4 +49,7 @@
     .desktop-menu .__active {
         border-bottom: 4px solid var(--required);
     }
+    .icon-x-menu {
+        display: none;
+    }
 }
