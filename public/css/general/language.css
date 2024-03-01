@@ -20,7 +20,10 @@
 
 		--error-black: var(--tertiary);
 		--error-white: var(--required);
-		--success: var(--tertiary);
+		--color-success: var(--pink);
+
+	
+		
 
 
         --wine-white: #E7DBA0;

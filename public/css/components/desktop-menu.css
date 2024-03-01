@@ -13,6 +13,7 @@
     border: none;
     font-size: var(--current);
     cursor: pointer;
+    line-height: inherit;
 }
 
 .desktop-menu .__logout:hover {

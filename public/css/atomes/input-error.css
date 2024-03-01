@@ -1,12 +1,20 @@
 /*  */
 /* InputError.vue */
 
-.black-layout .input-error {
-    color: var(--error-black);
+.input-error {
+    color: var(--color-error);
     margin-bottom: var(--spacing-nano);
     max-width: var(--dimension-small);
     font-family: var(--font-accent);
 }
+
+.input-success {
+    color: var(--color-success);
+    margin-bottom: var(--spacing-thinnest);
+    font-family: var(--font-accent);
+    font-size: var(--font-tall);
+}
+
 
 .white-layout .input-error {
     color: var(--error-white);
