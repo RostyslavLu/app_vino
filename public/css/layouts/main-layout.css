@@ -1,5 +1,7 @@
 .main-layout {
     background-color: var(--secondary);
+    --color-error: var(--error-white);
+    --color-success: var(--pink);
 }
 
 .main-layout .__layout {

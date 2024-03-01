@@ -16,9 +16,9 @@ const toggleMenu = () => {
 <template>
     <div>
         <img v-if="!showMenu" src="/img/icons/menu.svg" alt="menu" class="icon hamburger-icon" @click="toggleMenu"/>
-        <svg v-else xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon-x-menu" @click="toggleMenu">
-            <line x1="18" y1="6" x2="6" y2="18" stroke="var(--primary)" fill="var(--primary)"></line>
-            <line x1="6" y1="6" x2="18" y2="18"  stroke="var(--primary)" fill="var(--primary)"></line>
+        <svg v-else xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="var(--secondary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x icon-x-menu" @click="toggleMenu">
+            <line x1="18" y1="6" x2="6" y2="18" stroke="var(--secondary)" fill="var(--secondary)"></line>
+            <line x1="6" y1="6" x2="18" y2="18"  stroke="var(--secondary)" fill="var(--secondary)"></line>
         </svg>      
           
         <div v-if="showMenu" class="mobile-menu">

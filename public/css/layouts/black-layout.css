@@ -2,6 +2,8 @@
 .black-layout {
     background-color: var(--primary);
     color: var(--secondary);
+    --color-error: var(--error-black);
+    --color-success: var(--pink);
 }
 .black-layout .__layout {
     min-height: 100dvh;
