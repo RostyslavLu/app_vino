@@ -1,7 +1,10 @@
 /* WhiteLayout.vue */
 .white-layout {
     background-color: var(--secondary);
+    --color-error: var(--error-white);
+    --color-success: var(--pink);
 }
+
 .white-layout .__layout {
     color: var(--primary);
     min-height: 100dvh;
