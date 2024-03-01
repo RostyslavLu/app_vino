@@ -71,7 +71,7 @@ watchEffect(() => {
                         <Link :href="route('addWineToCellar')">
                             <!-- https://feathericons.dev/?search=plus-circle&iconset=feather -->
                             <svg style="display: inline-block; vertical-align: middle; cursor: pointer;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="main-grid-item-icon" fill="none" stroke="var(--primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width=".8">
-                            <circle cx="12" cy="12" r="10" fill="var(--success)"/>
+                            <circle cx="12" cy="12" r="10" fill="var(--tertiary)"/>
                             <line x1="12" x2="12" y1="8" y2="16" />
                             <line x1="8" x2="16" y1="12" y2="12" />
                             </svg>
@@ -130,7 +130,7 @@ watchEffect(() => {
                                 @click="changeFilter('all')">
                                 <div class="flex-row">
                                     Tous
-                                    <img v-if="filter === 'all'" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
+                                    <img v-if="filter === 'all' || filter === undefined" src="/img/icons/droplet-black.svg" alt="filter-none" class="icon">
                                     <img v-else src="/img/icons/droplet-white.svg" alt="filter" class="icon">
                                 </div>
                             </button>

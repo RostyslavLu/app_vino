@@ -5,7 +5,7 @@ form {
     font-family: var(--font-base);
 }
 
-input:not([type="checkbox"]) {
+input:not([type="checkbox"]):not([type="number"]) {
     font-size: var(--font-current);
     line-height: var(--line-height-normal);
     color: var(--primary);
