@@ -67,8 +67,7 @@ const message = computed(() => props.success);
                     </div>
                 <div>
                 <div class="add-wine-search">
-                    <InputLabel for="search" value="Rechercher un vin" />
-                    <p>Rechercher un vin</p>
+                    <InputLabel for="search" value="Rechercher un vin">Rechercher un vin</InputLabel>
                     <!-- Search input -->
                     <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
                 </div>
