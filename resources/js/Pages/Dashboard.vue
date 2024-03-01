@@ -54,7 +54,7 @@ watchEffect(() => {
         showMessage.value = true;
         setTimeout(() => {
             showMessage.value = false;
-        }, 25000);
+        }, 2500);
     }
 });
 
