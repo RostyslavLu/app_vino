@@ -25,7 +25,7 @@ class CellarSearchController extends Controller
         $query = Cellar_content::where('cellars_id', $firstCellarId)
             ->join('saq_wines', 'cellar_contents.saq_wines_id', '=', 'saq_wines.id')
             ->join('types', 'saq_wines.types_id', '=', 'types.id')
-            ->select('saq_wines.*', 'types.type', 'cellar_contents.quantity');
+            ->select('saq_wines.*', 'cellar_contents.id', 'types.type', 'cellar_contents.quantity');
         
         // Ajouter la recherche et le filtre de façon conditionelle a la requete
         if (!is_null($search)) {
