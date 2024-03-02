@@ -1,6 +1,7 @@
 <script setup>
 
 import SearchInput from '@/Components/SearchInput.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 import { ref, computed, watchEffect } from 'vue';
 import WineList from '@/Components/WineList.vue';
 import { Head, Link, usePage, router } from '@inertiajs/vue3';
@@ -80,6 +81,7 @@ watchEffect(() => {
                 <div>
                 <div class="add-wine-search">
                     <InputLabel for="search" value="Rechercher un vin">Rechercher un vin</InputLabel>
+                    <p>Rechercher un vin</p>
                     <!-- Search input -->
                     <SearchInput :searchInput="searchInput" v-model="search" @input="searchWines" placeholder="Rechercher un vin dans les celliers" />
                 </div>
